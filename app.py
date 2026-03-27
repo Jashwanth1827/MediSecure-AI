@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, request
+from flask import Flask, request, render_template, jsonify, session
 from werkzeug.utils import secure_filename
 import os
 import tempfile
@@ -11,9 +11,19 @@ from src.mlproject.medical_report_processor import (
     update_state_cost_factors,
     INDIAN_STATES_COST_FACTOR
 )
+from src.mlproject.gemini_chatbot import (
+    chat_with_gemini, 
+    save_message, 
+    save_user_profile, 
+    get_chat_history, 
+    generate_session_id, 
+    GEMINI_CONFIGURED,
+    get_user_profile
+)
 
 application = Flask(__name__)
 app = application
+app.secret_key = os.environ.get('SECRET_KEY', 'medisecure-secret-key-12345')
 
 UPLOAD_FOLDER = tempfile.gettempdir()
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -27,11 +37,20 @@ def allowed_file(filename):
 update_state_cost_factors()
 INDIAN_STATES = sorted(INDIAN_STATES_COST_FACTOR.keys())
 
+def get_session_id():
+    if 'session_id' not in session:
+        session['session_id'] = generate_session_id()
+    return session['session_id']
+
 @app.route('/', methods=['GET', 'POST'])
 def predict_datapoint():
-    
     if request.method == 'GET':
-        return render_template('index.html', states=INDIAN_STATES, results=None)
+        session_id = get_session_id()
+        return render_template('index.html', 
+                             states=INDIAN_STATES, 
+                             results=None,
+                             session_id=session_id,
+                             gemini_configured=GEMINI_CONFIGURED)
     
     else:
         disease_cost = 0
@@ -40,6 +59,7 @@ def predict_datapoint():
         severity = 'none'
         lab_findings = {}
         report_summary = ''
+        session_id = get_session_id()
         
         pdf_file = request.files.get('medical_report')
         
@@ -59,13 +79,20 @@ def predict_datapoint():
                 
                 os.remove(filepath)
         
+        age = float(request.form.get('age', 30))
+        sex = request.form.get('sex', 'male')
+        bmi = float(request.form.get('bmi', 25))
+        children = float(request.form.get('children', 0))
+        smoker = request.form.get('smoker', 'no')
+        state = request.form.get('state', 'maharashtra')
+        
         data = CustomData(
-            age=float(request.form.get('age')),
-            sex=request.form.get('sex'),
-            bmi=float(request.form.get('bmi')),
-            children=float(request.form.get('children')),
-            smoker=request.form.get('smoker'),
-            state=request.form.get('state'),
+            age=age,
+            sex=sex,
+            bmi=bmi,
+            children=children,
+            smoker=smoker,
+            state=state,
             disease_cost=disease_cost
         )
         
@@ -74,10 +101,22 @@ def predict_datapoint():
         predict_pipeline = PredictPipeline()
         base_prediction = predict_pipeline.predict(pred_df)
         
-        state_factor = get_state_cost_factor(data.state)
-        state_base_cost = get_state_base_cost(data.state)
+        state_factor = get_state_cost_factor(state)
+        state_base_cost = get_state_base_cost(state)
         final_prediction = (base_prediction[0] * state_factor) + disease_cost
         
+        profile = {
+            'age': age,
+            'sex': sex,
+            'bmi': bmi,
+            'children': children,
+            'smoker': smoker,
+            'state': state,
+            'diseases': diseases_found,
+            'predicted_cost': final_prediction
+        }
+        save_user_profile(session_id, profile)
+
         return render_template('index.html', 
                              states=INDIAN_STATES,
                              results="{:.2f}".format(final_prediction),
@@ -90,12 +129,47 @@ def predict_datapoint():
                              disease_details=disease_details,
                              lab_findings=lab_findings,
                              report_summary=report_summary,
-                             age=data.age, 
-                             sex=data.sex, 
-                             bmi=data.bmi, 
-                             children=data.children, 
-                             smoker=data.smoker, 
-                             state=data.state)
+                             age=age, 
+                             sex=sex, 
+                             bmi=bmi, 
+                             children=children, 
+                             smoker=smoker, 
+                             state=state,
+                             session_id=session_id,
+                             gemini_configured=GEMINI_CONFIGURED)
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    message = data.get('message', '').strip()
+    session_id = get_session_id()
+    
+    if not message:
+        return jsonify({'error': 'Message is required'}), 400
+    
+    save_message(session_id, 'user', message)
+    response = chat_with_gemini(message, session_id)
+    save_message(session_id, 'assistant', response)
+    
+    return jsonify({'response': response})
+
+@app.route('/chat/history', methods=['GET'])
+def chat_history():
+    session_id = get_session_id()
+    history = get_chat_history(session_id, limit=50)
+    return jsonify({'history': history})
+
+@app.route('/chat/clear', methods=['POST'])
+def clear_chat():
+    session_id = get_session_id()
+    save_message(session_id, 'system', 'Chat cleared')
+    return jsonify({'success': True})
+
+@app.route('/api/profile', methods=['GET'])
+def api_profile():
+    session_id = get_session_id()
+    profile = get_user_profile(session_id)
+    return jsonify({'profile': profile})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=8080, debug=True)

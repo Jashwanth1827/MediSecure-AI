@@ -6,3 +6,4 @@ flask
 PyPDF2
 Werkzeug
 requests
+google-generativeai
