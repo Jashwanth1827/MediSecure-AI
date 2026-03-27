@@ -33,7 +33,8 @@ class CustomData:
         bmi:int,
         children: int,
         smoker: str,
-        region: str):
+        state: str,
+        disease_cost: float = 0):
 
         self.age = age
 
@@ -45,7 +46,9 @@ class CustomData:
 
         self.smoker = smoker
 
-        self.region = region
+        self.state = state
+        
+        self.disease_cost = disease_cost
 
     def get_data_as_data_frame(self):
         try:
@@ -55,9 +58,7 @@ class CustomData:
                 "bmi": [self.bmi],
                 "children": [self.children],
                 "smoker": [self.smoker],
-                "region": [self.region]
-                # "reading_score": [self.reading_score],
-                # "writing_score": [self.writing_score],
+                "state": [self.state]
             }
 
             return pd.DataFrame(custom_data_input_dict)

@@ -1,56 +1,401 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Insurance Cost Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSecure - Health Insurance Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .file-upload {
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9ff;
+        }
+        
+        .file-upload:hover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+        
+        .file-upload input[type="file"] {
+            display: none;
+        }
+        
+        .file-upload-label {
+            color: #667eea;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        
+        .result-box h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .result-box .amount {
+            font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .result-box .currency {
+            font-size: 20px;
+            vertical-align: top;
+        }
+        
+        .breakdown {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            text-align: left;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .disease-info {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        .disease-info h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+        
+        .disease-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid #ff9800;
+        }
+        
+        .disease-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .disease-severity {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .disease-cost {
+            color: #e65100;
+            font-weight: 600;
+            float: right;
+        }
+        
+        .no-disease {
+            color: #4caf50;
+            font-weight: 600;
+        }
+        
+        .file-name {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .lab-info {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        .lab-info h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        
+        .lab-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .report-summary {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+            font-size: 13px;
+        }
+        
+        .confidence-badge {
+            background: #4caf50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div class="insurance-form">
-        <h1>Insurance Cost Prediction</h1>
-        <form action="{{ url_for('predict_datapoint')}}" method="post">
-            <div class="mb-3">
-                <label class="form-label">Age</label>
-                <input class="form-control" type="number" name="age" placeholder="Enter your age" min="0" required />
+    <div class="container">
+        <h1>🏥 MediSecure</h1>
+        <p class="subtitle">Health Insurance Cost Prediction with Medical Report Analysis</p>
+        
+        <form action="{{ url_for('predict_datapoint')}}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120" value="{{ age if age else '' }}" required />
             </div>
-            <div class="mb-3">
-                <label class="form-label">Sex</label>
-                <select class="form-control" name="sex" required>
-                    <option class="placeholder" selected disabled value="">Select your gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+            
+            <div class="form-group">
+                <label for="sex">Gender</label>
+                <select id="sex" name="sex" required>
+                    <option value="" {% if not sex %}selected{% endif %} disabled>Select your gender</option>
+                    <option value="male" {% if sex == 'male' %}selected{% endif %}>Male</option>
+                    <option value="female" {% if sex == 'female' %}selected{% endif %}>Female</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label class="form-label">BMI</label>
-                <input class="form-control" type="number" name="bmi" placeholder="Enter your BMI" min="0" required />
+            
+            <div class="form-group">
+                <label for="bmi">BMI (Body Mass Index)</label>
+                <input type="number" id="bmi" name="bmi" placeholder="Enter your BMI" min="10" max="60" step="0.1" value="{{ bmi if bmi else '' }}" required />
             </div>
-            <div class="mb-3">
-                <label class="form-label">Number of Children</label>
-                <input class="form-control" type="number" name="children" placeholder="Enter the number of children" min="0" required />
+            
+            <div class="form-group">
+                <label for="children">Number of Dependents</label>
+                <input type="number" id="children" name="children" placeholder="Enter number of dependents" min="0" max="15" value="{{ children if children else '' }}" required />
             </div>
-            <div class="mb-3">
-                <label class="form-label">Smoker</label>
-                <select class="form-control" name="smoker" required>
-                    <option class="placeholder" selected disabled value="">Select if you smoke</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+            
+            <div class="form-group">
+                <label for="smoker">Smoker</label>
+                <select id="smoker" name="smoker" required>
+                    <option value="" {% if not smoker %}selected{% endif %} disabled>Do you smoke?</option>
+                    <option value="yes" {% if smoker == 'yes' %}selected{% endif %}>Yes</option>
+                    <option value="no" {% if smoker == 'no' %}selected{% endif %}>No</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Region</label>
-                <select class="form-control" name="region" required>
-                    <option class="placeholder" selected disabled value="">Select your region</option>
-                    <option value="northeast">Northeast</option>
-                    <option value="northwest">Northwest</option>
-                    <option value="southeast">Southeast</option>
-                    <option value="southwest">Southwest</option>
+            
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                    <option value="" {% if not state %}selected{% endif %} disabled>Select your state</option>
+                    {% for s in states %}
+                    <option value="{{ s }}" {% if state == s %}selected{% endif %}>{{ s|title }}</option>
+                    {% endfor %}
                 </select>
             </div>
-            <div class="mb-3">
-                <input class="btn btn-primary" type="submit" value="Predict Insurance Cost" required />
+            
+            <div class="form-group">
+                <label>Upload Medical Reports (Optional)</label>
+                <label class="file-upload">
+                    <input type="file" name="medical_report" id="medical_report" accept=".pdf" onchange="updateFileName(this)" />
+                    <span class="file-upload-label" id="file-label">📄 Click to upload PDF medical report</span>
+                </label>
+                <div class="file-name" id="file-name"></div>
+                <small style="color: #666; display: block; margin-top: 5px;">
+                    Upload medical reports for accurate disease-based cost calculation
+                </small>
             </div>
+            
+            <button type="submit" class="btn">Predict Insurance Cost</button>
         </form>
-        <h2>
-            The predicted insurance cost is {{results}}
-        </h2>
+        
+        {% if results %}
+        <div class="result-box">
+            <h2>Estimated Insurance Cost</h2>
+            <div class="amount"><span class="currency">₹</span>{{ results }}</div>
+            
+            <div class="breakdown">
+                <div class="breakdown-item">
+                    <span>Base Cost:</span>
+                    <span>₹{{ base_cost }}</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>State ({{ state|title }}) Healthcare Index:</span>
+                    <span>×{{ state_factor }}</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>State Avg. Cost:</span>
+                    <span>₹{{ state_base_cost }}</span>
+                </div>
+                {% if disease_cost|float > 0 %}
+                <div class="breakdown-item">
+                    <span>Disease Adjustment:</span>
+                    <span>+₹{{ disease_cost }}</span>
+                </div>
+                {% endif %}
+            </div>
+            
+            {% if report_summary %}
+            <div class="report-summary">
+                <strong>📋 Report Analysis:</strong> {{ report_summary }}
+            </div>
+            {% endif %}
+            
+            {% if diseases_found %}
+            <div class="disease-info">
+                <h4>🏥 Medical Report Analysis</h4>
+                <p><strong>Detected Conditions:</strong> {{ diseases_found|join(', ')|title }}</p>
+                <p><strong>Severity Level:</strong> {{ severity|title }}</p>
+                {% for detail in disease_details %}
+                <div class="disease-item">
+                    <span class="disease-name">{{ detail.disease|title }}</span>
+                    <span class="disease-cost">+₹{{ detail.additional_cost }}</span>
+                    <div class="disease-severity">
+                        Severity: {{ detail.severity|title }}
+                        {% if detail.confidence %}
+                        <span class="confidence-badge">{{ detail.confidence }}% match</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            {% if results %}
+            <div class="disease-info">
+                <p class="no-disease">✓ No medical conditions detected from uploaded report</p>
+            </div>
+            {% endif %}
+            {% endif %}
+            
+            {% if lab_findings %}
+            <div class="lab-info">
+                <h4>🔬 Lab Values Analyzed</h4>
+                {% for lab_name, lab_value in lab_findings.items() %}
+                <div class="lab-item">
+                    <span>{{ lab_name|replace('_', ' ')|title }}:</span>
+                    <span>{{ lab_value }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
+    
+    <script>
+        function updateFileName(input) {
+            const fileName = input.files[0]?.name;
+            const fileLabel = document.getElementById('file-label');
+            const fileNameDisplay = document.getElementById('file-name');
+            
+            if (fileName) {
+                fileLabel.textContent = '✓ ' + fileName;
+                fileNameDisplay.textContent = 'Selected: ' + fileName;
+            } else {
+                fileLabel.textContent = '📄 Click to upload PDF medical report';
+                fileNameDisplay.textContent = '';
+            }
+        }
+    </script>
 </body>
 </html>

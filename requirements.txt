@@ -3,3 +3,6 @@ numpy
 matplotlib
 scikit-learn
 flask
+PyPDF2
+Werkzeug
+requests

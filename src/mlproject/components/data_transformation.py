@@ -31,7 +31,7 @@ class DataTransformation:
 
         try:
             numerical_columns = ['age', 'bmi', 'children']
-            categorical_columns = ['sex', 'smoker', 'region']
+            categorical_columns = ['sex', 'smoker', 'state']
 
             num_pipeline=Pipeline(steps=[
                 ("imputer",SimpleImputer(strategy='median')),
