@@ -1,4 +1,4 @@
-# 🏥 MediSecure - Health Insurance Prediction System
+# MediSecure - Health Insurance Premium Calculator
 
 ## Project Report
 
@@ -8,170 +8,157 @@
 
 **Project Name:** MediSecure  
 **Project Type:** Machine Learning Web Application  
-**Domain:** Health Insurance Cost Prediction & AI Chat Assistant
+**Domain:** Real-Time Health Insurance Premium Calculation
 
 ### Objective
-To develop an intelligent health insurance cost prediction system that analyzes medical reports, detects diseases, and provides personalized insurance recommendations through an AI-powered chatbot.
+To develop an intelligent health insurance premium calculator that mirrors real insurance company practices, including medical report analysis, disease detection, and personalized premium calculations based on industry-standard factors.
 
 ---
 
-## 2. Problem Statement
+## 2. Real Insurance Factors Implemented
 
-Traditional health insurance estimation systems:
-- Use outdated region-based pricing (US regions)
-- Do not account for Indian state-wise healthcare costs
-- Lack medical report analysis capabilities
-- No AI-powered assistance for user queries
+### 2.1 Premium Calculation Components
+
+Our system now calculates premiums using **real insurance industry factors**:
+
+| Factor | Options | Impact |
+|--------|---------|--------|
+| **Sum Insured** | 5L, 10L, 15L, 25L, 50L, 1Cr | Higher coverage = Higher premium |
+| **Policy Term** | 1, 2, 3 Years | Multi-year = Discount |
+| **Room Type** | General, Semi-Private, Private | Better room = Higher premium |
+| **Deductible** | 0, 25K, 50K, 1L, 2L | Higher deductible = Lower premium |
+| **Co-pay** | 0%, 10%, 15%, 20%, 25% | Higher co-pay = Lower premium |
+| **NCB (No Claim Bonus)** | 0%, 20%, 25%, 33%, 45%, 50% | Claim-free years = Discount |
+| **Add-on Riders** | None, Basic, Comprehensive, Premium | More riders = Higher premium |
+
+### 2.2 Risk Loadings (Real Insurance Practice)
+
+| Risk Factor | Condition | Loading |
+|-------------|-----------|---------|
+| **Age** | 35+ years | +8% |
+| **Age** | 40+ years | +15% |
+| **Age** | 50+ years | +25% |
+| **BMI** | 27-30 | +5% |
+| **BMI** | 30-35 | +12% |
+| **BMI** | 35+ | +20% |
+| **Smoker** | Yes | +40% |
+| **Disease (Mild)** | 1 condition | +15% |
+| **Disease (Moderate)** | Multiple | +35% |
+| **Disease (Severe)** | Critical | +80% |
+
+### 2.3 Zone Classification (Real Indian Insurance)
+
+Insurance companies classify cities into zones for pricing:
+
+| Zone | Cities | Factor |
+|------|--------|--------|
+| **A (Metro)** | Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata | 1.15x |
+| **B (Tier 1)** | Pune, Ahmedabad, Surat, Chandigarh, Lucknow | 1.00x |
+| **C (Tier 2/3)** | Other cities, Rural areas | 0.88x |
+
+### 2.4 Deductible & Co-pay Savings
+
+**Deductible** (Amount you pay before insurance kicks in):
+- No Deductible: 1.00x
+- Rs. 25,000: 0.85x (15% savings)
+- Rs. 50,000: 0.75x (25% savings)
+- Rs. 1,00,000: 0.65x (35% savings)
+- Rs. 2,00,000: 0.55x (45% savings)
+
+**Co-pay** (Percentage you pay on claim):
+- 0%: 1.00x
+- 10%: 0.92x
+- 15%: 0.88x
+- 20%: 0.85x
+- 25%: 0.82x
+
+### 2.5 No Claim Bonus (NCB)
+
+Claim-free years earn discounts:
+- 0 years: 1.00x (base)
+- 1 year: 0.95x (5% discount)
+- 2 years: 0.93x (7% discount)
+- 3 years: 0.90x (10% discount)
+- 4 years: 0.85x (15% discount)
+- 5+ years: 0.80x (20% discount)
 
 ---
 
-## 3. Features Implemented
+## 3. Medical Report Analysis
 
-### 3.1 Health Insurance Cost Prediction
-| Feature | Description |
-|---------|-------------|
-| Age | User's age (1-120 years) |
-| Gender | Male/Female |
-| BMI | Body Mass Index (10-60) |
-| Dependents | Number of dependents (0-15) |
-| Smoker | Yes/No |
-| State | Indian state (32 states) |
+### 3.1 PDF Upload & Text Extraction
+- Upload medical reports in PDF format
+- Extract text using PyPDF2
+- Analyze for disease indicators
 
-### 3.2 Medical Report Analysis
-- **PDF Upload**: Upload medical reports in PDF format
-- **Disease Detection**: Automatically detects 16+ diseases
-- **Severity Assessment**: Categorizes as Mild/Moderate/Severe
-- **Cost Adjustment**: Adds disease-based costs to prediction
-
-**Detectable Diseases:**
+### 3.2 Disease Detection
+Detects 16+ conditions:
 - Diabetes, Hypertension, Heart Disease, Cancer
 - Kidney Disease, Liver Disease, Asthma, COPD
-- Arthritis, Thyroid, Anemia, Pneumonia, Tuberculosis
-- Mental Health, Depression, Anxiety, Stroke, Dengue, Malaria
+- Arthritis, Thyroid, Anemia, Pneumonia
+- Tuberculosis, Mental Health, Depression, Anxiety
 
-### 3.3 Indian State Healthcare Index
-Real healthcare cost factors for 32 Indian states:
-
-| State | Cost Factor | State | Cost Factor |
-|-------|-------------|-------|-------------|
-| Delhi | 1.85 | Madhya Pradesh | 1.20 |
-| Maharashtra | 1.75 | Odisha | 1.25 |
-| Karnataka | 1.65 | Rajasthan | 1.35 |
-| Tamil Nadu | 1.55 | Gujarat | 1.45 |
-| Kerala | 1.60 | Punjab | 1.40 |
-
-### 3.4 AI Chatbot (MediBot)
-- **Powered by Google Gemini AI**
-- **Local Fallback Mode** (works without API)
-- **Insurance Recommendations** based on user profile
-- **Health Information** on diseases, claims, taxes
-- **Quick Action Buttons** for common queries
-
-**Chatbot Capabilities:**
-- Insurance plan recommendations
-- Claim process guidance
-- Waiting period explanations
-- Tax benefit information (Section 80D)
-- Maternity coverage details
-- Mental health coverage info
-- Network hospital information
+### 3.3 Severity Assessment
+| Severity | Loading | Description |
+|----------|---------|-------------|
+| **Mild** | +15% | Early stage, controlled |
+| **Moderate** | +35% | Requires monitoring |
+| **Severe** | +80% | Critical, needs treatment |
 
 ---
 
 ## 4. Technology Stack
 
-### 4.1 Backend
-| Technology | Purpose |
-|------------|---------|
-| Python 3.10 | Programming Language |
-| Flask | Web Framework |
-| Scikit-learn | Machine Learning |
-| Pandas | Data Processing |
-| NumPy | Numerical Computing |
-| PyPDF2 | PDF Text Extraction |
+### Backend
+- Python 3.10, Flask, Scikit-learn
+- Pandas, NumPy, PyPDF2
+- SQLite (chat history)
 
-### 4.2 AI/ML
-| Technology | Purpose |
-|------------|---------|
-| Google Gemini AI | AI Chatbot (Gemini 2.0 Flash) |
-| SQLite | Chat History & Profile Storage |
-| Random Forest | Prediction Model |
+### Frontend  
+- HTML5, CSS3, JavaScript
+- Responsive design
 
-### 4.3 Frontend
-| Technology | Purpose |
-|------------|---------|
-| HTML5 | Page Structure |
-| CSS3 | Styling & Animations |
-| JavaScript | Interactive Chat Interface |
-
-### 4.4 Additional Libraries
-```
-pandas, numpy, matplotlib, scikit-learn, flask
-PyPDF2, Werkzeug, requests, google-genai, python-dotenv
-```
+### AI/ML
+- Google Gemini AI (chatbot)
+- Random Forest Regressor
 
 ---
 
-## 5. System Architecture
+## 5. ML Model Performance
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        USER INTERFACE                        │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌────────────┐ │
-│  │ Prediction Form │  │ Medical Report  │  │ Chatbot    │ │
-│  │                 │  │ Upload (PDF)    │  │ 💬         │ │
-│  └────────┬────────┘  └────────┬────────┘  └─────┬──────┘ │
-└───────────┼───────────────────┼──────────────────┼─────────┘
-            │                   │                  │
-            ▼                   ▼                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      FLASK APPLICATION                        │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌────────────┐ │
-│  │ Prediction      │  │ Medical Report   │  │ Gemini     │ │
-│  │ Pipeline        │  │ Processor        │  │ Chatbot    │ │
-│  └────────┬────────┘  └────────┬────────┘  └─────┬──────┘ │
-└───────────┼───────────────────┼──────────────────┼─────────┘
-            │                   │                  │
-            ▼                   ▼                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      DATA & ML MODELS                         │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐ │
-│  │ Model.pkl    │  │ Preprocessor │  │ Chat History DB  │ │
-│  │ (Random      │  │ .pkl         │  │ (SQLite)        │ │
-│  │ Forest)      │  │              │  │                  │ │
-│  └──────────────┘  └──────────────┘  └──────────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-```
+| Metric | Value |
+|--------|-------|
+| **Algorithm** | Random Forest |
+| **Training R2** | 0.9460 |
+| **Test R2** | 0.8632 |
+| **Training MAE** | Rs. 1,524 |
+| **Test MAE** | Rs. 2,616 |
+
+### Feature Importances
+1. Smoker: 63.5%
+2. BMI: 17.4%
+3. Age: 12.1%
+4. Children: 1.0%
+5. NCB: 0.5%
 
 ---
 
-## 6. Machine Learning Model
+## 6. Premium Calculation Formula
 
-### 6.1 Dataset
-- **Original Dataset:** 1,338 records
-- **Features:** 6 (age, sex, bmi, children, smoker, state)
-- **Target:** charges (insurance cost in $)
-
-### 6.2 Preprocessing
-- **Numerical Features:** StandardScaler
-- **Categorical Features:** OneHotEncoder (sex, smoker, state)
-
-### 6.3 Model Selection
-| Model | Training R² | Test R² |
-|-------|-------------|---------|
-| Random Forest | 0.9753 | 0.8571 |
-| Linear Regression | 0.7394 | 0.7853 |
-| Decision Tree | 0.9983 | 0.7348 |
-| AdaBoost | 0.8304 | 0.8321 |
-
-**Selected Model:** Random Forest Regressor
-- Best balance of training and test accuracy
-- Handles non-linear relationships well
-- Robust to outliers
-
-### 6.4 Cost Formula
 ```
-Final Cost = (Base Prediction × State Factor) + Disease Cost
+Annual Premium = 
+    Base Premium
+    x Sum Insured Factor
+    x Zone Factor
+    x Age Loading
+    x BMI Loading  
+    x Smoker Loading
+    x Disease Loading
+    x Deductible Factor
+    x Co-pay Factor
+    x NCB Factor
+    + Rider Cost
+    + Disease Cost
 ```
 
 ---
@@ -182,126 +169,81 @@ Final Cost = (Base Prediction × State Factor) + Disease Cost
 Health-Insurance-Prediction/
 ├── app.py                          # Flask application
 ├── requirements.txt                # Dependencies
-├── .env                           # Environment variables
-├── chat_history.db                # SQLite database
+├── .env                           # API keys
 ├── artifacts/
-│   ├── model.pkl                  # Trained ML model
-│   ├── preprocessor.pkl           # Data preprocessor
-│   ├── train.csv                 # Training data
-│   └── test.csv                  # Test data
-├── notebook/
-│   ├── data/
-│   │   └── Health_insurance.csv  # Dataset
-│   ├── 1_EDA.ipynb               # Exploratory Analysis
-│   └── 2_MODEL_TRAINING.ipynb    # Model Training
+│   ├── model.pkl                  # Trained RF model
+│   └── preprocessor.pkl           # Data transformer
+├── notebook/data/
+│   └── Health_insurance.csv       # Enhanced dataset
 ├── src/mlproject/
-│   ├── __init__.py
-│   ├── logger.py
-│   ├── exception.py
-│   ├── utils.py
-│   ├── medical_report_processor.py  # PDF & Disease Detection
-│   ├── gemini_chatbot.py            # AI Chatbot
-│   ├── components/
-│   │   ├── data_ingestion.py
-│   │   ├── data_transformation.py
-│   │   └── model_trainer.py
+│   ├── medical_report_processor.py # PDF & disease analysis
+│   ├── gemini_chatbot.py          # AI chatbot
 │   └── pipelines/
-│       ├── training_pipeline.py
-│       └── prediction_pipeline.py
+│       └── prediction_pipeline.py  # Premium calculator
 └── templates/
-    └── index.html                # Frontend UI
+    └── index.html                # UI
 ```
 
 ---
 
-## 8. API Endpoints
+## 8. How It Mirrors Real Insurance
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/` | GET/POST | Main prediction page |
-| `/chat` | POST | Send message to chatbot |
-| `/chat/history` | GET | Get chat history |
-| `/chat/clear` | POST | Clear chat history |
-| `/api/profile` | GET | Get user profile |
+| Aspect | Real Insurance | Our System |
+|--------|---------------|------------|
+| Age Loading | Yes | Yes |
+| BMI Loading | Yes | Yes |
+| Smoker Loading | Yes | Yes |
+| Zone Classification | Yes | Yes |
+| Sum Insured Tiers | Yes | Yes |
+| Policy Term Discount | Yes | Yes |
+| Deductible Savings | Yes | Yes |
+| Co-pay Discount | Yes | Yes |
+| NCB Discount | Yes | Yes |
+| Rider Costs | Yes | Yes |
+| Disease Loading | Yes | Yes |
+| Medical Underwriting | Full | PDF-based |
 
 ---
 
 ## 9. Installation & Setup
 
-### 9.1 Prerequisites
 ```bash
-Python 3.8+
-pip
-```
-
-### 9.2 Installation
-```bash
-# Clone repository
-git clone https://github.com/mayurd8862/Health-Insurance-Prediction.git
-cd Health-Insurance-Prediction
-
 # Install dependencies
 pip install -r requirements.txt
 
-# Set API key (optional - for AI chatbot)
-# Add to .env file:
-# GEMINI_API_KEY=your_api_key
+# Set API key (optional)
+# Add to .env: GEMINI_API_KEY=your_key
 
 # Run application
 python app.py
 ```
 
-### 9.3 Access
-Open browser: `http://localhost:8080`
+Open: http://localhost:8080
 
 ---
 
 ## 10. Future Enhancements
 
-1. **Image-based Medical Report Analysis**
-   - OCR for handwritten reports
-   - CNN for X-ray/MRI analysis
-
-2. **RAG (Retrieval Augmented Generation)**
-   - Medical knowledge base
-   - Context-aware responses
-
-3. **Real-time Data Updates**
-   - Live healthcare cost data
-   - Insurance plan database
-
+1. **Image-based Medical Analysis** (X-rays, MRIs)
+2. **Real-time Insurance API Integration**
+3. **Multi-language Support**
 4. **User Authentication**
-   - Multi-user support
-   - Profile persistence
-
-5. **Insurance Provider Integration**
-   - Real-time premium quotes
-   - Policy comparison
+5. **Policy Comparison Engine**
 
 ---
 
 ## 11. Conclusion
 
-MediSecure successfully combines:
-- ✅ ML-based cost prediction
-- ✅ Medical report analysis
-- ✅ Indian state-wise pricing
-- ✅ AI-powered chatbot assistance
+MediSecure now calculates insurance premiums using **real industry practices**:
+- All major premium factors
+- Zone-based pricing
+- Risk loadings
+- Cost-saving options
+- Medical report analysis
+- AI chatbot assistance
 
-The system provides accurate, personalized health insurance recommendations with comprehensive support through an intuitive web interface.
-
----
-
-## 12. References
-
-1. Scikit-learn Documentation: https://scikit-learn.org/
-2. Flask Documentation: https://flask.palletsprojects.com/
-3. Google Gemini API: https://ai.google.dev/
-4. PyPDF2 Documentation: https://pypdf2.readthedocs.io/
-5. Indian Healthcare Statistics: https://www.worldbank.org/
+The system provides **accurate, personalized premium estimates** that closely mirror real insurance company calculations.
 
 ---
 
-**Project Contributors:**  
-**License:** MIT  
 **Last Updated:** March 2026

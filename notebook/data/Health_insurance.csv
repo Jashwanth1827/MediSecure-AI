@@ -1,1339 +1,1339 @@
-age,sex,bmi,children,smoker,state,charges
-19,female,27.9,0,yes,madhya pradesh,16884.924
-18,male,33.77,1,no,himachal pradesh,1725.5523
-28,male,33.0,3,no,jharkhand,4449.462
-33,male,22.705,0,no,andhra pradesh,21984.47061
-32,male,28.88,0,no,west bengal,3866.8552
-31,female,25.74,0,no,goa,3756.6216
-46,female,33.44,1,no,madhya pradesh,8240.5896
-37,female,27.74,3,no,uttarakhand,7281.5056
-37,male,29.83,2,no,assam,6406.4107
-60,female,25.84,0,no,andhra pradesh,28923.13692
-25,male,26.22,0,no,andhra pradesh,2721.3208
-62,female,26.29,0,yes,meghalaya,27808.7251
-23,male,34.4,0,no,goa,1826.843
-56,female,39.82,0,no,delhi,11090.7178
-27,male,42.13,0,yes,west bengal,39611.7577
-19,male,24.6,1,no,meghalaya,1837.237
-52,female,30.78,1,no,tamil nadu,10797.3362
-23,male,23.845,0,no,puducherry,2395.17155
-56,male,40.3,0,no,goa,10602.385
-30,male,35.3,0,yes,karnataka,36837.467
-60,female,36.005,0,no,meghalaya,13228.84695
-30,female,32.4,1,no,telangana,4149.736
-18,male,34.1,0,no,rajasthan,1137.011
-34,female,31.92,1,yes,karnataka,37701.8768
-37,male,28.025,2,no,goa,6203.90175
-59,female,27.72,3,no,maharashtra,14001.1338
-63,female,23.085,0,no,telangana,14451.83515
-55,female,32.775,2,no,puducherry,12268.63225
-23,male,17.385,1,no,telangana,2775.19215
-31,male,36.3,2,yes,manipur,38711.0
-22,male,35.6,0,yes,odisha,35585.576
-18,female,26.315,0,no,kerala,2198.18985
-19,female,28.6,5,no,bihar,4687.797
-63,male,28.31,0,no,jharkhand,13770.0979
-28,male,36.4,1,yes,jharkhand,51194.55914
-19,male,20.425,0,no,uttarakhand,1625.43375
-62,female,32.965,3,no,telangana,15612.19335
-26,male,20.8,0,no,assam,2302.3
-35,male,36.67,1,yes,himachal pradesh,39774.2763
-60,male,39.9,0,yes,manipur,48173.361
-24,female,26.6,0,no,tamil nadu,3046.062
-31,female,36.63,2,no,gujarat,4949.7587
-41,male,21.78,1,no,uttarakhand,6272.4772
-37,female,30.8,2,no,madhya pradesh,6313.759
-38,male,37.05,1,no,goa,6079.6715
-55,male,37.3,0,no,uttar pradesh,20630.28351
-18,female,38.665,2,no,madhya pradesh,3393.35635
-28,female,34.77,0,no,chhattisgarh,3556.9223
-60,female,24.53,0,no,delhi,12629.8967
-36,male,35.2,1,yes,manipur,38709.176
-18,female,35.625,0,no,haryana,2211.13075
-21,female,33.63,2,no,chhattisgarh,3579.8287
-48,male,28.0,1,yes,uttar pradesh,23568.272
-36,male,34.43,0,yes,goa,37742.5757
-40,female,28.69,3,no,karnataka,8059.6791
-58,male,36.955,2,yes,himachal pradesh,47496.49445
-58,female,31.825,2,no,jharkhand,13607.36875
-18,male,31.68,2,yes,madhya pradesh,34303.1672
-53,female,22.88,1,yes,telangana,23244.7902
-34,female,37.335,2,no,west bengal,5989.52365
-43,male,27.36,3,no,jharkhand,8606.2174
-25,male,33.66,4,no,tamil nadu,4504.6624
-64,male,24.7,1,no,haryana,30166.61817
-28,female,25.935,1,no,odisha,4133.64165
-20,female,22.42,0,yes,delhi,14711.7438
-19,female,28.9,0,no,chhattisgarh,1743.214
-61,female,39.1,2,no,west bengal,14235.072
-40,male,26.315,1,no,delhi,6389.37785
-40,female,36.19,0,no,karnataka,5920.1041
-28,male,23.98,3,yes,rajasthan,17663.1442
-27,female,24.75,0,yes,puducherry,16577.7795
-31,male,28.5,5,no,kerala,6799.458
-53,female,28.1,3,no,delhi,11741.726
-58,male,32.01,1,no,puducherry,11946.6259
-44,male,27.4,2,no,chhattisgarh,7726.854
-57,male,34.01,0,no,telangana,11356.6609
-29,female,29.59,1,no,karnataka,3947.4131
-21,male,35.53,0,no,kerala,1532.4697
-22,female,39.805,0,no,delhi,2755.02095
-41,female,32.965,0,no,haryana,6571.02435
-31,male,26.885,1,no,bihar,4441.21315
-45,female,38.285,0,no,jharkhand,7935.29115
-22,male,37.62,1,yes,west bengal,37165.1638
-48,female,41.23,4,no,haryana,11033.6617
-37,female,34.8,2,yes,assam,39836.519
-45,male,22.895,2,yes,manipur,21098.55405
-57,female,31.16,0,yes,west bengal,43578.9394
-56,female,27.2,0,no,goa,11073.176
-46,female,27.74,0,no,bihar,8026.6666
-55,female,26.98,0,no,punjab,11082.5772
-21,female,39.49,0,no,chhattisgarh,2026.9741
-53,female,24.795,1,no,jharkhand,10942.13205
-59,male,29.83,3,yes,goa,30184.9367
-35,male,34.77,2,no,meghalaya,5729.0053
-64,female,31.3,2,yes,manipur,47291.055
-28,female,37.62,1,no,punjab,3766.8838
-54,female,30.8,3,no,uttar pradesh,12105.32
-55,male,38.28,0,no,jharkhand,10226.2842
-56,male,19.95,0,yes,punjab,22412.6485
-38,male,19.3,0,yes,maharashtra,15820.699
-41,female,31.6,0,no,manipur,6186.127
-30,male,25.46,0,no,madhya pradesh,3645.0894
-18,female,30.115,0,no,uttar pradesh,21344.8467
-61,female,29.92,3,yes,meghalaya,30942.1918
-34,female,27.5,1,no,maharashtra,5003.853
-20,male,28.025,1,yes,telangana,17560.37975
-19,female,28.4,1,no,west bengal,2331.519
-26,male,30.875,2,no,meghalaya,3877.30425
-29,male,27.94,0,no,andhra pradesh,2867.1196
-63,male,35.09,0,yes,uttarakhand,47055.5321
-54,male,33.63,1,no,odisha,10825.2537
-55,female,29.7,2,no,west bengal,11881.358
-37,male,30.8,0,no,tamil nadu,4646.759
-21,female,35.72,0,no,tamil nadu,2404.7338
-52,male,32.205,3,no,maharashtra,11488.31695
-60,male,28.595,0,no,gujarat,30259.99556
-58,male,49.06,0,no,kerala,11381.3254
-29,female,27.94,1,yes,madhya pradesh,19107.7796
-49,female,27.17,0,no,uttar pradesh,8601.3293
-37,female,23.37,2,no,madhya pradesh,6686.4313
-44,male,37.1,2,no,uttar pradesh,7740.337
-18,male,23.75,0,no,west bengal,1705.6245
-20,female,28.975,0,no,telangana,2257.47525
-44,male,31.35,1,yes,karnataka,39556.4945
-47,female,33.915,3,no,maharashtra,10115.00885
-26,female,28.785,0,no,bihar,3385.39915
-19,female,28.3,0,yes,assam,17081.08
-52,female,37.4,0,no,assam,9634.538
-32,female,17.765,2,yes,meghalaya,32734.1863
-38,male,34.7,2,no,gujarat,6082.405
-59,female,26.505,0,no,tamil nadu,12815.44495
-61,female,22.04,0,no,telangana,13616.3586
-53,female,35.9,2,no,west bengal,11163.568
-19,male,25.555,0,no,puducherry,1632.56445
-20,female,28.785,0,no,tamil nadu,2457.21115
-22,female,28.05,0,no,maharashtra,2155.6815
-19,male,34.1,0,no,tamil nadu,1261.442
-22,male,25.175,0,no,gujarat,2045.68525
-54,female,31.9,3,no,jharkhand,27322.73386
-22,female,36.0,0,no,haryana,2166.732
-34,male,22.42,2,no,tamil nadu,27375.90478
-26,male,32.49,1,no,maharashtra,3490.5491
-34,male,25.3,2,yes,gujarat,18972.495
-29,male,29.735,2,no,assam,18157.876
-30,male,28.69,3,yes,haryana,20745.9891
-29,female,38.83,3,no,madhya pradesh,5138.2567
-46,male,30.495,3,yes,uttar pradesh,40720.55105
-51,female,37.73,1,no,jharkhand,9877.6077
-53,female,37.43,1,no,jharkhand,10959.6947
-19,male,28.4,1,no,kerala,1842.519
-35,male,24.13,1,no,punjab,5125.2157
-48,male,29.7,0,no,uttarakhand,7789.635
-32,female,37.145,3,no,madhya pradesh,6334.34355
-42,female,23.37,0,yes,odisha,19964.7463
-40,female,25.46,1,no,himachal pradesh,7077.1894
-44,male,39.52,0,no,delhi,6948.7008
-48,male,24.42,0,yes,gujarat,21223.6758
-18,male,25.175,0,yes,assam,15518.18025
-30,male,35.53,0,yes,madhya pradesh,36950.2567
-50,female,27.83,3,no,punjab,19749.38338
-42,female,26.6,0,yes,jharkhand,21348.706
-18,female,36.85,0,yes,andhra pradesh,36149.4835
-54,male,39.6,1,no,delhi,10450.552
-32,female,29.8,2,no,punjab,5152.134
-37,male,29.64,0,no,madhya pradesh,5028.1466
-47,male,28.215,4,no,uttarakhand,10407.08585
-20,female,37.0,5,no,puducherry,4830.63
-32,female,33.155,3,no,karnataka,6128.79745
-19,female,31.825,1,no,kerala,2719.27975
-27,male,18.905,3,no,punjab,4827.90495
-63,male,41.47,0,no,manipur,13405.3903
-49,male,30.3,0,no,goa,8116.68
-18,male,15.96,0,no,rajasthan,1694.7964
-35,female,34.8,1,no,telangana,5246.047
-24,female,33.345,0,no,telangana,2855.43755
-63,female,37.7,0,yes,himachal pradesh,48824.45
-38,male,27.835,2,no,andhra pradesh,6455.86265
-54,male,29.2,1,no,assam,10436.096
-46,female,28.9,2,no,manipur,8823.279
-41,female,33.155,3,no,madhya pradesh,8538.28845
-58,male,28.595,0,no,maharashtra,11735.87905
-18,female,38.28,0,no,maharashtra,1631.8212
-22,male,19.95,3,no,manipur,4005.4225
-44,female,26.41,0,no,manipur,7419.4779
-44,male,30.69,2,no,himachal pradesh,7731.4271
-36,male,41.895,3,yes,punjab,43753.33705
-26,female,29.92,2,no,uttar pradesh,3981.9768
-30,female,30.9,3,no,tamil nadu,5325.651
-41,female,32.2,1,no,madhya pradesh,6775.961
-29,female,32.11,2,no,rajasthan,4922.9159
-61,male,31.57,0,no,west bengal,12557.6053
-36,female,26.2,0,no,uttar pradesh,4883.866
-25,male,25.74,0,no,gujarat,2137.6536
-56,female,26.6,1,no,maharashtra,12044.342
-18,male,34.43,0,no,uttarakhand,1137.4697
-19,male,30.59,0,no,kerala,1639.5631
-39,female,32.8,0,no,telangana,5649.715
-45,female,28.6,2,no,meghalaya,8516.829
-51,female,18.05,0,no,jharkhand,9644.2525
-64,female,39.33,0,no,puducherry,14901.5167
-19,female,32.11,0,no,meghalaya,2130.6759
-48,female,32.23,1,no,uttar pradesh,8871.1517
-60,female,24.035,0,no,himachal pradesh,13012.20865
-27,female,36.08,0,yes,odisha,37133.8982
-46,male,22.3,0,no,odisha,7147.105
-28,female,28.88,1,no,himachal pradesh,4337.7352
-59,male,26.4,0,no,telangana,11743.299
-35,male,27.74,2,yes,madhya pradesh,20984.0936
-63,female,31.8,0,no,karnataka,13880.949
-40,male,41.23,1,no,tamil nadu,6610.1097
-20,male,33.0,1,no,odisha,1980.07
-40,male,30.875,4,no,gujarat,8162.71625
-24,male,28.5,2,no,odisha,3537.703
-34,female,26.73,1,no,meghalaya,5002.7827
-45,female,30.9,2,no,odisha,8520.026
-41,female,37.1,2,no,odisha,7371.772
-53,female,26.6,0,no,karnataka,10355.641
-27,male,23.1,0,no,karnataka,2483.736
-26,female,29.92,1,no,puducherry,3392.9768
-24,female,23.21,0,no,assam,25081.76784
-34,female,33.7,1,no,gujarat,5012.471
-53,female,33.25,0,no,maharashtra,10564.8845
-32,male,30.8,3,no,maharashtra,5253.524
-19,male,34.8,0,yes,uttarakhand,34779.615
-42,male,24.64,0,yes,karnataka,19515.5416
-55,male,33.88,3,no,goa,11987.1682
-28,male,38.06,0,no,telangana,2689.4954
-58,female,41.91,0,no,rajasthan,24227.33724
-41,female,31.635,1,no,assam,7358.17565
-47,male,25.46,2,no,delhi,9225.2564
-42,female,36.195,1,no,assam,7443.64305
-59,female,27.83,3,no,andhra pradesh,14001.2867
-19,female,17.8,0,no,meghalaya,1727.785
-59,male,27.5,1,no,odisha,12333.828
-39,male,24.51,2,no,rajasthan,6710.1919
-40,female,22.22,2,yes,meghalaya,19444.2658
-18,female,26.73,0,no,gujarat,1615.7667
-31,male,38.39,2,no,himachal pradesh,4463.2051
-19,male,29.07,0,yes,karnataka,17352.6803
-44,male,38.06,1,no,rajasthan,7152.6714
-23,female,36.67,2,yes,puducherry,38511.6283
-33,female,22.135,1,no,andhra pradesh,5354.07465
-55,female,26.8,1,no,bihar,35160.13457
-40,male,35.3,3,no,bihar,7196.867
-63,female,27.74,0,yes,maharashtra,29523.1656
-54,male,30.02,0,no,uttar pradesh,24476.47851
-60,female,38.06,0,no,rajasthan,12648.7034
-24,male,35.86,0,no,bihar,1986.9334
-19,male,20.9,1,no,tamil nadu,1832.094
-29,male,28.975,1,no,himachal pradesh,4040.55825
-18,male,17.29,2,yes,delhi,12829.4551
-63,female,32.2,2,yes,uttarakhand,47305.305
-54,male,34.21,2,yes,tamil nadu,44260.7499
-27,male,30.3,3,no,uttarakhand,4260.744
-50,male,31.825,0,yes,himachal pradesh,41097.16175
-55,female,25.365,3,no,madhya pradesh,13047.33235
-56,male,33.63,0,yes,himachal pradesh,43921.1837
-38,female,40.15,0,no,uttar pradesh,5400.9805
-51,male,24.415,4,no,maharashtra,11520.09985
-19,male,31.92,0,yes,west bengal,33750.2918
-58,female,25.2,0,no,madhya pradesh,11837.16
-20,female,26.84,1,yes,chhattisgarh,17085.2676
-52,male,24.32,3,yes,west bengal,24869.8368
-19,male,36.955,0,yes,maharashtra,36219.40545
-53,female,38.06,3,no,andhra pradesh,20462.99766
-46,male,42.35,3,yes,manipur,46151.1245
-40,male,19.8,1,yes,manipur,17179.522
-59,female,32.395,3,no,chhattisgarh,14590.63205
-45,male,30.2,1,no,assam,7441.053
-49,male,25.84,1,no,kerala,9282.4806
-18,male,29.37,1,no,tamil nadu,1719.4363
-50,male,34.2,2,yes,madhya pradesh,42856.838
-41,male,37.05,2,no,bihar,7265.7025
-50,male,27.455,1,no,bihar,9617.66245
-25,male,27.55,0,no,manipur,2523.1695
-47,female,26.6,2,no,himachal pradesh,9715.841
-19,male,20.615,2,no,odisha,2803.69785
-22,female,24.3,0,no,karnataka,2150.469
-59,male,31.79,2,no,maharashtra,12928.7911
-51,female,21.56,1,no,bihar,9855.1314
-40,female,28.12,1,yes,telangana,22331.5668
-54,male,40.565,3,yes,gujarat,48549.17835
-30,male,27.645,1,no,gujarat,4237.12655
-55,female,32.395,1,no,assam,11879.10405
-52,female,31.2,0,no,uttar pradesh,9625.92
-46,male,26.62,1,no,uttar pradesh,7742.1098
-46,female,48.07,2,no,tamil nadu,9432.9253
-63,female,26.22,0,no,uttarakhand,14256.1928
-59,female,36.765,1,yes,bihar,47896.79135
-52,male,26.4,3,no,bihar,25992.82104
-28,female,33.4,0,no,tamil nadu,3172.018
-29,male,29.64,1,no,himachal pradesh,20277.80751
-25,male,45.54,2,yes,meghalaya,42112.2356
-22,female,28.82,0,no,puducherry,2156.7518
-25,male,26.8,3,no,meghalaya,3906.127
-18,male,22.99,0,no,maharashtra,1704.5681
-19,male,27.7,0,yes,meghalaya,16297.846
-47,male,25.41,1,yes,himachal pradesh,21978.6769
-31,male,34.39,3,yes,andhra pradesh,38746.3551
-48,female,28.88,1,no,odisha,9249.4952
-36,male,27.55,3,no,west bengal,6746.7425
-53,female,22.61,3,yes,delhi,24873.3849
-56,female,37.51,2,no,rajasthan,12265.5069
-28,female,33.0,2,no,west bengal,4349.462
-57,female,38.0,2,no,himachal pradesh,12646.207
-29,male,33.345,2,no,tamil nadu,19442.3535
-28,female,27.5,2,no,bihar,20177.67113
-30,female,33.33,1,no,manipur,4151.0287
-58,male,34.865,0,no,tamil nadu,11944.59435
-41,female,33.06,2,no,manipur,7749.1564
-50,male,26.6,0,no,chhattisgarh,8444.474
-19,female,24.7,0,no,haryana,1737.376
-43,male,35.97,3,yes,chhattisgarh,42124.5153
-49,male,35.86,0,no,karnataka,8124.4084
-27,female,31.4,0,yes,puducherry,34838.873
-52,male,33.25,0,no,tamil nadu,9722.7695
-50,male,32.205,0,no,bihar,8835.26495
-54,male,32.775,0,no,uttar pradesh,10435.06525
-44,female,27.645,0,no,delhi,7421.19455
-32,male,37.335,1,no,maharashtra,4667.60765
-34,male,25.27,1,no,delhi,4894.7533
-26,female,29.64,4,no,maharashtra,24671.66334
-34,male,30.8,0,yes,haryana,35491.64
-57,male,40.945,0,no,goa,11566.30055
-29,male,27.2,0,no,bihar,2866.091
-40,male,34.105,1,no,himachal pradesh,6600.20595
-27,female,23.21,1,no,meghalaya,3561.8889
-45,male,36.48,2,yes,west bengal,42760.5022
-64,female,33.8,1,yes,madhya pradesh,47928.03
-52,male,36.7,0,no,tamil nadu,9144.565
-61,female,36.385,1,yes,odisha,48517.56315
-52,male,27.36,0,yes,maharashtra,24393.6224
-61,female,31.16,0,no,bihar,13429.0354
-56,female,28.785,0,no,telangana,11658.37915
-43,female,35.72,2,no,uttarakhand,19144.57652
-64,male,34.5,0,no,puducherry,13822.803
-60,male,25.74,0,no,assam,12142.5786
-62,male,27.55,1,no,puducherry,13937.6665
-50,male,32.3,1,yes,haryana,41919.097
-46,female,27.72,1,no,rajasthan,8232.6388
-24,female,27.6,0,no,rajasthan,18955.22017
-62,male,30.02,0,no,punjab,13352.0998
-60,female,27.55,0,no,uttarakhand,13217.0945
-63,male,36.765,0,no,puducherry,13981.85035
-49,female,41.47,4,no,west bengal,10977.2063
-34,female,29.26,3,no,karnataka,6184.2994
-33,male,35.75,2,no,goa,4889.9995
-46,male,33.345,1,no,maharashtra,8334.45755
-36,female,29.92,1,no,jharkhand,5478.0368
-19,male,27.835,0,no,maharashtra,1635.73365
-57,female,23.18,0,no,gujarat,11830.6072
-50,female,25.6,0,no,bihar,8932.084
-30,female,27.7,0,no,uttarakhand,3554.203
-33,male,35.245,0,no,delhi,12404.8791
-18,female,38.28,0,no,tamil nadu,14133.03775
-46,male,27.6,0,no,odisha,24603.04837
-46,male,43.89,3,no,odisha,8944.1151
-47,male,29.83,3,no,telangana,9620.3307
-23,male,41.91,0,no,haryana,1837.2819
-18,female,20.79,0,no,goa,1607.5101
-48,female,32.3,2,no,rajasthan,10043.249
-35,male,30.5,1,no,tamil nadu,4751.07
-19,female,21.7,0,yes,uttar pradesh,13844.506
-21,female,26.4,1,no,gujarat,2597.779
-21,female,21.89,2,no,meghalaya,3180.5101
-49,female,30.78,1,no,odisha,9778.3472
-56,female,32.3,3,no,haryana,13430.265
-42,female,24.985,2,no,goa,8017.06115
-44,male,32.015,2,no,tamil nadu,8116.26885
-18,male,30.4,3,no,maharashtra,3481.868
-61,female,21.09,0,no,himachal pradesh,13415.0381
-57,female,22.23,0,no,goa,12029.2867
-42,female,33.155,1,no,assam,7639.41745
-26,male,32.9,2,yes,maharashtra,36085.219
-20,male,33.33,0,no,tamil nadu,1391.5287
-23,female,28.31,0,yes,chhattisgarh,18033.9679
-39,female,24.89,3,yes,manipur,21659.9301
-24,male,40.15,0,yes,kerala,38126.2465
-64,female,30.115,3,no,puducherry,16455.70785
-62,male,31.46,1,no,tamil nadu,27000.98473
-27,female,17.955,2,yes,west bengal,15006.57945
-55,male,30.685,0,yes,haryana,42303.69215
-55,male,33.0,0,no,meghalaya,20781.48892
-35,female,43.34,2,no,chhattisgarh,5846.9176
-44,male,22.135,2,no,jharkhand,8302.53565
-19,male,34.4,0,no,puducherry,1261.859
-58,female,39.05,0,no,assam,11856.4115
-50,male,25.365,2,no,karnataka,30284.64294
-26,female,22.61,0,no,kerala,3176.8159
-24,female,30.21,3,no,karnataka,4618.0799
-48,male,35.625,4,no,odisha,10736.87075
-19,female,37.43,0,no,west bengal,2138.0707
-48,male,31.445,1,no,maharashtra,8964.06055
-49,male,31.35,1,no,uttar pradesh,9290.1395
-46,female,32.3,2,no,andhra pradesh,9411.005
-46,male,19.855,0,no,puducherry,7526.70645
-43,female,34.4,3,no,bihar,8522.003
-21,male,31.02,0,no,madhya pradesh,16586.49771
-64,male,25.6,2,no,kerala,14988.432
-18,female,38.17,0,no,assam,1631.6683
-51,female,20.6,0,no,tamil nadu,9264.797
-47,male,47.52,1,no,chhattisgarh,8083.9198
-64,female,32.965,0,no,manipur,14692.66935
-49,male,32.3,3,no,meghalaya,10269.46
-31,male,20.4,0,no,punjab,3260.199
-52,female,38.38,2,no,madhya pradesh,11396.9002
-33,female,24.31,0,no,manipur,4185.0979
-47,female,23.6,1,no,delhi,8539.671
-38,male,21.12,3,no,punjab,6652.5288
-32,male,30.03,1,no,himachal pradesh,4074.4537
-19,male,17.48,0,no,maharashtra,1621.3402
-44,female,20.235,1,yes,west bengal,19594.80965
-26,female,17.195,2,yes,haryana,14455.64405
-25,male,23.9,5,no,bihar,5080.096
-19,female,35.15,0,no,haryana,2134.9015
-43,female,35.64,1,no,telangana,7345.7266
-52,male,34.1,0,no,uttarakhand,9140.951
-36,female,22.6,2,yes,assam,18608.262
-64,male,39.16,1,no,jharkhand,14418.2804
-63,female,26.98,0,yes,karnataka,28950.4692
-64,male,33.88,0,yes,karnataka,46889.2612
-61,male,35.86,0,yes,assam,46599.1084
-40,male,32.775,1,yes,puducherry,39125.33225
-25,male,30.59,0,no,uttarakhand,2727.3951
-48,male,30.2,2,no,manipur,8968.33
-45,male,24.31,5,no,puducherry,9788.8659
-38,female,27.265,1,no,puducherry,6555.07035
-18,female,29.165,0,no,odisha,7323.734819
-21,female,16.815,1,no,himachal pradesh,3167.45585
-27,female,30.4,3,no,kerala,18804.7524
-19,male,33.1,0,no,rajasthan,23082.95533
-29,female,20.235,2,no,jharkhand,4906.40965
-42,male,26.9,0,no,puducherry,5969.723
-60,female,30.5,0,no,andhra pradesh,12638.195
-31,male,28.595,1,no,gujarat,4243.59005
-60,male,33.11,3,no,maharashtra,13919.8229
-22,male,31.73,0,no,west bengal,2254.7967
-35,male,28.9,3,no,goa,5926.846
-52,female,46.75,5,no,telangana,12592.5345
-26,male,29.45,0,no,telangana,2897.3235
-31,female,32.68,1,no,gujarat,4738.2682
-33,female,33.5,0,yes,madhya pradesh,37079.372
-18,male,43.01,0,no,delhi,1149.3959
-59,female,36.52,1,no,rajasthan,28287.89766
-56,male,26.695,1,yes,punjab,26109.32905
-45,female,33.1,0,no,himachal pradesh,7345.084
-60,male,29.64,0,no,jharkhand,12730.9996
-56,female,25.65,0,no,tamil nadu,11454.0215
-40,female,29.6,0,no,assam,5910.944
-35,male,38.6,1,no,west bengal,4762.329
-39,male,29.6,4,no,himachal pradesh,7512.267
-30,male,24.13,1,no,bihar,4032.2407
-24,male,23.4,0,no,punjab,1969.614
-20,male,29.735,0,no,chhattisgarh,1769.53165
-32,male,46.53,2,no,kerala,4686.3887
-59,male,37.4,0,no,uttarakhand,21797.0004
-55,female,30.14,2,no,odisha,11881.9696
-57,female,30.495,0,no,meghalaya,11840.77505
-56,male,39.6,0,no,uttarakhand,10601.412
-40,female,33.0,3,no,assam,7682.67
-49,female,36.63,3,no,gujarat,10381.4787
-42,male,30.0,0,yes,goa,22144.032
-62,female,38.095,2,no,assam,15230.32405
-56,male,25.935,0,no,uttar pradesh,11165.41765
-19,male,25.175,0,no,telangana,1632.03625
-30,female,28.38,1,yes,goa,19521.9682
-60,female,28.7,1,no,maharashtra,13224.693
-56,female,33.82,2,no,maharashtra,12643.3778
-28,female,24.32,1,no,jharkhand,23288.9284
-18,female,24.09,1,no,karnataka,2201.0971
-27,male,32.67,0,no,puducherry,2497.0383
-18,female,30.115,0,no,bihar,2203.47185
-19,female,29.8,0,no,manipur,1744.465
-47,female,33.345,0,no,west bengal,20878.78443
-54,male,25.1,3,yes,punjab,25382.297
-61,male,28.31,1,yes,goa,28868.6639
-24,male,28.5,0,yes,maharashtra,35147.52848
-25,male,35.625,0,no,bihar,2534.39375
-21,male,36.85,0,no,madhya pradesh,1534.3045
-23,male,32.56,0,no,gujarat,1824.2854
-63,male,41.325,3,no,puducherry,15555.18875
-49,male,37.51,2,no,assam,9304.7019
-18,female,31.35,0,no,tamil nadu,1622.1885
-51,female,39.5,1,no,telangana,9880.068
-48,male,34.3,3,no,bihar,9563.029
-31,female,31.065,0,no,uttarakhand,4347.02335
-54,female,21.47,3,no,gujarat,12475.3513
-19,male,28.7,0,no,puducherry,1253.936
-44,female,38.06,0,yes,manipur,48885.13561
-53,male,31.16,1,no,haryana,10461.9794
-19,female,32.9,0,no,gujarat,1748.774
-61,female,25.08,0,no,jharkhand,24513.09126
-18,female,25.08,0,no,odisha,2196.4732
-61,male,43.4,0,no,haryana,12574.049
-21,male,25.7,4,yes,himachal pradesh,17942.106
-20,male,27.93,0,no,gujarat,1967.0227
-31,female,23.6,2,no,telangana,4931.647
-45,male,28.7,2,no,bihar,8027.968
-44,female,23.98,2,no,bihar,8211.1002
-62,female,39.2,0,no,goa,13470.86
-29,male,34.4,0,yes,madhya pradesh,36197.699
-43,male,26.03,0,no,delhi,6837.3687
-51,male,23.21,1,yes,maharashtra,22218.1149
-19,male,30.25,0,yes,gujarat,32548.3405
-38,female,28.93,1,no,assam,5974.3847
-37,male,30.875,3,no,kerala,6796.86325
-22,male,31.35,1,no,puducherry,2643.2685
-21,male,23.75,2,no,gujarat,3077.0955
-24,female,25.27,0,no,delhi,3044.2133
-57,female,28.7,0,no,karnataka,11455.28
-56,male,32.11,1,no,himachal pradesh,11763.0009
-27,male,33.66,0,no,kerala,2498.4144
-51,male,22.42,0,no,uttarakhand,9361.3268
-19,male,30.4,0,no,maharashtra,1256.299
-39,male,28.3,1,yes,meghalaya,21082.16
-58,male,35.7,0,no,gujarat,11362.755
-20,male,35.31,1,no,punjab,27724.28875
-45,male,30.495,2,no,delhi,8413.46305
-35,female,31.0,1,no,bihar,5240.765
-31,male,30.875,0,no,meghalaya,3857.75925
-50,female,27.36,0,no,bihar,25656.57526
-32,female,44.22,0,no,assam,3994.1778
-51,female,33.915,0,no,karnataka,9866.30485
-38,female,37.73,0,no,odisha,5397.6167
-42,male,26.07,1,yes,himachal pradesh,38245.59327
-18,female,33.88,0,no,meghalaya,11482.63485
-19,female,30.59,2,no,telangana,24059.68019
-51,female,25.8,1,no,chhattisgarh,9861.025
-46,male,39.425,1,no,tamil nadu,8342.90875
-18,male,25.46,0,no,maharashtra,1708.0014
-57,male,42.13,1,yes,maharashtra,48675.5177
-62,female,31.73,0,no,uttarakhand,14043.4767
-59,male,29.7,2,no,andhra pradesh,12925.886
-37,male,36.19,0,no,gujarat,19214.70553
-64,male,40.48,0,no,telangana,13831.1152
-38,male,28.025,1,no,tamil nadu,6067.12675
-33,female,38.9,3,no,maharashtra,5972.378
-46,female,30.2,2,no,maharashtra,8825.086
-46,female,28.05,1,no,west bengal,8233.0975
-53,male,31.35,0,no,kerala,27346.04207
-34,female,38.0,3,no,andhra pradesh,6196.448
-20,female,31.79,2,no,telangana,3056.3881
-63,female,36.3,0,no,punjab,13887.204
-54,female,47.41,0,yes,telangana,63770.42801
-54,male,30.21,0,no,haryana,10231.4999
-49,male,25.84,2,yes,karnataka,23807.2406
-28,male,35.435,0,no,uttarakhand,3268.84665
-54,female,46.7,2,no,chhattisgarh,11538.421
-25,female,28.595,0,no,tamil nadu,3213.62205
-43,female,46.2,0,yes,assam,45863.205
-63,male,30.8,0,no,odisha,13390.559
-32,female,28.93,0,no,west bengal,3972.9247
-62,male,21.4,0,no,kerala,12957.118
-52,female,31.73,2,no,karnataka,11187.6567
-25,female,41.325,0,no,uttarakhand,17878.90068
-28,male,23.8,2,no,uttar pradesh,3847.674
-46,male,33.44,1,no,madhya pradesh,8334.5896
-34,male,34.21,0,no,delhi,3935.1799
-35,female,34.105,3,yes,goa,39983.42595
-19,male,35.53,0,no,chhattisgarh,1646.4297
-46,female,19.95,2,no,punjab,9193.8385
-54,female,32.68,0,no,andhra pradesh,10923.9332
-27,male,30.5,0,no,meghalaya,2494.022
-50,male,44.77,1,no,delhi,9058.7303
-18,female,32.12,2,no,manipur,2801.2588
-19,female,30.495,0,no,goa,2128.43105
-38,female,40.565,1,no,manipur,6373.55735
-41,male,30.59,2,no,delhi,7256.7231
-49,female,31.9,5,no,kerala,11552.904
-48,male,40.565,2,yes,gujarat,45702.02235
-31,female,29.1,0,no,uttar pradesh,3761.292
-18,female,37.29,1,no,meghalaya,2219.4451
-30,female,43.12,2,no,tamil nadu,4753.6368
-62,female,36.86,1,no,odisha,31620.00106
-57,female,34.295,2,no,tamil nadu,13224.05705
-58,female,27.17,0,no,bihar,12222.8983
-22,male,26.84,0,no,delhi,1664.9996
-31,female,38.095,1,yes,chhattisgarh,58571.07448
-52,male,30.2,1,no,odisha,9724.53
-25,female,23.465,0,no,madhya pradesh,3206.49135
-59,male,25.46,1,no,meghalaya,12913.9924
-19,male,30.59,0,no,assam,1639.5631
-39,male,45.43,2,no,gujarat,6356.2707
-32,female,23.65,1,no,telangana,17626.23951
-19,male,20.7,0,no,odisha,1242.816
-33,female,28.27,1,no,assam,4779.6023
-21,male,20.235,3,no,punjab,3861.20965
-34,female,30.21,1,yes,assam,43943.8761
-61,female,35.91,0,no,manipur,13635.6379
-38,female,30.69,1,no,tamil nadu,5976.8311
-58,female,29.0,0,no,uttar pradesh,11842.442
-47,male,19.57,1,no,odisha,8428.0693
-20,male,31.13,2,no,odisha,2566.4707
-21,female,21.85,1,yes,himachal pradesh,15359.1045
-41,male,40.26,0,no,bihar,5709.1644
-46,female,33.725,1,no,manipur,8823.98575
-42,female,29.48,2,no,puducherry,7640.3092
-34,female,33.25,1,no,punjab,5594.8455
-43,male,32.6,2,no,uttarakhand,7441.501
-52,female,37.525,2,no,odisha,33471.97189
-18,female,39.16,0,no,delhi,1633.0444
-51,male,31.635,0,no,telangana,9174.13565
-56,female,25.3,0,no,uttar pradesh,11070.535
-64,female,39.05,3,no,uttarakhand,16085.1275
-19,female,28.31,0,yes,telangana,17468.9839
-51,female,34.1,0,no,uttar pradesh,9283.562
-27,female,25.175,0,no,madhya pradesh,3558.62025
-59,female,23.655,0,yes,haryana,25678.77845
-28,male,26.98,2,no,himachal pradesh,4435.0942
-30,male,37.8,2,yes,uttarakhand,39241.442
-47,female,29.37,1,no,jharkhand,8547.6913
-38,female,34.8,2,no,bihar,6571.544
-18,female,33.155,0,no,goa,2207.69745
-34,female,19.0,3,no,gujarat,6753.038
-20,female,33.0,0,no,tamil nadu,1880.07
-47,female,36.63,1,yes,telangana,42969.8527
-56,female,28.595,0,no,manipur,11658.11505
-49,male,25.6,2,yes,himachal pradesh,23306.547
-19,female,33.11,0,yes,goa,34439.8559
-55,female,37.1,0,no,delhi,10713.644
-30,male,31.4,1,no,goa,3659.346
-37,male,34.1,4,yes,assam,40182.246
-49,female,21.3,1,no,bihar,9182.17
-18,male,33.535,0,yes,manipur,34617.84065
-59,male,28.785,0,no,madhya pradesh,12129.61415
-29,female,26.03,0,no,punjab,3736.4647
-36,male,28.88,3,no,goa,6748.5912
-33,male,42.46,1,no,kerala,11326.71487
-58,male,38.0,0,no,madhya pradesh,11365.952
-44,female,38.95,0,yes,haryana,42983.4585
-53,male,36.1,1,no,gujarat,10085.846
-24,male,29.3,0,no,tamil nadu,1977.815
-29,female,35.53,0,no,assam,3366.6697
-40,male,22.705,2,no,andhra pradesh,7173.35995
-51,male,39.7,1,no,andhra pradesh,9391.346
-64,male,38.19,0,no,chhattisgarh,14410.9321
-19,female,24.51,1,no,jharkhand,2709.1119
-35,female,38.095,2,no,telangana,24915.04626
-39,male,26.41,0,yes,uttar pradesh,20149.3229
-56,male,33.66,4,no,kerala,12949.1554
-33,male,42.4,5,no,telangana,6666.243
-42,male,28.31,3,yes,odisha,32787.45859
-61,male,33.915,0,no,rajasthan,13143.86485
-23,female,34.96,3,no,madhya pradesh,4466.6214
-43,male,35.31,2,no,haryana,18806.14547
-48,male,30.78,3,no,punjab,10141.1362
-39,male,26.22,1,no,west bengal,6123.5688
-40,female,23.37,3,no,kerala,8252.2843
-18,male,28.5,0,no,uttar pradesh,1712.227
-58,female,32.965,0,no,chhattisgarh,12430.95335
-49,female,42.68,2,no,karnataka,9800.8882
-53,female,39.6,1,no,gujarat,10579.711
-48,female,31.13,0,no,gujarat,8280.6227
-45,female,36.3,2,no,rajasthan,8527.532
-59,female,35.2,0,no,uttarakhand,12244.531
-52,female,25.3,2,yes,west bengal,24667.419
-26,female,42.4,1,no,bihar,3410.324
-27,male,33.155,2,no,punjab,4058.71245
-48,female,35.91,1,no,maharashtra,26392.26029
-57,female,28.785,4,no,puducherry,14394.39815
-37,male,46.53,3,no,himachal pradesh,6435.6237
-57,female,23.98,1,no,odisha,22192.43711
-32,female,31.54,1,no,madhya pradesh,5148.5526
-18,male,33.66,0,no,manipur,1136.3994
-64,female,22.99,0,yes,punjab,27037.9141
-43,male,38.06,2,yes,delhi,42560.4304
-49,male,28.7,1,no,delhi,8703.456
-40,female,32.775,2,yes,rajasthan,40003.33225
-62,male,32.015,0,yes,uttarakhand,45710.20785
-40,female,29.81,1,no,telangana,6500.2359
-30,male,31.57,3,no,puducherry,4837.5823
-29,female,31.16,0,no,madhya pradesh,3943.5954
-36,male,29.7,0,no,kerala,4399.731
-41,female,31.02,0,no,uttarakhand,6185.3208
-44,female,43.89,2,yes,madhya pradesh,46200.9851
-45,male,21.375,0,no,tamil nadu,7222.78625
-55,female,40.81,3,no,punjab,12485.8009
-60,male,31.35,3,yes,punjab,46130.5265
-56,male,36.1,3,no,chhattisgarh,12363.547
-49,female,23.18,2,no,himachal pradesh,10156.7832
-21,female,17.4,1,no,west bengal,2585.269
-19,male,20.3,0,no,uttar pradesh,1242.26
-39,male,35.3,2,yes,madhya pradesh,40103.89
-53,male,24.32,0,no,maharashtra,9863.4718
-33,female,18.5,1,no,tamil nadu,4766.022
-53,male,26.41,2,no,punjab,11244.3769
-42,male,26.125,2,no,manipur,7729.64575
-40,male,41.69,0,no,odisha,5438.7491
-47,female,24.1,1,no,manipur,26236.57997
-27,male,31.13,1,yes,meghalaya,34806.4677
-21,male,27.36,0,no,maharashtra,2104.1134
-47,male,36.2,1,no,rajasthan,8068.185
-20,male,32.395,1,no,goa,2362.22905
-24,male,23.655,0,no,rajasthan,2352.96845
-27,female,34.8,1,no,telangana,3577.999
-26,female,40.185,0,no,punjab,3201.24515
-53,female,32.3,2,no,punjab,29186.48236
-41,male,35.75,1,yes,jharkhand,40273.6455
-56,male,33.725,0,no,goa,10976.24575
-23,female,39.27,2,no,bihar,3500.6123
-21,female,34.87,0,no,puducherry,2020.5523
-50,female,44.745,0,no,goa,9541.69555
-53,male,41.47,0,no,andhra pradesh,9504.3103
-34,female,26.41,1,no,gujarat,5385.3379
-47,female,29.545,1,no,delhi,8930.93455
-33,female,32.9,2,no,tamil nadu,5375.038
-51,female,38.06,0,yes,uttarakhand,44400.4064
-49,male,28.69,3,no,himachal pradesh,10264.4421
-31,female,30.495,3,no,manipur,6113.23105
-36,female,27.74,0,no,chhattisgarh,5469.0066
-18,male,35.2,1,no,jharkhand,1727.54
-50,female,23.54,2,no,uttar pradesh,10107.2206
-43,female,30.685,2,no,odisha,8310.83915
-20,male,40.47,0,no,haryana,1984.4533
-24,female,22.6,0,no,jharkhand,2457.502
-60,male,28.9,0,no,maharashtra,12146.971
-49,female,22.61,1,no,goa,9566.9909
-60,male,24.32,1,no,puducherry,13112.6048
-51,female,36.67,2,no,puducherry,10848.1343
-58,female,33.44,0,no,tamil nadu,12231.6136
-51,female,40.66,0,no,bihar,9875.6804
-53,male,36.6,3,no,assam,11264.541
-62,male,37.4,0,no,manipur,12979.358
-19,male,35.4,0,no,andhra pradesh,1263.249
-50,female,27.075,1,no,telangana,10106.13425
-30,female,39.05,3,yes,kerala,40932.4295
-41,male,28.405,1,no,bihar,6664.68595
-29,female,21.755,1,yes,west bengal,16657.71745
-18,female,40.28,0,no,rajasthan,2217.6012
-41,female,36.08,1,no,telangana,6781.3542
-35,male,24.42,3,yes,meghalaya,19361.9988
-53,male,21.4,1,no,goa,10065.413
-24,female,30.1,3,no,west bengal,4234.927
-48,female,27.265,1,no,delhi,9447.25035
-59,female,32.1,3,no,west bengal,14007.222
-49,female,34.77,1,no,chhattisgarh,9583.8933
-37,female,38.39,0,yes,gujarat,40419.0191
-26,male,23.7,2,no,uttar pradesh,3484.331
-23,male,31.73,3,yes,delhi,36189.1017
-29,male,35.5,2,yes,puducherry,44585.45587
-45,male,24.035,2,no,odisha,8604.48365
-27,male,29.15,0,yes,uttar pradesh,18246.4955
-53,male,34.105,0,yes,maharashtra,43254.41795
-31,female,26.62,0,no,goa,3757.8448
-50,male,26.41,0,no,himachal pradesh,8827.2099
-50,female,30.115,1,no,punjab,9910.35985
-34,male,27.0,2,no,bihar,11737.84884
-19,male,21.755,0,no,punjab,1627.28245
-47,female,36.0,1,no,haryana,8556.907
-28,male,30.875,0,no,tamil nadu,3062.50825
-37,female,26.4,0,yes,rajasthan,19539.243
-21,male,28.975,0,no,chhattisgarh,1906.35825
-64,male,37.905,0,no,uttarakhand,14210.53595
-58,female,22.77,0,no,gujarat,11833.7823
-24,male,33.63,4,no,jharkhand,17128.42608
-31,male,27.645,2,no,manipur,5031.26955
-39,female,22.8,3,no,karnataka,7985.815
-47,female,27.83,0,yes,kerala,23065.4207
-30,male,37.43,3,no,meghalaya,5428.7277
-18,male,38.17,0,yes,chhattisgarh,36307.7983
-22,female,34.58,2,no,punjab,3925.7582
-23,male,35.2,1,no,gujarat,2416.955
-33,male,27.1,1,yes,assam,19040.876
-27,male,26.03,0,no,meghalaya,3070.8087
-45,female,25.175,2,no,maharashtra,9095.06825
-57,female,31.825,0,no,puducherry,11842.62375
-47,male,32.3,1,no,maharashtra,8062.764
-42,female,29.0,1,no,chhattisgarh,7050.642
-64,female,39.7,0,no,jharkhand,14319.031
-38,female,19.475,2,no,odisha,6933.24225
-61,male,36.1,3,no,andhra pradesh,27941.28758
-53,female,26.7,2,no,goa,11150.78
-44,female,36.48,0,no,manipur,12797.20962
-19,female,28.88,0,yes,puducherry,17748.5062
-41,male,34.2,2,no,odisha,7261.741
-51,male,33.33,3,no,punjab,10560.4917
-40,male,32.3,2,no,maharashtra,6986.697
-45,male,39.805,0,no,karnataka,7448.40395
-35,male,34.32,3,no,uttar pradesh,5934.3798
-53,male,28.88,0,no,tamil nadu,9869.8102
-30,male,24.4,3,yes,maharashtra,18259.216
-18,male,41.14,0,no,goa,1146.7966
-51,male,35.97,1,no,bihar,9386.1613
-50,female,27.6,1,yes,assam,24520.264
-31,female,29.26,1,no,rajasthan,4350.5144
-35,female,27.7,3,no,odisha,6414.178
-60,male,36.955,0,no,gujarat,12741.16745
-21,male,36.86,0,no,gujarat,1917.3184
-29,male,22.515,3,no,rajasthan,5209.57885
-62,female,29.92,0,no,tamil nadu,13457.9608
-39,female,41.8,0,no,goa,5662.225
-19,male,27.6,0,no,assam,1252.407
-22,female,23.18,0,no,gujarat,2731.9122
-53,male,20.9,0,yes,goa,21195.818
-39,female,31.92,2,no,gujarat,7209.4918
-27,male,28.5,0,yes,kerala,18310.742
-30,male,44.22,2,no,kerala,4266.1658
-30,female,22.895,1,no,uttarakhand,4719.52405
-58,female,33.1,0,no,odisha,11848.141
-33,male,24.795,0,yes,goa,17904.52705
-42,female,26.18,1,no,haryana,7046.7222
-64,female,35.97,0,no,uttar pradesh,14313.8463
-21,male,22.3,1,no,haryana,2103.08
-18,female,42.24,0,yes,maharashtra,38792.6856
-23,male,26.51,0,no,uttarakhand,1815.8759
-45,female,35.815,0,no,punjab,7731.85785
-40,female,41.42,1,no,punjab,28476.73499
-19,female,36.575,0,no,delhi,2136.88225
-18,male,30.14,0,no,maharashtra,1131.5066
-25,male,25.84,1,no,odisha,3309.7926
-46,female,30.8,3,no,west bengal,9414.92
-33,female,42.94,3,no,karnataka,6360.9936
-54,male,21.01,2,no,west bengal,11013.7119
-28,male,22.515,2,no,madhya pradesh,4428.88785
-36,male,34.43,2,no,karnataka,5584.3057
-20,female,31.46,0,no,puducherry,1877.9294
-24,female,24.225,0,no,puducherry,2842.76075
-23,male,37.1,3,no,tamil nadu,3597.596
-47,female,26.125,1,yes,chhattisgarh,23401.30575
-33,female,35.53,0,yes,telangana,55135.40209
-45,male,33.7,1,no,maharashtra,7445.918
-26,male,17.67,0,no,puducherry,2680.9493
-18,female,31.13,0,no,telangana,1621.8827
-44,female,29.81,2,no,gujarat,8219.2039
-60,male,24.32,0,no,manipur,12523.6048
-64,female,31.825,2,no,odisha,16069.08475
-56,male,31.79,2,yes,bihar,43813.8661
-36,male,28.025,1,yes,jharkhand,20773.62775
-41,male,30.78,3,yes,assam,39597.4072
-39,male,21.85,1,no,jharkhand,6117.4945
-63,male,33.1,0,no,gujarat,13393.756
-36,female,25.84,0,no,goa,5266.3656
-28,female,23.845,2,no,haryana,4719.73655
-58,male,34.39,0,no,karnataka,11743.9341
-36,male,33.82,1,no,andhra pradesh,5377.4578
-42,male,35.97,2,no,uttarakhand,7160.3303
-36,male,31.5,0,no,madhya pradesh,4402.233
-56,female,28.31,0,no,rajasthan,11657.7189
-35,female,23.465,2,no,karnataka,6402.29135
-59,female,31.35,0,no,rajasthan,12622.1795
-21,male,31.1,0,no,chhattisgarh,1526.312
-59,male,24.7,0,no,karnataka,12323.936
-23,female,32.78,2,yes,chhattisgarh,36021.0112
-57,female,29.81,0,yes,jharkhand,27533.9129
-53,male,30.495,0,no,uttarakhand,10072.05505
-60,female,32.45,0,yes,karnataka,45008.9555
-51,female,34.2,1,no,himachal pradesh,9872.701
-23,male,50.38,1,no,manipur,2438.0552
-27,female,24.1,0,no,rajasthan,2974.126
-55,male,32.775,0,no,maharashtra,10601.63225
-37,female,30.78,0,yes,meghalaya,37270.1512
-61,male,32.3,2,no,jharkhand,14119.62
-46,female,35.53,0,yes,assam,42111.6647
-53,female,23.75,2,no,kerala,11729.6795
-49,female,23.845,3,yes,uttarakhand,24106.91255
-20,female,29.6,0,no,odisha,1875.344
-48,female,33.11,0,yes,gujarat,40974.1649
-25,male,24.13,0,yes,delhi,15817.9857
-25,female,32.23,1,no,kerala,18218.16139
-57,male,28.1,0,no,meghalaya,10965.446
-37,female,47.6,2,yes,odisha,46113.511
-38,female,28.0,3,no,kerala,7151.092
-55,female,33.535,2,no,odisha,12269.68865
-36,female,19.855,0,no,himachal pradesh,5458.04645
-51,male,25.4,0,no,meghalaya,8782.469
-40,male,29.9,2,no,gujarat,6600.361
-18,male,37.29,0,no,karnataka,1141.4451
-57,male,43.7,1,no,rajasthan,11576.13
-61,male,23.655,0,no,goa,13129.60345
-25,female,24.3,3,no,karnataka,4391.652
-50,male,36.2,0,no,punjab,8457.818
-26,female,29.48,1,no,andhra pradesh,3392.3652
-42,male,24.86,0,no,andhra pradesh,5966.8874
-43,male,30.1,1,no,bihar,6849.026
-44,male,21.85,3,no,andhra pradesh,8891.1395
-23,female,28.12,0,no,uttarakhand,2690.1138
-49,female,27.1,1,no,jharkhand,26140.3603
-33,male,33.44,5,no,manipur,6653.7886
-41,male,28.8,1,no,assam,6282.235
-37,female,29.5,2,no,assam,6311.952
-22,male,34.8,3,no,bihar,3443.064
-23,male,27.36,1,no,andhra pradesh,2789.0574
-21,female,22.135,0,no,puducherry,2585.85065
-51,female,37.05,3,yes,bihar,46255.1125
-25,male,26.695,4,no,west bengal,4877.98105
-32,male,28.93,1,yes,delhi,19719.6947
-57,male,28.975,0,yes,west bengal,27218.43725
-36,female,30.02,0,no,delhi,5272.1758
-22,male,39.5,0,no,meghalaya,1682.597
-57,male,33.63,1,no,manipur,11945.1327
-64,female,26.885,0,yes,tamil nadu,29330.98315
-36,female,29.04,4,no,tamil nadu,7243.8136
-54,male,24.035,0,no,chhattisgarh,10422.91665
-47,male,38.94,2,yes,uttarakhand,44202.6536
-62,male,32.11,0,no,uttarakhand,13555.0049
-61,female,44.0,0,no,goa,13063.883
-43,female,20.045,2,yes,gujarat,19798.05455
-19,male,25.555,1,no,chhattisgarh,2221.56445
-18,female,40.26,0,no,kerala,1634.5734
-19,female,22.515,0,no,puducherry,2117.33885
-49,male,22.515,0,no,goa,8688.85885
-60,male,40.92,0,yes,rajasthan,48673.5588
-26,male,27.265,3,no,maharashtra,4661.28635
-49,male,36.85,0,no,gujarat,8125.7845
-60,female,35.1,0,no,uttar pradesh,12644.589
-26,female,29.355,2,no,telangana,4564.19145
-27,male,32.585,3,no,haryana,4846.92015
-44,female,32.34,1,no,karnataka,7633.7206
-63,male,39.8,3,no,odisha,15170.069
-32,female,24.6,0,yes,haryana,17496.306
-22,male,28.31,1,no,punjab,2639.0429
-18,male,31.73,0,yes,uttar pradesh,33732.6867
-59,female,26.695,3,no,manipur,14382.70905
-44,female,27.5,1,no,jharkhand,7626.993
-33,male,24.605,2,no,manipur,5257.50795
-24,female,33.99,0,no,puducherry,2473.3341
-43,female,26.885,0,yes,jharkhand,21774.32215
-45,male,22.895,0,yes,meghalaya,35069.37452
-61,female,28.2,0,no,andhra pradesh,13041.921
-35,female,34.21,1,no,bihar,5245.2269
-62,female,25.0,0,no,odisha,13451.122
-62,female,33.2,0,no,delhi,13462.52
-38,male,31.0,1,no,maharashtra,5488.262
-34,male,35.815,0,no,west bengal,4320.41085
-43,male,23.2,0,no,odisha,6250.435
-50,male,32.11,2,no,tamil nadu,25333.33284
-19,female,23.4,2,no,himachal pradesh,2913.569
-57,female,20.1,1,no,jharkhand,12032.326
-62,female,39.16,0,no,jharkhand,13470.8044
-41,male,34.21,1,no,meghalaya,6289.7549
-26,male,46.53,1,no,puducherry,2927.0647
-39,female,32.5,1,no,haryana,6238.298
-46,male,25.8,5,no,assam,10096.97
-45,female,35.3,0,no,haryana,7348.142
-32,male,37.18,2,no,meghalaya,4673.3922
-59,female,27.5,0,no,karnataka,12233.828
-44,male,29.735,2,no,punjab,32108.66282
-39,female,24.225,5,no,haryana,8965.79575
-18,male,26.18,2,no,meghalaya,2304.0022
-53,male,29.48,0,no,uttarakhand,9487.6442
-18,male,23.21,0,no,madhya pradesh,1121.8739
-50,female,46.09,1,no,tamil nadu,9549.5651
-18,female,40.185,0,no,jharkhand,2217.46915
-19,male,22.61,0,no,assam,1628.4709
-62,male,39.93,0,no,haryana,12982.8747
-56,female,35.8,1,no,andhra pradesh,11674.13
-42,male,35.8,2,no,jharkhand,7160.094
-37,male,34.2,1,yes,punjab,39047.285
-42,male,31.255,0,no,chhattisgarh,6358.77645
-25,male,29.7,3,yes,rajasthan,19933.458
-57,male,18.335,0,no,tamil nadu,11534.87265
-51,male,42.9,2,yes,uttarakhand,47462.894
-30,female,28.405,1,no,jharkhand,4527.18295
-44,male,30.2,2,yes,manipur,38998.546
-34,male,27.835,1,yes,assam,20009.63365
-31,male,39.49,1,no,gujarat,3875.7341
-54,male,30.8,1,yes,kerala,41999.52
-24,male,26.79,1,no,madhya pradesh,12609.88702
-43,male,34.96,1,yes,manipur,41034.2214
-48,male,36.67,1,no,odisha,28468.91901
-19,female,39.615,1,no,madhya pradesh,2730.10785
-29,female,25.9,0,no,puducherry,3353.284
-63,female,35.2,1,no,telangana,14474.675
-46,male,24.795,3,no,manipur,9500.57305
-52,male,36.765,2,no,odisha,26467.09737
-35,male,27.1,1,no,punjab,4746.344
-51,male,24.795,2,yes,himachal pradesh,23967.38305
-44,male,25.365,1,no,manipur,7518.02535
-21,male,25.745,2,no,delhi,3279.86855
-39,female,34.32,5,no,kerala,8596.8278
-50,female,28.16,3,no,tamil nadu,10702.6424
-34,female,23.56,0,no,uttar pradesh,4992.3764
-22,female,20.235,0,no,punjab,2527.81865
-19,female,40.5,0,no,chhattisgarh,1759.338
-26,male,35.42,0,no,jharkhand,2322.6218
-29,male,22.895,0,yes,delhi,16138.76205
-48,male,40.15,0,no,jharkhand,7804.1605
-26,male,29.15,1,no,puducherry,2902.9065
-45,female,39.995,3,no,karnataka,9704.66805
-36,female,29.92,0,no,jharkhand,4889.0368
-54,male,25.46,1,no,west bengal,25517.11363
-34,male,21.375,0,no,west bengal,4500.33925
-31,male,25.9,3,yes,odisha,19199.944
-27,female,30.59,1,no,telangana,16796.41194
-20,male,30.115,5,no,uttarakhand,4915.05985
-44,female,25.8,1,no,kerala,7624.63
-43,male,30.115,3,no,uttar pradesh,8410.04685
-45,female,27.645,1,no,gujarat,28340.18885
-34,male,34.675,0,no,rajasthan,4518.82625
-24,female,20.52,0,yes,himachal pradesh,14571.8908
-26,female,19.8,1,no,karnataka,3378.91
-38,female,27.835,2,no,meghalaya,7144.86265
-50,female,31.6,2,no,punjab,10118.424
-38,male,28.27,1,no,rajasthan,5484.4673
-27,female,20.045,3,yes,gujarat,16420.49455
-39,female,23.275,3,no,manipur,7986.47525
-39,female,34.1,3,no,maharashtra,7418.522
-63,female,36.85,0,no,goa,13887.9685
-33,female,36.29,3,no,puducherry,6551.7501
-36,female,26.885,0,no,goa,5267.81815
-30,male,22.99,2,yes,rajasthan,17361.7661
-24,male,32.7,0,yes,rajasthan,34472.841
-24,male,25.8,0,no,assam,1972.95
-48,male,29.6,0,no,bihar,21232.18226
-47,male,19.19,1,no,delhi,8627.5411
-29,male,31.73,2,no,andhra pradesh,4433.3877
-28,male,29.26,2,no,meghalaya,4438.2634
-47,male,28.215,3,yes,assam,24915.22085
-25,male,24.985,2,no,uttar pradesh,23241.47453
-51,male,27.74,1,no,assam,9957.7216
-48,female,22.8,0,no,tamil nadu,8269.044
-43,male,20.13,2,yes,uttarakhand,18767.7377
-61,female,33.33,4,no,west bengal,36580.28216
-48,male,32.3,1,no,gujarat,8765.249
-38,female,27.6,0,no,delhi,5383.536
-59,male,25.46,0,no,meghalaya,12124.9924
-19,female,24.605,1,no,rajasthan,2709.24395
-26,female,34.2,2,no,karnataka,3987.926
-54,female,35.815,3,no,himachal pradesh,12495.29085
-21,female,32.68,2,no,andhra pradesh,26018.95052
-51,male,37.0,0,no,delhi,8798.593
-22,female,31.02,3,yes,jharkhand,35595.5898
-47,male,36.08,1,yes,rajasthan,42211.1382
-18,male,23.32,1,no,puducherry,1711.0268
-47,female,45.32,1,no,odisha,8569.8618
-21,female,34.6,0,no,meghalaya,2020.177
-19,male,26.03,1,yes,rajasthan,16450.8947
-23,male,18.715,0,no,uttarakhand,21595.38229
-54,male,31.6,0,no,manipur,9850.432
-37,female,17.29,2,no,karnataka,6877.9801
-46,female,23.655,1,yes,jharkhand,21677.28345
-55,female,35.2,0,yes,andhra pradesh,44423.803
-30,female,27.93,0,no,west bengal,4137.5227
-18,male,21.565,0,yes,uttarakhand,13747.87235
-61,male,38.38,0,no,punjab,12950.0712
-54,female,23.0,3,no,telangana,12094.478
-22,male,37.07,2,yes,gujarat,37484.4493
-45,female,30.495,1,yes,rajasthan,39725.51805
-22,male,28.88,0,no,puducherry,2250.8352
-19,male,27.265,2,no,delhi,22493.65964
-35,female,28.025,0,yes,uttarakhand,20234.85475
-18,male,23.085,0,no,himachal pradesh,1704.70015
-20,male,30.685,0,yes,maharashtra,33475.81715
-28,female,25.8,0,no,himachal pradesh,3161.454
-55,male,35.245,1,no,odisha,11394.06555
-43,female,24.7,2,yes,telangana,21880.82
-43,female,25.08,0,no,jharkhand,7325.0482
-22,male,52.58,1,yes,maharashtra,44501.3982
-25,female,22.515,1,no,haryana,3594.17085
-49,male,30.9,0,yes,rajasthan,39727.614
-44,female,36.955,1,no,gujarat,8023.13545
-64,male,26.41,0,no,andhra pradesh,14394.5579
-49,male,29.83,1,no,delhi,9288.0267
-47,male,29.8,3,yes,punjab,25309.489
-27,female,21.47,0,no,andhra pradesh,3353.4703
-55,male,27.645,0,no,tamil nadu,10594.50155
-48,female,28.9,0,no,maharashtra,8277.523
-45,female,31.79,0,no,rajasthan,17929.30337
-24,female,39.49,0,no,chhattisgarh,2480.9791
-32,male,33.82,1,no,meghalaya,4462.7218
-24,male,32.01,0,no,kerala,1981.5819
-57,male,27.94,1,no,gujarat,11554.2236
-59,male,41.14,1,yes,assam,48970.2476
-36,male,28.595,3,no,kerala,6548.19505
-29,female,25.6,4,no,telangana,5708.867
-42,female,25.3,1,no,karnataka,7045.499
-48,male,37.29,2,no,punjab,8978.1851
-39,male,42.655,0,no,west bengal,5757.41345
-63,male,21.66,1,no,karnataka,14349.8544
-54,female,31.9,1,no,himachal pradesh,10928.849
-37,male,37.07,1,yes,maharashtra,39871.7043
-63,male,31.445,0,no,gujarat,13974.45555
-21,male,31.255,0,no,uttar pradesh,1909.52745
-54,female,28.88,2,no,odisha,12096.6512
-60,female,18.335,0,no,uttar pradesh,13204.28565
-32,female,29.59,1,no,andhra pradesh,4562.8421
-47,female,32.0,1,no,jharkhand,8551.347
-21,male,26.03,0,no,meghalaya,2102.2647
-28,male,31.68,0,yes,rajasthan,34672.1472
-63,male,33.66,3,no,assam,15161.5344
-18,male,21.78,2,no,tamil nadu,11884.04858
-32,male,27.835,1,no,odisha,4454.40265
-38,male,19.95,1,no,gujarat,5855.9025
-32,male,31.5,1,no,telangana,4076.497
-62,female,30.495,2,no,chhattisgarh,15019.76005
-39,female,18.3,5,yes,haryana,19023.26
-55,male,28.975,0,no,goa,10796.35025
-57,male,31.54,0,no,meghalaya,11353.2276
-52,male,47.74,1,no,andhra pradesh,9748.9106
-56,male,22.1,0,no,uttar pradesh,10577.087
-47,male,36.19,0,yes,karnataka,41676.0811
-55,female,29.83,0,no,telangana,11286.5387
-23,male,32.7,3,no,tamil nadu,3591.48
-22,female,30.4,0,yes,tamil nadu,33907.548
-50,female,33.7,4,no,maharashtra,11299.343
-18,female,31.35,4,no,west bengal,4561.1885
-51,female,34.96,2,yes,puducherry,44641.1974
-22,male,33.77,0,no,west bengal,1674.6323
-52,female,30.875,0,no,andhra pradesh,23045.56616
-25,female,33.99,1,no,uttar pradesh,3227.1211
-33,female,19.095,2,yes,gujarat,16776.30405
-53,male,28.6,3,no,haryana,11253.421
-29,male,38.94,1,no,tamil nadu,3471.4096
-58,male,36.08,0,no,goa,11363.2832
-37,male,29.8,0,no,gujarat,20420.60465
-54,female,31.24,0,no,gujarat,10338.9316
-49,female,29.925,0,no,uttarakhand,8988.15875
-50,female,26.22,2,no,haryana,10493.9458
-26,male,30.0,1,no,delhi,2904.088
-45,male,20.35,3,no,manipur,8605.3615
-54,female,32.3,1,no,punjab,11512.405
-38,male,38.39,3,yes,kerala,41949.2441
-48,female,25.85,3,yes,manipur,24180.9335
-28,female,26.315,3,no,chhattisgarh,5312.16985
-23,male,24.51,0,no,west bengal,2396.0959
-55,male,32.67,1,no,west bengal,10807.4863
-41,male,29.64,5,no,madhya pradesh,9222.4026
-25,male,33.33,2,yes,west bengal,36124.5737
-33,male,35.75,1,yes,haryana,38282.7495
-30,female,19.95,3,no,uttarakhand,5693.4305
-23,female,31.4,0,yes,rajasthan,34166.273
-46,male,38.17,2,no,maharashtra,8347.1643
-53,female,36.86,3,yes,assam,46661.4424
-27,female,32.395,1,no,jharkhand,18903.49141
-23,female,42.75,1,yes,maharashtra,40904.1995
-63,female,25.08,0,no,manipur,14254.6082
-55,male,29.9,0,no,odisha,10214.636
-35,female,35.86,2,no,maharashtra,5836.5204
-34,male,32.8,1,no,jharkhand,14358.36437
-19,female,18.6,0,no,assam,1728.897
-39,female,23.87,5,no,karnataka,8582.3023
-27,male,45.9,2,no,haryana,3693.428
-57,male,40.28,0,no,goa,20709.02034
-52,female,18.335,0,no,west bengal,9991.03765
-28,male,33.82,0,no,west bengal,19673.33573
-50,female,28.12,3,no,uttarakhand,11085.5868
-44,female,25.0,1,no,madhya pradesh,7623.518
-26,female,22.23,0,no,uttarakhand,3176.2877
-33,male,30.25,0,no,rajasthan,3704.3545
-19,female,32.49,0,yes,rajasthan,36898.73308
-50,male,37.07,1,no,tamil nadu,9048.0273
-41,female,32.6,3,no,madhya pradesh,7954.517
-52,female,24.86,0,no,uttarakhand,27117.99378
-39,male,32.34,2,no,west bengal,6338.0756
-50,male,32.3,2,no,kerala,9630.397
-52,male,32.775,3,no,himachal pradesh,11289.10925
-60,male,32.8,0,yes,jharkhand,52590.82939
-20,female,31.92,0,no,jharkhand,2261.5688
-55,male,21.5,1,no,maharashtra,10791.96
-42,male,34.1,0,no,himachal pradesh,5979.731
-18,female,30.305,0,no,madhya pradesh,2203.73595
-58,female,36.48,0,no,delhi,12235.8392
-43,female,32.56,3,yes,rajasthan,40941.2854
-35,female,35.815,1,no,manipur,5630.45785
-48,female,27.93,4,no,maharashtra,11015.1747
-36,female,22.135,3,no,gujarat,7228.21565
-19,male,44.88,0,yes,assam,39722.7462
-23,female,23.18,2,no,maharashtra,14426.07385
-20,female,30.59,0,no,delhi,2459.7201
-32,female,41.1,0,no,puducherry,3989.841
-43,female,34.58,1,no,karnataka,7727.2532
-34,male,42.13,2,no,kerala,5124.1887
-30,male,38.83,1,no,gujarat,18963.17192
-18,female,28.215,0,no,kerala,2200.83085
-41,female,28.31,1,no,maharashtra,7153.5539
-35,female,26.125,0,no,puducherry,5227.98875
-57,male,40.37,0,no,rajasthan,10982.5013
-29,female,24.6,2,no,punjab,4529.477
-32,male,35.2,2,no,jharkhand,4670.64
-37,female,34.105,1,no,delhi,6112.35295
-18,male,27.36,1,yes,punjab,17178.6824
-43,female,26.7,2,yes,meghalaya,22478.6
-56,female,41.91,0,no,himachal pradesh,11093.6229
-38,male,29.26,2,no,meghalaya,6457.8434
-29,male,32.11,2,no,jharkhand,4433.9159
-22,female,27.1,0,no,west bengal,2154.361
-52,female,24.13,1,yes,gujarat,23887.6627
-40,female,27.4,1,no,jharkhand,6496.886
-23,female,34.865,0,no,delhi,2899.48935
-31,male,29.81,0,yes,telangana,19350.3689
-42,female,41.325,1,no,punjab,7650.77375
-24,female,29.925,0,no,karnataka,2850.68375
-25,female,30.3,0,no,uttarakhand,2632.992
-48,female,27.36,1,no,uttarakhand,9447.3824
-23,female,28.49,1,yes,delhi,18328.2381
-45,male,23.56,2,no,delhi,8603.8234
-20,male,35.625,3,yes,andhra pradesh,37465.34375
-62,female,32.68,0,no,gujarat,13844.7972
-43,female,25.27,1,yes,himachal pradesh,21771.3423
-23,female,28.0,0,no,andhra pradesh,13126.67745
-31,female,32.775,2,no,kerala,5327.40025
-41,female,21.755,1,no,west bengal,13725.47184
-58,female,32.395,1,no,rajasthan,13019.16105
-48,female,36.575,0,no,rajasthan,8671.19125
-31,female,21.755,0,no,west bengal,4134.08245
-19,female,27.93,3,no,assam,18838.70366
-19,female,30.02,0,yes,jharkhand,33307.5508
-41,male,33.55,0,no,haryana,5699.8375
-40,male,29.355,1,no,andhra pradesh,6393.60345
-31,female,25.8,2,no,telangana,4934.705
-37,male,24.32,2,no,punjab,6198.7518
-46,male,40.375,2,no,west bengal,8733.22925
-22,male,32.11,0,no,chhattisgarh,2055.3249
-51,male,32.3,1,no,manipur,9964.06
-18,female,27.28,3,yes,maharashtra,18223.4512
-35,male,17.86,1,no,jharkhand,5116.5004
-59,female,34.8,2,no,west bengal,36910.60803
-36,male,33.4,2,yes,andhra pradesh,38415.474
-37,female,25.555,1,yes,telangana,20296.86345
-59,male,37.1,1,no,telangana,12347.172
-36,male,30.875,1,no,delhi,5373.36425
-39,male,34.1,2,no,bihar,23563.01618
-18,male,21.47,0,no,delhi,1702.4553
-52,female,33.3,2,no,gujarat,10806.839
-27,female,31.255,1,no,meghalaya,3956.07145
-18,male,39.14,0,no,gujarat,12890.05765
-40,male,25.08,0,no,west bengal,5415.6612
-29,male,37.29,2,no,kerala,4058.1161
-46,female,34.6,1,yes,odisha,41661.602
-38,female,30.21,3,no,uttar pradesh,7537.1639
-30,female,21.945,1,no,puducherry,4718.20355
-40,male,24.97,2,no,uttarakhand,6593.5083
-50,male,25.3,0,no,haryana,8442.667
-20,female,24.42,0,yes,west bengal,26125.67477
-41,male,23.94,1,no,uttar pradesh,6858.4796
-33,female,39.82,1,no,puducherry,4795.6568
-38,male,16.815,2,no,andhra pradesh,6640.54485
-42,male,37.18,2,no,assam,7162.0122
-56,male,34.43,0,no,maharashtra,10594.2257
-58,male,30.305,0,no,haryana,11938.25595
-52,male,34.485,3,yes,gujarat,60021.39897
-20,female,21.8,0,yes,goa,20167.33603
-54,female,24.605,3,no,haryana,12479.70895
-58,male,23.3,0,no,delhi,11345.519
-45,female,27.83,2,no,puducherry,8515.7587
-26,male,31.065,0,no,assam,2699.56835
-63,female,21.66,0,no,manipur,14449.8544
-58,female,28.215,0,no,maharashtra,12224.35085
-37,male,22.705,3,no,puducherry,6985.50695
-25,female,42.13,1,no,assam,3238.4357
-52,male,41.8,2,yes,uttarakhand,47269.854
-64,male,36.96,2,yes,west bengal,49577.6624
-22,female,21.28,3,no,jharkhand,4296.2712
-28,female,33.11,0,no,goa,3171.6149
-18,male,33.33,0,no,jharkhand,1135.9407
-28,male,24.3,5,no,uttar pradesh,5615.369
-45,female,25.7,3,no,goa,9101.798
-33,male,29.4,4,no,uttar pradesh,6059.173
-18,female,39.82,0,no,kerala,1633.9618
-32,male,33.63,1,yes,himachal pradesh,37607.5277
-24,male,29.83,0,yes,manipur,18648.4217
-19,male,19.8,0,no,goa,1241.565
-20,male,27.3,0,yes,uttar pradesh,16232.847
-40,female,29.3,4,no,tamil nadu,15828.82173
-34,female,27.72,0,no,himachal pradesh,4415.1588
-42,female,37.9,0,no,manipur,6474.013
-51,female,36.385,3,no,andhra pradesh,11436.73815
-54,female,27.645,1,no,rajasthan,11305.93455
-55,male,37.715,3,no,karnataka,30063.58055
-52,female,23.18,0,no,madhya pradesh,10197.7722
-32,female,20.52,0,no,chhattisgarh,4544.2348
-28,male,37.1,1,no,karnataka,3277.161
-41,female,28.05,1,no,odisha,6770.1925
-43,female,29.9,1,no,andhra pradesh,7337.748
-49,female,33.345,2,no,telangana,10370.91255
-64,male,23.76,0,yes,uttarakhand,26926.5144
-55,female,30.5,0,no,puducherry,10704.47
-24,male,31.065,0,yes,meghalaya,34254.05335
-20,female,33.3,0,no,manipur,1880.487
-45,male,27.5,3,no,madhya pradesh,8615.3
-26,male,33.915,1,no,himachal pradesh,3292.52985
-25,female,34.485,0,no,rajasthan,3021.80915
-43,male,25.52,5,no,goa,14478.33015
-35,male,27.61,1,no,meghalaya,4747.0529
-26,male,27.06,0,yes,maharashtra,17043.3414
-57,male,23.7,0,no,odisha,10959.33
-22,female,30.4,0,no,andhra pradesh,2741.948
-32,female,29.735,0,no,puducherry,4357.04365
-39,male,29.925,1,yes,chhattisgarh,22462.04375
-25,female,26.79,2,no,goa,4189.1131
-48,female,33.33,0,no,odisha,8283.6807
-47,female,27.645,2,yes,madhya pradesh,24535.69855
-18,female,21.66,0,yes,odisha,14283.4594
-18,male,30.03,1,no,himachal pradesh,1720.3537
-61,male,36.3,1,yes,uttar pradesh,47403.88
-47,female,24.32,0,no,odisha,8534.6718
-28,female,17.29,0,no,himachal pradesh,3732.6251
-36,female,25.9,1,no,puducherry,5472.449
-20,male,39.4,2,yes,puducherry,38344.566
-44,male,34.32,1,no,west bengal,7147.4728
-38,female,19.95,2,no,odisha,7133.9025
-19,male,34.9,0,yes,madhya pradesh,34828.654
-21,male,23.21,0,no,maharashtra,1515.3449
-46,male,25.745,3,no,punjab,9301.89355
-58,male,25.175,0,no,assam,11931.12525
-20,male,22.0,1,no,uttarakhand,1964.78
-18,male,26.125,0,no,meghalaya,1708.92575
-28,female,26.51,2,no,uttarakhand,4340.4409
-33,male,27.455,2,no,odisha,5261.46945
-19,female,25.745,1,no,punjab,2710.82855
-45,male,30.36,0,yes,bihar,62592.87309
-62,male,30.875,3,yes,west bengal,46718.16325
-25,female,20.8,1,no,uttarakhand,3208.787
-43,male,27.8,0,yes,chhattisgarh,37829.7242
-42,male,24.605,2,yes,maharashtra,21259.37795
-24,female,27.72,0,no,haryana,2464.6188
-29,female,21.85,0,yes,uttarakhand,16115.3045
-32,male,28.12,4,yes,jharkhand,21472.4788
-25,female,30.2,0,yes,chhattisgarh,33900.653
-41,male,32.2,2,no,karnataka,6875.961
-42,male,26.315,1,no,puducherry,6940.90985
-33,female,26.695,0,no,odisha,4571.41305
-34,male,42.9,1,no,chhattisgarh,4536.259
-19,female,34.7,2,yes,rajasthan,36397.576
-30,female,23.655,3,yes,uttarakhand,18765.87545
-18,male,28.31,1,no,delhi,11272.33139
-19,female,20.6,0,no,maharashtra,1731.677
-18,male,53.13,0,no,west bengal,1163.4627
-35,male,39.71,4,no,assam,19496.71917
-39,female,26.315,2,no,madhya pradesh,7201.70085
-31,male,31.065,3,no,tamil nadu,5425.02335
-62,male,26.695,0,yes,kerala,28101.33305
-62,male,38.83,0,no,kerala,12981.3457
-42,female,40.37,2,yes,uttarakhand,43896.3763
-31,male,25.935,1,no,haryana,4239.89265
-61,male,33.535,0,no,karnataka,13143.33665
-42,female,32.87,0,no,maharashtra,7050.0213
-51,male,30.03,1,no,assam,9377.9047
-23,female,24.225,2,no,assam,22395.74424
-52,male,38.6,2,no,chhattisgarh,10325.206
-57,female,25.74,2,no,madhya pradesh,12629.1656
-23,female,33.4,0,no,west bengal,10795.93733
-52,female,44.7,3,no,maharashtra,11411.685
-50,male,30.97,3,no,manipur,10600.5483
-18,female,31.92,0,no,assam,2205.9808
-18,female,36.85,0,no,tamil nadu,1629.8335
-21,female,25.8,0,no,meghalaya,2007.945
-61,female,29.07,0,yes,assam,29141.3603
+age,sex,bmi,children,smoker,state,sum_insured,policy_term,room_type,deductible,copay,ncb,riders,charges,new_premium
+19,female,27.9,0,yes,madhya pradesh,10_lakhs,1_year,general,25000,0,33,basic,16884.924,25852.03
+18,male,33.77,1,no,himachal pradesh,1_crore,1_year,general,0,10,0,comprehensive,1725.5523,9100.73
+28,male,33.0,3,no,jharkhand,15_lakhs,1_year,general,100000,10,25,basic,4449.462,5707.09
+33,male,22.705,0,no,andhra pradesh,10_lakhs,1_year,general,100000,0,33,basic,21984.47061,18514.99
+32,male,28.88,0,no,west bengal,5_lakhs,3_year,general,0,0,25,none,3866.8552,1568.49
+31,female,25.74,0,no,goa,5_lakhs,2_year,semi_private,0,25,33,none,3756.6216,1573.52
+46,female,33.44,1,no,madhya pradesh,5_lakhs,2_year,general,0,20,25,comprehensive,8240.5896,7808.52
+37,female,27.74,3,no,uttarakhand,25_lakhs,1_year,general,0,0,0,none,7281.5056,15688.73
+37,male,29.83,2,no,assam,15_lakhs,1_year,general,50000,10,33,none,6406.4107,6550.67
+60,female,25.84,0,no,andhra pradesh,15_lakhs,1_year,general,50000,0,0,comprehensive,28923.13692,47345.67
+25,male,26.22,0,no,andhra pradesh,5_lakhs,3_year,general,50000,10,25,none,2721.3208,658.21
+62,female,26.29,0,yes,meghalaya,1_crore,1_year,general,50000,10,33,premium,27808.7251,99081.09
+23,male,34.4,0,no,goa,25_lakhs,3_year,general,0,10,0,premium,1826.843,7520.38
+56,female,39.82,0,no,delhi,5_lakhs,1_year,general,0,25,0,none,11090.7178,15687.82
+27,male,42.13,0,yes,west bengal,5_lakhs,1_year,general,50000,10,20,none,39611.7577,47111.82
+19,male,24.6,1,no,meghalaya,5_lakhs,2_year,semi_private,0,0,33,comprehensive,1837.237,4286.54
+52,female,30.78,1,no,tamil nadu,10_lakhs,1_year,general,50000,15,45,basic,10797.3362,14093.14
+23,male,23.845,0,no,puducherry,10_lakhs,3_year,general,0,0,20,none,2395.17155,1157.84
+56,male,40.3,0,no,goa,10_lakhs,3_year,private,0,0,25,comprehensive,10602.385,11563.57
+30,male,35.3,0,yes,karnataka,10_lakhs,1_year,general,200000,0,45,none,36837.467,43745.41
+60,female,36.005,0,no,meghalaya,15_lakhs,1_year,semi_private,0,0,0,comprehensive,13228.84695,32312.43
+30,female,32.4,1,no,telangana,5_lakhs,1_year,general,200000,15,0,none,4149.736,2474.44
+18,male,34.1,0,no,rajasthan,10_lakhs,3_year,semi_private,200000,0,33,none,1137.011,320.76
+34,female,31.92,1,yes,karnataka,10_lakhs,1_year,semi_private,50000,15,33,none,37701.8768,53094.22
+37,male,28.025,2,no,goa,10_lakhs,2_year,general,50000,10,45,premium,6203.90175,9161.53
+59,female,27.72,3,no,maharashtra,25_lakhs,2_year,private,25000,0,20,comprehensive,14001.1338,21948.5
+63,female,23.085,0,no,telangana,5_lakhs,2_year,general,100000,15,0,comprehensive,14451.83515,9643.98
+55,female,32.775,2,no,puducherry,10_lakhs,1_year,general,0,0,20,basic,12268.63225,23087.76
+23,male,17.385,1,no,telangana,10_lakhs,2_year,semi_private,25000,0,0,none,2775.19215,1893.51
+31,male,36.3,2,yes,manipur,5_lakhs,3_year,semi_private,25000,10,0,none,38711.0,17213.13
+22,male,35.6,0,yes,odisha,15_lakhs,1_year,general,0,0,33,basic,35585.576,85839.95
+18,female,26.315,0,no,kerala,5_lakhs,1_year,general,0,0,0,basic,2198.18985,3742.15
+19,female,28.6,5,no,bihar,5_lakhs,3_year,general,0,10,33,basic,4687.797,2942.13
+63,male,28.31,0,no,jharkhand,50_lakhs,1_year,general,25000,10,20,none,13770.0979,34586.97
+28,male,36.4,1,yes,jharkhand,1_crore,3_year,semi_private,100000,0,25,premium,51194.55914,70389.04
+19,male,20.425,0,no,uttarakhand,25_lakhs,1_year,general,0,25,0,none,1625.43375,2532.43
+62,female,32.965,3,no,telangana,10_lakhs,1_year,general,100000,10,0,premium,15612.19335,25409.73
+26,male,20.8,0,no,assam,5_lakhs,3_year,general,50000,20,0,none,2302.3,496.77
+35,male,36.67,1,yes,himachal pradesh,15_lakhs,1_year,general,50000,0,50,basic,39774.2763,61037.32
+60,male,39.9,0,yes,manipur,10_lakhs,1_year,general,25000,10,33,none,48173.361,84584.73
+24,female,26.6,0,no,tamil nadu,5_lakhs,1_year,semi_private,50000,20,20,basic,3046.062,3529.25
+31,female,36.63,2,no,gujarat,10_lakhs,1_year,private,0,10,0,basic,4949.7587,9467.29
+41,male,21.78,1,no,uttarakhand,5_lakhs,1_year,semi_private,50000,15,45,basic,6272.4772,5344.35
+37,female,30.8,2,no,madhya pradesh,50_lakhs,1_year,general,0,0,0,basic,6313.759,21814.75
+38,male,37.05,1,no,goa,10_lakhs,3_year,private,100000,0,0,comprehensive,6079.6715,6292.21
+55,male,37.3,0,no,uttar pradesh,15_lakhs,1_year,semi_private,200000,0,25,comprehensive,20630.28351,28311.31
+18,female,38.665,2,no,madhya pradesh,10_lakhs,2_year,semi_private,0,0,45,comprehensive,3393.35635,5899.47
+28,female,34.77,0,no,chhattisgarh,10_lakhs,1_year,general,0,20,0,none,3556.9223,4205.65
+60,female,24.53,0,no,delhi,10_lakhs,2_year,general,50000,0,0,basic,12629.8967,11436.44
+36,male,35.2,1,yes,manipur,5_lakhs,1_year,general,0,25,45,basic,38709.176,44578.68
+18,female,35.625,0,no,haryana,1_crore,3_year,general,100000,25,0,basic,2211.13075,3403.78
+21,female,33.63,2,no,chhattisgarh,25_lakhs,1_year,general,0,0,0,basic,3579.8287,8877.31
+48,male,28.0,1,yes,uttar pradesh,50_lakhs,1_year,general,0,0,25,none,23568.272,98561.54
+36,male,34.43,0,yes,goa,50_lakhs,1_year,general,200000,20,45,none,37742.5757,74670.53
+40,female,28.69,3,no,karnataka,10_lakhs,1_year,semi_private,50000,25,20,none,8059.6791,8073.86
+58,male,36.955,2,yes,himachal pradesh,50_lakhs,1_year,general,100000,0,50,none,47496.49445,130702.75
+58,female,31.825,2,no,jharkhand,5_lakhs,1_year,general,0,0,25,comprehensive,13607.36875,19799.45
+18,male,31.68,2,yes,madhya pradesh,5_lakhs,2_year,private,50000,10,0,comprehensive,34303.1672,22558.17
+53,female,22.88,1,yes,telangana,5_lakhs,1_year,private,25000,10,50,premium,23244.7902,33993.24
+34,female,37.335,2,no,west bengal,10_lakhs,1_year,semi_private,25000,0,20,comprehensive,5989.52365,11962.01
+43,male,27.36,3,no,jharkhand,10_lakhs,2_year,private,50000,15,0,none,8606.2174,4604.61
+25,male,33.66,4,no,tamil nadu,10_lakhs,2_year,general,25000,0,25,comprehensive,4504.6624,6701.38
+64,male,24.7,1,no,haryana,25_lakhs,1_year,private,0,0,0,comprehensive,30166.61817,78916.55
+28,female,25.935,1,no,odisha,10_lakhs,1_year,general,0,0,0,basic,4133.64165,6801.4
+20,female,22.42,0,yes,delhi,10_lakhs,1_year,general,50000,0,0,basic,14711.7438,25481.98
+19,female,28.9,0,no,chhattisgarh,10_lakhs,2_year,general,0,0,20,premium,1743.214,7167.38
+61,female,39.1,2,no,west bengal,5_lakhs,2_year,general,50000,0,33,basic,14235.072,9914.08
+40,male,26.315,1,no,delhi,25_lakhs,1_year,general,0,0,25,premium,6389.37785,20760.23
+40,female,36.19,0,no,karnataka,5_lakhs,2_year,semi_private,25000,0,50,none,5920.1041,3158.56
+28,male,23.98,3,yes,rajasthan,1_crore,2_year,semi_private,50000,0,0,none,17663.1442,34385.85
+27,female,24.75,0,yes,puducherry,25_lakhs,1_year,semi_private,0,25,0,basic,16577.7795,38801.33
+31,male,28.5,5,no,kerala,5_lakhs,3_year,general,0,0,0,basic,6799.458,4300.85
+53,female,28.1,3,no,delhi,5_lakhs,1_year,semi_private,0,0,0,comprehensive,11741.726,21222.67
+58,male,32.01,1,no,puducherry,25_lakhs,1_year,semi_private,25000,10,0,premium,11946.6259,31635.17
+44,male,27.4,2,no,chhattisgarh,15_lakhs,1_year,general,100000,25,33,basic,7726.854,8294.09
+57,male,34.01,0,no,telangana,15_lakhs,1_year,semi_private,0,0,45,none,11356.6609,24528.68
+29,female,29.59,1,no,karnataka,25_lakhs,1_year,general,50000,10,50,comprehensive,3947.4131,8624.94
+21,male,35.53,0,no,kerala,5_lakhs,3_year,general,0,15,0,basic,1532.4697,2134.87
+22,female,39.805,0,no,delhi,10_lakhs,1_year,private,25000,10,45,none,2755.02095,3411.64
+41,female,32.965,0,no,haryana,5_lakhs,1_year,general,100000,0,0,basic,6571.02435,7001.26
+31,male,26.885,1,no,bihar,25_lakhs,1_year,general,0,10,0,comprehensive,4441.21315,11018.09
+45,female,38.285,0,no,jharkhand,15_lakhs,3_year,private,25000,0,45,comprehensive,7935.29115,8119.32
+22,male,37.62,1,yes,west bengal,10_lakhs,1_year,semi_private,0,10,25,basic,37165.1638,79388.55
+48,female,41.23,4,no,haryana,5_lakhs,1_year,general,0,15,0,none,11033.6617,13399.28
+37,female,34.8,2,yes,assam,10_lakhs,1_year,general,0,0,20,premium,39836.519,82136.21
+45,male,22.895,2,yes,manipur,10_lakhs,1_year,general,0,15,0,comprehensive,21098.55405,39012.21
+57,female,31.16,0,yes,west bengal,15_lakhs,3_year,semi_private,25000,0,33,basic,43578.9394,46284.58
+56,female,27.2,0,no,goa,15_lakhs,3_year,general,0,15,20,none,11073.176,8096.13
+46,female,27.74,0,no,bihar,50_lakhs,1_year,general,25000,0,50,comprehensive,8026.6666,20477.63
+55,female,26.98,0,no,punjab,10_lakhs,3_year,private,0,0,0,none,11082.5772,7193.02
+21,female,39.49,0,no,chhattisgarh,5_lakhs,2_year,general,0,0,0,none,2026.9741,1209.61
+53,female,24.795,1,no,jharkhand,15_lakhs,3_year,general,50000,25,20,basic,10942.13205,6165.62
+59,male,29.83,3,yes,goa,25_lakhs,1_year,general,200000,0,20,none,30184.9367,60858.78
+35,male,34.77,2,no,meghalaya,10_lakhs,1_year,semi_private,0,0,0,basic,5729.0053,9122.79
+64,female,31.3,2,yes,manipur,25_lakhs,1_year,general,100000,0,33,none,47291.055,95434.11
+28,female,37.62,1,no,punjab,10_lakhs,2_year,general,25000,10,45,comprehensive,3766.8838,5692.56
+54,female,30.8,3,no,uttar pradesh,10_lakhs,1_year,semi_private,25000,10,45,none,12105.32,14447.32
+55,male,38.28,0,no,jharkhand,10_lakhs,1_year,general,25000,0,33,none,10226.2842,14574.45
+56,male,19.95,0,yes,punjab,5_lakhs,1_year,general,0,0,45,none,22412.6485,33338.81
+38,male,19.3,0,yes,maharashtra,5_lakhs,2_year,general,0,0,25,premium,15820.699,19828.86
+41,female,31.6,0,no,manipur,5_lakhs,1_year,general,25000,0,33,comprehensive,6186.127,8863.88
+30,male,25.46,0,no,madhya pradesh,15_lakhs,2_year,general,0,0,0,none,3645.0894,3088.47
+18,female,30.115,0,no,uttar pradesh,10_lakhs,3_year,general,100000,15,0,comprehensive,21344.8467,10245.14
+61,female,29.92,3,yes,meghalaya,10_lakhs,1_year,general,0,0,0,basic,30942.1918,69045.26
+34,female,27.5,1,no,maharashtra,50_lakhs,2_year,general,0,0,20,premium,5003.853,14687.64
+20,male,28.025,1,yes,telangana,5_lakhs,1_year,semi_private,50000,0,0,basic,17560.37975,22796.35
+19,female,28.4,1,no,west bengal,10_lakhs,3_year,private,0,25,50,comprehensive,2331.519,4400.57
+26,male,30.875,2,no,meghalaya,25_lakhs,1_year,semi_private,25000,25,0,none,3877.30425,5327.13
+29,male,27.94,0,no,andhra pradesh,5_lakhs,2_year,private,50000,15,0,basic,2867.1196,2552.53
+63,male,35.09,0,yes,uttarakhand,5_lakhs,2_year,general,100000,0,20,premium,47055.5321,37334.22
+54,male,33.63,1,no,odisha,10_lakhs,3_year,private,50000,0,0,basic,10825.2537,7106.75
+55,female,29.7,2,no,west bengal,5_lakhs,2_year,general,50000,0,0,none,11881.358,6827.77
+37,male,30.8,0,no,tamil nadu,50_lakhs,1_year,private,50000,0,0,none,4646.759,12983.86
+21,female,35.72,0,no,tamil nadu,25_lakhs,2_year,private,100000,10,20,comprehensive,2404.7338,5449.5
+52,male,32.205,3,no,maharashtra,15_lakhs,3_year,semi_private,0,15,20,basic,11488.31695,11312.94
+60,male,28.595,0,no,gujarat,50_lakhs,1_year,private,0,20,33,basic,30259.99556,93377.97
+58,male,49.06,0,no,kerala,25_lakhs,1_year,semi_private,0,15,33,premium,11381.3254,33582.87
+29,female,27.94,1,yes,madhya pradesh,5_lakhs,3_year,general,0,0,20,none,19107.7796,9749.93
+49,female,27.17,0,no,uttar pradesh,50_lakhs,2_year,general,50000,10,0,none,8601.3293,10304.14
+37,female,23.37,2,no,madhya pradesh,10_lakhs,2_year,semi_private,25000,0,0,premium,6686.4313,10255.23
+44,male,37.1,2,no,uttar pradesh,25_lakhs,1_year,general,25000,0,33,none,7740.337,15525.8
+18,male,23.75,0,no,west bengal,50_lakhs,2_year,semi_private,0,15,0,none,1705.6245,2453.44
+20,female,28.975,0,no,telangana,10_lakhs,1_year,private,50000,0,0,basic,2257.47525,4139.98
+44,male,31.35,1,yes,karnataka,5_lakhs,2_year,general,0,0,33,comprehensive,39556.4945,42364.27
+47,female,33.915,3,no,maharashtra,5_lakhs,1_year,semi_private,50000,0,20,none,10115.00885,10674.93
+26,female,28.785,0,no,bihar,10_lakhs,2_year,private,25000,10,0,premium,3385.39915,7866.19
+19,female,28.3,0,yes,assam,25_lakhs,3_year,private,0,15,0,comprehensive,17081.08,18457.35
+52,female,37.4,0,no,assam,25_lakhs,1_year,private,0,0,45,none,9634.538,21619.9
+32,female,17.765,2,yes,meghalaya,5_lakhs,3_year,general,0,15,45,comprehensive,32734.1863,15102.2
+38,male,34.7,2,no,gujarat,10_lakhs,1_year,private,100000,0,33,basic,6082.405,7775.24
+59,female,26.505,0,no,tamil nadu,10_lakhs,3_year,semi_private,100000,0,20,basic,12815.44495,7149.81
+61,female,22.04,0,no,telangana,5_lakhs,2_year,general,25000,15,20,comprehensive,13616.3586,10691.46
+53,female,35.9,2,no,west bengal,5_lakhs,1_year,general,0,10,50,premium,11163.568,19310.55
+19,male,25.555,0,no,puducherry,10_lakhs,2_year,semi_private,0,25,50,none,1632.56445,765.88
+20,female,28.785,0,no,tamil nadu,50_lakhs,3_year,general,50000,0,0,basic,2457.21115,3792.29
+22,female,28.05,0,no,maharashtra,10_lakhs,1_year,semi_private,50000,10,33,basic,2155.6815,3682.21
+19,male,34.1,0,no,tamil nadu,10_lakhs,1_year,semi_private,0,10,0,basic,1261.442,3430.19
+22,male,25.175,0,no,gujarat,15_lakhs,2_year,general,0,20,0,basic,2045.68525,3174.92
+54,female,31.9,3,no,jharkhand,10_lakhs,2_year,semi_private,50000,0,25,none,27322.73386,17912.09
+22,female,36.0,0,no,haryana,1_crore,2_year,semi_private,0,15,20,comprehensive,2166.732,7612.34
+34,male,22.42,2,no,tamil nadu,1_crore,2_year,general,0,10,45,basic,27375.90478,46051.7
+26,male,32.49,1,no,maharashtra,10_lakhs,1_year,general,0,0,0,none,3490.5491,6069.37
+34,male,25.3,2,yes,gujarat,10_lakhs,2_year,general,25000,0,20,comprehensive,18972.495,20403.66
+29,male,29.735,2,no,assam,10_lakhs,1_year,general,100000,0,45,comprehensive,18157.876,16014.2
+30,male,28.69,3,yes,haryana,10_lakhs,1_year,private,200000,10,45,basic,20745.9891,19207.4
+29,female,38.83,3,no,madhya pradesh,5_lakhs,1_year,general,25000,20,0,none,5138.2567,4232.13
+46,male,30.495,3,yes,uttar pradesh,15_lakhs,1_year,semi_private,25000,10,0,basic,40720.55105,91506.08
+51,female,37.73,1,no,jharkhand,10_lakhs,1_year,general,0,10,25,none,9877.6077,15744.74
+53,female,37.43,1,no,jharkhand,5_lakhs,1_year,general,25000,10,0,none,10959.6947,11827.26
+19,male,28.4,1,no,kerala,10_lakhs,2_year,semi_private,0,0,50,comprehensive,1842.519,4652.0
+35,male,24.13,1,no,punjab,50_lakhs,1_year,semi_private,25000,0,45,none,5125.2157,10368.31
+48,male,29.7,0,no,uttarakhand,5_lakhs,1_year,general,0,0,0,none,7789.635,8935.69
+32,female,37.145,3,no,madhya pradesh,5_lakhs,1_year,general,0,0,0,none,6334.34355,7221.15
+42,female,23.37,0,yes,odisha,10_lakhs,1_year,general,0,0,0,none,19964.7463,41223.71
+40,female,25.46,1,no,himachal pradesh,1_crore,1_year,general,0,10,45,none,7077.1894,18827.9
+44,male,39.52,0,no,delhi,5_lakhs,1_year,semi_private,0,0,0,premium,6948.7008,17027.59
+48,male,24.42,0,yes,gujarat,15_lakhs,2_year,general,0,0,20,none,21223.6758,31268.43
+18,male,25.175,0,yes,assam,25_lakhs,2_year,general,200000,0,20,none,15518.18025,10799.31
+30,male,35.53,0,yes,madhya pradesh,5_lakhs,2_year,general,0,0,25,none,36950.2567,29645.69
+50,female,27.83,3,no,punjab,15_lakhs,1_year,private,25000,20,0,premium,19749.38338,34429.06
+42,female,26.6,0,yes,jharkhand,10_lakhs,1_year,private,100000,20,0,basic,21348.706,25085.84
+18,female,36.85,0,yes,andhra pradesh,15_lakhs,3_year,general,200000,15,45,basic,36149.4835,17038.62
+54,male,39.6,1,no,delhi,15_lakhs,1_year,semi_private,25000,0,45,comprehensive,10450.552,24990.68
+32,female,29.8,2,no,punjab,10_lakhs,1_year,general,50000,15,33,basic,5152.134,5838.07
+37,male,29.64,0,no,madhya pradesh,5_lakhs,1_year,general,0,15,0,none,5028.1466,4766.8
+47,male,28.215,4,no,uttarakhand,25_lakhs,1_year,semi_private,0,15,0,none,10407.08585,21011.28
+20,female,37.0,5,no,puducherry,10_lakhs,1_year,private,0,0,25,basic,4830.63,8632.27
+32,female,33.155,3,no,karnataka,5_lakhs,1_year,private,50000,10,0,none,6128.79745,5304.69
+19,female,31.825,1,no,kerala,5_lakhs,1_year,semi_private,50000,15,45,comprehensive,2719.27975,5242.75
+27,male,18.905,3,no,punjab,10_lakhs,1_year,general,0,10,25,none,4827.90495,5576.52
+63,male,41.47,0,no,manipur,15_lakhs,2_year,semi_private,0,10,0,basic,13405.3903,16019.56
+49,male,30.3,0,no,goa,5_lakhs,2_year,general,25000,0,45,none,8116.68,4286.96
+18,male,15.96,0,no,rajasthan,10_lakhs,2_year,semi_private,0,10,50,none,1694.7964,892.04
+35,female,34.8,1,no,telangana,5_lakhs,2_year,general,25000,0,0,basic,5246.047,4469.55
+24,female,33.345,0,no,telangana,15_lakhs,3_year,semi_private,50000,10,20,premium,2855.43755,7463.41
+63,female,37.7,0,yes,himachal pradesh,5_lakhs,1_year,general,50000,0,0,basic,48824.45,70708.66
+38,male,27.835,2,no,andhra pradesh,15_lakhs,1_year,general,50000,0,0,comprehensive,6455.86265,12378.48
+54,male,29.2,1,no,assam,10_lakhs,1_year,private,100000,0,0,none,10436.096,10577.11
+46,female,28.9,2,no,manipur,50_lakhs,2_year,general,25000,10,25,none,8823.279,10319.91
+41,female,33.155,3,no,madhya pradesh,5_lakhs,3_year,general,50000,0,50,none,8538.28845,2410.95
+58,male,28.595,0,no,maharashtra,10_lakhs,1_year,general,25000,10,20,none,11735.87905,17765.48
+18,female,38.28,0,no,maharashtra,5_lakhs,3_year,general,0,15,0,none,1631.8212,762.19
+22,male,19.95,3,no,manipur,50_lakhs,1_year,general,0,0,25,none,4005.4225,9178.51
+44,female,26.41,0,no,manipur,50_lakhs,3_year,general,0,0,0,comprehensive,7419.4779,11586.09
+44,male,30.69,2,no,himachal pradesh,10_lakhs,1_year,private,0,0,45,none,7731.4271,10284.21
+36,male,41.895,3,yes,punjab,15_lakhs,1_year,general,25000,20,20,basic,43753.33705,91406.2
+26,female,29.92,2,no,uttar pradesh,25_lakhs,1_year,private,100000,10,0,basic,3981.9768,6250.54
+30,female,30.9,3,no,tamil nadu,10_lakhs,1_year,semi_private,0,0,0,basic,5325.651,10357.62
+41,female,32.2,1,no,madhya pradesh,10_lakhs,1_year,general,0,0,33,basic,6775.961,11573.65
+29,female,32.11,2,no,rajasthan,5_lakhs,1_year,semi_private,200000,10,0,none,4922.9159,2734.12
+61,male,31.57,0,no,west bengal,5_lakhs,2_year,general,0,20,33,none,12557.6053,7851.42
+36,female,26.2,0,no,uttar pradesh,50_lakhs,1_year,semi_private,25000,15,0,comprehensive,4883.866,13994.72
+25,male,25.74,0,no,gujarat,50_lakhs,1_year,general,25000,10,0,comprehensive,2137.6536,8555.05
+56,female,26.6,1,no,maharashtra,15_lakhs,2_year,general,25000,0,20,none,12044.342,12469.4
+18,male,34.43,0,no,uttarakhand,10_lakhs,2_year,private,0,0,45,none,1137.4697,750.69
+19,male,30.59,0,no,kerala,10_lakhs,1_year,private,0,0,45,comprehensive,1639.5631,5649.31
+39,female,32.8,0,no,telangana,15_lakhs,1_year,private,0,0,0,none,5649.715,12403.52
+45,female,28.6,2,no,meghalaya,50_lakhs,1_year,general,25000,0,0,basic,8516.829,23038.96
+51,female,18.05,0,no,jharkhand,50_lakhs,1_year,semi_private,25000,0,0,basic,9644.2525,27896.32
+64,female,39.33,0,no,puducherry,25_lakhs,2_year,general,0,0,20,none,14901.5167,22497.26
+19,female,32.11,0,no,meghalaya,15_lakhs,1_year,general,25000,20,20,basic,2130.6759,3878.28
+48,female,32.23,1,no,uttar pradesh,5_lakhs,1_year,general,50000,10,45,basic,8871.1517,7866.31
+60,female,24.035,0,no,himachal pradesh,5_lakhs,2_year,semi_private,0,15,45,none,13012.20865,5918.8
+27,female,36.08,0,yes,odisha,50_lakhs,1_year,general,25000,15,0,basic,37133.8982,125626.09
+46,male,22.3,0,no,odisha,15_lakhs,1_year,general,50000,0,20,comprehensive,7147.105,12679.53
+28,female,28.88,1,no,himachal pradesh,5_lakhs,1_year,private,0,15,45,basic,4337.7352,4566.17
+59,male,26.4,0,no,telangana,5_lakhs,3_year,general,0,0,33,none,11743.299,5589.36
+35,male,27.74,2,yes,madhya pradesh,15_lakhs,1_year,general,25000,10,0,basic,20984.0936,39311.32
+63,female,31.8,0,no,karnataka,5_lakhs,2_year,general,100000,0,0,comprehensive,13880.949,11147.28
+40,male,41.23,1,no,tamil nadu,5_lakhs,1_year,private,50000,25,20,comprehensive,6610.1097,9005.61
+20,male,33.0,1,no,odisha,10_lakhs,1_year,general,25000,0,0,basic,1980.07,3917.55
+40,male,30.875,4,no,gujarat,15_lakhs,2_year,general,50000,0,0,none,8162.71625,7133.02
+24,male,28.5,2,no,odisha,15_lakhs,3_year,semi_private,0,20,0,comprehensive,3537.703,5403.55
+34,female,26.73,1,no,meghalaya,5_lakhs,2_year,semi_private,25000,0,25,comprehensive,5002.7827,5381.15
+45,female,30.9,2,no,odisha,15_lakhs,2_year,general,25000,10,0,none,8520.026,7271.09
+41,female,37.1,2,no,odisha,5_lakhs,3_year,semi_private,0,15,0,basic,7371.772,4771.03
+53,female,26.6,0,no,karnataka,10_lakhs,1_year,semi_private,50000,15,0,none,10355.641,12917.63
+27,male,23.1,0,no,karnataka,15_lakhs,1_year,semi_private,25000,25,33,comprehensive,2483.736,6379.27
+26,female,29.92,1,no,puducherry,15_lakhs,2_year,general,0,25,45,none,3392.9768,2170.41
+24,female,23.21,0,no,assam,25_lakhs,1_year,private,100000,0,20,basic,25081.76784,28758.87
+34,female,33.7,1,no,gujarat,15_lakhs,2_year,general,0,15,20,premium,5012.471,10520.77
+53,female,33.25,0,no,maharashtra,10_lakhs,3_year,general,0,10,50,comprehensive,10564.8845,10000.23
+32,male,30.8,3,no,maharashtra,5_lakhs,1_year,general,0,10,0,premium,5253.524,12225.22
+19,male,34.8,0,yes,uttarakhand,10_lakhs,1_year,general,50000,0,0,premium,34779.615,58455.31
+42,male,24.64,0,yes,karnataka,10_lakhs,2_year,general,50000,10,0,none,19515.5416,17718.85
+55,male,33.88,3,no,goa,5_lakhs,1_year,semi_private,0,25,0,basic,11987.1682,15949.33
+28,male,38.06,0,no,telangana,1_crore,2_year,general,50000,20,0,basic,2689.4954,5781.75
+58,female,41.91,0,no,rajasthan,10_lakhs,1_year,general,0,0,45,comprehensive,24227.33724,44367.28
+41,female,31.635,1,no,assam,50_lakhs,2_year,general,50000,0,25,none,7358.17565,8804.39
+47,male,25.46,2,no,delhi,15_lakhs,1_year,general,25000,0,20,premium,9225.2564,22255.51
+42,female,36.195,1,no,assam,25_lakhs,2_year,private,0,15,45,basic,7443.64305,8809.83
+59,female,27.83,3,no,andhra pradesh,10_lakhs,1_year,general,100000,15,0,comprehensive,14001.2867,17406.67
+19,female,17.8,0,no,meghalaya,10_lakhs,1_year,general,0,0,0,none,1727.785,2052.61
+59,male,27.5,1,no,odisha,10_lakhs,1_year,general,0,0,25,none,12333.828,19308.01
+39,male,24.51,2,no,rajasthan,5_lakhs,2_year,general,25000,0,25,comprehensive,6710.1919,6534.69
+40,female,22.22,2,yes,meghalaya,15_lakhs,3_year,general,200000,0,0,none,19444.2658,9030.24
+18,female,26.73,0,no,gujarat,10_lakhs,1_year,semi_private,0,20,20,comprehensive,1615.7667,5402.3
+31,male,38.39,2,no,himachal pradesh,5_lakhs,1_year,private,0,10,25,none,4463.2051,4124.22
+19,male,29.07,0,yes,karnataka,15_lakhs,1_year,general,0,0,25,comprehensive,17352.6803,47339.83
+44,male,38.06,1,no,rajasthan,5_lakhs,2_year,semi_private,25000,10,25,basic,7152.6714,5302.69
+23,female,36.67,2,yes,puducherry,50_lakhs,2_year,semi_private,0,0,0,basic,38511.6283,97465.15
+33,female,22.135,1,no,andhra pradesh,1_crore,1_year,semi_private,50000,25,0,comprehensive,5354.07465,14794.15
+55,female,26.8,1,no,bihar,50_lakhs,1_year,general,200000,0,20,none,35160.13457,59155.17
+40,male,35.3,3,no,bihar,10_lakhs,1_year,general,25000,0,0,none,7196.867,9846.66
+63,female,27.74,0,yes,maharashtra,5_lakhs,1_year,general,0,0,45,none,29523.1656,53028.22
+54,male,30.02,0,no,uttar pradesh,50_lakhs,1_year,semi_private,0,10,20,basic,24476.47851,81165.45
+60,female,38.06,0,no,rajasthan,10_lakhs,3_year,semi_private,0,10,0,basic,12648.7034,10382.02
+24,male,35.86,0,no,bihar,1_crore,1_year,general,100000,15,33,comprehensive,1986.9334,7452.38
+19,male,20.9,1,no,tamil nadu,1_crore,2_year,general,0,0,20,basic,1832.094,5122.1
+29,male,28.975,1,no,himachal pradesh,25_lakhs,1_year,private,0,0,0,basic,4040.55825,9136.66
+18,male,17.29,2,yes,delhi,10_lakhs,1_year,semi_private,50000,0,33,basic,12829.4551,20322.25
+63,female,32.2,2,yes,uttarakhand,10_lakhs,2_year,private,0,10,45,none,47305.305,50264.15
+54,male,34.21,2,yes,tamil nadu,25_lakhs,2_year,semi_private,25000,0,25,none,44260.7499,81550.69
+27,male,30.3,3,no,uttarakhand,10_lakhs,3_year,general,0,10,0,premium,4260.744,8165.59
+50,male,31.825,0,yes,himachal pradesh,5_lakhs,1_year,semi_private,50000,20,25,comprehensive,41097.16175,43042.25
+55,female,25.365,3,no,madhya pradesh,10_lakhs,1_year,semi_private,100000,20,33,none,13047.33235,10400.73
+56,male,33.63,0,yes,himachal pradesh,50_lakhs,2_year,general,25000,0,0,basic,43921.1837,101173.07
+38,female,40.15,0,no,uttar pradesh,15_lakhs,1_year,general,200000,0,0,comprehensive,5400.9805,9534.59
+51,male,24.415,4,no,maharashtra,10_lakhs,1_year,semi_private,0,0,45,basic,11520.09985,20502.76
+19,male,31.92,0,yes,west bengal,5_lakhs,1_year,general,25000,10,0,none,33750.2918,44694.5
+58,female,25.2,0,no,madhya pradesh,15_lakhs,1_year,semi_private,25000,15,33,none,11837.16,15613.82
+20,female,26.84,1,yes,chhattisgarh,1_crore,3_year,semi_private,25000,0,20,basic,17085.2676,25420.75
+52,male,24.32,3,yes,west bengal,5_lakhs,1_year,private,0,0,20,premium,24869.8368,50653.79
+19,male,36.955,0,yes,maharashtra,10_lakhs,1_year,general,0,15,0,comprehensive,36219.40545,86631.36
+53,female,38.06,3,no,andhra pradesh,50_lakhs,1_year,general,0,20,33,none,20462.99766,64432.66
+46,male,42.35,3,yes,manipur,15_lakhs,1_year,semi_private,0,0,0,none,46151.1245,129466.09
+40,male,19.8,1,yes,manipur,15_lakhs,1_year,general,0,10,20,comprehensive,17179.522,36464.08
+59,female,32.395,3,no,chhattisgarh,15_lakhs,1_year,semi_private,50000,0,25,comprehensive,14590.63205,25128.09
+45,male,30.2,1,no,assam,10_lakhs,1_year,semi_private,0,0,33,basic,7441.053,11747.29
+49,male,25.84,1,no,kerala,10_lakhs,2_year,general,0,20,50,basic,9282.4806,6902.98
+18,male,29.37,1,no,tamil nadu,25_lakhs,1_year,general,25000,15,20,none,1719.4363,2822.43
+50,male,34.2,2,yes,madhya pradesh,25_lakhs,1_year,general,25000,15,0,comprehensive,42856.838,113329.55
+41,male,37.05,2,no,bihar,25_lakhs,3_year,general,100000,0,50,comprehensive,7265.7025,7189.81
+50,male,27.455,1,no,bihar,50_lakhs,2_year,private,25000,15,25,none,9617.66245,11249.04
+25,male,27.55,0,no,manipur,10_lakhs,1_year,semi_private,0,0,0,comprehensive,2523.1695,6647.4
+47,female,26.6,2,no,himachal pradesh,10_lakhs,1_year,semi_private,50000,0,0,none,9715.841,10181.59
+19,male,20.615,2,no,odisha,25_lakhs,1_year,semi_private,25000,10,33,none,2803.69785,3749.16
+22,female,24.3,0,no,karnataka,15_lakhs,2_year,general,0,0,0,none,2150.469,2148.14
+59,male,31.79,2,no,maharashtra,15_lakhs,3_year,private,25000,15,25,none,12928.7911,9189.23
+51,female,21.56,1,no,bihar,25_lakhs,2_year,semi_private,100000,10,20,none,9855.1314,6960.55
+40,female,28.12,1,yes,telangana,50_lakhs,1_year,semi_private,0,0,0,basic,22331.5668,110697.07
+54,male,40.565,3,yes,gujarat,10_lakhs,2_year,private,0,0,25,basic,48549.17835,76225.69
+30,male,27.645,1,no,gujarat,10_lakhs,1_year,general,0,0,0,basic,4237.12655,7986.62
+55,female,32.395,1,no,assam,5_lakhs,1_year,semi_private,0,0,20,none,11879.10405,13903.3
+52,female,31.2,0,no,uttar pradesh,10_lakhs,1_year,general,0,10,20,none,9625.92,15105.64
+46,male,26.62,1,no,uttar pradesh,5_lakhs,3_year,general,25000,15,20,basic,7742.1098,3811.71
+46,female,48.07,2,no,tamil nadu,10_lakhs,1_year,general,0,0,33,basic,9432.9253,18897.8
+63,female,26.22,0,no,uttarakhand,10_lakhs,2_year,private,100000,0,33,none,14256.1928,7226.95
+59,female,36.765,1,yes,bihar,10_lakhs,1_year,private,50000,10,33,comprehensive,47896.79135,81078.06
+52,male,26.4,3,no,bihar,10_lakhs,1_year,semi_private,25000,15,0,comprehensive,25992.82104,33684.68
+28,female,33.4,0,no,tamil nadu,5_lakhs,1_year,semi_private,50000,0,0,comprehensive,3172.018,6430.94
+29,male,29.64,1,no,himachal pradesh,5_lakhs,1_year,semi_private,0,0,20,basic,20277.80751,19704.4
+25,male,45.54,2,yes,meghalaya,25_lakhs,2_year,private,25000,10,45,none,42112.2356,44738.79
+22,female,28.82,0,no,puducherry,10_lakhs,1_year,general,25000,0,33,comprehensive,2156.7518,5791.98
+25,male,26.8,3,no,meghalaya,5_lakhs,2_year,general,50000,0,33,none,3906.127,1254.18
+18,male,22.99,0,no,maharashtra,10_lakhs,2_year,general,50000,15,0,basic,1704.5681,2444.1
+19,male,27.7,0,yes,meghalaya,25_lakhs,3_year,semi_private,0,10,20,none,16297.846,14174.19
+47,male,25.41,1,yes,himachal pradesh,5_lakhs,1_year,semi_private,100000,10,20,comprehensive,21978.6769,21592.34
+31,male,34.39,3,yes,andhra pradesh,15_lakhs,1_year,general,0,15,0,none,38746.3551,86450.92
+48,female,28.88,1,no,odisha,5_lakhs,1_year,general,100000,10,0,premium,9249.4952,12344.98
+36,male,27.55,3,no,west bengal,5_lakhs,3_year,semi_private,200000,0,45,comprehensive,6746.7425,4985.73
+53,female,22.61,3,yes,delhi,10_lakhs,3_year,general,0,0,0,basic,24873.3849,27491.49
+56,female,37.51,2,no,rajasthan,10_lakhs,1_year,semi_private,50000,0,0,comprehensive,12265.5069,21755.67
+28,female,33.0,2,no,west bengal,15_lakhs,2_year,private,0,0,0,basic,4349.462,6192.34
+57,female,38.0,2,no,himachal pradesh,15_lakhs,1_year,general,0,10,45,comprehensive,12646.207,25528.49
+29,male,33.345,2,no,tamil nadu,1_crore,2_year,general,25000,20,25,basic,19442.3535,31949.25
+28,female,27.5,2,no,bihar,10_lakhs,1_year,semi_private,25000,25,25,comprehensive,20177.67113,20556.8
+30,female,33.33,1,no,manipur,10_lakhs,2_year,semi_private,100000,10,45,basic,4151.0287,3017.53
+58,male,34.865,0,no,tamil nadu,25_lakhs,1_year,general,50000,0,0,premium,11944.59435,33592.01
+41,female,33.06,2,no,manipur,10_lakhs,2_year,private,25000,0,25,basic,7749.1564,6566.6
+50,male,26.6,0,no,chhattisgarh,10_lakhs,2_year,general,50000,15,0,basic,8444.474,5802.93
+19,female,24.7,0,no,haryana,5_lakhs,2_year,general,200000,10,0,comprehensive,1737.376,3975.2
+43,male,35.97,3,yes,chhattisgarh,5_lakhs,1_year,semi_private,0,10,33,comprehensive,42124.5153,65495.51
+49,male,35.86,0,no,karnataka,1_crore,1_year,private,200000,15,33,basic,8124.4084,20644.53
+27,female,31.4,0,yes,puducherry,25_lakhs,1_year,general,0,15,0,none,34838.873,94221.26
+52,male,33.25,0,no,tamil nadu,15_lakhs,1_year,semi_private,50000,15,0,basic,9722.7695,17805.67
+50,male,32.205,0,no,bihar,10_lakhs,1_year,semi_private,0,0,20,premium,8835.26495,19427.05
+54,male,32.775,0,no,uttar pradesh,5_lakhs,3_year,general,0,15,0,comprehensive,10435.06525,8197.38
+44,female,27.645,0,no,delhi,5_lakhs,1_year,general,0,20,0,comprehensive,7421.19455,12259.47
+32,male,37.335,1,no,maharashtra,10_lakhs,1_year,private,25000,0,0,none,4667.60765,7391.39
+34,male,25.27,1,no,delhi,10_lakhs,1_year,general,0,10,0,basic,4894.7533,8491.18
+26,female,29.64,4,no,maharashtra,15_lakhs,1_year,general,0,0,33,basic,24671.66334,45739.68
+34,male,30.8,0,yes,haryana,15_lakhs,2_year,general,25000,25,0,comprehensive,35491.64,38095.3
+57,male,40.945,0,no,goa,10_lakhs,1_year,private,100000,0,0,none,11566.30055,15985.35
+29,male,27.2,0,no,bihar,1_crore,3_year,semi_private,0,10,20,comprehensive,2866.091,6757.42
+40,male,34.105,1,no,himachal pradesh,15_lakhs,1_year,semi_private,0,0,45,basic,6600.20595,11577.31
+27,female,23.21,1,no,meghalaya,10_lakhs,3_year,general,0,15,0,none,3561.8889,1432.21
+45,male,36.48,2,yes,west bengal,15_lakhs,3_year,semi_private,0,0,0,none,42760.5022,56621.88
+64,female,33.8,1,yes,madhya pradesh,10_lakhs,1_year,semi_private,50000,0,0,none,47928.03,90357.52
+52,male,36.7,0,no,tamil nadu,5_lakhs,3_year,semi_private,50000,0,33,basic,9144.565,5417.22
+61,female,36.385,1,yes,odisha,10_lakhs,1_year,private,25000,20,25,none,48517.56315,87800.39
+52,male,27.36,0,yes,maharashtra,25_lakhs,2_year,general,0,0,33,none,24393.6224,50153.62
+61,female,31.16,0,no,bihar,5_lakhs,1_year,semi_private,50000,0,50,comprehensive,13429.0354,13877.96
+56,female,28.785,0,no,telangana,5_lakhs,3_year,general,25000,15,33,none,11658.37915,4358.14
+43,female,35.72,2,no,uttarakhand,5_lakhs,3_year,general,50000,10,25,none,19144.57652,6194.51
+64,male,34.5,0,no,puducherry,5_lakhs,2_year,general,25000,20,20,basic,13822.803,8536.23
+60,male,25.74,0,no,assam,25_lakhs,2_year,general,50000,0,0,basic,12142.5786,12329.87
+62,male,27.55,1,no,puducherry,15_lakhs,1_year,general,25000,10,50,comprehensive,13937.6665,22005.3
+50,male,32.3,1,yes,haryana,10_lakhs,1_year,semi_private,0,0,0,basic,41919.097,103544.5
+46,female,27.72,1,no,rajasthan,5_lakhs,1_year,general,200000,0,0,comprehensive,8232.6388,8858.15
+24,female,27.6,0,no,rajasthan,10_lakhs,1_year,semi_private,25000,10,25,basic,18955.22017,20649.95
+62,male,30.02,0,no,punjab,10_lakhs,2_year,general,25000,10,0,none,13352.0998,10667.1
+60,female,27.55,0,no,uttarakhand,5_lakhs,1_year,general,0,15,25,none,13217.0945,13487.28
+63,male,36.765,0,no,puducherry,10_lakhs,3_year,semi_private,25000,0,25,basic,13981.85035,9936.15
+49,female,41.47,4,no,west bengal,10_lakhs,2_year,general,25000,0,20,basic,10977.2063,11140.49
+34,female,29.26,3,no,karnataka,15_lakhs,2_year,general,0,0,33,comprehensive,6184.2994,9337.84
+33,male,35.75,2,no,goa,15_lakhs,1_year,semi_private,0,25,0,basic,4889.9995,9836.37
+46,male,33.345,1,no,maharashtra,5_lakhs,3_year,general,25000,0,20,basic,8334.45755,5334.07
+36,female,29.92,1,no,jharkhand,10_lakhs,3_year,general,50000,0,20,none,5478.0368,2114.32
+19,male,27.835,0,no,maharashtra,15_lakhs,1_year,general,25000,0,25,none,1635.73365,2576.24
+57,female,23.18,0,no,gujarat,10_lakhs,2_year,private,0,10,33,basic,11830.6072,11150.13
+50,female,25.6,0,no,bihar,25_lakhs,2_year,semi_private,50000,0,0,basic,8932.084,9162.28
+30,female,27.7,0,no,uttarakhand,15_lakhs,1_year,semi_private,0,20,25,basic,3554.203,6124.25
+33,male,35.245,0,no,delhi,5_lakhs,1_year,semi_private,0,0,0,none,12404.8791,17118.73
+18,female,38.28,0,no,tamil nadu,5_lakhs,1_year,general,0,20,45,comprehensive,14133.03775,16978.68
+46,male,27.6,0,no,odisha,15_lakhs,1_year,general,0,0,0,comprehensive,24603.04837,50067.57
+46,male,43.89,3,no,odisha,5_lakhs,1_year,semi_private,0,10,33,none,8944.1151,9708.91
+47,male,29.83,3,no,telangana,10_lakhs,1_year,general,0,20,0,basic,9620.3307,16162.99
+23,male,41.91,0,no,haryana,50_lakhs,1_year,general,0,0,0,premium,1837.2819,12173.27
+18,female,20.79,0,no,goa,10_lakhs,1_year,general,0,25,20,none,1607.5101,1775.06
+48,female,32.3,2,no,rajasthan,10_lakhs,3_year,general,25000,0,45,basic,10043.249,6255.7
+35,male,30.5,1,no,tamil nadu,15_lakhs,1_year,private,25000,20,20,none,4751.07,6628.99
+19,female,21.7,0,yes,uttar pradesh,10_lakhs,3_year,general,0,10,45,basic,13844.506,8976.46
+21,female,26.4,1,no,gujarat,10_lakhs,1_year,general,100000,0,20,none,2597.779,2338.82
+21,female,21.89,2,no,meghalaya,50_lakhs,1_year,general,0,0,20,premium,3180.5101,13444.94
+49,female,30.78,1,no,odisha,10_lakhs,1_year,private,25000,0,0,comprehensive,9778.3472,17229.59
+56,female,32.3,3,no,haryana,1_crore,1_year,general,0,0,33,comprehensive,13430.265,62727.47
+42,female,24.985,2,no,goa,50_lakhs,1_year,general,0,0,0,comprehensive,8017.06115,30605.68
+44,male,32.015,2,no,tamil nadu,5_lakhs,2_year,semi_private,25000,0,45,basic,8116.26885,5990.88
+18,male,30.4,3,no,maharashtra,5_lakhs,1_year,semi_private,25000,0,45,basic,3481.868,4740.16
+61,female,21.09,0,no,himachal pradesh,5_lakhs,2_year,general,100000,15,45,comprehensive,13415.0381,7466.32
+57,female,22.23,0,no,goa,5_lakhs,2_year,general,25000,0,20,premium,12029.2867,12891.44
+42,female,33.155,1,no,assam,5_lakhs,1_year,general,200000,0,25,basic,7639.41745,5928.99
+26,male,32.9,2,yes,maharashtra,15_lakhs,1_year,general,0,10,33,premium,36085.219,94897.09
+20,male,33.33,0,no,tamil nadu,5_lakhs,2_year,general,0,0,0,basic,1391.5287,2426.68
+23,female,28.31,0,yes,chhattisgarh,10_lakhs,1_year,general,0,0,25,basic,18033.9679,32120.56
+39,female,24.89,3,yes,manipur,25_lakhs,1_year,general,0,0,0,basic,21659.9301,59139.67
+24,male,40.15,0,yes,kerala,5_lakhs,3_year,general,25000,20,20,none,38126.2465,17247.32
+64,female,30.115,3,no,puducherry,25_lakhs,1_year,semi_private,25000,15,0,none,16455.70785,33775.54
+62,male,31.46,1,no,tamil nadu,10_lakhs,2_year,private,0,0,0,none,27000.98473,30343.27
+27,female,17.955,2,yes,west bengal,5_lakhs,3_year,semi_private,100000,10,0,basic,15006.57945,6718.69
+55,male,30.685,0,yes,haryana,15_lakhs,1_year,general,100000,10,20,basic,42303.69215,79221.84
+55,male,33.0,0,no,meghalaya,15_lakhs,1_year,general,0,10,25,basic,20781.48892,37644.49
+35,female,43.34,2,no,chhattisgarh,50_lakhs,1_year,private,0,10,0,premium,5846.9176,22628.07
+44,male,22.135,2,no,jharkhand,15_lakhs,1_year,general,0,10,20,basic,8302.53565,14167.53
+19,male,34.4,0,no,puducherry,25_lakhs,1_year,general,0,0,0,basic,1261.859,4270.03
+58,female,39.05,0,no,assam,10_lakhs,2_year,semi_private,0,0,25,none,11856.4115,10621.17
+50,male,25.365,2,no,karnataka,5_lakhs,1_year,semi_private,25000,0,25,none,30284.64294,30834.73
+26,female,22.61,0,no,kerala,25_lakhs,1_year,semi_private,0,20,25,comprehensive,3176.8159,8623.0
+24,female,30.21,3,no,karnataka,25_lakhs,3_year,general,0,10,33,basic,4618.0799,5189.64
+48,male,35.625,4,no,odisha,1_crore,2_year,general,200000,15,0,comprehensive,10736.87075,16389.09
+19,female,37.43,0,no,west bengal,10_lakhs,2_year,private,50000,25,33,none,2138.0707,1119.2
+48,male,31.445,1,no,maharashtra,10_lakhs,1_year,general,100000,0,20,basic,8964.06055,12568.51
+49,male,31.35,1,no,uttar pradesh,25_lakhs,2_year,semi_private,0,10,20,none,9290.1395,10740.67
+46,female,32.3,2,no,andhra pradesh,10_lakhs,1_year,semi_private,0,10,25,none,9411.005,13720.9
+46,male,19.855,0,no,puducherry,50_lakhs,1_year,semi_private,25000,25,0,none,7526.70645,16554.64
+43,female,34.4,3,no,bihar,25_lakhs,1_year,general,0,25,25,none,8522.003,15401.82
+21,male,31.02,0,no,madhya pradesh,10_lakhs,3_year,general,0,10,25,none,16586.49771,7840.21
+64,male,25.6,2,no,kerala,25_lakhs,1_year,semi_private,50000,0,0,none,14988.432,28665.38
+18,female,38.17,0,no,assam,25_lakhs,1_year,private,25000,15,0,premium,1631.6683,8577.67
+51,female,20.6,0,no,tamil nadu,5_lakhs,1_year,private,0,0,0,none,9264.797,12739.1
+47,male,47.52,1,no,chhattisgarh,50_lakhs,1_year,general,25000,15,45,none,8083.9198,18271.22
+64,female,32.965,0,no,manipur,10_lakhs,2_year,general,0,20,25,none,14692.66935,10441.8
+49,male,32.3,3,no,meghalaya,25_lakhs,2_year,private,0,0,0,basic,10269.46,14083.59
+31,male,20.4,0,no,punjab,10_lakhs,2_year,semi_private,0,10,0,none,3260.199,2188.74
+52,female,38.38,2,no,madhya pradesh,50_lakhs,1_year,private,0,0,25,comprehensive,11396.9002,45790.48
+33,female,24.31,0,no,manipur,10_lakhs,1_year,general,0,0,33,premium,4185.0979,10474.71
+47,female,23.6,1,no,delhi,5_lakhs,1_year,semi_private,200000,0,0,none,8539.671,6211.54
+38,male,21.12,3,no,punjab,50_lakhs,1_year,semi_private,25000,15,0,basic,6652.5288,16547.7
+32,male,30.03,1,no,himachal pradesh,5_lakhs,1_year,semi_private,50000,20,45,none,4074.4537,2225.51
+19,male,17.48,0,no,maharashtra,10_lakhs,2_year,general,0,20,0,basic,1621.3402,2656.52
+44,female,20.235,1,yes,west bengal,1_crore,1_year,general,0,0,0,basic,19594.80965,120750.09
+26,female,17.195,2,yes,haryana,1_crore,1_year,semi_private,0,20,50,none,14455.64405,48166.21
+25,male,23.9,5,no,bihar,10_lakhs,1_year,general,0,15,25,none,5080.096,5163.68
+19,female,35.15,0,no,haryana,15_lakhs,1_year,general,0,0,0,comprehensive,2134.9015,7727.1
+43,female,35.64,1,no,telangana,10_lakhs,1_year,private,50000,0,0,basic,7345.7266,12790.2
+52,male,34.1,0,no,uttarakhand,10_lakhs,3_year,general,50000,0,0,none,9140.951,4734.4
+36,female,22.6,2,yes,assam,10_lakhs,2_year,semi_private,25000,20,0,comprehensive,18608.262,16553.9
+64,male,39.16,1,no,jharkhand,15_lakhs,3_year,general,25000,10,45,basic,14418.2804,9893.22
+63,female,26.98,0,yes,karnataka,25_lakhs,1_year,semi_private,100000,15,20,comprehensive,28950.4692,65168.21
+64,male,33.88,0,yes,karnataka,25_lakhs,1_year,private,0,0,33,none,46889.2612,185276.35
+61,male,35.86,0,yes,assam,25_lakhs,1_year,general,0,15,45,comprehensive,46599.1084,132328.27
+40,male,32.775,1,yes,puducherry,5_lakhs,1_year,general,0,0,20,comprehensive,39125.33225,65184.71
+25,male,30.59,0,no,uttarakhand,10_lakhs,2_year,general,50000,0,0,none,2727.3951,1588.23
+48,male,30.2,2,no,manipur,5_lakhs,1_year,general,200000,10,20,comprehensive,8968.33,8386.35
+45,male,24.31,5,no,puducherry,10_lakhs,1_year,semi_private,0,0,45,basic,9788.8659,14159.28
+38,female,27.265,1,no,puducherry,10_lakhs,1_year,private,100000,15,33,premium,6555.07035,11062.78
+18,female,29.165,0,no,odisha,50_lakhs,1_year,general,100000,0,0,none,7323.734819,13295.87
+21,female,16.815,1,no,himachal pradesh,10_lakhs,2_year,general,0,10,25,basic,3167.45585,3279.86
+27,female,30.4,3,no,kerala,5_lakhs,1_year,general,0,0,25,basic,18804.7524,21478.77
+19,male,33.1,0,no,rajasthan,5_lakhs,1_year,semi_private,0,10,45,premium,23082.95533,25812.64
+29,female,20.235,2,no,jharkhand,25_lakhs,1_year,general,200000,0,0,none,4906.40965,4965.29
+42,male,26.9,0,no,puducherry,15_lakhs,1_year,semi_private,0,0,20,premium,5969.723,16545.95
+60,female,30.5,0,no,andhra pradesh,5_lakhs,2_year,semi_private,50000,20,45,premium,12638.195,11078.86
+31,male,28.595,1,no,gujarat,5_lakhs,3_year,semi_private,0,0,20,none,4243.59005,1758.32
+60,male,33.11,3,no,maharashtra,15_lakhs,3_year,general,50000,15,20,comprehensive,13919.8229,12417.39
+22,male,31.73,0,no,west bengal,5_lakhs,2_year,semi_private,0,25,0,premium,2254.7967,7208.9
+35,male,28.9,3,no,goa,25_lakhs,1_year,general,25000,0,0,none,5926.846,11108.39
+52,female,46.75,5,no,telangana,15_lakhs,2_year,general,100000,0,0,basic,12592.5345,13545.44
+26,male,29.45,0,no,telangana,5_lakhs,1_year,private,50000,10,45,basic,2897.3235,3462.67
+31,female,32.68,1,no,gujarat,5_lakhs,1_year,semi_private,100000,25,0,none,4738.2682,3054.84
+33,female,33.5,0,yes,madhya pradesh,1_crore,2_year,general,0,20,20,none,37079.372,84380.26
+18,male,43.01,0,no,delhi,10_lakhs,1_year,general,50000,10,25,none,1149.3959,1374.09
+59,female,36.52,1,no,rajasthan,10_lakhs,3_year,general,0,15,0,none,28287.89766,19000.33
+56,male,26.695,1,yes,punjab,25_lakhs,1_year,general,0,0,20,basic,26109.32905,88313.52
+45,female,33.1,0,no,himachal pradesh,50_lakhs,2_year,general,25000,25,33,none,7345.084,8083.82
+60,male,29.64,0,no,jharkhand,1_crore,2_year,general,0,25,45,comprehensive,12730.9996,23771.17
+56,female,25.65,0,no,tamil nadu,25_lakhs,3_year,general,25000,0,25,comprehensive,11454.0215,13076.77
+40,female,29.6,0,no,assam,10_lakhs,2_year,semi_private,200000,0,25,none,5910.944,2201.71
+35,male,38.6,1,no,west bengal,5_lakhs,2_year,semi_private,0,0,0,comprehensive,4762.329,6836.2
+39,male,29.6,4,no,himachal pradesh,25_lakhs,1_year,semi_private,50000,0,45,comprehensive,7512.267,13275.45
+30,male,24.13,1,no,bihar,10_lakhs,1_year,general,0,15,0,premium,4032.2407,10407.08
+24,male,23.4,0,no,punjab,10_lakhs,1_year,private,0,0,33,none,1969.614,2393.08
+20,male,29.735,0,no,chhattisgarh,50_lakhs,2_year,semi_private,0,0,0,none,1769.53165,2587.15
+32,male,46.53,2,no,kerala,5_lakhs,1_year,semi_private,100000,0,45,premium,4686.3887,9169.22
+59,male,37.4,0,no,uttarakhand,10_lakhs,2_year,semi_private,100000,25,33,premium,21797.0004,16872.85
+55,female,30.14,2,no,odisha,5_lakhs,1_year,private,100000,10,33,comprehensive,11881.9696,12005.19
+57,female,30.495,0,no,meghalaya,10_lakhs,1_year,general,200000,0,0,comprehensive,11840.77505,14331.47
+56,male,39.6,0,no,uttarakhand,5_lakhs,2_year,general,0,0,20,none,10601.412,7757.65
+40,female,33.0,3,no,assam,5_lakhs,1_year,semi_private,0,25,25,basic,7682.67,7736.39
+49,female,36.63,3,no,gujarat,5_lakhs,1_year,semi_private,50000,15,33,none,10381.4787,9190.7
+42,male,30.0,0,yes,goa,15_lakhs,1_year,semi_private,25000,0,0,none,22144.032,55126.96
+62,female,38.095,2,no,assam,15_lakhs,3_year,general,0,0,50,comprehensive,15230.32405,13706.66
+56,male,25.935,0,no,uttar pradesh,10_lakhs,2_year,general,0,0,45,none,11165.41765,8224.12
+19,male,25.175,0,no,telangana,1_crore,1_year,general,25000,0,0,basic,1632.03625,6840.84
+30,female,28.38,1,yes,goa,10_lakhs,1_year,private,25000,10,33,premium,19521.9682,34629.47
+60,female,28.7,1,no,maharashtra,10_lakhs,1_year,semi_private,0,20,20,none,13224.693,21760.01
+56,female,33.82,2,no,maharashtra,25_lakhs,2_year,general,25000,0,20,premium,12643.3778,23770.1
+28,female,24.32,1,no,jharkhand,5_lakhs,2_year,general,25000,15,0,premium,23288.9284,14662.98
+18,female,24.09,1,no,karnataka,1_crore,1_year,general,25000,0,25,basic,2201.0971,8320.67
+27,male,32.67,0,no,puducherry,5_lakhs,1_year,private,0,15,33,none,2497.0383,2170.67
+18,female,30.115,0,no,bihar,1_crore,1_year,semi_private,50000,15,20,none,2203.47185,4982.52
+19,female,29.8,0,no,manipur,5_lakhs,2_year,semi_private,0,0,25,basic,1744.465,2310.3
+47,female,33.345,0,no,west bengal,50_lakhs,2_year,general,0,0,25,none,20878.78443,40880.3
+54,male,25.1,3,yes,punjab,10_lakhs,1_year,semi_private,50000,10,33,none,25382.297,37238.69
+61,male,28.31,1,yes,goa,1_crore,1_year,general,25000,0,0,premium,28868.6639,171702.97
+24,male,28.5,0,yes,maharashtra,5_lakhs,1_year,semi_private,0,0,45,none,35147.52848,50504.36
+25,male,35.625,0,no,bihar,10_lakhs,3_year,general,50000,10,20,comprehensive,2534.39375,4452.31
+21,male,36.85,0,no,madhya pradesh,1_crore,1_year,general,25000,25,0,none,1534.3045,4266.95
+23,male,32.56,0,no,gujarat,10_lakhs,2_year,semi_private,50000,0,0,basic,1824.2854,2707.7
+63,male,41.325,3,no,puducherry,15_lakhs,2_year,private,50000,15,20,premium,15555.18875,18787.11
+49,male,37.51,2,no,assam,15_lakhs,1_year,general,25000,0,45,none,9304.7019,13470.57
+18,female,31.35,0,no,tamil nadu,10_lakhs,1_year,semi_private,25000,15,0,none,1622.1885,2018.12
+51,female,39.5,1,no,telangana,15_lakhs,1_year,general,0,10,33,comprehensive,9880.068,25771.95
+48,male,34.3,3,no,bihar,10_lakhs,2_year,general,0,20,0,comprehensive,9563.029,10528.78
+31,female,31.065,0,no,uttarakhand,50_lakhs,2_year,general,0,0,20,comprehensive,4347.02335,10150.33
+54,female,21.47,3,no,gujarat,5_lakhs,2_year,general,25000,10,50,none,12475.3513,5695.23
+19,male,28.7,0,no,puducherry,10_lakhs,1_year,general,25000,10,33,none,1253.936,1225.95
+44,female,38.06,0,yes,manipur,1_crore,1_year,general,0,0,0,premium,48885.13561,296893.93
+53,male,31.16,1,no,haryana,50_lakhs,3_year,general,0,0,20,premium,10461.9794,20984.77
+19,female,32.9,0,no,gujarat,10_lakhs,2_year,private,25000,0,0,basic,1748.774,2812.07
+61,female,25.08,0,no,jharkhand,15_lakhs,1_year,general,0,0,20,comprehensive,24513.09126,47687.91
+18,female,25.08,0,no,odisha,10_lakhs,3_year,semi_private,50000,20,33,basic,2196.4732,2121.63
+61,male,43.4,0,no,haryana,5_lakhs,2_year,general,0,0,33,basic,12574.049,10675.66
+21,male,25.7,4,yes,himachal pradesh,10_lakhs,1_year,semi_private,25000,0,0,none,17942.106,25941.59
+20,male,27.93,0,no,gujarat,10_lakhs,2_year,general,100000,15,45,basic,1967.0227,2291.41
+31,female,23.6,2,no,telangana,10_lakhs,2_year,general,0,0,25,basic,4931.647,5181.54
+45,male,28.7,2,no,bihar,5_lakhs,2_year,general,25000,10,0,none,8027.968,3769.78
+44,female,23.98,2,no,bihar,1_crore,1_year,general,0,0,20,basic,8211.1002,30385.42
+62,female,39.2,0,no,goa,1_crore,1_year,general,25000,25,25,comprehensive,13470.86,51634.85
+29,male,34.4,0,yes,madhya pradesh,15_lakhs,3_year,semi_private,25000,20,25,comprehensive,36197.699,26492.28
+43,male,26.03,0,no,delhi,10_lakhs,1_year,private,0,20,20,basic,6837.3687,11357.37
+51,male,23.21,1,yes,maharashtra,10_lakhs,1_year,semi_private,25000,0,20,premium,22218.1149,54743.8
+19,male,30.25,0,yes,gujarat,25_lakhs,1_year,semi_private,100000,15,0,none,32548.3405,63055.75
+38,female,28.93,1,no,assam,15_lakhs,1_year,general,0,0,33,basic,5974.3847,10353.51
+37,male,30.875,3,no,kerala,5_lakhs,2_year,general,0,0,20,comprehensive,6796.86325,7806.28
+22,male,31.35,1,no,puducherry,50_lakhs,3_year,general,100000,0,0,basic,2643.2685,3530.88
+21,male,23.75,2,no,gujarat,25_lakhs,1_year,general,25000,10,33,none,3077.0955,4677.83
+24,female,25.27,0,no,delhi,50_lakhs,1_year,general,100000,0,45,none,3044.2133,5415.81
+57,female,28.7,0,no,karnataka,15_lakhs,1_year,general,25000,10,45,comprehensive,11455.28,21968.54
+56,male,32.11,1,no,himachal pradesh,15_lakhs,3_year,general,50000,0,0,basic,11763.0009,8554.41
+27,male,33.66,0,no,kerala,10_lakhs,2_year,general,0,0,0,comprehensive,2498.4144,5582.79
+51,male,22.42,0,no,uttarakhand,50_lakhs,1_year,semi_private,50000,15,20,basic,9361.3268,21016.26
+19,male,30.4,0,no,maharashtra,25_lakhs,2_year,semi_private,100000,0,0,comprehensive,1256.299,4637.05
+39,male,28.3,1,yes,meghalaya,5_lakhs,3_year,general,25000,15,45,comprehensive,21082.16,10702.55
+58,male,35.7,0,no,gujarat,5_lakhs,2_year,private,0,0,0,comprehensive,11362.755,13450.09
+20,male,35.31,1,no,punjab,10_lakhs,3_year,private,0,15,0,basic,27724.28875,16701.44
+45,male,30.495,2,no,delhi,25_lakhs,1_year,general,0,10,20,basic,8413.46305,23283.61
+35,female,31.0,1,no,bihar,1_crore,2_year,general,0,0,0,comprehensive,5240.765,13716.38
+31,male,30.875,0,no,meghalaya,5_lakhs,1_year,general,0,0,33,basic,3857.75925,4921.99
+50,female,27.36,0,no,bihar,10_lakhs,2_year,private,25000,10,20,basic,25656.57526,16951.34
+32,female,44.22,0,no,assam,10_lakhs,2_year,private,25000,15,0,none,3994.1778,2302.26
+51,female,33.915,0,no,karnataka,1_crore,2_year,general,0,0,0,premium,9866.30485,35268.26
+38,female,37.73,0,no,odisha,25_lakhs,2_year,general,25000,0,20,none,5397.6167,5801.38
+42,male,26.07,1,yes,himachal pradesh,25_lakhs,1_year,semi_private,0,20,0,basic,38245.59327,95710.37
+18,female,33.88,0,no,meghalaya,10_lakhs,1_year,general,0,10,25,basic,11482.63485,14572.14
+19,female,30.59,2,no,telangana,10_lakhs,3_year,general,0,0,25,basic,24059.68019,15813.44
+51,female,25.8,1,no,chhattisgarh,10_lakhs,3_year,private,25000,0,33,comprehensive,9861.025,8004.45
+46,male,39.425,1,no,tamil nadu,5_lakhs,1_year,semi_private,0,0,45,none,8342.90875,10764.86
+18,male,25.46,0,no,maharashtra,25_lakhs,1_year,semi_private,0,10,45,basic,1708.0014,4572.01
+57,male,42.13,1,yes,maharashtra,25_lakhs,1_year,private,0,0,45,comprehensive,48675.5177,203337.34
+62,female,31.73,0,no,uttarakhand,1_crore,2_year,semi_private,50000,25,0,comprehensive,14043.4767,25231.9
+59,male,29.7,2,no,andhra pradesh,1_crore,2_year,general,0,0,0,none,12925.886,31454.44
+37,male,36.19,0,no,gujarat,10_lakhs,1_year,semi_private,25000,0,0,comprehensive,19214.70553,34361.37
+64,male,40.48,0,no,telangana,25_lakhs,1_year,general,50000,10,45,comprehensive,13831.1152,30269.43
+38,male,28.025,1,no,tamil nadu,50_lakhs,2_year,semi_private,50000,20,50,comprehensive,6067.12675,9341.78
+33,female,38.9,3,no,maharashtra,25_lakhs,2_year,general,100000,15,45,basic,5972.378,5832.11
+46,female,30.2,2,no,maharashtra,5_lakhs,1_year,semi_private,0,0,0,basic,8825.086,14571.72
+46,female,28.05,1,no,west bengal,10_lakhs,1_year,general,0,15,45,premium,8233.0975,16842.0
+53,male,31.35,0,no,kerala,5_lakhs,1_year,general,100000,10,20,comprehensive,27346.04207,25684.39
+34,female,38.0,3,no,andhra pradesh,1_crore,1_year,general,25000,0,0,basic,6196.448,23178.89
+20,female,31.79,2,no,telangana,15_lakhs,1_year,general,25000,0,20,none,3056.3881,5017.02
+63,female,36.3,0,no,punjab,5_lakhs,2_year,semi_private,50000,0,0,basic,13887.204,9944.92
+54,female,47.41,0,yes,telangana,15_lakhs,3_year,semi_private,50000,0,20,basic,63770.42801,68108.06
+54,male,30.21,0,no,haryana,15_lakhs,2_year,general,100000,20,0,none,10231.4999,7058.49
+49,male,25.84,2,yes,karnataka,10_lakhs,2_year,general,200000,0,20,none,23807.2406,16368.21
+28,male,35.435,0,no,uttarakhand,5_lakhs,1_year,general,50000,25,25,comprehensive,3268.84665,5631.36
+54,female,46.7,2,no,chhattisgarh,15_lakhs,1_year,general,0,10,45,none,11538.421,20545.47
+25,female,28.595,0,no,tamil nadu,10_lakhs,1_year,general,100000,10,25,comprehensive,3213.62205,6286.73
+43,female,46.2,0,yes,assam,25_lakhs,1_year,private,0,10,20,none,45863.205,136299.93
+63,male,30.8,0,no,odisha,10_lakhs,2_year,general,0,0,33,none,13390.559,11696.47
+32,female,28.93,0,no,west bengal,25_lakhs,3_year,general,100000,0,45,none,3972.9247,1914.75
+62,male,21.4,0,no,kerala,10_lakhs,1_year,general,0,0,0,none,12957.118,22302.44
+52,female,31.73,2,no,karnataka,10_lakhs,1_year,general,0,10,20,comprehensive,11187.6567,24198.1
+25,female,41.325,0,no,uttarakhand,50_lakhs,2_year,general,0,0,0,comprehensive,17878.90068,34348.35
+28,male,23.8,2,no,uttar pradesh,10_lakhs,1_year,semi_private,100000,15,0,none,3847.674,2822.62
+46,male,33.44,1,no,madhya pradesh,5_lakhs,1_year,general,25000,0,25,basic,8334.5896,9561.68
+34,male,34.21,0,no,delhi,5_lakhs,2_year,general,50000,0,45,basic,3935.1799,3246.58
+35,female,34.105,3,yes,goa,25_lakhs,2_year,general,0,0,0,comprehensive,39983.42595,74666.18
+19,male,35.53,0,no,chhattisgarh,15_lakhs,1_year,general,50000,20,33,comprehensive,1646.4297,5220.75
+46,female,19.95,2,no,punjab,15_lakhs,1_year,general,50000,15,45,basic,9193.8385,11286.82
+54,female,32.68,0,no,andhra pradesh,5_lakhs,2_year,private,0,0,45,comprehensive,10923.9332,10386.21
+27,male,30.5,0,no,meghalaya,5_lakhs,1_year,semi_private,0,10,0,comprehensive,2494.022,5761.46
+50,male,44.77,1,no,delhi,5_lakhs,1_year,semi_private,0,0,45,none,9058.7303,12219.77
+18,female,32.12,2,no,manipur,10_lakhs,2_year,general,200000,25,0,basic,2801.2588,2408.64
+19,female,30.495,0,no,goa,10_lakhs,1_year,general,25000,10,25,premium,2128.43105,8457.48
+38,female,40.565,1,no,manipur,10_lakhs,2_year,general,100000,0,0,comprehensive,6373.55735,6947.82
+41,male,30.59,2,no,delhi,10_lakhs,1_year,semi_private,0,10,0,basic,7256.7231,14849.83
+49,female,31.9,5,no,kerala,50_lakhs,3_year,semi_private,50000,0,33,basic,11552.904,12533.05
+48,male,40.565,2,yes,gujarat,10_lakhs,1_year,general,50000,25,20,none,45702.02235,75214.02
+31,female,29.1,0,no,uttar pradesh,10_lakhs,1_year,general,50000,0,0,basic,3761.292,5298.79
+18,female,37.29,1,no,meghalaya,25_lakhs,1_year,general,200000,10,0,comprehensive,2219.4451,5871.86
+30,female,43.12,2,no,tamil nadu,10_lakhs,1_year,private,0,0,25,basic,4753.6368,9378.01
+62,female,36.86,1,no,odisha,15_lakhs,3_year,semi_private,0,15,0,comprehensive,31620.00106,28663.44
+57,female,34.295,2,no,tamil nadu,25_lakhs,3_year,general,50000,15,33,comprehensive,13224.05705,12805.26
+58,female,27.17,0,no,bihar,50_lakhs,1_year,general,50000,10,0,none,12222.8983,28514.68
+22,male,26.84,0,no,delhi,5_lakhs,1_year,semi_private,25000,10,0,basic,1664.9996,2997.33
+31,female,38.095,1,yes,chhattisgarh,50_lakhs,2_year,general,0,20,0,basic,58571.07448,117962.34
+52,male,30.2,1,no,odisha,10_lakhs,3_year,general,25000,0,20,comprehensive,9724.53,8922.8
+25,female,23.465,0,no,madhya pradesh,10_lakhs,1_year,general,0,0,0,none,3206.49135,4112.33
+59,male,25.46,1,no,meghalaya,10_lakhs,1_year,semi_private,0,0,0,basic,12913.9924,20677.28
+19,male,30.59,0,no,assam,1_crore,1_year,general,25000,25,50,comprehensive,1639.5631,6653.69
+39,male,45.43,2,no,gujarat,10_lakhs,2_year,general,50000,0,25,basic,6356.2707,6028.32
+32,female,23.65,1,no,telangana,10_lakhs,1_year,private,0,15,0,premium,17626.23951,29033.97
+19,male,20.7,0,no,odisha,15_lakhs,2_year,general,0,10,20,premium,1242.816,6920.35
+33,female,28.27,1,no,assam,5_lakhs,1_year,general,0,0,45,none,4779.6023,3753.9
+21,male,20.235,3,no,punjab,5_lakhs,2_year,general,0,0,0,none,3861.20965,2087.14
+34,female,30.21,1,yes,assam,5_lakhs,1_year,general,50000,0,0,premium,43943.8761,51476.64
+61,female,35.91,0,no,manipur,5_lakhs,1_year,semi_private,100000,0,33,premium,13635.6379,16529.44
+38,female,30.69,1,no,tamil nadu,5_lakhs,1_year,general,0,0,25,none,5976.8311,7395.86
+58,female,29.0,0,no,uttar pradesh,5_lakhs,2_year,general,50000,0,25,none,11842.442,5567.2
+47,male,19.57,1,no,odisha,15_lakhs,1_year,semi_private,100000,20,0,none,8428.0693,8393.94
+20,male,31.13,2,no,odisha,5_lakhs,1_year,semi_private,100000,25,0,premium,2566.4707,7455.48
+21,female,21.85,1,yes,himachal pradesh,10_lakhs,1_year,semi_private,0,0,25,none,15359.1045,24297.03
+41,male,40.26,0,no,bihar,50_lakhs,1_year,general,200000,0,0,basic,5709.1644,12662.47
+46,female,33.725,1,no,manipur,10_lakhs,2_year,general,0,0,20,comprehensive,8823.98575,10433.44
+42,female,29.48,2,no,puducherry,15_lakhs,2_year,semi_private,0,10,20,none,7640.3092,7047.71
+34,female,33.25,1,no,punjab,5_lakhs,2_year,general,0,15,0,basic,5594.8455,4480.69
+43,male,32.6,2,no,uttarakhand,5_lakhs,1_year,semi_private,25000,0,45,none,7441.501,6578.67
+52,female,37.525,2,no,odisha,5_lakhs,2_year,semi_private,0,0,33,comprehensive,33471.97189,26704.22
+18,female,39.16,0,no,delhi,5_lakhs,1_year,semi_private,0,15,33,none,1633.0444,1784.85
+51,male,31.635,0,no,telangana,10_lakhs,1_year,general,0,10,0,comprehensive,9174.13565,21047.19
+56,female,25.3,0,no,uttar pradesh,5_lakhs,1_year,general,50000,0,0,comprehensive,11070.535,13359.7
+64,female,39.05,3,no,uttarakhand,5_lakhs,1_year,semi_private,100000,10,20,none,16085.1275,13021.59
+19,female,28.31,0,yes,telangana,5_lakhs,2_year,general,0,0,0,none,17468.9839,15268.84
+51,female,34.1,0,no,uttar pradesh,10_lakhs,2_year,general,100000,0,50,basic,9283.562,6185.24
+27,female,25.175,0,no,madhya pradesh,5_lakhs,2_year,private,100000,15,0,none,3558.62025,1045.27
+59,female,23.655,0,yes,haryana,10_lakhs,1_year,private,50000,15,20,comprehensive,25678.77845,41537.65
+28,male,26.98,2,no,himachal pradesh,10_lakhs,1_year,general,0,0,0,comprehensive,4435.0942,8888.64
+30,male,37.8,2,yes,uttarakhand,15_lakhs,1_year,general,50000,20,25,basic,39241.442,62766.76
+47,female,29.37,1,no,jharkhand,5_lakhs,1_year,general,100000,0,0,basic,8547.6913,7672.16
+38,female,34.8,2,no,bihar,25_lakhs,1_year,semi_private,50000,15,20,basic,6571.544,10670.53
+18,female,33.155,0,no,goa,15_lakhs,1_year,private,0,0,0,comprehensive,2207.69745,7783.82
+34,female,19.0,3,no,gujarat,5_lakhs,1_year,general,25000,20,45,basic,6753.038,5978.99
+20,female,33.0,0,no,tamil nadu,50_lakhs,1_year,general,25000,20,0,none,1880.07,4685.77
+47,female,36.63,1,yes,telangana,50_lakhs,2_year,private,25000,0,45,none,42969.8527,99859.14
+56,female,28.595,0,no,manipur,5_lakhs,3_year,general,0,20,33,basic,11658.11505,5461.85
+49,male,25.6,2,yes,himachal pradesh,10_lakhs,3_year,general,0,15,0,basic,23306.547,16930.83
+19,female,33.11,0,yes,goa,25_lakhs,2_year,private,50000,15,33,basic,34439.8559,37911.74
+55,female,37.1,0,no,delhi,15_lakhs,1_year,general,100000,0,0,none,10713.644,19820.91
+30,male,31.4,1,no,goa,5_lakhs,2_year,semi_private,0,15,50,comprehensive,3659.346,5137.61
+37,male,34.1,4,yes,assam,5_lakhs,2_year,general,200000,20,20,none,40182.246,14375.41
+49,female,21.3,1,no,bihar,10_lakhs,1_year,general,0,0,0,none,9182.17,13114.89
+18,male,33.535,0,yes,manipur,10_lakhs,1_year,semi_private,50000,25,0,basic,34617.84065,41158.62
+59,male,28.785,0,no,madhya pradesh,15_lakhs,2_year,general,50000,0,0,none,12129.61415,10116.81
+29,female,26.03,0,no,punjab,10_lakhs,1_year,private,50000,0,50,basic,3736.4647,4526.54
+36,male,28.88,3,no,goa,10_lakhs,1_year,semi_private,100000,10,0,basic,6748.5912,7987.1
+33,male,42.46,1,no,kerala,15_lakhs,1_year,general,0,10,25,basic,11326.71487,21072.22
+58,male,38.0,0,no,madhya pradesh,5_lakhs,1_year,general,100000,10,20,basic,11365.952,10701.22
+44,female,38.95,0,yes,haryana,10_lakhs,1_year,general,0,0,45,none,42983.4585,95293.04
+53,male,36.1,1,no,gujarat,15_lakhs,1_year,general,50000,25,0,none,10085.846,16580.07
+24,male,29.3,0,no,tamil nadu,50_lakhs,1_year,general,50000,0,20,comprehensive,1977.815,8057.33
+29,female,35.53,0,no,assam,10_lakhs,1_year,general,50000,0,20,basic,3366.6697,4919.66
+40,male,22.705,2,no,andhra pradesh,10_lakhs,2_year,general,0,0,33,basic,7173.35995,6486.28
+51,male,39.7,1,no,andhra pradesh,5_lakhs,1_year,semi_private,100000,10,0,none,9391.346,8255.56
+64,male,38.19,0,no,chhattisgarh,10_lakhs,1_year,semi_private,0,20,0,basic,14410.9321,24320.43
+19,female,24.51,1,no,jharkhand,10_lakhs,1_year,semi_private,0,10,0,basic,2709.1119,4595.54
+35,female,38.095,2,no,telangana,5_lakhs,3_year,general,50000,15,33,basic,24915.04626,9013.61
+39,male,26.41,0,yes,uttar pradesh,10_lakhs,1_year,general,25000,0,0,comprehensive,20149.3229,36711.5
+56,male,33.66,4,no,kerala,10_lakhs,1_year,semi_private,100000,10,25,none,12949.1554,13883.14
+33,male,42.4,5,no,telangana,5_lakhs,3_year,general,0,0,0,none,6666.243,3384.4
+42,male,28.31,3,yes,odisha,10_lakhs,2_year,general,0,0,45,comprehensive,32787.45859,36160.85
+61,male,33.915,0,no,rajasthan,5_lakhs,1_year,semi_private,100000,0,45,premium,13143.86485,15963.44
+23,female,34.96,3,no,madhya pradesh,10_lakhs,2_year,semi_private,25000,10,20,none,4466.6214,2576.4
+43,male,35.31,2,no,haryana,5_lakhs,1_year,general,0,10,0,basic,18806.14547,25376.28
+48,male,30.78,3,no,punjab,50_lakhs,1_year,general,50000,15,0,none,10141.1362,24138.18
+39,male,26.22,1,no,west bengal,10_lakhs,1_year,semi_private,25000,0,0,none,6123.5688,8196.05
+40,female,23.37,3,no,kerala,15_lakhs,1_year,semi_private,25000,0,0,none,8252.2843,12749.73
+18,male,28.5,0,no,uttar pradesh,25_lakhs,2_year,semi_private,25000,10,25,none,1712.227,1342.83
+58,female,32.965,0,no,chhattisgarh,10_lakhs,1_year,semi_private,50000,0,20,comprehensive,12430.95335,18900.65
+49,female,42.68,2,no,karnataka,5_lakhs,1_year,semi_private,50000,20,45,basic,9800.8882,9708.46
+53,female,39.6,1,no,gujarat,10_lakhs,2_year,general,50000,10,0,none,10579.711,8629.78
+48,female,31.13,0,no,gujarat,10_lakhs,2_year,general,0,0,25,none,8280.6227,7817.13
+45,female,36.3,2,no,rajasthan,15_lakhs,1_year,semi_private,100000,25,20,comprehensive,8527.532,13135.26
+59,female,35.2,0,no,uttarakhand,10_lakhs,2_year,semi_private,50000,10,20,none,12244.531,8346.26
+52,female,25.3,2,yes,west bengal,5_lakhs,1_year,semi_private,50000,0,0,basic,24667.419,36466.07
+26,female,42.4,1,no,bihar,10_lakhs,2_year,general,0,10,20,none,3410.324,2401.25
+27,male,33.155,2,no,punjab,10_lakhs,2_year,general,100000,0,20,basic,4058.71245,3548.36
+48,female,35.91,1,no,maharashtra,15_lakhs,3_year,private,50000,15,33,none,26392.26029,15788.85
+57,female,28.785,4,no,puducherry,10_lakhs,1_year,semi_private,0,15,45,none,14394.39815,18696.24
+37,male,46.53,3,no,himachal pradesh,10_lakhs,1_year,private,0,25,0,none,6435.6237,8309.71
+57,female,23.98,1,no,odisha,1_crore,1_year,semi_private,100000,10,0,none,22192.43711,55157.92
+32,female,31.54,1,no,madhya pradesh,15_lakhs,1_year,semi_private,0,0,20,basic,5148.5526,10086.86
+18,male,33.66,0,no,manipur,5_lakhs,1_year,semi_private,200000,15,20,comprehensive,1136.3994,4014.99
+64,female,22.99,0,yes,punjab,5_lakhs,3_year,private,50000,0,0,none,27037.9141,13648.95
+43,male,38.06,2,yes,delhi,5_lakhs,1_year,semi_private,25000,10,33,none,42560.4304,66551.87
+49,male,28.7,1,no,delhi,5_lakhs,1_year,semi_private,0,10,50,basic,8703.456,10395.18
+40,female,32.775,2,yes,rajasthan,5_lakhs,2_year,general,0,0,45,basic,40003.33225,32002.77
+62,male,32.015,0,yes,uttarakhand,5_lakhs,1_year,general,100000,0,0,premium,45710.20785,61323.06
+40,female,29.81,1,no,telangana,10_lakhs,2_year,semi_private,0,20,45,basic,6500.2359,5774.99
+30,male,31.57,3,no,puducherry,5_lakhs,1_year,general,50000,20,33,basic,4837.5823,4546.46
+29,female,31.16,0,no,madhya pradesh,50_lakhs,1_year,general,0,0,20,basic,3943.5954,12661.32
+36,male,29.7,0,no,kerala,5_lakhs,1_year,general,0,0,20,premium,4399.731,10834.63
+41,female,31.02,0,no,uttarakhand,10_lakhs,1_year,general,0,0,33,comprehensive,6185.3208,12695.56
+44,female,43.89,2,yes,madhya pradesh,10_lakhs,3_year,general,25000,20,20,none,46200.9851,30220.65
+45,male,21.375,0,no,tamil nadu,1_crore,1_year,general,200000,0,0,none,7222.78625,17588.39
+55,female,40.81,3,no,punjab,5_lakhs,1_year,private,0,15,20,none,12485.8009,15657.19
+60,male,31.35,3,yes,punjab,10_lakhs,1_year,general,0,0,25,basic,46130.5265,115017.08
+56,male,36.1,3,no,chhattisgarh,1_crore,1_year,general,0,10,0,comprehensive,12363.547,58438.66
+49,female,23.18,2,no,himachal pradesh,25_lakhs,3_year,general,25000,0,45,basic,10156.7832,7342.4
+21,female,17.4,1,no,west bengal,25_lakhs,1_year,semi_private,0,15,25,none,2585.269,4570.09
+19,male,20.3,0,no,uttar pradesh,10_lakhs,2_year,general,100000,0,25,comprehensive,1242.26,4020.59
+39,male,35.3,2,yes,madhya pradesh,5_lakhs,3_year,semi_private,25000,10,0,comprehensive,40103.89,24291.06
+53,male,24.32,0,no,maharashtra,15_lakhs,1_year,semi_private,25000,0,25,none,9863.4718,18493.69
+33,female,18.5,1,no,tamil nadu,50_lakhs,3_year,semi_private,0,15,0,comprehensive,4766.022,8468.39
+53,male,26.41,2,no,punjab,10_lakhs,1_year,general,200000,20,0,basic,11244.3769,10370.76
+42,male,26.125,2,no,manipur,10_lakhs,1_year,semi_private,0,0,20,comprehensive,7729.64575,13532.23
+40,male,41.69,0,no,odisha,10_lakhs,1_year,general,0,20,20,comprehensive,5438.7491,10799.68
+47,female,24.1,1,no,manipur,25_lakhs,2_year,private,50000,10,25,basic,26236.57997,19919.51
+27,male,31.13,1,yes,meghalaya,5_lakhs,3_year,semi_private,25000,0,0,comprehensive,34806.4677,19201.25
+21,male,27.36,0,no,maharashtra,10_lakhs,1_year,general,0,0,20,comprehensive,2104.1134,6758.47
+47,male,36.2,1,no,rajasthan,10_lakhs,2_year,general,0,0,0,basic,8068.185,9462.38
+20,male,32.395,1,no,goa,10_lakhs,1_year,general,50000,15,50,none,2362.22905,1980.15
+24,male,23.655,0,no,rajasthan,5_lakhs,1_year,semi_private,0,15,25,comprehensive,2352.96845,5387.16
+27,female,34.8,1,no,telangana,5_lakhs,1_year,general,50000,0,25,none,3577.999,3074.65
+26,female,40.185,0,no,punjab,15_lakhs,3_year,semi_private,25000,10,0,basic,3201.24515,3406.42
+53,female,32.3,2,no,punjab,10_lakhs,2_year,general,0,15,0,comprehensive,29186.48236,29739.44
+41,male,35.75,1,yes,jharkhand,10_lakhs,1_year,semi_private,25000,20,50,comprehensive,40273.6455,59356.99
+56,male,33.725,0,no,goa,5_lakhs,1_year,semi_private,0,10,0,basic,10976.24575,16344.27
+23,female,39.27,2,no,bihar,10_lakhs,1_year,semi_private,50000,25,20,none,3500.6123,3048.21
+21,female,34.87,0,no,puducherry,10_lakhs,1_year,semi_private,25000,10,25,basic,2020.5523,3677.4
+50,female,44.745,0,no,goa,5_lakhs,1_year,general,0,0,0,none,9541.69555,13825.92
+53,male,41.47,0,no,andhra pradesh,10_lakhs,3_year,general,25000,15,33,none,9504.3103,4883.63
+34,female,26.41,1,no,gujarat,5_lakhs,1_year,semi_private,200000,0,20,comprehensive,5385.3379,6538.95
+47,female,29.545,1,no,delhi,5_lakhs,1_year,general,0,0,0,none,8930.93455,12401.72
+33,female,32.9,2,no,tamil nadu,1_crore,1_year,general,100000,0,0,basic,5375.038,16565.16
+51,female,38.06,0,yes,uttarakhand,10_lakhs,3_year,general,0,15,0,basic,44400.4064,41973.7
+49,male,28.69,3,no,himachal pradesh,25_lakhs,2_year,general,0,15,45,premium,10264.4421,15020.38
+31,female,30.495,3,no,manipur,10_lakhs,1_year,general,0,0,25,basic,6113.23105,9064.64
+36,female,27.74,0,no,chhattisgarh,15_lakhs,2_year,private,0,0,0,none,5469.0066,5088.87
+18,male,35.2,1,no,jharkhand,25_lakhs,1_year,general,0,0,0,none,1727.54,3814.41
+50,female,23.54,2,no,uttar pradesh,10_lakhs,1_year,semi_private,0,10,25,basic,10107.2206,14254.33
+43,female,30.685,2,no,odisha,10_lakhs,1_year,general,100000,0,25,basic,8310.83915,9798.78
+20,male,40.47,0,no,haryana,10_lakhs,1_year,semi_private,100000,15,20,basic,1984.4533,3246.93
+24,female,22.6,0,no,jharkhand,10_lakhs,1_year,general,50000,0,0,basic,2457.502,3789.16
+60,male,28.9,0,no,maharashtra,50_lakhs,3_year,private,0,0,0,none,12146.971,19744.67
+49,female,22.61,1,no,goa,25_lakhs,2_year,private,0,0,25,basic,9566.9909,13114.59
+60,male,24.32,1,no,puducherry,1_crore,2_year,general,0,0,50,basic,13112.6048,25811.48
+51,female,36.67,2,no,puducherry,5_lakhs,1_year,private,50000,20,0,none,10848.1343,10166.06
+58,female,33.44,0,no,tamil nadu,15_lakhs,1_year,private,100000,0,25,none,12231.6136,18788.18
+51,female,40.66,0,no,bihar,50_lakhs,2_year,semi_private,0,0,20,none,9875.6804,19595.49
+53,male,36.6,3,no,assam,5_lakhs,1_year,semi_private,0,0,20,none,11264.541,14125.73
+62,male,37.4,0,no,manipur,5_lakhs,1_year,general,25000,0,0,basic,12979.358,16062.84
+19,male,35.4,0,no,andhra pradesh,15_lakhs,1_year,semi_private,0,0,33,none,1263.249,2206.09
+50,female,27.075,1,no,telangana,10_lakhs,2_year,general,0,0,20,none,10106.13425,9305.73
+30,female,39.05,3,yes,kerala,25_lakhs,1_year,general,25000,10,20,none,40932.4295,104216.7
+41,male,28.405,1,no,bihar,5_lakhs,1_year,private,50000,10,0,premium,6664.68595,11108.62
+29,female,21.755,1,yes,west bengal,25_lakhs,2_year,general,0,0,0,comprehensive,16657.71745,30728.61
+18,female,40.28,0,no,rajasthan,5_lakhs,1_year,semi_private,0,0,0,none,2217.6012,2607.9
+41,female,36.08,1,no,telangana,5_lakhs,1_year,semi_private,200000,25,33,none,6781.3542,4178.37
+35,male,24.42,3,yes,meghalaya,5_lakhs,1_year,private,0,0,0,none,19361.9988,23853.98
+53,male,21.4,1,no,goa,25_lakhs,1_year,private,0,0,25,basic,10065.413,26072.19
+24,female,30.1,3,no,west bengal,15_lakhs,2_year,general,0,0,0,none,4234.927,4568.78
+48,female,27.265,1,no,delhi,10_lakhs,1_year,general,0,0,20,comprehensive,9447.25035,20324.72
+59,female,32.1,3,no,west bengal,10_lakhs,1_year,general,0,15,20,basic,14007.222,25402.53
+49,female,34.77,1,no,chhattisgarh,50_lakhs,3_year,general,50000,0,0,comprehensive,9583.8933,12672.58
+37,female,38.39,0,yes,gujarat,10_lakhs,3_year,general,0,15,0,none,40419.0191,36189.76
+26,male,23.7,2,no,uttar pradesh,25_lakhs,3_year,general,0,0,0,comprehensive,3484.331,6046.24
+23,male,31.73,3,yes,delhi,10_lakhs,1_year,semi_private,50000,0,25,comprehensive,36189.1017,64946.86
+29,male,35.5,2,yes,puducherry,10_lakhs,1_year,semi_private,25000,15,25,none,44585.45587,68936.13
+45,male,24.035,2,no,odisha,10_lakhs,3_year,general,100000,0,0,basic,8604.48365,4672.63
+27,male,29.15,0,yes,uttar pradesh,10_lakhs,2_year,semi_private,100000,10,20,none,18246.4955,10563.49
+53,male,34.105,0,yes,maharashtra,15_lakhs,1_year,general,0,0,0,none,43254.41795,160867.51
+31,female,26.62,0,no,goa,10_lakhs,1_year,general,50000,15,0,none,3757.8448,3515.65
+50,male,26.41,0,no,himachal pradesh,5_lakhs,1_year,semi_private,25000,0,0,basic,8827.2099,9265.74
+50,female,30.115,1,no,punjab,50_lakhs,3_year,semi_private,200000,20,45,basic,9910.35985,6962.49
+34,male,27.0,2,no,bihar,10_lakhs,1_year,semi_private,25000,0,0,premium,11737.84884,18391.65
+19,male,21.755,0,no,punjab,10_lakhs,1_year,general,200000,20,0,none,1627.28245,1027.02
+47,female,36.0,1,no,haryana,50_lakhs,1_year,semi_private,50000,0,0,premium,8556.907,30797.92
+28,male,30.875,0,no,tamil nadu,15_lakhs,2_year,semi_private,0,15,0,none,3062.50825,2961.3
+37,female,26.4,0,yes,rajasthan,5_lakhs,2_year,semi_private,25000,0,25,comprehensive,19539.243,15871.31
+21,male,28.975,0,no,chhattisgarh,50_lakhs,1_year,semi_private,200000,20,0,none,1906.35825,2410.58
+64,male,37.905,0,no,uttarakhand,15_lakhs,2_year,private,100000,0,0,none,14210.53595,11739.53
+58,female,22.77,0,no,gujarat,10_lakhs,3_year,semi_private,0,0,25,comprehensive,11833.7823,11214.37
+24,male,33.63,4,no,jharkhand,5_lakhs,1_year,semi_private,50000,0,0,none,17128.42608,13236.85
+31,male,27.645,2,no,manipur,25_lakhs,1_year,private,0,0,33,comprehensive,5031.26955,11868.01
+39,female,22.8,3,no,karnataka,15_lakhs,1_year,semi_private,0,0,25,basic,7985.815,16322.72
+47,female,27.83,0,yes,kerala,10_lakhs,2_year,general,0,20,0,basic,23065.4207,26169.35
+30,male,37.43,3,no,meghalaya,50_lakhs,1_year,semi_private,0,25,25,basic,5428.7277,13741.0
+18,male,38.17,0,yes,chhattisgarh,25_lakhs,2_year,general,50000,0,0,comprehensive,36307.7983,49000.54
+22,female,34.58,2,no,punjab,5_lakhs,2_year,general,0,20,20,none,3925.7582,1919.17
+23,male,35.2,1,no,gujarat,10_lakhs,1_year,semi_private,50000,10,20,comprehensive,2416.955,6271.92
+33,male,27.1,1,yes,assam,5_lakhs,3_year,private,0,0,0,comprehensive,19040.876,12973.57
+27,male,26.03,0,no,meghalaya,15_lakhs,1_year,private,0,15,25,none,3070.8087,3649.09
+45,female,25.175,2,no,maharashtra,5_lakhs,1_year,general,0,10,45,none,9095.06825,9406.07
+57,female,31.825,0,no,puducherry,10_lakhs,2_year,general,0,25,50,comprehensive,11842.62375,11278.0
+47,male,32.3,1,no,maharashtra,25_lakhs,2_year,general,0,0,25,basic,8062.764,13507.12
+42,female,29.0,1,no,chhattisgarh,50_lakhs,1_year,private,0,10,20,basic,7050.642,20667.84
+64,female,39.7,0,no,jharkhand,10_lakhs,3_year,private,25000,0,0,none,14319.031,8721.12
+38,female,19.475,2,no,odisha,25_lakhs,3_year,semi_private,0,0,0,basic,6933.24225,6971.93
+61,male,36.1,3,no,andhra pradesh,5_lakhs,1_year,semi_private,0,0,20,none,27941.28758,39020.01
+53,female,26.7,2,no,goa,25_lakhs,3_year,semi_private,0,25,0,basic,11150.78,10731.56
+44,female,36.48,0,no,manipur,5_lakhs,1_year,semi_private,100000,15,45,comprehensive,12797.20962,11056.0
+19,female,28.88,0,yes,puducherry,10_lakhs,1_year,general,100000,15,0,none,17748.5062,19743.99
+41,male,34.2,2,no,odisha,25_lakhs,1_year,general,25000,10,0,basic,7261.741,15396.87
+51,male,33.33,3,no,punjab,5_lakhs,3_year,semi_private,0,0,0,premium,10560.4917,11686.42
+40,male,32.3,2,no,maharashtra,5_lakhs,2_year,semi_private,0,0,33,comprehensive,6986.697,8228.05
+45,male,39.805,0,no,karnataka,15_lakhs,1_year,general,200000,0,25,comprehensive,7448.40395,13216.05
+35,male,34.32,3,no,uttar pradesh,15_lakhs,1_year,private,0,0,25,basic,5934.3798,11189.11
+53,male,28.88,0,no,tamil nadu,15_lakhs,2_year,general,0,15,0,comprehensive,9869.8102,14683.96
+30,male,24.4,3,yes,maharashtra,15_lakhs,1_year,general,0,10,33,none,18259.216,40162.64
+18,male,41.14,0,no,goa,10_lakhs,3_year,semi_private,0,0,0,none,1146.7966,750.27
+51,male,35.97,1,no,bihar,10_lakhs,2_year,semi_private,0,0,45,none,9386.1613,8034.3
+50,female,27.6,1,yes,assam,10_lakhs,1_year,semi_private,50000,0,20,basic,24520.264,36586.63
+31,female,29.26,1,no,rajasthan,5_lakhs,3_year,general,0,0,0,comprehensive,4350.5144,5221.8
+35,female,27.7,3,no,odisha,50_lakhs,1_year,general,25000,20,20,none,6414.178,12296.27
+60,male,36.955,0,no,gujarat,10_lakhs,3_year,semi_private,0,10,25,comprehensive,12741.16745,12669.71
+21,male,36.86,0,no,gujarat,10_lakhs,2_year,semi_private,0,15,0,comprehensive,1917.3184,5095.67
+29,male,22.515,3,no,rajasthan,10_lakhs,2_year,general,100000,0,45,basic,5209.57885,3558.37
+62,female,29.92,0,no,tamil nadu,50_lakhs,1_year,semi_private,0,0,20,basic,13457.9608,53183.62
+39,female,41.8,0,no,goa,5_lakhs,3_year,general,50000,0,0,basic,5662.225,3722.64
+19,male,27.6,0,no,assam,10_lakhs,1_year,semi_private,25000,20,0,none,1252.407,1128.73
+22,female,23.18,0,no,gujarat,10_lakhs,1_year,semi_private,0,15,20,none,2731.9122,3329.89
+53,male,20.9,0,yes,goa,15_lakhs,1_year,general,200000,0,20,premium,21195.818,39577.45
+39,female,31.92,2,no,gujarat,5_lakhs,1_year,general,0,10,20,none,7209.4918,8231.55
+27,male,28.5,0,yes,kerala,50_lakhs,1_year,semi_private,100000,0,25,none,18310.742,46470.55
+30,male,44.22,2,no,kerala,50_lakhs,2_year,semi_private,0,10,20,comprehensive,4266.1658,10407.44
+30,female,22.895,1,no,uttarakhand,10_lakhs,3_year,semi_private,100000,20,50,none,4719.52405,1028.97
+58,female,33.1,0,no,odisha,15_lakhs,1_year,semi_private,0,10,25,comprehensive,11848.141,25746.24
+33,male,24.795,0,yes,goa,50_lakhs,2_year,semi_private,25000,10,33,none,17904.52705,28035.98
+42,female,26.18,1,no,haryana,15_lakhs,1_year,private,50000,0,0,basic,7046.7222,11528.37
+64,female,35.97,0,no,uttar pradesh,5_lakhs,3_year,general,100000,0,0,none,14313.8463,5099.31
+21,male,22.3,1,no,haryana,10_lakhs,2_year,general,100000,0,0,none,2103.08,997.54
+18,female,42.24,0,yes,maharashtra,15_lakhs,1_year,general,50000,0,25,basic,38792.6856,87755.17
+23,male,26.51,0,no,uttarakhand,10_lakhs,2_year,general,100000,15,45,comprehensive,1815.8759,4112.05
+45,female,35.815,0,no,punjab,15_lakhs,1_year,semi_private,0,15,0,basic,7731.85785,16992.79
+40,female,41.42,1,no,punjab,50_lakhs,1_year,general,0,0,0,premium,28476.73499,109336.38
+19,female,36.575,0,no,delhi,50_lakhs,2_year,private,0,15,45,none,2136.88225,3338.47
+18,male,30.14,0,no,maharashtra,10_lakhs,1_year,semi_private,0,0,0,basic,1131.5066,3467.46
+25,male,25.84,1,no,odisha,5_lakhs,1_year,semi_private,0,0,25,basic,3309.7926,4424.2
+46,female,30.8,3,no,west bengal,1_crore,1_year,general,25000,0,20,premium,9414.92,43014.07
+33,female,42.94,3,no,karnataka,25_lakhs,2_year,general,0,0,33,none,6360.9936,8318.12
+54,male,21.01,2,no,west bengal,5_lakhs,1_year,general,50000,0,0,basic,11013.7119,12651.38
+28,male,22.515,2,no,madhya pradesh,50_lakhs,1_year,general,0,0,0,comprehensive,4428.88785,15280.84
+36,male,34.43,2,no,karnataka,25_lakhs,2_year,general,0,0,25,none,5584.3057,7606.24
+20,female,31.46,0,no,puducherry,10_lakhs,2_year,semi_private,25000,25,45,comprehensive,1877.9294,4391.12
+24,female,24.225,0,no,puducherry,10_lakhs,1_year,private,50000,0,20,none,2842.76075,2679.69
+23,male,37.1,3,no,tamil nadu,10_lakhs,1_year,private,50000,0,0,comprehensive,3597.596,8308.19
+47,female,26.125,1,yes,chhattisgarh,5_lakhs,1_year,semi_private,25000,0,25,premium,23401.30575,33400.32
+33,female,35.53,0,yes,telangana,10_lakhs,1_year,general,0,10,45,comprehensive,55135.40209,111065.51
+45,male,33.7,1,no,maharashtra,25_lakhs,1_year,private,25000,0,33,basic,7445.918,18374.21
+26,male,17.67,0,no,puducherry,5_lakhs,2_year,private,0,15,50,none,2680.9493,999.81
+18,female,31.13,0,no,telangana,10_lakhs,2_year,general,0,10,0,premium,1621.8827,7341.47
+44,female,29.81,2,no,gujarat,10_lakhs,2_year,semi_private,0,10,0,basic,8219.2039,8695.99
+60,male,24.32,0,no,manipur,10_lakhs,1_year,general,0,10,25,none,12523.6048,15912.07
+64,female,31.825,2,no,odisha,50_lakhs,2_year,semi_private,0,0,33,comprehensive,16069.08475,32611.97
+56,male,31.79,2,yes,bihar,10_lakhs,1_year,private,200000,0,0,basic,43813.8661,60161.33
+36,male,28.025,1,yes,jharkhand,10_lakhs,3_year,general,200000,0,0,none,20773.62775,8664.92
+41,male,30.78,3,yes,assam,15_lakhs,2_year,private,0,10,33,none,39597.4072,46401.91
+39,male,21.85,1,no,jharkhand,10_lakhs,1_year,semi_private,0,0,0,none,6117.4945,8205.76
+63,male,33.1,0,no,gujarat,5_lakhs,2_year,private,0,0,0,basic,13393.756,12446.68
+36,female,25.84,0,no,goa,10_lakhs,1_year,general,0,25,20,basic,5266.3656,7780.52
+28,female,23.845,2,no,haryana,5_lakhs,2_year,semi_private,100000,0,25,basic,4719.73655,3042.21
+58,male,34.39,0,no,karnataka,5_lakhs,1_year,general,0,15,33,comprehensive,11743.9341,18084.28
+36,male,33.82,1,no,andhra pradesh,10_lakhs,1_year,general,50000,15,0,comprehensive,5377.4578,9179.66
+42,male,35.97,2,no,uttarakhand,10_lakhs,3_year,general,0,0,25,basic,7160.3303,6032.93
+36,male,31.5,0,no,madhya pradesh,50_lakhs,1_year,private,200000,0,25,none,4402.233,7245.06
+56,female,28.31,0,no,rajasthan,10_lakhs,2_year,semi_private,0,0,20,comprehensive,11657.7189,13895.0
+35,female,23.465,2,no,karnataka,10_lakhs,1_year,private,50000,10,25,basic,6402.29135,7711.83
+59,female,31.35,0,no,rajasthan,15_lakhs,2_year,private,0,10,0,basic,12622.1795,15709.82
+21,male,31.1,0,no,chhattisgarh,5_lakhs,2_year,general,25000,15,0,basic,1526.312,2135.89
+59,male,24.7,0,no,karnataka,15_lakhs,1_year,general,0,20,0,basic,12323.936,25698.05
+23,female,32.78,2,yes,chhattisgarh,5_lakhs,1_year,general,0,10,0,premium,36021.0112,53805.47
+57,female,29.81,0,yes,jharkhand,1_crore,1_year,general,100000,0,20,none,27533.9129,100597.71
+53,male,30.495,0,no,uttarakhand,5_lakhs,1_year,general,100000,0,33,comprehensive,10072.05505,11336.56
+60,female,32.45,0,yes,karnataka,10_lakhs,1_year,general,100000,15,33,none,45008.9555,68666.57
+51,female,34.2,1,no,himachal pradesh,5_lakhs,2_year,general,25000,0,33,premium,9872.701,11143.94
+23,male,50.38,1,no,manipur,1_crore,3_year,general,50000,0,0,none,2438.0552,2599.34
+27,female,24.1,0,no,rajasthan,10_lakhs,3_year,general,0,15,20,none,2974.126,1265.18
+55,male,32.775,0,no,maharashtra,10_lakhs,2_year,general,0,0,0,none,10601.63225,12455.49
+37,female,30.78,0,yes,meghalaya,5_lakhs,2_year,private,0,20,0,basic,37270.1512,27018.83
+61,male,32.3,2,no,jharkhand,15_lakhs,2_year,semi_private,25000,10,0,none,14119.62,12684.05
+46,female,35.53,0,yes,assam,5_lakhs,1_year,private,0,0,25,basic,42111.6647,68084.81
+53,female,23.75,2,no,kerala,50_lakhs,3_year,general,0,20,50,basic,11729.6795,12451.91
+49,female,23.845,3,yes,uttarakhand,5_lakhs,2_year,general,25000,0,0,none,24106.91255,16940.97
+20,female,29.6,0,no,odisha,5_lakhs,1_year,semi_private,50000,0,0,none,1875.344,1402.99
+48,female,33.11,0,yes,gujarat,5_lakhs,1_year,general,0,0,33,comprehensive,40974.1649,75315.84
+25,male,24.13,0,yes,delhi,10_lakhs,1_year,general,0,0,0,comprehensive,15817.9857,37880.39
+25,female,32.23,1,no,kerala,10_lakhs,1_year,general,0,0,33,comprehensive,18218.16139,28787.1
+57,male,28.1,0,no,meghalaya,5_lakhs,3_year,general,0,0,33,comprehensive,10965.446,7884.07
+37,female,47.6,2,yes,odisha,25_lakhs,1_year,general,0,0,45,none,46113.511,135124.39
+38,female,28.0,3,no,kerala,10_lakhs,1_year,general,25000,0,20,none,7151.092,9017.0
+55,female,33.535,2,no,odisha,10_lakhs,3_year,semi_private,25000,15,25,none,12269.68865,5894.27
+36,female,19.855,0,no,himachal pradesh,10_lakhs,1_year,general,50000,15,20,comprehensive,5458.04645,7990.6
+51,male,25.4,0,no,meghalaya,10_lakhs,1_year,general,0,0,25,premium,8782.469,18129.03
+40,male,29.9,2,no,gujarat,10_lakhs,1_year,semi_private,50000,0,20,basic,6600.361,9275.41
+18,male,37.29,0,no,karnataka,5_lakhs,2_year,general,0,0,0,none,1141.4451,829.24
+57,male,43.7,1,no,rajasthan,5_lakhs,3_year,general,25000,0,20,none,11576.13,5285.06
+61,male,23.655,0,no,goa,25_lakhs,1_year,private,50000,15,20,none,13129.60345,21609.69
+25,female,24.3,3,no,karnataka,50_lakhs,3_year,general,0,15,33,basic,4391.652,5695.23
+50,male,36.2,0,no,punjab,10_lakhs,1_year,general,0,0,33,none,8457.818,14181.22
+26,female,29.48,1,no,andhra pradesh,10_lakhs,3_year,general,100000,0,25,premium,3392.3652,7095.66
+42,male,24.86,0,no,andhra pradesh,15_lakhs,2_year,general,0,0,0,basic,5966.8874,7497.69
+43,male,30.1,1,no,bihar,10_lakhs,2_year,semi_private,50000,10,33,premium,6849.026,9677.78
+44,male,21.85,3,no,andhra pradesh,5_lakhs,1_year,semi_private,0,0,20,comprehensive,8891.1395,13019.3
+23,female,28.12,0,no,uttarakhand,5_lakhs,3_year,general,50000,25,45,comprehensive,2690.1138,4039.52
+49,female,27.1,1,no,jharkhand,15_lakhs,2_year,semi_private,0,15,45,basic,26140.3603,20873.15
+33,male,33.44,5,no,manipur,15_lakhs,1_year,general,0,0,0,basic,6653.7886,12320.66
+41,male,28.8,1,no,assam,5_lakhs,2_year,general,25000,10,33,basic,6282.235,4039.58
+37,female,29.5,2,no,assam,5_lakhs,1_year,semi_private,0,20,0,basic,6311.952,6854.0
+22,male,34.8,3,no,bihar,5_lakhs,3_year,general,0,10,0,basic,3443.064,2755.35
+23,male,27.36,1,no,andhra pradesh,15_lakhs,1_year,general,0,0,20,premium,2789.0574,10498.63
+21,female,22.135,0,no,puducherry,5_lakhs,2_year,general,0,0,0,comprehensive,2585.85065,4869.8
+51,female,37.05,3,yes,bihar,5_lakhs,1_year,general,0,15,33,comprehensive,46255.1125,74276.98
+25,male,26.695,4,no,west bengal,25_lakhs,1_year,general,0,10,0,comprehensive,4877.98105,13193.52
+32,male,28.93,1,yes,delhi,5_lakhs,1_year,semi_private,100000,10,0,none,19719.6947,19935.01
+57,male,28.975,0,yes,west bengal,15_lakhs,1_year,general,0,20,25,none,27218.43725,70453.1
+36,female,30.02,0,no,delhi,5_lakhs,1_year,general,25000,20,33,basic,5272.1758,6268.81
+22,male,39.5,0,no,meghalaya,5_lakhs,1_year,general,0,20,45,basic,1682.597,2783.75
+57,male,33.63,1,no,manipur,5_lakhs,1_year,semi_private,0,0,33,comprehensive,11945.1327,16744.76
+64,female,26.885,0,yes,tamil nadu,15_lakhs,1_year,semi_private,100000,10,25,basic,29330.98315,53311.41
+36,female,29.04,4,no,tamil nadu,25_lakhs,1_year,semi_private,0,15,0,basic,7243.8136,17403.24
+54,male,24.035,0,no,chhattisgarh,25_lakhs,2_year,semi_private,200000,15,0,basic,10422.91665,7771.78
+47,male,38.94,2,yes,uttarakhand,10_lakhs,1_year,private,0,10,0,none,44202.6536,100762.9
+62,male,32.11,0,no,uttarakhand,15_lakhs,3_year,general,50000,0,20,basic,13555.0049,9651.67
+61,female,44.0,0,no,goa,5_lakhs,3_year,general,25000,15,25,comprehensive,13063.883,9005.09
+43,female,20.045,2,yes,gujarat,10_lakhs,2_year,semi_private,100000,15,20,none,19798.05455,13650.67
+19,male,25.555,1,no,chhattisgarh,50_lakhs,1_year,private,25000,0,33,basic,2221.56445,5877.9
+18,female,40.26,0,no,kerala,5_lakhs,3_year,private,25000,0,20,basic,1634.5734,2121.38
+19,female,22.515,0,no,puducherry,5_lakhs,1_year,general,0,0,0,none,2117.33885,2074.99
+49,male,22.515,0,no,goa,5_lakhs,1_year,general,0,0,0,none,8688.85885,10491.8
+60,male,40.92,0,yes,rajasthan,5_lakhs,1_year,general,100000,0,33,premium,48673.5588,64599.56
+26,male,27.265,3,no,maharashtra,5_lakhs,2_year,semi_private,0,0,33,basic,4661.28635,4238.19
+49,male,36.85,0,no,gujarat,10_lakhs,1_year,general,0,10,45,none,8125.7845,12785.23
+60,female,35.1,0,no,uttar pradesh,10_lakhs,1_year,general,50000,10,0,none,12644.589,16784.27
+26,female,29.355,2,no,telangana,50_lakhs,3_year,semi_private,0,10,50,comprehensive,4564.19145,7678.38
+27,male,32.585,3,no,haryana,25_lakhs,3_year,general,200000,15,0,basic,4846.92015,3521.09
+44,female,32.34,1,no,karnataka,10_lakhs,1_year,private,50000,0,0,basic,7633.7206,12649.75
+63,male,39.8,3,no,odisha,10_lakhs,1_year,general,25000,0,50,none,15170.069,19844.73
+32,female,24.6,0,yes,haryana,10_lakhs,2_year,general,100000,20,0,comprehensive,17496.306,13375.72
+22,male,28.31,1,no,punjab,10_lakhs,1_year,general,0,0,25,basic,2639.0429,4978.98
+18,male,31.73,0,yes,uttar pradesh,10_lakhs,1_year,semi_private,0,25,0,none,33732.6867,55624.77
+59,female,26.695,3,no,manipur,15_lakhs,1_year,general,25000,15,25,basic,14382.70905,19659.42
+44,female,27.5,1,no,jharkhand,10_lakhs,3_year,general,0,10,45,basic,7626.993,4940.29
+33,male,24.605,2,no,manipur,10_lakhs,2_year,private,50000,25,0,comprehensive,5257.50795,5576.35
+24,female,33.99,0,no,puducherry,10_lakhs,2_year,general,100000,0,25,premium,2473.3341,7197.53
+43,female,26.885,0,yes,jharkhand,10_lakhs,3_year,semi_private,0,0,0,none,21774.32215,16746.3
+45,male,22.895,0,yes,meghalaya,50_lakhs,1_year,semi_private,0,10,25,comprehensive,35069.37452,122532.45
+61,female,28.2,0,no,andhra pradesh,25_lakhs,1_year,general,200000,0,0,comprehensive,13041.921,21952.69
+35,female,34.21,1,no,bihar,5_lakhs,1_year,semi_private,0,20,0,premium,5245.2269,10593.98
+62,female,25.0,0,no,odisha,25_lakhs,1_year,general,25000,0,0,none,13451.122,27154.45
+62,female,33.2,0,no,delhi,10_lakhs,1_year,semi_private,0,10,0,basic,13462.52,28419.92
+38,male,31.0,1,no,maharashtra,50_lakhs,2_year,general,100000,10,45,none,5488.262,5873.28
+34,male,35.815,0,no,west bengal,25_lakhs,2_year,semi_private,25000,10,0,comprehensive,4320.41085,8233.64
+43,male,23.2,0,no,odisha,10_lakhs,3_year,general,50000,0,0,none,6250.435,2659.21
+50,male,32.11,2,no,tamil nadu,5_lakhs,1_year,semi_private,50000,0,20,basic,25333.33284,27073.24
+19,female,23.4,2,no,himachal pradesh,10_lakhs,2_year,general,0,15,0,none,2913.569,1683.89
+57,female,20.1,1,no,jharkhand,10_lakhs,2_year,general,0,0,33,none,12032.326,9087.66
+62,female,39.16,0,no,jharkhand,15_lakhs,1_year,general,100000,15,50,basic,13470.8044,15535.97
+41,male,34.21,1,no,meghalaya,10_lakhs,2_year,general,0,10,20,comprehensive,6289.7549,8046.8
+26,male,46.53,1,no,puducherry,5_lakhs,1_year,semi_private,50000,15,45,basic,2927.0647,3431.09
+39,female,32.5,1,no,haryana,25_lakhs,1_year,general,100000,15,25,comprehensive,6238.298,11528.18
+46,male,25.8,5,no,assam,1_crore,1_year,private,25000,0,0,none,10096.97,30398.95
+45,female,35.3,0,no,haryana,10_lakhs,1_year,private,50000,10,25,basic,7348.142,10284.61
+32,male,37.18,2,no,meghalaya,5_lakhs,1_year,semi_private,50000,20,20,basic,4673.3922,4488.82
+59,female,27.5,0,no,karnataka,10_lakhs,2_year,general,100000,0,25,none,12233.828,7933.01
+44,male,29.735,2,no,punjab,5_lakhs,3_year,general,0,25,45,basic,32108.66282,11893.67
+39,female,24.225,5,no,haryana,50_lakhs,2_year,semi_private,0,0,20,comprehensive,8965.79575,17422.67
+18,male,26.18,2,no,meghalaya,5_lakhs,2_year,general,0,0,45,basic,2304.0022,2431.56
+53,male,29.48,0,no,uttarakhand,10_lakhs,1_year,general,50000,0,33,comprehensive,9487.6442,14280.0
+18,male,23.21,0,no,madhya pradesh,10_lakhs,2_year,semi_private,25000,25,20,basic,1121.8739,2014.97
+50,female,46.09,1,no,tamil nadu,10_lakhs,1_year,semi_private,50000,0,25,none,9549.5651,13650.02
+18,female,40.185,0,no,jharkhand,15_lakhs,1_year,semi_private,0,20,0,none,2217.46915,3433.44
+19,male,22.61,0,no,assam,25_lakhs,1_year,general,25000,20,50,basic,1628.4709,3156.61
+62,male,39.93,0,no,haryana,5_lakhs,1_year,semi_private,0,0,25,none,12982.8747,18111.11
+56,female,35.8,1,no,andhra pradesh,5_lakhs,1_year,general,50000,0,0,none,11674.13,12870.73
+42,male,35.8,2,no,jharkhand,5_lakhs,1_year,general,25000,15,0,basic,7160.094,8299.66
+37,male,34.2,1,yes,punjab,50_lakhs,1_year,private,0,0,25,basic,39047.285,173687.51
+42,male,31.255,0,no,chhattisgarh,50_lakhs,3_year,general,0,15,0,none,6358.77645,7140.76
+25,male,29.7,3,yes,rajasthan,10_lakhs,1_year,general,50000,0,0,comprehensive,19933.458,32575.09
+57,male,18.335,0,no,tamil nadu,15_lakhs,1_year,general,25000,0,20,basic,11534.87265,22632.07
+51,male,42.9,2,yes,uttarakhand,15_lakhs,1_year,private,0,15,0,none,47462.894,137487.66
+30,female,28.405,1,no,jharkhand,5_lakhs,2_year,semi_private,200000,0,20,comprehensive,4527.18295,4735.15
+44,male,30.2,2,yes,manipur,50_lakhs,1_year,semi_private,50000,0,0,basic,38998.546,131455.39
+34,male,27.835,1,yes,assam,10_lakhs,1_year,semi_private,200000,0,0,basic,20009.63365,20719.21
+31,male,39.49,1,no,gujarat,10_lakhs,1_year,general,0,0,25,basic,3875.7341,7806.32
+54,male,30.8,1,yes,kerala,10_lakhs,1_year,general,25000,10,20,none,41999.52,84210.2
+24,male,26.79,1,no,madhya pradesh,5_lakhs,1_year,general,100000,15,0,comprehensive,12609.88702,10352.21
+43,male,34.96,1,yes,manipur,5_lakhs,1_year,general,25000,0,0,basic,41034.2214,56846.7
+48,male,36.67,1,no,odisha,15_lakhs,1_year,general,50000,10,25,premium,28468.91901,45517.52
+19,female,39.615,1,no,madhya pradesh,5_lakhs,1_year,private,0,10,0,comprehensive,2730.10785,6363.34
+29,female,25.9,0,no,puducherry,15_lakhs,1_year,general,0,0,0,basic,3353.284,6922.26
+63,female,35.2,1,no,telangana,5_lakhs,2_year,general,0,0,0,none,14474.675,12909.85
+46,male,24.795,3,no,manipur,10_lakhs,1_year,general,0,20,33,none,9500.57305,9929.46
+52,male,36.765,2,no,odisha,10_lakhs,1_year,general,0,15,33,none,26467.09737,40325.53
+35,male,27.1,1,no,punjab,10_lakhs,1_year,private,0,10,33,basic,4746.344,7070.74
+51,male,24.795,2,yes,himachal pradesh,15_lakhs,3_year,general,200000,10,33,none,23967.38305,10909.5
+44,male,25.365,1,no,manipur,10_lakhs,1_year,general,0,0,25,basic,7518.02535,11052.15
+21,male,25.745,2,no,delhi,10_lakhs,1_year,semi_private,50000,10,20,none,3279.86855,3337.8
+39,female,34.32,5,no,kerala,10_lakhs,2_year,general,100000,10,25,premium,8596.8278,10304.54
+50,female,28.16,3,no,tamil nadu,15_lakhs,1_year,general,25000,10,0,none,10702.6424,18342.63
+34,female,23.56,0,no,uttar pradesh,50_lakhs,1_year,general,0,0,25,premium,4992.3764,18350.14
+22,female,20.235,0,no,punjab,15_lakhs,1_year,semi_private,50000,0,33,premium,2527.81865,8815.36
+19,female,40.5,0,no,chhattisgarh,5_lakhs,3_year,private,25000,0,20,basic,1759.338,2103.24
+26,male,35.42,0,no,jharkhand,5_lakhs,1_year,semi_private,50000,25,0,comprehensive,2322.6218,5076.97
+29,male,22.895,0,yes,delhi,10_lakhs,2_year,general,50000,0,0,basic,16138.76205,15720.65
+48,male,40.15,0,no,jharkhand,10_lakhs,3_year,semi_private,200000,0,25,basic,7804.1605,4131.47
+26,male,29.15,1,no,puducherry,5_lakhs,1_year,general,25000,0,25,none,2902.9065,2361.3
+45,female,39.995,3,no,karnataka,10_lakhs,1_year,general,0,0,45,none,9704.66805,17211.97
+36,female,29.92,0,no,jharkhand,10_lakhs,1_year,general,25000,15,0,basic,4889.0368,6650.62
+54,male,25.46,1,no,west bengal,10_lakhs,1_year,general,0,10,33,basic,25517.11363,40006.09
+34,male,21.375,0,no,west bengal,25_lakhs,1_year,general,100000,10,25,basic,4500.33925,6906.09
+31,male,25.9,3,yes,odisha,5_lakhs,3_year,semi_private,0,0,45,none,19199.944,8348.28
+27,female,30.59,1,no,telangana,5_lakhs,2_year,private,0,15,20,basic,16796.41194,10851.08
+20,male,30.115,5,no,uttarakhand,15_lakhs,2_year,general,50000,0,20,none,4915.05985,3323.28
+44,female,25.8,1,no,kerala,10_lakhs,1_year,general,25000,0,25,none,7624.63,9544.48
+43,male,30.115,3,no,uttar pradesh,15_lakhs,2_year,general,0,0,33,none,8410.04685,8260.24
+45,female,27.645,1,no,gujarat,10_lakhs,3_year,general,25000,0,50,none,28340.18885,13049.17
+34,male,34.675,0,no,rajasthan,5_lakhs,2_year,semi_private,100000,0,0,none,4518.82625,1742.65
+24,female,20.52,0,yes,himachal pradesh,25_lakhs,1_year,general,0,10,0,comprehensive,14571.8908,37283.47
+26,female,19.8,1,no,karnataka,25_lakhs,2_year,semi_private,100000,10,45,none,3378.91,2079.57
+38,female,27.835,2,no,meghalaya,15_lakhs,1_year,general,0,15,20,comprehensive,7144.86265,13335.12
+50,female,31.6,2,no,punjab,10_lakhs,1_year,general,50000,0,25,none,10118.424,12271.76
+38,male,28.27,1,no,rajasthan,10_lakhs,1_year,general,100000,0,20,comprehensive,5484.4673,8580.94
+27,female,20.045,3,yes,gujarat,10_lakhs,2_year,general,0,0,0,basic,16420.49455,19617.57
+39,female,23.275,3,no,manipur,5_lakhs,2_year,general,0,25,33,none,7986.47525,3027.93
+39,female,34.1,3,no,maharashtra,50_lakhs,1_year,semi_private,0,10,33,basic,7418.522,25424.64
+63,female,36.85,0,no,goa,5_lakhs,1_year,general,50000,15,0,basic,13887.9685,15936.54
+33,female,36.29,3,no,puducherry,1_crore,1_year,semi_private,25000,0,0,basic,6551.7501,24421.95
+36,female,26.885,0,no,goa,10_lakhs,1_year,general,25000,10,33,none,5267.81815,5675.8
+30,male,22.99,2,yes,rajasthan,5_lakhs,1_year,general,0,0,0,premium,17361.7661,29820.34
+24,male,32.7,0,yes,rajasthan,10_lakhs,1_year,general,0,10,45,basic,34472.841,57422.91
+24,male,25.8,0,no,assam,50_lakhs,2_year,semi_private,0,20,0,none,1972.95,2233.59
+48,male,29.6,0,no,bihar,15_lakhs,1_year,general,0,25,25,comprehensive,21232.18226,33179.07
+47,male,19.19,1,no,delhi,25_lakhs,1_year,semi_private,25000,10,45,basic,8627.5411,16668.35
+29,male,31.73,2,no,andhra pradesh,15_lakhs,1_year,general,100000,0,25,comprehensive,4433.3877,8353.56
+28,male,29.26,2,no,meghalaya,15_lakhs,3_year,semi_private,50000,20,20,basic,4438.2634,3076.16
+47,male,28.215,3,yes,assam,25_lakhs,2_year,general,0,10,25,comprehensive,24915.22085,37784.01
+25,male,24.985,2,no,uttar pradesh,5_lakhs,2_year,semi_private,200000,0,0,none,23241.47453,6564.15
+51,male,27.74,1,no,assam,10_lakhs,1_year,semi_private,50000,0,0,comprehensive,9957.7216,15144.93
+48,female,22.8,0,no,tamil nadu,5_lakhs,1_year,private,100000,0,50,comprehensive,8269.044,8939.38
+43,male,20.13,2,yes,uttarakhand,1_crore,1_year,general,25000,0,33,none,18767.7377,76858.32
+61,female,33.33,4,no,west bengal,50_lakhs,2_year,general,0,0,25,none,36580.28216,77851.7
+48,male,32.3,1,no,gujarat,5_lakhs,3_year,general,0,10,0,none,8765.249,4314.38
+38,female,27.6,0,no,delhi,15_lakhs,2_year,semi_private,50000,0,0,premium,5383.536,10696.26
+59,male,25.46,0,no,meghalaya,50_lakhs,3_year,general,0,0,0,none,12124.9924,14363.45
+19,female,24.605,1,no,rajasthan,5_lakhs,2_year,semi_private,0,10,25,basic,2709.24395,2727.93
+26,female,34.2,2,no,karnataka,10_lakhs,1_year,general,25000,15,33,none,3987.926,4546.33
+54,female,35.815,3,no,himachal pradesh,50_lakhs,3_year,general,25000,10,20,basic,12495.29085,14995.69
+21,female,32.68,2,no,andhra pradesh,5_lakhs,1_year,general,25000,0,33,basic,26018.95052,23347.18
+51,male,37.0,0,no,delhi,15_lakhs,1_year,private,0,20,0,premium,8798.593,27286.55
+22,female,31.02,3,yes,jharkhand,10_lakhs,1_year,semi_private,0,20,0,basic,35595.5898,60422.72
+47,male,36.08,1,yes,rajasthan,50_lakhs,1_year,private,25000,0,0,comprehensive,42211.1382,193711.7
+18,male,23.32,1,no,puducherry,1_crore,1_year,general,200000,0,20,basic,1711.0268,4566.46
+47,female,45.32,1,no,odisha,50_lakhs,1_year,semi_private,50000,15,0,none,8569.8618,20762.44
+21,female,34.6,0,no,meghalaya,10_lakhs,1_year,semi_private,100000,15,50,none,2020.177,1230.01
+19,male,26.03,1,yes,rajasthan,25_lakhs,1_year,general,50000,25,0,basic,16450.8947,29261.87
+23,male,18.715,0,no,uttarakhand,25_lakhs,1_year,semi_private,25000,20,45,premium,21595.38229,31198.3
+54,male,31.6,0,no,manipur,10_lakhs,1_year,private,0,10,20,comprehensive,9850.432,17818.95
+37,female,17.29,2,no,karnataka,25_lakhs,1_year,private,50000,10,50,none,6877.9801,9184.84
+46,female,23.655,1,yes,jharkhand,5_lakhs,1_year,semi_private,25000,0,25,none,21677.28345,25381.68
+55,female,35.2,0,yes,andhra pradesh,10_lakhs,2_year,general,25000,0,45,none,44423.803,48201.55
+30,female,27.93,0,no,west bengal,5_lakhs,2_year,general,25000,0,0,premium,4137.5227,8155.76
+18,male,21.565,0,yes,uttarakhand,5_lakhs,2_year,private,25000,10,33,comprehensive,13747.87235,10456.08
+61,male,38.38,0,no,punjab,5_lakhs,2_year,general,0,10,45,comprehensive,12950.0712,11711.05
+54,female,23.0,3,no,telangana,15_lakhs,1_year,semi_private,25000,15,0,basic,12094.478,22024.63
+22,male,37.07,2,yes,gujarat,10_lakhs,2_year,semi_private,0,0,0,basic,37484.4493,51130.22
+45,female,30.495,1,yes,rajasthan,15_lakhs,1_year,semi_private,50000,10,20,basic,39725.51805,77426.99
+22,male,28.88,0,no,puducherry,5_lakhs,1_year,private,0,0,45,none,2250.8352,1968.69
+19,male,27.265,2,no,delhi,10_lakhs,2_year,general,0,0,20,basic,22493.65964,20329.24
+35,female,28.025,0,yes,uttarakhand,10_lakhs,1_year,general,0,15,20,none,20234.85475,31891.95
+18,male,23.085,0,no,himachal pradesh,25_lakhs,2_year,general,50000,10,0,none,1704.70015,1144.45
+20,male,30.685,0,yes,maharashtra,10_lakhs,2_year,general,0,25,0,comprehensive,33475.81715,39620.27
+28,female,25.8,0,no,himachal pradesh,15_lakhs,3_year,general,0,0,33,comprehensive,3161.454,5125.11
+55,male,35.245,1,no,odisha,50_lakhs,3_year,general,25000,0,0,basic,11394.06555,16362.68
+43,female,24.7,2,yes,telangana,15_lakhs,1_year,semi_private,0,0,25,basic,21880.82,60963.31
+43,female,25.08,0,no,jharkhand,5_lakhs,1_year,private,100000,0,45,basic,7325.0482,5781.82
+22,male,52.58,1,yes,maharashtra,5_lakhs,1_year,general,100000,20,0,comprehensive,44501.3982,51002.13
+25,female,22.515,1,no,haryana,50_lakhs,1_year,general,25000,10,25,comprehensive,3594.17085,10818.91
+49,male,30.9,0,yes,rajasthan,5_lakhs,2_year,private,0,20,0,comprehensive,39727.614,35755.94
+44,female,36.955,1,no,gujarat,50_lakhs,2_year,general,50000,0,25,comprehensive,8023.13545,16123.43
+64,male,26.41,0,no,andhra pradesh,10_lakhs,2_year,general,0,20,0,none,14394.5579,10937.43
+49,male,29.83,1,no,delhi,50_lakhs,1_year,general,25000,0,33,none,9288.0267,27626.63
+47,male,29.8,3,yes,punjab,25_lakhs,1_year,semi_private,0,20,0,basic,25309.489,74235.67
+27,female,21.47,0,no,andhra pradesh,1_crore,1_year,general,100000,0,20,none,3353.4703,7102.73
+55,male,27.645,0,no,tamil nadu,10_lakhs,1_year,private,0,0,25,comprehensive,10594.50155,22703.89
+48,female,28.9,0,no,maharashtra,25_lakhs,3_year,general,25000,10,0,none,8277.523,6914.31
+45,female,31.79,0,no,rajasthan,10_lakhs,1_year,general,50000,20,33,none,17929.30337,17529.19
+24,female,39.49,0,no,chhattisgarh,10_lakhs,1_year,general,25000,0,0,basic,2480.9791,4643.0
+32,male,33.82,1,no,meghalaya,15_lakhs,1_year,general,0,0,25,premium,4462.7218,12749.43
+24,male,32.01,0,no,kerala,50_lakhs,2_year,semi_private,200000,20,0,none,1981.5819,1601.76
+57,male,27.94,1,no,gujarat,1_crore,2_year,semi_private,25000,0,25,basic,11554.2236,25994.13
+59,male,41.14,1,yes,assam,25_lakhs,1_year,semi_private,25000,0,0,basic,48970.2476,155344.93
+36,male,28.595,3,no,kerala,10_lakhs,1_year,semi_private,0,0,20,none,6548.19505,9713.87
+29,female,25.6,4,no,telangana,10_lakhs,1_year,private,25000,0,0,basic,5708.867,8706.02
+42,female,25.3,1,no,karnataka,15_lakhs,1_year,semi_private,0,20,33,comprehensive,7045.499,14954.42
+48,male,37.29,2,no,punjab,5_lakhs,2_year,semi_private,0,15,0,basic,8978.1851,7393.57
+39,male,42.655,0,no,west bengal,5_lakhs,2_year,general,0,10,45,comprehensive,5757.41345,6906.37
+63,male,21.66,1,no,karnataka,10_lakhs,1_year,general,100000,25,45,none,14349.8544,12287.27
+54,female,31.9,1,no,himachal pradesh,10_lakhs,1_year,general,0,0,0,none,10928.849,18589.97
+37,male,37.07,1,yes,maharashtra,10_lakhs,3_year,semi_private,0,0,25,premium,39871.7043,46173.44
+63,male,31.445,0,no,gujarat,5_lakhs,1_year,general,25000,0,0,basic,13974.45555,19459.97
+21,male,31.255,0,no,uttar pradesh,5_lakhs,2_year,general,50000,0,0,basic,1909.52745,2323.68
+54,female,28.88,2,no,odisha,5_lakhs,1_year,private,0,0,33,comprehensive,12096.6512,17074.71
+60,female,18.335,0,no,uttar pradesh,1_crore,1_year,private,25000,20,25,none,13204.28565,36875.45
+32,female,29.59,1,no,andhra pradesh,10_lakhs,1_year,private,0,15,25,comprehensive,4562.8421,8687.41
+47,female,32.0,1,no,jharkhand,10_lakhs,1_year,general,0,0,0,none,8551.347,13679.56
+21,male,26.03,0,no,meghalaya,15_lakhs,3_year,semi_private,0,10,0,none,2102.2647,1080.11
+28,male,31.68,0,yes,rajasthan,5_lakhs,1_year,general,100000,15,0,none,34672.1472,30475.36
+63,male,33.66,3,no,assam,50_lakhs,1_year,general,0,20,33,comprehensive,15161.5344,43510.44
+18,male,21.78,2,no,tamil nadu,25_lakhs,1_year,general,0,20,20,none,11884.04858,21112.01
+32,male,27.835,1,no,odisha,5_lakhs,1_year,general,0,10,33,comprehensive,4454.40265,7179.02
+38,male,19.95,1,no,gujarat,10_lakhs,1_year,general,100000,15,0,premium,5855.9025,11274.38
+32,male,31.5,1,no,telangana,50_lakhs,1_year,semi_private,0,10,0,basic,4076.497,14437.3
+62,female,30.495,2,no,chhattisgarh,50_lakhs,2_year,general,0,10,0,basic,15019.76005,28437.23
+39,female,18.3,5,yes,haryana,10_lakhs,1_year,semi_private,0,0,0,basic,19023.26,40330.28
+55,male,28.975,0,no,goa,15_lakhs,1_year,general,0,0,0,none,10796.35025,24549.89
+57,male,31.54,0,no,meghalaya,5_lakhs,3_year,general,25000,10,33,basic,11353.2276,5286.22
+52,male,47.74,1,no,andhra pradesh,1_crore,1_year,general,25000,0,45,basic,9748.9106,37739.26
+56,male,22.1,0,no,uttar pradesh,5_lakhs,3_year,general,0,0,20,premium,10577.087,10589.34
+47,male,36.19,0,yes,karnataka,50_lakhs,1_year,semi_private,0,15,20,premium,41676.0811,217094.21
+55,female,29.83,0,no,telangana,15_lakhs,3_year,general,0,0,0,comprehensive,11286.5387,13841.02
+23,male,32.7,3,no,tamil nadu,15_lakhs,2_year,general,0,10,45,comprehensive,3591.48,6586.05
+22,female,30.4,0,yes,tamil nadu,10_lakhs,2_year,general,0,10,0,basic,33907.548,40763.14
+50,female,33.7,4,no,maharashtra,5_lakhs,3_year,general,50000,25,45,comprehensive,11299.343,6865.02
+18,female,31.35,4,no,west bengal,5_lakhs,1_year,private,200000,0,20,comprehensive,4561.1885,6382.74
+51,female,34.96,2,yes,puducherry,5_lakhs,3_year,general,200000,0,0,basic,44641.1974,19638.75
+22,male,33.77,0,no,west bengal,5_lakhs,1_year,semi_private,100000,10,45,premium,1674.6323,7029.63
+52,female,30.875,0,no,andhra pradesh,25_lakhs,1_year,semi_private,25000,15,0,basic,23045.56616,48801.3
+25,female,33.99,1,no,uttar pradesh,10_lakhs,1_year,private,50000,25,25,basic,3227.1211,4151.24
+33,female,19.095,2,yes,gujarat,5_lakhs,1_year,semi_private,0,0,20,comprehensive,16776.30405,27597.48
+53,male,28.6,3,no,haryana,1_crore,1_year,semi_private,25000,0,0,premium,11253.421,49941.09
+29,male,38.94,1,no,tamil nadu,50_lakhs,1_year,semi_private,25000,20,20,none,3471.4096,8806.42
+58,male,36.08,0,no,goa,50_lakhs,1_year,private,25000,0,25,comprehensive,11363.2832,43113.6
+37,male,29.8,0,no,gujarat,1_crore,2_year,general,50000,10,33,basic,20420.60465,30882.81
+54,female,31.24,0,no,gujarat,5_lakhs,2_year,general,0,0,0,none,10338.9316,8449.98
+49,female,29.925,0,no,uttarakhand,10_lakhs,1_year,general,0,0,45,comprehensive,8988.15875,15331.35
+50,female,26.22,2,no,haryana,25_lakhs,1_year,semi_private,100000,0,0,basic,10493.9458,17188.45
+26,male,30.0,1,no,delhi,15_lakhs,1_year,semi_private,0,0,0,comprehensive,2904.088,9286.03
+45,male,20.35,3,no,manipur,5_lakhs,1_year,general,25000,10,0,none,8605.3615,6810.15
+54,female,32.3,1,no,punjab,25_lakhs,1_year,semi_private,100000,20,0,basic,11512.405,19309.69
+38,male,38.39,3,yes,kerala,5_lakhs,1_year,general,25000,0,0,basic,41949.2441,67489.72
+48,female,25.85,3,yes,manipur,5_lakhs,1_year,general,25000,15,50,basic,24180.9335,22000.91
+28,female,26.315,3,no,chhattisgarh,10_lakhs,3_year,private,0,0,0,none,5312.16985,2537.58
+23,male,24.51,0,no,west bengal,10_lakhs,1_year,general,0,10,0,premium,2396.0959,9214.03
+55,male,32.67,1,no,west bengal,10_lakhs,1_year,general,100000,0,0,basic,10807.4863,15839.16
+41,male,29.64,5,no,madhya pradesh,5_lakhs,1_year,semi_private,25000,20,33,comprehensive,9222.4026,10379.16
+25,male,33.33,2,yes,west bengal,50_lakhs,1_year,semi_private,25000,15,45,basic,36124.5737,110405.82
+33,male,35.75,1,yes,haryana,10_lakhs,1_year,general,0,10,0,basic,38282.7495,81379.25
+30,female,19.95,3,no,uttarakhand,5_lakhs,2_year,semi_private,0,15,0,basic,5693.4305,4072.82
+23,female,31.4,0,yes,rajasthan,50_lakhs,1_year,general,200000,10,0,basic,34166.273,75883.79
+46,male,38.17,2,no,maharashtra,1_crore,1_year,general,0,25,0,basic,8347.1643,39518.75
+53,female,36.86,3,yes,assam,25_lakhs,3_year,general,25000,15,0,basic,46661.4424,51115.61
+27,female,32.395,1,no,jharkhand,25_lakhs,3_year,semi_private,0,20,20,basic,18903.49141,13598.93
+23,female,42.75,1,yes,maharashtra,15_lakhs,2_year,general,50000,10,0,none,40904.1995,48633.59
+63,female,25.08,0,no,manipur,10_lakhs,1_year,private,100000,0,20,basic,14254.6082,14571.3
+55,male,29.9,0,no,odisha,5_lakhs,2_year,semi_private,25000,10,0,none,10214.636,5383.7
+35,female,35.86,2,no,maharashtra,10_lakhs,1_year,private,0,0,45,none,5836.5204,9242.42
+34,male,32.8,1,no,jharkhand,10_lakhs,1_year,general,25000,10,45,premium,14358.36437,19276.09
+19,female,18.6,0,no,assam,10_lakhs,1_year,private,50000,0,25,basic,1728.897,2932.62
+39,female,23.87,5,no,karnataka,15_lakhs,1_year,general,0,10,0,comprehensive,8582.3023,19258.59
+27,male,45.9,2,no,haryana,10_lakhs,1_year,general,100000,0,0,basic,3693.428,5389.18
+57,male,40.28,0,no,goa,5_lakhs,1_year,general,25000,0,20,premium,20709.02034,32337.99
+52,female,18.335,0,no,west bengal,5_lakhs,3_year,general,100000,0,33,basic,9991.03765,4534.78
+28,male,33.82,0,no,west bengal,15_lakhs,3_year,semi_private,25000,25,20,comprehensive,19673.33573,13499.7
+50,female,28.12,3,no,uttarakhand,5_lakhs,2_year,general,0,0,45,basic,11085.5868,7342.74
+44,female,25.0,1,no,madhya pradesh,25_lakhs,1_year,general,0,0,45,premium,7623.518,20158.78
+26,female,22.23,0,no,uttarakhand,10_lakhs,3_year,semi_private,0,15,0,comprehensive,3176.2877,4878.75
+33,male,30.25,0,no,rajasthan,10_lakhs,1_year,general,100000,10,25,comprehensive,3704.3545,6552.63
+19,female,32.49,0,yes,rajasthan,10_lakhs,2_year,semi_private,50000,0,0,none,36898.73308,31031.79
+50,male,37.07,1,no,tamil nadu,25_lakhs,1_year,general,50000,0,0,none,9048.0273,20602.36
+41,female,32.6,3,no,madhya pradesh,10_lakhs,2_year,semi_private,0,0,20,none,7954.517,6747.44
+52,female,24.86,0,no,uttarakhand,15_lakhs,1_year,semi_private,0,25,0,none,27117.99378,43570.14
+39,male,32.34,2,no,west bengal,10_lakhs,3_year,general,50000,0,45,comprehensive,6338.0756,6240.71
+50,male,32.3,2,no,kerala,10_lakhs,3_year,general,25000,0,0,none,9630.397,5583.92
+52,male,32.775,3,no,himachal pradesh,50_lakhs,1_year,general,0,0,20,none,11289.10925,37836.58
+60,male,32.8,0,yes,jharkhand,25_lakhs,1_year,semi_private,25000,0,25,none,52590.82939,149929.05
+20,female,31.92,0,no,jharkhand,15_lakhs,3_year,general,0,15,25,none,2261.5688,1210.3
+55,male,21.5,1,no,maharashtra,25_lakhs,1_year,general,0,0,0,none,10791.96,31026.88
+42,male,34.1,0,no,himachal pradesh,25_lakhs,3_year,general,25000,0,45,comprehensive,5979.731,7352.43
+18,female,30.305,0,no,madhya pradesh,15_lakhs,1_year,general,0,0,25,basic,2203.73595,5098.06
+58,female,36.48,0,no,delhi,25_lakhs,1_year,general,200000,0,20,none,12235.8392,22056.63
+43,female,32.56,3,yes,rajasthan,15_lakhs,1_year,semi_private,0,0,0,basic,40941.2854,120875.55
+35,female,35.815,1,no,manipur,15_lakhs,1_year,general,0,15,20,basic,5630.45785,9701.59
+48,female,27.93,4,no,maharashtra,15_lakhs,2_year,general,0,15,33,none,11015.1747,10804.73
+36,female,22.135,3,no,gujarat,25_lakhs,1_year,semi_private,50000,20,25,comprehensive,7228.21565,13497.05
+19,male,44.88,0,yes,assam,5_lakhs,1_year,semi_private,0,20,33,comprehensive,39722.7462,48425.47
+23,female,23.18,2,no,maharashtra,50_lakhs,1_year,general,25000,10,20,comprehensive,14426.07385,38009.16
+20,female,30.59,0,no,delhi,50_lakhs,1_year,general,0,0,0,comprehensive,2459.7201,12370.73
+32,female,41.1,0,no,puducherry,5_lakhs,3_year,general,0,15,0,none,3989.841,1588.08
+43,female,34.58,1,no,karnataka,25_lakhs,3_year,private,0,15,0,premium,7727.2532,13545.68
+34,male,42.13,2,no,kerala,5_lakhs,1_year,general,50000,15,25,comprehensive,5124.1887,7349.76
+30,male,38.83,1,no,gujarat,10_lakhs,2_year,private,100000,10,33,premium,18963.17192,15652.1
+18,female,28.215,0,no,kerala,15_lakhs,2_year,semi_private,0,0,0,none,2200.83085,2102.27
+41,female,28.31,1,no,maharashtra,5_lakhs,1_year,general,25000,15,20,premium,7153.5539,13058.82
+35,female,26.125,0,no,puducherry,25_lakhs,3_year,general,100000,15,20,comprehensive,5227.98875,5641.59
+57,male,40.37,0,no,rajasthan,25_lakhs,1_year,general,0,25,20,comprehensive,10982.5013,28652.78
+29,female,24.6,2,no,punjab,10_lakhs,1_year,general,50000,0,0,none,4529.477,4586.1
+32,male,35.2,2,no,jharkhand,5_lakhs,3_year,general,0,0,0,comprehensive,4670.64,5483.23
+37,female,34.105,1,no,delhi,10_lakhs,1_year,semi_private,100000,0,0,premium,6112.35295,13460.97
+18,male,27.36,1,yes,punjab,15_lakhs,2_year,private,50000,15,0,comprehensive,17178.6824,18364.95
+43,female,26.7,2,yes,meghalaya,1_crore,3_year,semi_private,100000,0,0,basic,22478.6,29366.72
+56,female,41.91,0,no,himachal pradesh,15_lakhs,1_year,semi_private,50000,0,0,premium,11093.6229,24533.28
+38,male,29.26,2,no,meghalaya,10_lakhs,3_year,general,0,25,25,basic,6457.8434,4051.76
+29,male,32.11,2,no,jharkhand,15_lakhs,1_year,general,100000,0,0,basic,4433.9159,6399.94
+22,female,27.1,0,no,west bengal,10_lakhs,1_year,general,0,15,50,basic,2154.361,3821.87
+52,female,24.13,1,yes,gujarat,25_lakhs,2_year,semi_private,0,0,0,premium,23887.6627,54808.31
+40,female,27.4,1,no,jharkhand,5_lakhs,3_year,private,50000,15,0,none,6496.886,1720.59
+23,female,34.865,0,no,delhi,25_lakhs,1_year,semi_private,50000,10,0,basic,2899.48935,6653.67
+31,male,29.81,0,yes,telangana,10_lakhs,1_year,general,100000,20,0,comprehensive,19350.3689,26838.09
+42,female,41.325,1,no,punjab,1_crore,2_year,general,0,20,33,comprehensive,7650.77375,18780.66
+24,female,29.925,0,no,karnataka,10_lakhs,2_year,semi_private,50000,0,0,basic,2850.68375,3334.76
+25,female,30.3,0,no,uttarakhand,15_lakhs,2_year,general,50000,0,45,premium,2632.992,7592.88
+48,female,27.36,1,no,uttarakhand,50_lakhs,1_year,semi_private,0,0,45,premium,9447.3824,31792.84
+23,female,28.49,1,yes,delhi,5_lakhs,1_year,semi_private,0,10,20,none,18328.2381,27079.92
+45,male,23.56,2,no,delhi,50_lakhs,1_year,semi_private,0,20,20,basic,8603.8234,27226.92
+20,male,35.625,3,yes,andhra pradesh,15_lakhs,2_year,general,0,0,25,none,37465.34375,51163.5
+62,female,32.68,0,no,gujarat,5_lakhs,1_year,general,200000,10,0,none,13844.7972,10592.27
+43,female,25.27,1,yes,himachal pradesh,10_lakhs,1_year,general,25000,0,25,basic,21771.3423,35165.82
+23,female,28.0,0,no,andhra pradesh,15_lakhs,3_year,general,50000,15,0,premium,13126.67745,11657.5
+31,female,32.775,2,no,kerala,5_lakhs,1_year,general,200000,25,0,comprehensive,5327.40025,6244.8
+41,female,21.755,1,no,west bengal,10_lakhs,3_year,semi_private,0,0,20,none,13725.47184,8408.78
+58,female,32.395,1,no,rajasthan,10_lakhs,2_year,semi_private,50000,0,20,none,13019.16105,9287.18
+48,female,36.575,0,no,rajasthan,15_lakhs,2_year,general,0,0,45,basic,8671.19125,10390.27
+31,female,21.755,0,no,west bengal,5_lakhs,1_year,general,100000,10,0,basic,4134.08245,4169.96
+19,female,27.93,3,no,assam,50_lakhs,1_year,general,0,10,33,none,18838.70366,40356.3
+19,female,30.02,0,yes,jharkhand,1_crore,2_year,general,100000,0,0,comprehensive,33307.5508,62586.23
+41,male,33.55,0,no,haryana,1_crore,2_year,semi_private,0,0,0,premium,5699.8375,19889.12
+40,male,29.355,1,no,andhra pradesh,15_lakhs,2_year,general,0,0,0,basic,6393.60345,7837.19
+31,female,25.8,2,no,telangana,5_lakhs,1_year,general,50000,10,20,comprehensive,4934.705,7058.17
+37,male,24.32,2,no,punjab,25_lakhs,2_year,general,0,10,0,basic,6198.7518,8158.46
+46,male,40.375,2,no,west bengal,5_lakhs,2_year,private,25000,0,20,comprehensive,8733.22925,9181.31
+22,male,32.11,0,no,chhattisgarh,5_lakhs,2_year,semi_private,0,15,33,basic,2055.3249,2406.65
+51,male,32.3,1,no,manipur,10_lakhs,2_year,general,50000,15,20,none,9964.06,5616.64
+18,female,27.28,3,yes,maharashtra,10_lakhs,2_year,general,0,0,20,premium,18223.4512,27356.57
+35,male,17.86,1,no,jharkhand,25_lakhs,2_year,semi_private,0,0,33,basic,5116.5004,6079.96
+59,female,34.8,2,no,west bengal,15_lakhs,1_year,private,0,15,33,comprehensive,36910.60803,76430.99
+36,male,33.4,2,yes,andhra pradesh,10_lakhs,1_year,general,25000,25,20,basic,38415.474,58489.16
+37,female,25.555,1,yes,telangana,10_lakhs,1_year,private,0,0,0,none,20296.86345,45572.95
+59,male,37.1,1,no,telangana,1_crore,1_year,private,0,0,45,none,12347.172,60609.18
+36,male,30.875,1,no,delhi,10_lakhs,1_year,private,0,0,25,basic,5373.36425,10884.32
+39,male,34.1,2,no,bihar,10_lakhs,1_year,semi_private,0,10,0,comprehensive,23563.01618,36067.32
+18,male,21.47,0,no,delhi,5_lakhs,1_year,semi_private,25000,0,0,none,1702.4553,1664.15
+52,female,33.3,2,no,gujarat,25_lakhs,1_year,general,100000,0,33,comprehensive,10806.839,22617.73
+27,female,31.255,1,no,meghalaya,15_lakhs,2_year,semi_private,0,10,0,comprehensive,3956.07145,6699.37
+18,male,39.14,0,no,gujarat,5_lakhs,3_year,general,25000,10,50,comprehensive,12890.05765,7519.6
+40,male,25.08,0,no,west bengal,5_lakhs,1_year,semi_private,50000,0,0,basic,5415.6612,6237.62
+29,male,37.29,2,no,kerala,15_lakhs,3_year,general,0,0,33,premium,4058.1161,8837.0
+46,female,34.6,1,yes,odisha,15_lakhs,1_year,semi_private,50000,10,0,basic,41661.602,82752.46
+38,female,30.21,3,no,uttar pradesh,10_lakhs,1_year,semi_private,0,0,20,basic,7537.1639,12607.87
+30,female,21.945,1,no,puducherry,1_crore,1_year,general,25000,0,45,none,4718.20355,11692.53
+40,male,24.97,2,no,uttarakhand,5_lakhs,1_year,semi_private,0,20,20,none,6593.5083,5462.69
+50,male,25.3,0,no,haryana,10_lakhs,2_year,general,50000,0,20,none,8442.667,5048.06
+20,female,24.42,0,yes,west bengal,50_lakhs,2_year,semi_private,50000,15,0,basic,26125.67477,40959.32
+41,male,23.94,1,no,uttar pradesh,10_lakhs,1_year,general,0,20,0,none,6858.4796,8598.09
+33,female,39.82,1,no,puducherry,15_lakhs,1_year,general,0,0,0,none,4795.6568,9305.49
+38,male,16.815,2,no,andhra pradesh,10_lakhs,1_year,private,200000,0,25,comprehensive,6640.54485,8353.25
+42,male,37.18,2,no,assam,10_lakhs,1_year,general,0,10,0,none,7162.0122,10802.35
+56,male,34.43,0,no,maharashtra,1_crore,1_year,semi_private,25000,20,0,none,10594.2257,43132.14
+58,male,30.305,0,no,haryana,10_lakhs,1_year,general,100000,20,20,none,11938.25595,11842.91
+52,male,34.485,3,yes,gujarat,50_lakhs,2_year,general,50000,15,25,comprehensive,60021.39897,121531.83
+20,female,21.8,0,yes,goa,5_lakhs,3_year,general,25000,0,33,none,20167.33603,8722.76
+54,female,24.605,3,no,haryana,5_lakhs,1_year,semi_private,50000,10,0,basic,12479.70895,12263.75
+58,male,23.3,0,no,delhi,5_lakhs,3_year,general,100000,0,0,basic,11345.519,5577.3
+45,female,27.83,2,no,puducherry,15_lakhs,1_year,general,25000,0,45,comprehensive,8515.7587,15513.19
+26,male,31.065,0,no,assam,10_lakhs,1_year,general,25000,0,0,basic,2699.56835,4553.15
+63,female,21.66,0,no,manipur,25_lakhs,1_year,general,0,0,45,comprehensive,14449.8544,30521.23
+58,female,28.215,0,no,maharashtra,10_lakhs,2_year,private,200000,15,45,none,12224.35085,5539.23
+37,male,22.705,3,no,puducherry,1_crore,3_year,private,50000,0,33,none,6985.50695,6718.1
+25,female,42.13,1,no,assam,5_lakhs,2_year,general,0,0,0,none,3238.4357,1848.53
+52,male,41.8,2,yes,uttarakhand,25_lakhs,1_year,semi_private,100000,0,33,none,47269.854,110334.93
+64,male,36.96,2,yes,west bengal,25_lakhs,2_year,general,25000,20,33,none,49577.6624,79043.78
+22,female,21.28,3,no,jharkhand,25_lakhs,1_year,semi_private,0,15,25,none,4296.2712,6469.57
+28,female,33.11,0,no,goa,25_lakhs,3_year,semi_private,25000,0,0,basic,3171.6149,3938.73
+18,male,33.33,0,no,jharkhand,25_lakhs,1_year,private,0,0,0,comprehensive,1135.9407,5840.95
+28,male,24.3,5,no,uttar pradesh,15_lakhs,1_year,general,100000,0,0,basic,5615.369,7221.36
+45,female,25.7,3,no,goa,5_lakhs,1_year,semi_private,0,20,20,comprehensive,9101.798,12374.77
+33,male,29.4,4,no,uttar pradesh,5_lakhs,2_year,general,50000,10,25,none,6059.173,2096.46
+18,female,39.82,0,no,kerala,50_lakhs,1_year,private,25000,10,0,none,1633.9618,4379.13
+32,male,33.63,1,yes,himachal pradesh,15_lakhs,2_year,general,0,10,20,basic,37607.5277,42870.14
+24,male,29.83,0,yes,manipur,25_lakhs,1_year,semi_private,200000,0,0,none,18648.4217,26535.96
+19,male,19.8,0,no,goa,10_lakhs,2_year,semi_private,25000,15,25,none,1241.565,661.77
+20,male,27.3,0,yes,uttar pradesh,5_lakhs,2_year,semi_private,0,10,45,basic,16232.847,11082.32
+40,female,29.3,4,no,tamil nadu,5_lakhs,2_year,general,25000,0,0,premium,15828.82173,15071.97
+34,female,27.72,0,no,himachal pradesh,15_lakhs,1_year,private,100000,0,0,comprehensive,4415.1588,7974.82
+42,female,37.9,0,no,manipur,10_lakhs,1_year,general,0,10,0,none,6474.013,9764.66
+51,female,36.385,3,no,andhra pradesh,5_lakhs,1_year,semi_private,0,20,25,comprehensive,11436.73815,16789.89
+54,female,27.645,1,no,rajasthan,10_lakhs,2_year,general,0,0,33,comprehensive,11305.93455,13050.73
+55,male,37.715,3,no,karnataka,5_lakhs,1_year,general,0,20,45,basic,30063.58055,37991.17
+52,female,23.18,0,no,madhya pradesh,10_lakhs,1_year,general,50000,15,0,comprehensive,10197.7722,14289.88
+32,female,20.52,0,no,chhattisgarh,10_lakhs,1_year,general,25000,0,50,basic,4544.2348,5337.88
+28,male,37.1,1,no,karnataka,25_lakhs,1_year,general,0,0,0,none,3277.161,8809.01
+41,female,28.05,1,no,odisha,10_lakhs,2_year,general,0,0,25,basic,6770.1925,6770.56
+43,female,29.9,1,no,andhra pradesh,10_lakhs,1_year,general,0,15,0,basic,7337.748,11815.55
+49,female,33.345,2,no,telangana,5_lakhs,2_year,semi_private,100000,0,45,basic,10370.91255,5888.2
+64,male,23.76,0,yes,uttarakhand,5_lakhs,1_year,private,0,0,20,basic,26926.5144,44027.06
+55,female,30.5,0,no,puducherry,10_lakhs,1_year,general,200000,10,25,premium,10704.47,15330.1
+24,male,31.065,0,yes,meghalaya,10_lakhs,1_year,general,25000,15,33,premium,34254.05335,48955.48
+20,female,33.3,0,no,manipur,15_lakhs,1_year,general,0,0,0,comprehensive,1880.487,6558.12
+45,male,27.5,3,no,madhya pradesh,10_lakhs,1_year,general,100000,0,0,comprehensive,8615.3,12172.18
+26,male,33.915,1,no,himachal pradesh,15_lakhs,2_year,semi_private,25000,0,45,premium,3292.52985,8138.65
+25,female,34.485,0,no,rajasthan,25_lakhs,1_year,semi_private,50000,10,0,none,3021.80915,4577.1
+43,male,25.52,5,no,goa,25_lakhs,2_year,general,200000,15,0,none,14478.33015,9147.64
+35,male,27.61,1,no,meghalaya,5_lakhs,1_year,general,0,0,20,basic,4747.0529,5666.96
+26,male,27.06,0,yes,maharashtra,10_lakhs,1_year,general,0,15,25,comprehensive,17043.3414,35332.39
+57,male,23.7,0,no,odisha,5_lakhs,2_year,semi_private,50000,10,0,basic,10959.33,6353.95
+22,female,30.4,0,no,andhra pradesh,5_lakhs,1_year,private,0,10,0,comprehensive,2741.948,6268.8
+32,female,29.735,0,no,puducherry,1_crore,1_year,general,0,10,0,none,4357.04365,14436.54
+39,male,29.925,1,yes,chhattisgarh,5_lakhs,1_year,general,0,0,20,none,22462.04375,31167.49
+25,female,26.79,2,no,goa,10_lakhs,1_year,private,0,0,45,comprehensive,4189.1131,8547.36
+48,female,33.33,0,no,odisha,15_lakhs,2_year,private,50000,10,50,none,8283.6807,4990.16
+47,female,27.645,2,yes,madhya pradesh,15_lakhs,1_year,general,0,10,25,basic,24535.69855,57127.81
+18,female,21.66,0,yes,odisha,10_lakhs,2_year,general,25000,10,0,none,14283.4594,10840.61
+18,male,30.03,1,no,himachal pradesh,5_lakhs,3_year,general,25000,0,45,none,1720.3537,481.88
+61,male,36.3,1,yes,uttar pradesh,10_lakhs,1_year,semi_private,0,20,20,comprehensive,47403.88,106593.93
+47,female,24.32,0,no,odisha,10_lakhs,3_year,general,0,10,0,basic,8534.6718,5954.06
+28,female,17.29,0,no,himachal pradesh,5_lakhs,1_year,general,50000,0,45,basic,3732.6251,3641.59
+36,female,25.9,1,no,puducherry,10_lakhs,3_year,semi_private,0,0,33,none,5472.449,2706.66
+20,male,39.4,2,yes,puducherry,5_lakhs,1_year,general,50000,15,33,comprehensive,38344.566,40999.51
+44,male,34.32,1,no,west bengal,5_lakhs,2_year,semi_private,100000,15,33,basic,7147.4728,4266.68
+38,female,19.95,2,no,odisha,10_lakhs,1_year,general,0,0,0,basic,7133.9025,11381.17
+19,male,34.9,0,yes,madhya pradesh,5_lakhs,1_year,general,25000,20,0,comprehensive,34828.654,40983.85
+21,male,23.21,0,no,maharashtra,10_lakhs,2_year,semi_private,25000,0,25,none,1515.3449,1005.25
+46,male,25.745,3,no,punjab,15_lakhs,2_year,general,0,0,0,comprehensive,9301.89355,13040.73
+58,male,25.175,0,no,assam,25_lakhs,1_year,private,100000,20,20,basic,11931.12525,15277.17
+20,male,22.0,1,no,uttarakhand,5_lakhs,1_year,general,100000,20,33,basic,1964.78,2428.14
+18,male,26.125,0,no,meghalaya,5_lakhs,2_year,general,0,10,33,none,1708.92575,673.08
+28,female,26.51,2,no,uttarakhand,5_lakhs,2_year,semi_private,25000,20,20,premium,4340.4409,7529.84
+33,male,27.455,2,no,odisha,15_lakhs,3_year,general,100000,0,33,comprehensive,5261.46945,5448.44
+19,female,25.745,1,no,punjab,15_lakhs,2_year,private,200000,20,33,none,2710.82855,1017.28
+45,male,30.36,0,yes,bihar,5_lakhs,3_year,general,25000,0,25,none,62592.87309,31570.77
+62,male,30.875,3,yes,west bengal,50_lakhs,2_year,general,25000,0,0,comprehensive,46718.16325,130724.52
+25,female,20.8,1,no,uttarakhand,5_lakhs,1_year,general,0,0,0,comprehensive,3208.787,6548.35
+43,male,27.8,0,yes,chhattisgarh,10_lakhs,1_year,general,200000,0,0,comprehensive,37829.7242,47185.03
+42,male,24.605,2,yes,maharashtra,15_lakhs,2_year,semi_private,0,0,0,basic,21259.37795,36606.42
+24,female,27.72,0,no,haryana,50_lakhs,2_year,semi_private,25000,0,0,comprehensive,2464.6188,6829.23
+29,female,21.85,0,yes,uttarakhand,15_lakhs,1_year,general,0,0,0,basic,16115.3045,36865.04
+32,male,28.12,4,yes,jharkhand,25_lakhs,1_year,general,0,0,20,none,21472.4788,55174.82
+25,female,30.2,0,yes,chhattisgarh,10_lakhs,3_year,semi_private,0,10,45,basic,33900.653,21356.79
+41,male,32.2,2,no,karnataka,25_lakhs,1_year,private,200000,0,0,premium,6875.961,16910.88
+42,male,26.315,1,no,puducherry,5_lakhs,1_year,general,0,0,33,none,6940.90985,7040.16
+33,female,26.695,0,no,odisha,50_lakhs,1_year,general,25000,15,25,basic,4571.41305,9958.95
+34,male,42.9,1,no,chhattisgarh,10_lakhs,1_year,general,0,20,0,comprehensive,4536.259,9246.71
+19,female,34.7,2,yes,rajasthan,25_lakhs,1_year,private,0,15,45,basic,36397.576,85171.24
+30,female,23.655,3,yes,uttarakhand,10_lakhs,1_year,general,0,0,25,comprehensive,18765.87545,34835.54
+18,male,28.31,1,no,delhi,15_lakhs,1_year,general,25000,15,0,comprehensive,11272.33139,20299.12
+19,female,20.6,0,no,maharashtra,10_lakhs,2_year,semi_private,0,0,33,none,1731.677,1307.88
+18,male,53.13,0,no,west bengal,15_lakhs,1_year,general,0,0,0,premium,1163.4627,8487.95
+35,male,39.71,4,no,assam,5_lakhs,2_year,general,0,0,25,comprehensive,19496.71917,13849.91
+39,female,26.315,2,no,madhya pradesh,5_lakhs,3_year,general,0,15,0,comprehensive,7201.70085,6000.87
+31,male,31.065,3,no,tamil nadu,5_lakhs,1_year,general,200000,0,33,comprehensive,5425.02335,6808.4
+62,male,26.695,0,yes,kerala,5_lakhs,2_year,general,100000,0,20,comprehensive,28101.33305,20242.89
+62,male,38.83,0,no,kerala,50_lakhs,1_year,general,0,0,25,none,12981.3457,51719.24
+42,female,40.37,2,yes,uttarakhand,5_lakhs,3_year,general,25000,20,0,none,43896.3763,22388.44
+31,male,25.935,1,no,haryana,1_crore,1_year,semi_private,100000,10,25,comprehensive,4239.89265,11752.91
+61,male,33.535,0,no,karnataka,10_lakhs,2_year,semi_private,0,0,33,none,13143.33665,13534.94
+42,female,32.87,0,no,maharashtra,5_lakhs,2_year,semi_private,50000,10,20,none,7050.0213,3700.03
+51,male,30.03,1,no,assam,25_lakhs,1_year,general,100000,10,25,comprehensive,9377.9047,16350.81
+23,female,24.225,2,no,assam,15_lakhs,1_year,general,0,10,20,comprehensive,22395.74424,31921.27
+52,male,38.6,2,no,chhattisgarh,10_lakhs,2_year,general,0,0,45,none,10325.206,8838.1
+57,female,25.74,2,no,madhya pradesh,10_lakhs,2_year,general,200000,20,20,comprehensive,12629.1656,8360.44
+23,female,33.4,0,no,west bengal,15_lakhs,1_year,general,25000,0,33,comprehensive,10795.93733,19983.43
+52,female,44.7,3,no,maharashtra,5_lakhs,2_year,semi_private,0,10,33,basic,11411.685,10310.44
+50,male,30.97,3,no,manipur,1_crore,1_year,general,0,0,20,comprehensive,10600.5483,43450.16
+18,female,31.92,0,no,assam,1_crore,2_year,general,0,0,0,basic,2205.9808,5613.38
+18,female,36.85,0,no,tamil nadu,15_lakhs,1_year,general,50000,0,20,none,1629.8335,2529.22
+21,female,25.8,0,no,meghalaya,5_lakhs,3_year,semi_private,50000,10,33,none,2007.945,422.04
+61,female,29.07,0,yes,assam,15_lakhs,1_year,general,200000,0,0,basic,29141.3603,44262.83

@@ -3,13 +3,15 @@ from werkzeug.utils import secure_filename
 import os
 import tempfile
 
-from src.mlproject.pipelines.prediction_pipeline import CustomData, PredictPipeline
+from src.mlproject.pipelines.prediction_pipeline import (
+    CustomData, PredictPipeline, calculate_final_premium, 
+    get_coverage_details, get_sum_insured_display, get_term_display,
+    SUM_INSURED_FACTORS, POLICY_TERM_FACTORS, ROOM_TYPE_FACTORS,
+    DEDUCTIBLE_FACTORS, COPAY_FACTORS, NCB_FACTORS, RIDER_FACTORS,
+    RIDER_BENEFITS, STATE_ZONES, ZONE_MULTIPLIERS
+)
 from src.mlproject.medical_report_processor import (
-    process_medical_report, 
-    get_state_cost_factor, 
-    get_state_base_cost,
-    update_state_cost_factors,
-    INDIAN_STATES_COST_FACTOR
+    process_medical_report, INDIAN_STATES_COST_FACTOR
 )
 from src.mlproject.gemini_chatbot import (
     chat_with_gemini, 
@@ -34,8 +36,60 @@ ALLOWED_EXTENSIONS = {'pdf'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-update_state_cost_factors()
 INDIAN_STATES = sorted(INDIAN_STATES_COST_FACTOR.keys())
+
+SUM_INSURED_OPTIONS = [
+    ('5_lakhs', '5 Lakhs'),
+    ('10_lakhs', '10 Lakhs'),
+    ('15_lakhs', '15 Lakhs'),
+    ('25_lakhs', '25 Lakhs'),
+    ('50_lakhs', '50 Lakhs'),
+    ('1_crore', '1 Crore'),
+]
+
+POLICY_TERM_OPTIONS = [
+    ('1_year', '1 Year'),
+    ('2_year', '2 Years'),
+    ('3_year', '3 Years'),
+]
+
+ROOM_TYPE_OPTIONS = [
+    ('general', 'General Ward'),
+    ('semi_private', 'Semi-Private'),
+    ('private', 'Private Room'),
+]
+
+DEDUCTIBLE_OPTIONS = [
+    ('0', 'No Deductible'),
+    ('25000', 'Rs. 25,000'),
+    ('50000', 'Rs. 50,000'),
+    ('100000', 'Rs. 1,00,000'),
+    ('200000', 'Rs. 2,00,000'),
+]
+
+COPAY_OPTIONS = [
+    ('0', 'No Co-pay'),
+    ('10', '10% Co-pay'),
+    ('15', '15% Co-pay'),
+    ('20', '20% Co-pay'),
+    ('25', '25% Co-pay'),
+]
+
+NCB_OPTIONS = [
+    ('0', 'No NCB'),
+    ('20', '20% NCB'),
+    ('25', '25% NCB'),
+    ('33', '33% NCB'),
+    ('45', '45% NCB'),
+    ('50', '50% NCB'),
+]
+
+RIDER_OPTIONS = [
+    ('none', 'No Riders'),
+    ('basic', 'Basic (Personal Accident)'),
+    ('comprehensive', 'Comprehensive (PA + CI + Hospital Cash)'),
+    ('premium', 'Premium (All Benefits + Worldwide)'),
+]
 
 def get_session_id():
     if 'session_id' not in session:
@@ -50,7 +104,14 @@ def predict_datapoint():
                              states=INDIAN_STATES, 
                              results=None,
                              session_id=session_id,
-                             gemini_configured=GEMINI_CONFIGURED)
+                             gemini_configured=GEMINI_CONFIGURED,
+                             sum_insured_options=SUM_INSURED_OPTIONS,
+                             policy_term_options=POLICY_TERM_OPTIONS,
+                             room_type_options=ROOM_TYPE_OPTIONS,
+                             deductible_options=DEDUCTIBLE_OPTIONS,
+                             copay_options=COPAY_OPTIONS,
+                             ncb_options=NCB_OPTIONS,
+                             rider_options=RIDER_OPTIONS)
     
     else:
         disease_cost = 0
@@ -82,9 +143,17 @@ def predict_datapoint():
         age = float(request.form.get('age', 30))
         sex = request.form.get('sex', 'male')
         bmi = float(request.form.get('bmi', 25))
-        children = float(request.form.get('children', 0))
+        children = int(request.form.get('children', 0))
         smoker = request.form.get('smoker', 'no')
         state = request.form.get('state', 'maharashtra')
+        
+        sum_insured = request.form.get('sum_insured', '10_lakhs')
+        policy_term = request.form.get('policy_term', '1_year')
+        room_type = request.form.get('room_type', 'general')
+        deductible = request.form.get('deductible', '0')
+        copay = request.form.get('copay', '0')
+        ncb = request.form.get('ncb', '0')
+        riders = request.form.get('riders', 'none')
         
         data = CustomData(
             age=age,
@@ -93,17 +162,29 @@ def predict_datapoint():
             children=children,
             smoker=smoker,
             state=state,
-            disease_cost=disease_cost
+            sum_insured=sum_insured,
+            policy_term=policy_term,
+            room_type=room_type,
+            deductible=deductible,
+            copay=copay,
+            ncb=ncb,
+            riders=riders,
+            disease_cost=disease_cost,
+            disease_count=len(diseases_found),
+            severity=severity
         )
         
+        modifiers = data.calculate_premium_modifiers()
         pred_df = data.get_data_as_data_frame()
 
         predict_pipeline = PredictPipeline()
         base_prediction = predict_pipeline.predict(pred_df)
         
-        state_factor = get_state_cost_factor(state)
-        state_base_cost = get_state_base_cost(state)
-        final_prediction = (base_prediction[0] * state_factor) + disease_cost
+        final_prediction = calculate_final_premium(base_prediction[0], modifiers, disease_cost)
+        
+        zone = STATE_ZONES.get(state.lower(), 'B')
+        
+        coverage = get_coverage_details(sum_insured, riders)
         
         profile = {
             'age': age,
@@ -112,7 +193,15 @@ def predict_datapoint():
             'children': children,
             'smoker': smoker,
             'state': state,
+            'sum_insured': sum_insured,
+            'policy_term': policy_term,
+            'room_type': room_type,
+            'deductible': deductible,
+            'copay': copay,
+            'ncb': ncb,
+            'riders': riders,
             'diseases': diseases_found,
+            'severity': severity,
             'predicted_cost': final_prediction
         }
         save_user_profile(session_id, profile)
@@ -121,22 +210,37 @@ def predict_datapoint():
                              states=INDIAN_STATES,
                              results="{:.2f}".format(final_prediction),
                              base_cost="{:.2f}".format(base_prediction[0]),
-                             state_factor="{:.2f}".format(state_factor),
-                             state_base_cost=state_base_cost,
+                             modifiers=modifiers,
                              disease_cost="{:.2f}".format(disease_cost),
                              diseases_found=diseases_found,
                              severity=severity,
                              disease_details=disease_details,
                              lab_findings=lab_findings,
                              report_summary=report_summary,
+                             coverage=coverage,
                              age=age, 
                              sex=sex, 
                              bmi=bmi, 
                              children=children, 
                              smoker=smoker, 
                              state=state,
+                             sum_insured=sum_insured,
+                             policy_term=policy_term,
+                             room_type=room_type,
+                             deductible=deductible,
+                             copay=copay,
+                             ncb=ncb,
+                             riders=riders,
+                             zone=zone,
                              session_id=session_id,
-                             gemini_configured=GEMINI_CONFIGURED)
+                             gemini_configured=GEMINI_CONFIGURED,
+                             sum_insured_options=SUM_INSURED_OPTIONS,
+                             policy_term_options=POLICY_TERM_OPTIONS,
+                             room_type_options=ROOM_TYPE_OPTIONS,
+                             deductible_options=DEDUCTIBLE_OPTIONS,
+                             copay_options=COPAY_OPTIONS,
+                             ncb_options=NCB_OPTIONS,
+                             rider_options=RIDER_OPTIONS)
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -170,6 +274,26 @@ def api_profile():
     session_id = get_session_id()
     profile = get_user_profile(session_id)
     return jsonify({'profile': profile})
+
+@app.route('/api/premium-calculator')
+def premium_calculator():
+    age = int(request.args.get('age', 30))
+    bmi = float(request.args.get('bmi', 25))
+    sum_insured = request.args.get('sum_insured', '10_lakhs')
+    policy_term = request.args.get('policy_term', '1_year')
+    
+    data = CustomData(
+        age=age, sex='male', bmi=bmi, children=0,
+        smoker='no', state='maharashtra',
+        sum_insured=sum_insured, policy_term=policy_term
+    )
+    modifiers = data.calculate_premium_modifiers()
+    
+    return jsonify({
+        'factors': modifiers,
+        'sum_insured_display': get_sum_insured_display(sum_insured),
+        'term_display': get_term_display(policy_term)
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

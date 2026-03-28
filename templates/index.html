@@ -3,104 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediSecure - Health Insurance Prediction</title>
+    <title>MediSecure - Health Insurance Premium Calculator</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
         
-        .container {
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+        }
+        
+        .card {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            width: 100%;
-            max-width: 600px;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
         
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 10px;
+            color: #1e3c72;
+            margin-bottom: 5px;
             font-size: 28px;
         }
         
         .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-size: 14px;
         }
         
+        .section-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 20px 0 15px 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: #444;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         input, select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 14px;
-            transition: all 0.3s ease;
-            background: #f9f9f9;
+            transition: all 0.3s;
         }
         
         input:focus, select:focus {
             outline: none;
             border-color: #667eea;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .file-upload {
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #f8f9ff;
-        }
-        
-        .file-upload:hover {
-            background: #f0f2ff;
-            border-color: #764ba2;
-        }
-        
-        .file-upload input[type="file"] {
-            display: none;
-        }
-        
-        .file-upload-label {
-            color: #667eea;
-            font-weight: 600;
-            cursor: pointer;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
         }
         
         .btn {
             width: 100%;
-            padding: 15px;
+            padding: 14px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
@@ -108,13 +89,13 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 20px;
+            transition: all 0.3s;
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
         }
         
         .result-box {
@@ -122,39 +103,64 @@
             color: white;
             padding: 25px;
             border-radius: 15px;
-            margin-top: 25px;
+            margin-top: 20px;
             text-align: center;
         }
         
-        .result-box h2 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-        
-        .result-box .amount {
-            font-size: 36px;
+        .premium-amount {
+            font-size: 42px;
             font-weight: 700;
-        }
-        
-        .result-box .currency {
-            font-size: 20px;
-            vertical-align: top;
+            margin: 10px 0;
         }
         
         .breakdown {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 15px;
             margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.3);
             text-align: left;
         }
         
         .breakdown-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 13px;
+        }
+        
+        .modifier-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+        }
+        
+        .modifier-badge.high { background: #ff6b6b; }
+        .modifier-badge.low { background: #51cf66; }
+        
+        .coverage-box {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        .coverage-title {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 10px;
             font-size: 14px;
         }
+        
+        .coverage-item {
+            padding: 5px 0;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        .coverage-item::before { content: "✓ "; color: #51cf66; }
         
         .disease-info {
             background: #fff3e0;
@@ -162,11 +168,6 @@
             padding: 15px;
             margin-top: 15px;
             text-align: left;
-        }
-        
-        .disease-info h4 {
-            color: #e65100;
-            margin-bottom: 10px;
         }
         
         .disease-item {
@@ -177,74 +178,20 @@
             border-left: 3px solid #ff9800;
         }
         
-        .disease-name {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .disease-severity {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .disease-cost {
-            color: #e65100;
-            font-weight: 600;
-            float: right;
-        }
-        
-        .no-disease {
-            color: #4caf50;
-            font-weight: 600;
-        }
-        
-        .file-name {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .lab-info {
-            background: #e3f2fd;
+        .file-upload {
+            border: 2px dashed #667eea;
             border-radius: 10px;
             padding: 15px;
-            margin-top: 15px;
-            text-align: left;
+            text-align: center;
+            cursor: pointer;
+            background: #f8f9ff;
         }
         
-        .lab-info h4 {
-            color: #1565c0;
-            margin-bottom: 10px;
-        }
+        .file-upload input[type="file"] { display: none; }
+        .file-upload-label { color: #667eea; font-weight: 600; cursor: pointer; }
+        .file-name { margin-top: 5px; font-size: 12px; color: #666; }
         
-        .lab-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px;
-            background: white;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-        
-        .report-summary {
-            background: #f5f5f5;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 15px;
-            text-align: left;
-            font-size: 13px;
-        }
-        
-        .confidence-badge {
-            background: #4caf50;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 10px;
-            margin-left: 5px;
-        }
-
-        /* Chatbot Styles */
+        /* Chatbot */
         .chatbot-btn {
             position: fixed;
             bottom: 30px;
@@ -257,19 +204,10 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 5px 25px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 5px 25px rgba(102,126,234,0.5);
             z-index: 1000;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        .chatbot-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 35px rgba(102, 126, 234, 0.7);
-        }
-
+        
         .chat-modal {
             display: none;
             position: fixed;
@@ -279,109 +217,80 @@
             height: 550px;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
             z-index: 1001;
             flex-direction: column;
             overflow: hidden;
         }
-
-        .chat-modal.active {
-            display: flex;
-        }
-
+        
+        .chat-modal.active { display: flex; }
+        
         .chat-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .chat-header h3 {
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        
         .chat-close {
             background: none;
             border: none;
             color: white;
             font-size: 24px;
             cursor: pointer;
-            padding: 5px;
-            line-height: 1;
         }
-
+        
         .chat-body {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
+            padding: 15px;
             background: #f5f5f5;
         }
-
-        .chat-message {
-            margin-bottom: 15px;
-            max-width: 85%;
-            clear: both;
-        }
-
-        .chat-message.user {
-            float: right;
-            text-align: right;
-        }
-
-        .chat-message.bot {
-            float: left;
-            text-align: left;
-        }
-
+        
+        .chat-message { margin-bottom: 12px; max-width: 85%; clear: both; }
+        .chat-message.user { float: right; text-align: right; }
+        .chat-message.bot { float: left; text-align: left; }
+        
         .chat-bubble {
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: 15px;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.5;
-            word-wrap: break-word;
         }
-
+        
         .chat-message.user .chat-bubble {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-bottom-right-radius: 5px;
         }
-
+        
         .chat-message.bot .chat-bubble {
             background: white;
             color: #333;
             border-bottom-left-radius: 5px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
+        
         .chat-footer {
-            padding: 15px;
+            padding: 12px;
             background: white;
             border-top: 1px solid #e0e0e0;
             display: flex;
             gap: 10px;
         }
-
+        
         .chat-input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 10px 15px;
             border: 2px solid #e0e0e0;
             border-radius: 25px;
-            font-size: 14px;
-            outline: none;
+            font-size: 13px;
         }
-
-        .chat-input:focus {
-            border-color: #667eea;
-        }
-
+        
         .chat-send {
-            padding: 12px 20px;
+            padding: 10px 18px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
@@ -389,256 +298,288 @@
             cursor: pointer;
             font-weight: 600;
         }
-
-        .chat-send:hover {
-            opacity: 0.9;
-        }
-
-        .typing-indicator {
-            display: none;
-            text-align: center;
-            padding: 10px;
-            color: #666;
-            font-size: 12px;
-        }
-
-        .typing-indicator.active {
-            display: block;
-        }
-
+        
         .quick-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 10px;
         }
-
+        
         .quick-btn {
-            padding: 8px 12px;
+            padding: 6px 10px;
             background: white;
             border: 1px solid #667eea;
-            border-radius: 20px;
+            border-radius: 15px;
             color: #667eea;
-            font-size: 12px;
+            font-size: 11px;
             cursor: pointer;
-            transition: all 0.3s;
         }
-
-        .quick-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .gemini-status {
-            font-size: 10px;
-            padding: 3px 8px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.2);
-        }
-
-        .gemini-status.connected {
-            background: #4caf50;
-        }
-
-        .gemini-status.local {
-            background: #ff9800;
-        }
-
-        @media (max-width: 500px) {
-            .chat-modal {
-                width: calc(100% - 20px);
-                right: 10px;
-                bottom: 80px;
-                height: calc(100vh - 150px);
-            }
-            
-            .chatbot-btn {
-                right: 20px;
-                bottom: 20px;
-            }
+        
+        .quick-btn:hover { background: #667eea; color: white; }
+        
+        @media (max-width: 800px) {
+            .main-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🏥 MediSecure</h1>
-        <p class="subtitle">Health Insurance Cost Prediction with Medical Report Analysis</p>
+    <div class="main-container">
+        <div class="card">
+            <h1>MediSecure</h1>
+            <p class="subtitle">Real Insurance Premium Calculator with Medical Analysis</p>
+            
+            <form action="{{ url_for('predict_datapoint')}}" method="post" enctype="multipart/form-data">
+                <div class="section-title">Personal Information</div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="age" value="{{ age if age else 30 }}" min="18" max="75" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select name="sex" required>
+                            <option value="male" {% if sex == 'male' %}selected{% endif %}>Male</option>
+                            <option value="female" {% if sex == 'female' %}selected{% endif %}>Female</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>BMI</label>
+                        <input type="number" name="bmi" value="{{ bmi if bmi else 25 }}" min="10" max="60" step="0.1" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Dependents</label>
+                        <input type="number" name="children" value="{{ children if children else 0 }}" min="0" max="10" required />
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>Smoker</label>
+                        <select name="smoker" required>
+                            <option value="no" {% if smoker == 'no' %}selected{% endif %}>No</option>
+                            <option value="yes" {% if smoker == 'yes' %}selected{% endif %}>Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <select name="state" required>
+                            {% for s in states %}
+                            <option value="{{ s }}" {% if state == s %}selected{% endif %}>{{ s|title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="section-title">Coverage Options</div>
+                
+                <div class="form-group">
+                    <label>Sum Insured</label>
+                    <select name="sum_insured" required>
+                        {% for value, display in sum_insured_options %}
+                        <option value="{{ value }}" {% if sum_insured == value %}selected{% endif %}>{{ display }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Policy Term</label>
+                    <select name="policy_term" required>
+                        {% for value, display in policy_term_options %}
+                        <option value="{{ value }}" {% if policy_term == value %}selected{% endif %}>{{ display }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Room Type</label>
+                    <select name="room_type" required>
+                        {% for value, display in room_type_options %}
+                        <option value="{{ value }}" {% if room_type == value %}selected{% endif %}>{{ display }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="section-title">Cost Saving Options</div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>Deductible</label>
+                        <select name="deductible">
+                            {% for value, display in deductible_options %}
+                            <option value="{{ value }}" {% if deductible == value %}selected{% endif %}>{{ display }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Co-pay</label>
+                        <select name="copay">
+                            {% for value, display in copay_options %}
+                            <option value="{{ value }}" {% if copay == value %}selected{% endif %}>{{ display }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>No Claim Bonus (NCB)</label>
+                        <select name="ncb">
+                            {% for value, display in ncb_options %}
+                            <option value="{{ value }}" {% if ncb == value %}selected{% endif %}>{{ display }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Add-on Riders</label>
+                        <select name="riders">
+                            {% for value, display in rider_options %}
+                            <option value="{{ value }}" {% if riders == value %}selected{% endif %}>{{ display }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="section-title">Medical Report (Optional)</div>
+                
+                <div class="form-group">
+                    <label class="file-upload">
+                        <input type="file" name="medical_report" accept=".pdf" onchange="updateFileName(this)" />
+                        <span class="file-upload-label" id="file-label">📄 Upload Medical Report (PDF)</span>
+                    </label>
+                    <div class="file-name" id="file-name"></div>
+                    <small style="color: #666;">Upload for disease-based premium calculation</small>
+                </div>
+                
+                <button type="submit" class="btn">Calculate Premium</button>
+            </form>
+        </div>
         
-        <form action="{{ url_for('predict_datapoint')}}" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120" value="{{ age if age else '' }}" required />
-            </div>
-            
-            <div class="form-group">
-                <label for="sex">Gender</label>
-                <select id="sex" name="sex" required>
-                    <option value="" {% if not sex %}selected{% endif %} disabled>Select your gender</option>
-                    <option value="male" {% if sex == 'male' %}selected{% endif %}>Male</option>
-                    <option value="female" {% if sex == 'female' %}selected{% endif %}>Female</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="bmi">BMI (Body Mass Index)</label>
-                <input type="number" id="bmi" name="bmi" placeholder="Enter your BMI" min="10" max="60" step="0.1" value="{{ bmi if bmi else '' }}" required />
-            </div>
-            
-            <div class="form-group">
-                <label for="children">Number of Dependents</label>
-                <input type="number" id="children" name="children" placeholder="Enter number of dependents" min="0" max="15" value="{{ children if children else '' }}" required />
-            </div>
-            
-            <div class="form-group">
-                <label for="smoker">Smoker</label>
-                <select id="smoker" name="smoker" required>
-                    <option value="" {% if not smoker %}selected{% endif %} disabled>Do you smoke?</option>
-                    <option value="yes" {% if smoker == 'yes' %}selected{% endif %}>Yes</option>
-                    <option value="no" {% if smoker == 'no' %}selected{% endif %}>No</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="state">State</label>
-                <select id="state" name="state" required>
-                    <option value="" {% if not state %}selected{% endif %} disabled>Select your state</option>
-                    {% for s in states %}
-                    <option value="{{ s }}" {% if state == s %}selected{% endif %}>{{ s|title }}</option>
+        <div>
+            {% if results %}
+            <div class="card">
+                <h3 style="text-align: center; color: #1e3c72;">Annual Premium</h3>
+                <div class="premium-amount">₹{{ results|int|comma }}</div>
+                <div style="text-align: center; font-size: 14px; opacity: 0.9;">
+                    {{ sum_insured|replace('_', ' ')|title }} Coverage | {{ policy_term|replace('_', ' ')|title }} Term
+                </div>
+                
+                {% if modifiers %}
+                <div class="breakdown">
+                    <div class="breakdown-item">
+                        <span>Zone ({{ zone }})</span>
+                        <span>×{{ "%.2f"|format(modifiers.zone_factor) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Age Loading</span>
+                        <span class="modifier-badge {% if modifiers.age_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.age_loading) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>BMI Loading</span>
+                        <span class="modifier-badge {% if modifiers.bmi_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.bmi_loading) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Smoker Loading</span>
+                        <span class="modifier-badge {% if modifiers.smoker_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.smoker_loading) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Disease Loading</span>
+                        <span class="modifier-badge {% if modifiers.disease_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.disease_loading) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Deductible Savings</span>
+                        <span class="modifier-badge low">×{{ "%.2f"|format(modifiers.deductible_factor) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Co-pay Discount</span>
+                        <span class="modifier-badge low">×{{ "%.2f"|format(modifiers.copay_factor) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>NCB Discount</span>
+                        <span class="modifier-badge low">×{{ "%.2f"|format(modifiers.ncb_factor) }}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Rider Cost</span>
+                        <span>+₹{{ modifiers.rider_cost|int }}</span>
+                    </div>
+                    {% if disease_cost|float > 0 %}
+                    <div class="breakdown-item" style="color: #ff6b6b;">
+                        <span>Medical Condition Cost</span>
+                        <span>+₹{{ disease_cost|int }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+                
+                {% if diseases_found %}
+                <div class="disease-info">
+                    <h4>Medical Report Analysis</h4>
+                    <p><strong>Detected:</strong> {{ diseases_found|join(', ')|title }}</p>
+                    <p><strong>Severity:</strong> {{ severity|title }}</p>
+                    {% for detail in disease_details %}
+                    <div class="disease-item">
+                        <strong>{{ detail.disease|title }}</strong> - {{ detail.severity|title }}
+                        <div style="font-size: 12px; color: #e65100;">+₹{{ detail.additional_cost|int }}</div>
+                    </div>
                     {% endfor %}
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>Upload Medical Reports (Optional)</label>
-                <label class="file-upload">
-                    <input type="file" name="medical_report" id="medical_report" accept=".pdf" onchange="updateFileName(this)" />
-                    <span class="file-upload-label" id="file-label">📄 Click to upload PDF medical report</span>
-                </label>
-                <div class="file-name" id="file-name"></div>
-                <small style="color: #666; display: block; margin-top: 5px;">
-                    Upload medical reports for accurate disease-based cost calculation
-                </small>
-            </div>
-            
-            <button type="submit" class="btn">Predict Insurance Cost</button>
-        </form>
-        
-        {% if results %}
-        <div class="result-box">
-            <h2>Estimated Insurance Cost</h2>
-            <div class="amount"><span class="currency">₹</span>{{ results }}</div>
-            
-            <div class="breakdown">
-                <div class="breakdown-item">
-                    <span>Base Cost:</span>
-                    <span>₹{{ base_cost }}</span>
                 </div>
-                <div class="breakdown-item">
-                    <span>State ({{ state|title }}) Healthcare Index:</span>
-                    <span>×{{ state_factor }}</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>State Avg. Cost:</span>
-                    <span>₹{{ state_base_cost }}</span>
-                </div>
-                {% if disease_cost|float > 0 %}
-                <div class="breakdown-item">
-                    <span>Disease Adjustment:</span>
-                    <span>+₹{{ disease_cost }}</span>
+                {% endif %}
+                
+                {% if coverage %}
+                <div class="coverage-box">
+                    <div class="coverage-title">Coverage Included:</div>
+                    {% for item in coverage.base %}
+                    <div class="coverage-item">{{ item }}</div>
+                    {% endfor %}
+                    {% if coverage.riders %}
+                    <div style="margin-top: 10px; font-weight: 600; color: #1e3c72;">Add-ons:</div>
+                    {% for item in coverage.riders %}
+                    <div class="coverage-item">{{ item }}</div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
                 {% endif %}
             </div>
-            
-            {% if report_summary %}
-            <div class="report-summary">
-                <strong>📋 Report Analysis:</strong> {{ report_summary }}
-            </div>
-            {% endif %}
-            
-            {% if diseases_found %}
-            <div class="disease-info">
-                <h4>🏥 Medical Report Analysis</h4>
-                <p><strong>Detected Conditions:</strong> {{ diseases_found|join(', ')|title }}</p>
-                <p><strong>Severity Level:</strong> {{ severity|title }}</p>
-                {% for detail in disease_details %}
-                <div class="disease-item">
-                    <span class="disease-name">{{ detail.disease|title }}</span>
-                    <span class="disease-cost">+₹{{ detail.additional_cost }}</span>
-                    <div class="disease-severity">
-                        Severity: {{ detail.severity|title }}
-                        {% if detail.confidence %}
-                        <span class="confidence-badge">{{ detail.confidence }}% match</span>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
             {% else %}
-            {% if results %}
-            <div class="disease-info">
-                <p class="no-disease">✓ No medical conditions detected from uploaded report</p>
-            </div>
-            {% endif %}
-            {% endif %}
-            
-            {% if lab_findings %}
-            <div class="lab-info">
-                <h4>🔬 Lab Values Analyzed</h4>
-                {% for lab_name, lab_value in lab_findings.items() %}
-                <div class="lab-item">
-                    <span>{{ lab_name|replace('_', ' ')|title }}:</span>
-                    <span>{{ lab_value }}</span>
-                </div>
-                {% endfor %}
+            <div class="card" style="text-align: center; padding: 60px 20px;">
+                <div style="font-size: 60px; margin-bottom: 20px;">📊</div>
+                <h3 style="color: #1e3c72;">Premium Calculator</h3>
+                <p style="color: #666; margin-top: 10px;">Fill the form and click "Calculate Premium"</p>
             </div>
             {% endif %}
         </div>
-        {% endif %}
     </div>
 
-    <!-- Chatbot Button -->
-    <button class="chatbot-btn" onclick="toggleChat()">
-        💬
-    </button>
+    <button class="chatbot-btn" onclick="toggleChat()">💬</button>
 
-    <!-- Chat Modal -->
     <div class="chat-modal" id="chatModal">
         <div class="chat-header">
-            <h3>
-                🤖 MediBot Assistant
-                {% if gemini_configured %}
-                <span class="gemini-status connected">AI Powered</span>
-                {% else %}
-                <span class="gemini-status local">Local Mode</span>
-                {% endif %}
-            </h3>
-            <button class="chat-close" onclick="toggleChat()">&times;</button>
+            <h3>MediBot Assistant</h3>
+            <button class="chat-close" onclick="toggleChat()">×</button>
         </div>
         <div class="chat-body" id="chatBody">
             <div class="quick-actions">
-                <button class="quick-btn" onclick="sendQuickMessage('Which insurance plan is best for me?')">🏥 Best Plan?</button>
-                <button class="quick-btn" onclick="sendQuickMessage('What does health insurance cover?')">📋 Coverage</button>
-                <button class="quick-btn" onclick="sendQuickMessage('How to reduce insurance premium?')">💰 Save Money</button>
-                <button class="quick-btn" onclick="sendQuickMessage('What is waiting period?')">⏰ Waiting Period</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Which plan is best for me?')">Best Plan?</button>
+                <button class="quick-btn" onclick="sendQuickMessage('What is deductible?')">Deductible?</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Explain NCB')">NCB?</button>
             </div>
             <div id="chatMessages"></div>
-            <div class="typing-indicator" id="typingIndicator">MediBot is typing...</div>
         </div>
         <div class="chat-footer">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Ask me about health insurance..." onkeypress="handleKeyPress(event)" />
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask about insurance..." onkeypress="handleKeyPress(event)" />
             <button class="chat-send" onclick="sendMessage()">Send</button>
         </div>
     </div>
     
     <script>
-        let chatOpen = false;
-
         function toggleChat() {
-            chatOpen = !chatOpen;
             const modal = document.getElementById('chatModal');
-            modal.classList.toggle('active', chatOpen);
-            
-            if (chatOpen) {
+            modal.classList.toggle('active');
+            if (modal.classList.contains('active')) {
                 document.getElementById('chatInput').focus();
                 loadChatHistory();
             }
@@ -650,59 +591,39 @@
                 .then(data => {
                     const messagesDiv = document.getElementById('chatMessages');
                     messagesDiv.innerHTML = '';
-                    
                     data.history.forEach(msg => {
                         if (msg.role === 'user' || msg.role === 'assistant') {
                             addMessage(msg.message, msg.role === 'user' ? 'user' : 'bot');
                         }
                     });
-                    
                     if (data.history.length === 0) {
-                        addMessage("Hello! 👋 I'm MediBot, your health insurance assistant. I can help you with:\n\n• Choosing the right insurance plan\n• Understanding policy terms\n• Answering health-related questions\n• Providing personalized recommendations\n\nWhat would you like to know?", 'bot');
+                        addMessage("Hello! I'm MediBot. Ask me about insurance plans, deductibles, NCB, riders, or any health insurance questions!", 'bot');
                     }
-                    
                     scrollToBottom();
-                })
-                .catch(err => console.error('Error loading chat:', err));
+                });
         }
 
         function addMessage(text, type) {
             const messagesDiv = document.getElementById('chatMessages');
             const msgDiv = document.createElement('div');
-            msgDiv.className = `chat-message ${type}`;
-            
+            msgDiv.className = 'chat-message ' + type;
             const bubbleDiv = document.createElement('div');
             bubbleDiv.className = 'chat-bubble';
             bubbleDiv.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            
             msgDiv.appendChild(bubbleDiv);
             messagesDiv.appendChild(msgDiv);
         }
 
         function scrollToBottom() {
-            const chatBody = document.getElementById('chatBody');
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        function showTyping() {
-            document.getElementById('typingIndicator').classList.add('active');
-        }
-
-        function hideTyping() {
-            document.getElementById('typingIndicator').classList.remove('active');
+            document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
         }
 
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
-            
             if (!message) return;
-            
             addMessage(message, 'user');
             input.value = '';
-            showTyping();
-            scrollToBottom();
-            
             fetch('/chat', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -710,14 +631,8 @@
             })
             .then(res => res.json())
             .then(data => {
-                hideTyping();
                 addMessage(data.response, 'bot');
                 scrollToBottom();
-            })
-            .catch(err => {
-                hideTyping();
-                addMessage('Sorry, I encountered an error. Please try again.', 'bot');
-                console.error('Chat error:', err);
             });
         }
 
@@ -727,7 +642,7 @@
         }
 
         function handleKeyPress(event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
+            if (event.key === 'Enter') {
                 event.preventDefault();
                 sendMessage();
             }
@@ -735,16 +650,8 @@
 
         function updateFileName(input) {
             const fileName = input.files[0]?.name;
-            const fileLabel = document.getElementById('file-label');
-            const fileNameDisplay = document.getElementById('file-name');
-            
-            if (fileName) {
-                fileLabel.textContent = '✓ ' + fileName;
-                fileNameDisplay.textContent = 'Selected: ' + fileName;
-            } else {
-                fileLabel.textContent = '📄 Click to upload PDF medical report';
-                fileNameDisplay.textContent = '';
-            }
+            document.getElementById('file-label').textContent = fileName ? '✓ ' + fileName : '📄 Upload Medical Report (PDF)';
+            document.getElementById('file-name').textContent = fileName ? 'Selected: ' + fileName : '';
         }
     </script>
 </body>

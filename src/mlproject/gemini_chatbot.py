@@ -5,6 +5,11 @@ import hashlib
 from datetime import datetime
 from typing import List, Dict, Optional
 
+from dotenv import load_dotenv
+
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+load_dotenv(os.path.join(project_root, '.env'))
+
 try:
     from google import genai
     from google.genai import types
