@@ -463,7 +463,7 @@
             {% if results %}
             <div class="card">
                 <h3 style="text-align: center; color: #1e3c72;">Annual Premium</h3>
-                <div class="premium-amount">₹{{ results|int|comma }}</div>
+                <div class="premium-amount">₹{{ "{:,}".format(results|int) }}</div>
                 <div style="text-align: center; font-size: 14px; opacity: 0.9;">
                     {{ sum_insured|replace('_', ' ')|title }} Coverage | {{ policy_term|replace('_', ' ')|title }} Term
                 </div>
@@ -541,6 +541,68 @@
                     <div class="coverage-item">{{ item }}</div>
                     {% endfor %}
                     {% endif %}
+                </div>
+                {% endif %}
+                
+                {% if health_score %}
+                <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); border-radius: 10px; padding: 20px; margin-top: 15px; color: white;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin: 0; font-size: 14px;">AI Health Score</h4>
+                            <div style="font-size: 36px; font-weight: 700;">{{ health_score }}/100</div>
+                        </div>
+                        <div style="text-align: right; font-size: 12px;">
+                            <div>Risk Level: <strong>{{ health_risks.overall_risk_level }}</strong></div>
+                            <div style="margin-top: 5px;">{{ premium_savings.total_annual_savings }}/year savings possible</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if health_risks.risks %}
+                <div style="background: #fff5f5; border-radius: 10px; padding: 15px; margin-top: 15px; border-left: 4px solid #ff6b6b;">
+                    <h4 style="color: #c0392b; margin: 0 0 10px 0; font-size: 14px;">Predictive Health Risks</h4>
+                    {% for risk in health_risks.risks[:3] %}
+                    <div style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <strong style="color: #333;">{{ risk.disease }}</strong>
+                            <span style="background: {% if risk.severity == 'High' %}#ff6b6b{% elif risk.severity == 'Medium' %}#f39c12{% else %}#27ae60{% endif %}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">{{ risk.severity }} ({{ risk.risk_percentage }}%)</span>
+                        </div>
+                        <div style="font-size: 11px; color: #666; margin-top: 5px;">Prevention: {{ risk.prevention[0] }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                {% if premium_savings.tips %}
+                <div style="background: #e8f5e9; border-radius: 10px; padding: 15px; margin-top: 15px; border-left: 4px solid #27ae60;">
+                    <h4 style="color: #27ae60; margin: 0 0 10px 0; font-size: 14px;">Your Prevention Plan</h4>
+                    {% for tip in premium_savings.tips %}
+                    <div style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; font-size: 12px; color: #333;">
+                        {{ tip }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                {% if premium_savings.savings_projection %}
+                <div style="background: #e3f2fd; border-radius: 10px; padding: 15px; margin-top: 15px;">
+                    <h4 style="color: #1565c0; margin: 0 0 10px 0; font-size: 14px;">Potential Savings with Prevention</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
+                        <div style="background: white; border-radius: 8px; padding: 10px;">
+                            <div style="font-size: 20px; font-weight: 700; color: #27ae60;">Rs. {{ "{:,}".format(premium_savings.savings_projection['1_year']) }}</div>
+                            <div style="font-size: 11px; color: #666;">1 Year</div>
+                        </div>
+                        <div style="background: white; border-radius: 8px; padding: 10px;">
+                            <div style="font-size: 20px; font-weight: 700; color: #27ae60;">Rs. {{ "{:,}".format(premium_savings.savings_projection['3_years']) }}</div>
+                            <div style="font-size: 11px; color: #666;">3 Years</div>
+                        </div>
+                        <div style="background: white; border-radius: 8px; padding: 10px;">
+                            <div style="font-size: 20px; font-weight: 700; color: #27ae60;">Rs. {{ "{:,}".format(premium_savings.savings_projection['5_years']) }}</div>
+                            <div style="font-size: 11px; color: #666;">5 Years</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 11px; color: #666; margin: 10px 0 0 0; text-align: center;">Save this much by adopting healthy habits!</p>
                 </div>
                 {% endif %}
             </div>

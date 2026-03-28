@@ -22,6 +22,13 @@ from src.mlproject.gemini_chatbot import (
     GEMINI_CONFIGURED,
     get_user_profile
 )
+from src.mlproject.health_risk_predictor import (
+    predict_health_risks,
+    calculate_premium_savings,
+    generate_prevention_plan,
+    calculate_health_score,
+    get_ai_insights
+)
 
 application = Flask(__name__)
 app = application
@@ -186,6 +193,21 @@ def predict_datapoint():
         
         coverage = get_coverage_details(sum_insured, riders)
         
+        health_profile = {
+            'age': age,
+            'sex': sex,
+            'bmi': bmi,
+            'children': children,
+            'smoker': smoker,
+            'state': state
+        }
+        
+        health_risks = predict_health_risks(health_profile, diseases_found, severity)
+        premium_savings = calculate_premium_savings(health_profile, diseases_found, severity)
+        prevention_plan = generate_prevention_plan(health_profile, diseases_found, severity)
+        health_score = calculate_health_score(health_profile, diseases_found, severity)
+        ai_insights = get_ai_insights(health_profile, diseases_found, severity)
+        
         profile = {
             'age': age,
             'sex': sex,
@@ -240,7 +262,12 @@ def predict_datapoint():
                              deductible_options=DEDUCTIBLE_OPTIONS,
                              copay_options=COPAY_OPTIONS,
                              ncb_options=NCB_OPTIONS,
-                             rider_options=RIDER_OPTIONS)
+                             rider_options=RIDER_OPTIONS,
+                             health_risks=health_risks,
+                             premium_savings=premium_savings,
+                             prevention_plan=prevention_plan,
+                             health_score=health_score,
+                             ai_insights=ai_insights)
 
 @app.route('/chat', methods=['POST'])
 def chat():
