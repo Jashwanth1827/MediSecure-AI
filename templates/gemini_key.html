@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini Test Key</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f7fa; color: #333; }
+    .container { max-width: 720px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    h1 { font-size: 1.4rem; margin-bottom: 12px; }
+    label { display: block; margin: 12px 0 6px; font-weight: 600; }
+    input[type="text"], input[type="password"] { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    button { padding: 10px 14px; border: none; border-radius: 6px; background: #4a90e2; color: #fff; cursor: pointer; margin-top: 8px; }
+    .alert { margin-top: 12px; padding: 10px 12px; border-radius: 6px; }
+    .alert.success { background: #e6f7ea; color: #2e7d32; }
+    .alert.error { background: #fbe9e9; color: #c0392b; }
+    a { color: #4a90e2; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gemini Test Key (Runtime)</h1>
+    <form method="post" action="/admin/gemini-key">
+      <label for="gemini_key">Gemini API Key</label>
+      <input id="gemini_key" name="gemini_key" type="password" placeholder="Enter your Gemini API Key" />
+      <button type="submit">Apply</button>
+    </form>
+    {% if message %}
+      <div class="alert {% if success %}success{% else %}error{% endif %}">{{ message }}</div>
+    {% endif %}
+    <hr/>
+    <p>Back to <a href="/">home</a>.</p>
+  </div>
+</body>
+</html>

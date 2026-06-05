@@ -1,0 +1,381 @@
+# MediSecure - Project Architecture
+
+## 1. System Overview
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                            MEDISECURE SYSTEM                                            │
+│                 AI-Powered Health Insurance Calculator                                  │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+
+                                    │
+            ┌───────────────────────┼───────────────────────┐
+            │                       │                       │
+            ▼                       ▼                       ▼
+    ┌───────────────┐      ┌───────────────┐      ┌───────────────┐
+    │   FRONTEND    │      │    BACKEND    │      │    ML/AI      │
+    │   (Browser)   │◄────►│   (Flask)     │◄────►│   Engine      │
+    └───────────────┘      └───────────────┘      └───────────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+                    ▼               ▼               ▼
+            ┌───────────┐    ┌───────────┐    ┌───────────┐
+            │  Database │    │  Services │    │ External  │
+            │ (SQLite)  │    │  (Python) │    │   APIs    │
+            └───────────┘    └───────────┘    └───────────┘
+```
+  
+## 2. Detailed Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                              FRONTEND LAYER                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐              │
+│  │                     index.html                                        │              │
+│  │  ┌─────────────┐  ┌──────────────┐  ┌────────────┐  ┌────────────┐    │
+│  │  │   Form      │  │   Results    │  │  Chatbot   │  │  Health    │    │  │
+│  │  │   Input     │  │   Panel      │  │  Modal     │  │  Risk      │    │  │
+│  │  │   Fields    │  │   Display    │  │  UI        │  |  Report    │    │
+│  │  └─────────────┘  └──────────────┘  └────────────┘  └────────────┘    │
+│  └──────────────────��────────────────────────────────────────────────  │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    │ HTTP Requests/Responses
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                              BACKEND LAYER (Flask)                               │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐    │
+│  │                              app.py                                         │    │
+│  │                                                                       │    │
+│  │   ┌───────────────────────────────────────────────────────────────────┐  │    │
+│  │   │                     Route Handlers                                 │  │    │
+│  │   │                                                                   │  │    │
+│  │   │  @app.route('/')                   - Main prediction page         │  │    │
+│  │   │  @app.route('/chat')               - AI Chat endpoint            │  │    │
+│  │   │  @app.route('/chat/history')      - Chat history endpoint      │  │    │
+│  │   │  @app.route('/api/profile')        - User profile endpoint      │  │    │
+│  │   │  @app.route('/api/premium-calc')  - Premium calculator API     │  │    │
+│  │   │                                                                   │  │    │
+│  │   └───────────────────────────────────────────────────────────────────┘  │    │
+│  └─────────────────────────────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+        ┌─────────────────────────────┼─────────────────────────────┐
+        │                             │                             │
+        ▼                             ▼                             ▼
+┌───────────────┐            ┌───────────────┐            ┌───────────────┐
+│ Prediction   │            │  Medical     │            │   AI        │
+│ Pipeline    │            │  Report      │            │  Chatbot    │
+│             │            │  Processor  │            │            │
+└───────────────┘            └─────���─��───────┘            └───────────────┘
+        │                             │                             │
+        ▼                             ▼                             ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                           ML/AI ENGINE LAYER                                    │
+│                                                                           │
+│  ┌────────────────────────────────────────────────────────────────────────┐   │
+│  │                   prediction_pipeline.py                             │   │
+│  │                                                                 │   │
+│  │  ┌─────────────┐  ┌──────────────┐  ┌─────────────┐  ┌─────────┐  │   │
+│  │  │  CustomData│  │ PredictPipeline││Premium Calc│  │Coverage │  │   │
+│  │  │  Class    │  │   (ML Model)    ││  Modifiers │  │ Details │  │   │
+│  │  └─────────────┘  └──────────────┘  └─────────────┘  └─────────┘  │   │
+│  └────────────────────────────────────────────────────────────────────────┘   │
+│                                                                           │
+│  ┌────────────────────────────────────────────────────────────────────────┐   │
+│  │               medical_report_processor.py                            │   │
+│  │                                                                 │   │
+│  │  ┌─────────────┐  ┌──────────────┐  ┌─────────────┐  ┌─────────┐  │   │
+│  │  │extract_    │  │ detect_      │  │ detect_     │  │calculate │  │   │
+│  │  │text_from_pdf│  │ diseases    │  │ severity   │  │ disease_ │  │   │
+│  │  │            │  │             │  │           │  │ cost    │  │   │
+│  │  └─────────────┘  └──────────────┘  └─────────────┘  └─────────┘  │   │
+│  │       PyPDF2         Keyword         Keyword       Config         │   │
+│  │                      Matching       Matching                     │   │
+│  └────────────────────────────────────────────────────────────────────────┘   │
+│                                                                           │
+│  ┌────────────────────────────────────────────────────────────────────────┐   │
+│  │               health_risk_predictor.py                               │   │
+│  │                                                                 │   │
+│  │  ┌─────────────┐  ┌──────────────┐  ┌─────────────┐  ┌───────── ┐  │   │
+│  │  │calculate_   │  │ predict_     │  │ calculate_  │  │generate  │  │   │
+│  │  │health_score │  │ health_risks │  │ premium_    │  │prevention│  │   │
+│  │  │             │  │              │  │ savings     │  │plan      │  │   │
+│  │  └─────────────   └──────────────┘  └─────────────┘  └───────── ┘  │   │
+│  │       Profile     Risk Rules         Savings         Action        │   │
+│  │       Based        Engine           Calculator         Plans         │               │
+│  └────────────────────────────────────────────────────────────────────────┘             │
+│                                                                                         │
+│  ┌────────────────────────────────────────────────────────────────────────┐             │
+│  │               gemini_chatbot.py                                        │             │
+│  │                                                                        │             │
+│  │  ┌─────────────┐  ┌──────────────┐  ┌─────────────┐  ┌─────────┐       │             │
+│  │  │configure_   │  │ chat_with_   │  │ get_local   │  │ save_   │       │             │
+│  │  │gemini()     │  │ gemini()     │  │ response()  │  │message()│       │             │
+│  │  └─────────────┘  └──────────────┘  └─────────────┘  └─────────┘       │             │
+│  │       Google         Google AI      Rule-Based    SQLite               │             │
+│  │       GenAI         (gemini-2.0)  Responses   Storage                  │             │
+│  └────────────────────────────────────────────────────────────────────────┘             │
+│                                                                                         │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+                                      │
+        ┌─────────────────────────────┼─────────────────────────────┐
+        │                             │                             │
+        ▼                             ▼                             ▼
+┌───────────────┐            ┌─────────────── ┐            ┌───────────────┐
+│   artifacts/  │            │ chat_history.db│            │    .env       │
+│               │            │                │            │               │
+│ model.pkl     │            │   messages     │            │ GEMINI_API_KEY│
+│ preprocessor  │            │   profiles     │            │               │
+│   .pkl        │            │                │            │               │
+└───────────────┘            └─────────────── ┘            └───────────────┘
+   (Pickle)                    (SQLite)                   (Environment)
+
+```
+
+## 3. Data Flow
+
+```
+USER INPUT FLOW
+===============
+
+User fills Form
+     │
+     ▼
+┌─────────────────┐
+│  HTML Form      │
+│  - Age, Gender  │
+│  - BMI, Smoker  │
+│  - State        │
+│  - Sum Insured  │
+│  - Policy Term  │
+│  - Room Type    │
+│  - Deductible   │
+│  - Co-pay, NCB  │
+│  - Riders       │
+└─────────────────┘
+     │
+     │ POST /
+     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                         FLASK APP (app.py)                             │
+└────────────────────────────────────────────────────────────────────────┘
+     │
+     ├─────────────────────────────────────────────────────────────┐
+     │  IF MEDICAL REPORT UPLOADED                                 │
+     │  ┌─────────────────────────────────────────────────────┐    │
+     │  │ medical_report_processor.py                         │    │
+     │  │                                                     │    │
+     │  │  1. extract_text_from_pdf(file)                     │    │
+     │  │        │                                            │    │
+     │  │        ▼                                            │    │
+     │  │  2. detect_diseases(text) ── Keyword Matching       │    │
+     │  │        │                                            │    │
+     │  │        ▼                                            │    │
+     │  │  3. detect_severity(text) ── Keyword Matching       │    │
+     │  │        │                                            │    │
+     │  │        ▼                                            │    │
+     │  │  4. calculate_disease_cost(diseases, severity)      │    │
+     │  └─────────────────────────────────────────────────────┘    │  
+     │                           │
+     └───────────────────────────┘
+     │
+     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                    PREDICTION PIPELINE                               │
+│                                                                  │
+│  1. CustomData(age, sex, bmi, children, smoker, state,            │
+│                sum_insured, policy_term, room_type,              │
+│                deductible, copay, ncb, riders)                │
+│                                                                  │
+│  2. calculate_premium_modifiers() ── Applies all factors:       │
+│     - Zone Factor (based on state)                               │
+│     - Age Loading                                              │
+│     - BMI Loading                                               │
+│     - Smoker Loading                                            │
+│     - Disease Loading (from medical report)                      │
+│     - Deductible Factor                                         │
+│     - Co-pay Factor                                            │
+│     - NCB Factor                                               │
+│                                                                  │
+│  3. model.predict(features) ── Random Forest Regressor         │
+│                                                                  │
+│  4. calculate_final_premium(base, modifiers, disease_cost)    │
+└────────────────────────────────────────────────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                    HEALTH RISK PREDICTOR                               │
+│                                                                  │
+│  Input: profile + detected_diseases + severity                    │
+│                                                                  │
+│  1. calculate_health_score()                                      │
+│     - Base: 100 - age_impact - bmi_impact - smoker_impact        │
+│     - Minus disease impacts (from medical report)                  │
+│                                                                  │
+│  2. predict_health_risks()                                        │
+│     - 10 future disease predictions                               │
+│     - Risk increases if conditions detected                      │
+│     - Related diseases auto-linked                                │
+│                                                                  │
+│  3. calculate_premium_savings()                                    │
+│     - Based on preventive actions possible                         │
+│     - Dynamic projections                                       │
+│                                                                  │
+│  4. generate_prevention_plan()                                     │
+│     - Condition-specific action items                           │
+│     - Monthly, Quarterly, Annual milestones                     │
+└────────────────────────────────────────────────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                         RESPONSE RENDERING                          │
+│                                                                  │
+│  Returns index.html with:                                        │
+│  - results: Premium calculation                                   │
+│  - modifiers: All factor breakdowns                               │
+│  - diseases_found: From PDF analysis                             │
+│  - severity: Medical condition severity                          │
+│  - health_risks: Dynamic risk predictions                        │
+│  - health_score: Profile + disease based                       │
+│  - premium_savings: Prevention-based savings                      │
+│  - prevention_plan: Actionable plan                             │
+│  - ai_insights: Summary message                                  │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+## 4. Component Interactions
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                         COMPONENT INTERACTION DIAGRAM                      │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+   index.html  ◄─────────────── app.py ◄─────────────── prediction_pipeline.py
+      │               ▲                      │
+      │               │                      │
+      │         renders_template          │ predict()
+      │               │                      │
+      │               │                      ▼
+      │               │            ┌─────────────────────────┐
+      │               │            │      model.pkl          │
+      │               │            │   (Random Forest)       │
+      │               │            └─────────────────────────┘
+      │               │
+      │               │                    medical_report_processor.py
+      │               │                              ▲
+      │               │                     process_medical_report()
+      │               │                              │
+      │               │                              ▼
+      │               │                     extract_text_from_pdf()
+      │               │                              │
+      │               │                              ▼
+      │               │                     detect_diseases()
+      │               │                              │
+      │               │                              ▼
+      │               │                     detect_severity()
+      │               │                              │
+      │               │                              ▼
+      │               │                     calculate_disease_cost()
+      │               │
+      │               │
+      ▼               │              health_risk_predictor.py
+ app.py ◄────────────┴──────────►          ▲
+      │                               calculate_health_score()
+      │                                     │
+      │                                     ▼
+      │                              predict_health_risks()
+      │                                     │
+      │                                     ▼
+      │                              calculate_premium_savings()
+      │                                     │
+      │                                     ▼
+      │                              generate_prevention_plan()
+      │
+      │
+      │
+gemini_chatbot.py ◄─────────── app.py
+      ▲
+      │
+ chat_with_gemini()
+      │
+      ├──────────────────────┐
+      │                      │
+      ▼                      ▼
+ Google Gemini AI     Local Response
+ (gemini-2.0)         (Rule-Based)
+ 
+ chat_history.db ◄─── SQLite
+```
+
+## 5. File Structure
+
+```
+Health-Insurance-Prediction/
+│
+├── app.py                          # Flask application entry point
+│
+├── requirements.txt                # Python dependencies
+│
+├── .env                           # Environment variables
+│
+├── PROJECT_REPORT.md              # Project documentation
+│
+├── artifacts/                    # ML model artifacts
+│   ├── model.pkl                 # Trained Random Forest model
+│   └── preprocessor.pkl          # Data preprocessor (OneHotEncoder + StandardScaler)
+│
+├── notebook/
+│   └── data/
+│       └── Health_insurance.csv  # Training dataset
+│
+├── src/mlproject/
+│   ├── __init__.py
+│   ├── logger.py
+│   ├── exception.py
+│   ├── utils.py
+│   │
+│   ├── gemini_chatbot.py          # AI chatbot (Gemini + local fallback)
+│   │
+│   ├── health_risk_predictor.py # Predictive health risk engine
+│   │
+│   ├── medical_report_processor.py # PDF text extraction & disease detection
+│   │
+│   └── pipelines/
+│       ├── prediction_pipeline.py # Premium calculation pipeline
+│       └── training_pipeline.py
+│
+├── templates/
+│   └── index.html                # Main UI (form + results + chatbot + health report)
+│
+└── chat_history.db                # SQLite database for chat & user profiles
+```
+
+## 6. Key Technologies
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| Frontend | HTML5, CSS3, JavaScript | User Interface |
+| Backend | Flask | Web Framework |
+| ML Model | Scikit-learn (Random Forest) | Premium Prediction |
+| PDF Processing | PyPDF2 | Medical Report Text Extraction |
+| AI Chatbot | Google Gemini AI + Rule-Based | Customer Support |
+| Database | SQLite | Chat History, User Profiles |
+| Health Analytics | Custom Python | Risk Prediction, Prevention Planning |
+
+## 7. API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET/POST | Main prediction page |
+| `/chat` | POST | Send message to AI chatbot |
+| `/chat/history` | GET | Get chat history |
+| `/chat/clear` | POST | Clear chat |
+| `/api/profile` | GET | Get user profile |
+| `/api/premium-calculator` | GET | Premium factor calculator |
+
+---
+
+**Project Version:** 2.0 (With AI Health Risk Prediction)
+**Last Updated:** March 2026

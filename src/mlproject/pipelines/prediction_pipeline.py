@@ -1,3 +1,16 @@
+# =====================================================================
+# ARCHITECTURE ROLE: MACHINE LEARNING & RISK UNDERWRITING PIPELINE
+# =====================================================================
+# This module encapsulates the business rules and ML logic for insurance
+# pricing. It defines insurance multipliers (Sum Insured, Policy Term, Room
+# Type, Deductible, Co-pay, NCB, and Region Zone multipliers) and handles
+# loading the saved Random Forest model and preprocessor pipelines.
+#
+# Modularity benefits:
+# 1. Isolates data scaling and inference code from the Flask API routes.
+# 2. Encapsulates risk calculation rules in Python classes.
+# =====================================================================
+
 import sys
 import os
 import pandas as pd

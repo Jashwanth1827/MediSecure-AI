@@ -1,3 +1,17 @@
+# =====================================================================
+# ARCHITECTURE ROLE: MEDICAL REPORT PARSING & UNDERWRITING (PDF Service)
+# =====================================================================
+# This module is responsible for processing health reports. It parses text 
+# from PDFs, runs regular expressions to extract laboratory readings, checks
+# for pre-existing disease keywords, and calculates medical surcharges.
+#
+# Modularity benefits:
+# 1. Keeps external PDF library dependencies (like PyPDF2) isolated here.
+# 2. Allows updating disease lookup dictionaries or parsing logic (e.g.,
+#    moving from regex to clinical Named Entity Recognition / NLP models) 
+#    without affecting app.py or the ML pipelines.
+# =====================================================================
+
 import pandas as pd
 import numpy as np
 import re

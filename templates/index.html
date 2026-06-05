@@ -1,720 +1,2413 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediSecure - Health Insurance Premium Calculator</title>
+    <title>MediSecure AI - Premium Health Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        body {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            min-height: 100vh;
-            padding: 20px;
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --border-color: rgba(226, 232, 240, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent-color: #6366f1;
+            --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --accent-soft: rgba(99, 102, 241, 0.08);
+            --success-color: #10b981;
+            --success-soft: rgba(16, 185, 129, 0.1);
+            --warning-color: #f59e0b;
+            --warning-soft: rgba(245, 158, 11, 0.1);
+            --danger-color: #ef4444;
+            --danger-soft: rgba(239, 68, 68, 0.1);
+            --shadow: 0 10px 30px rgba(99, 102, 241, 0.04);
+            --glass-blur: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 350px;
+        [data-theme="dark"] {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.75);
+            --border-color: rgba(37, 99, 235, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #818cf8;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --accent-soft: rgba(129, 140, 248, 0.15);
+            --success-color: #34d399;
+            --success-soft: rgba(52, 211, 153, 0.15);
+            --warning-color: #fbbf24;
+            --warning-soft: rgba(251, 191, 36, 0.15);
+            --danger-color: #f87171;
+            --danger-soft: rgba(248, 113, 113, 0.15);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 280px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            padding-left: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .menu-item:hover {
+            color: var(--text-primary);
+            background-color: var(--accent-soft);
+        }
+
+        .menu-item.active {
+            color: white;
+            background: var(--accent-gradient);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+            font-weight: 600;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
         }
-        
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #1e3c72;
-            margin-bottom: 5px;
-            font-size: 28px;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-        
-        .section-title {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin: 20px 0 15px 0;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #444;
-            font-weight: 600;
-            font-size: 13px;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-        }
-        
-        .btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
-        }
-        
-        .result-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .premium-amount {
-            font-size: 42px;
-            font-weight: 700;
-            margin: 10px 0;
-        }
-        
-        .breakdown {
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: left;
-        }
-        
-        .breakdown-item {
+
+        .theme-toggle-btn {
             display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            font-size: 13px;
-        }
-        
-        .modifier-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-size: 11px;
-        }
-        
-        .modifier-badge.high { background: #ff6b6b; }
-        .modifier-badge.low { background: #51cf66; }
-        
-        .coverage-box {
-            background: #f8f9ff;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
             border-radius: 10px;
-            padding: 15px;
-            margin-top: 15px;
-            text-align: left;
-        }
-        
-        .coverage-title {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-primary);
             font-weight: 600;
-            color: #1e3c72;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        
-        .coverage-item {
-            padding: 5px 0;
-            font-size: 12px;
-            color: #555;
-        }
-        
-        .coverage-item::before { content: "✓ "; color: #51cf66; }
-        
-        .disease-info {
-            background: #fff3e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 15px;
-            text-align: left;
-        }
-        
-        .disease-item {
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            border-left: 3px solid #ff9800;
-        }
-        
-        .file-upload {
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
+            font-size: 13px;
             cursor: pointer;
-            background: #f8f9ff;
+            transition: var(--transition);
+            width: 100%;
         }
-        
-        .file-upload input[type="file"] { display: none; }
-        .file-upload-label { color: #667eea; font-weight: 600; cursor: pointer; }
-        .file-name { margin-top: 5px; font-size: 12px; color: #666; }
-        
-        /* Chatbot */
-        .chatbot-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
+
+        .theme-toggle-btn:hover {
+            background-color: var(--accent-soft);
+            border-color: var(--accent-color);
+        }
+
+        .sidebar-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .profile-avatar {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 5px 25px rgba(102,126,234,0.5);
-            z-index: 1000;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--accent-color);
         }
-        
-        .chat-modal {
-            display: none;
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 400px;
-            height: 550px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-            z-index: 1001;
+
+        .profile-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .profile-info p {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
             flex-direction: column;
-            overflow: hidden;
+            max-width: 1400px;
         }
-        
-        .chat-modal.active { display: flex; }
-        
-        .chat-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 20px;
+
+        .header-panel {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 35px;
         }
-        
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
+
+        .header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
         }
-        
-        .chat-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px;
-            background: #f5f5f5;
+
+        .header-title p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
         }
-        
-        .chat-message { margin-bottom: 12px; max-width: 85%; clear: both; }
-        .chat-message.user { float: right; text-align: right; }
-        .chat-message.bot { float: left; text-align: left; }
-        
-        .chat-bubble {
-            padding: 10px 14px;
-            border-radius: 15px;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-        
-        .chat-message.user .chat-bubble {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
-        
-        .chat-message.bot .chat-bubble {
-            background: white;
-            color: #333;
-            border-bottom-left-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .chat-footer {
-            padding: 12px;
-            background: white;
-            border-top: 1px solid #e0e0e0;
+
+        .header-meta {
             display: flex;
+            gap: 12px;
+        }
+
+        .meta-badge {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .meta-badge.success {
+            color: var(--success-color);
+            border-color: var(--success-color);
+            background-color: var(--success-soft);
+        }
+
+        /* Tab Content Panel Styling */
+        .tab-panel {
+            display: none;
+            flex-direction: column;
+            gap: 30px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-panel.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dashboard Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 1100px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Component Styling */
+        .card {
+            background-color: var(--bg-card);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
-        
-        .chat-input {
+
+        .card-title-icon {
+            font-size: 20px;
+        }
+
+        /* Forms Layout & Inputs */
+        .grid-inputs-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input-val-badge {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        input, select {
+            width: 100%;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        /* Sliders */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            outline: none;
+            padding: 0;
+            border: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(99, 102, 241, 0.4);
+            transition: var(--transition);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+        }
+
+        /* Drag & Drop File Upload */
+        .upload-zone {
+            border: 2px dashed var(--border-color);
+            background-color: var(--accent-soft);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(99, 102, 241, 0.08);
+        }
+
+        .upload-zone input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .upload-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .upload-sub {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.45);
+        }
+
+        /* Results Card and Breakdown list */
+        .results-gradient-card {
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+        }
+
+        .results-gradient-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .result-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin: 10px 0;
+            letter-spacing: -1px;
+        }
+
+        .breakdown-list {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .row-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .row-val {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .badge-danger {
+            background-color: var(--danger-soft);
+            color: var(--danger-color);
+        }
+
+        .badge-success {
+            background-color: var(--success-soft);
+            color: var(--success-color);
+        }
+
+        /* Plan Comparison Layout */
+        .comparison-search {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) auto;
+            gap: 15px;
+            align-items: end;
+            background-color: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+
+        .comparison-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .policy-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.1);
+        }
+
+        .policy-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .company-tag {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 4px;
+        }
+
+        .policy-rating {
+            background: var(--accent-gradient);
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 10px;
+        }
+
+        .policy-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 12px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-val {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+
+        .policy-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
             flex: 1;
-            padding: 10px 15px;
-            border: 2px solid #e0e0e0;
+        }
+
+        .feature-item {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: 800;
+        }
+
+        .policy-action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .policy-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .policy-btn {
+            background-color: var(--accent-soft);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .policy-btn:hover {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Health Report Card Styles */
+        .health-score-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 0;
+        }
+
+        .health-score-ring {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-color) 0%, var(--border-color) 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .health-score-ring::after {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background-color: var(--bg-secondary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .health-score-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .health-score-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .health-score-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Gamified Rewards Simulator Styling */
+        .gamified-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .habit-item {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .habit-item:hover {
+            border-color: var(--accent-color);
+        }
+
+        .habit-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .habit-icon {
+            font-size: 26px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .habit-text h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .habit-text p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Switch toggle input */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-switch {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--border-color);
+            border-radius: 34px;
+            transition: .4s;
+        }
+
+        .slider-switch:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input:checked + .slider-switch {
+            background: var(--accent-gradient);
+        }
+
+        input:checked + .slider-switch:before {
+            transform: translateX(22px);
+        }
+
+        .rewards-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .rewards-stat-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .rewards-stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .rewards-stat-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Chatbot Drawer layout */
+        .chat-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+            height: 600px;
+        }
+
+        @media (max-width: 900px) {
+            .chat-container {
+                grid-template-columns: 1fr;
+            }
+            .chat-sidebar {
+                display: none;
+            }
+        }
+
+        .chat-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .chat-messages-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background-color: rgba(9, 13, 22, 0.2);
+        }
+
+        .chat-row {
+            display: flex;
+            width: 100%;
+        }
+
+        .chat-row.user {
+            justify-content: flex-end;
+        }
+
+        .chat-row.bot {
+            justify-content: flex-start;
+        }
+
+        .chat-bubble {
+            max-width: 75%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-row.user .chat-bubble {
+            background: var(--accent-gradient);
+            color: white;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-row.bot .chat-bubble {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-footer {
+            padding: 16px 20px;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-text-input {
+            flex: 1;
+            padding: 12px 20px;
             border-radius: 25px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+        }
+
+        .chat-send-btn {
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            border-radius: 25px;
+            padding: 0 25px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-sidebar {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow-y: auto;
+        }
+
+        .chat-suggestion {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            background: transparent;
+            text-align: left;
+        }
+
+        .chat-suggestion:hover {
+            border-color: var(--accent-color);
+            background-color: var(--accent-soft);
+            color: var(--text-primary);
+        }
+
+        /* Printable Receipt styling */
+        #printable-quote {
+            display: none;
+            background: white;
+            color: black;
+            padding: 40px;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            border: 2px solid #ccc;
+        }
+
+        #printable-quote h2 {
+            font-family: 'Outfit', sans-serif;
+            color: #4f46e5;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 10px;
+        }
+
+        .receipt-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        .receipt-table th, .receipt-table td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
             font-size: 13px;
         }
-        
-        .chat-send {
-            padding: 10px 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+        .receipt-table th {
+            background-color: #f3f4f6;
+            font-weight: 700;
+        }
+
+        .print-btn {
+            background-color: var(--success-color);
             color: white;
             border: none;
-            border-radius: 25px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
             cursor: pointer;
-            font-weight: 600;
-        }
-        
-        .quick-actions {
+            transition: var(--transition);
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 10px;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
         }
-        
-        .quick-btn {
-            padding: 6px 10px;
-            background: white;
-            border: 1px solid #667eea;
-            border-radius: 15px;
-            color: #667eea;
-            font-size: 11px;
-            cursor: pointer;
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
-        
-        .quick-btn:hover { background: #667eea; color: white; }
-        
-        @media (max-width: 800px) {
-            .main-container { grid-template-columns: 1fr; }
+
+        /* Responsive adjustments */
+        @media (max-width: 850px) {
+            .sidebar {
+                width: 70px;
+                padding: 30px 10px;
+            }
+            .sidebar .logo-text, .sidebar .profile-info, .sidebar .theme-toggle-btn span {
+                display: none;
+            }
+            .sidebar .logo-container {
+                justify-content: center;
+                padding-left: 0;
+            }
+            .main-content {
+                margin-left: 70px;
+                padding: 20px;
+            }
+            .menu-item {
+                justify-content: center;
+                padding: 14px;
+            }
+            .menu-item span {
+                display: none;
+            }
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-quote, #printable-quote * {
+                visibility: visible;
+            }
+            #printable-quote {
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="card">
-            <h1>MediSecure</h1>
-            <p class="subtitle">Real Insurance Premium Calculator with Medical Analysis</p>
-            
-            <form action="{{ url_for('predict_datapoint')}}" method="post" enctype="multipart/form-data">
-                <div class="section-title">Personal Information</div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>Age</label>
-                        <input type="number" name="age" value="{{ age if age else 30 }}" min="18" max="75" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Gender</label>
-                        <select name="sex" required>
-                            <option value="male" {% if sex == 'male' %}selected{% endif %}>Male</option>
-                            <option value="female" {% if sex == 'female' %}selected{% endif %}>Female</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>BMI</label>
-                        <input type="number" name="bmi" value="{{ bmi if bmi else 25 }}" min="10" max="60" step="0.1" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Dependents</label>
-                        <input type="number" name="children" value="{{ children if children else 0 }}" min="0" max="10" required />
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>Smoker</label>
-                        <select name="smoker" required>
-                            <option value="no" {% if smoker == 'no' %}selected{% endif %}>No</option>
-                            <option value="yes" {% if smoker == 'yes' %}selected{% endif %}>Yes</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>State</label>
-                        <select name="state" required>
-                            {% for s in states %}
-                            <option value="{{ s }}" {% if state == s %}selected{% endif %}>{{ s|title }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="section-title">Coverage Options</div>
-                
-                <div class="form-group">
-                    <label>Sum Insured</label>
-                    <select name="sum_insured" required>
-                        {% for value, display in sum_insured_options %}
-                        <option value="{{ value }}" {% if sum_insured == value %}selected{% endif %}>{{ display }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Policy Term</label>
-                    <select name="policy_term" required>
-                        {% for value, display in policy_term_options %}
-                        <option value="{{ value }}" {% if policy_term == value %}selected{% endif %}>{{ display }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Room Type</label>
-                    <select name="room_type" required>
-                        {% for value, display in room_type_options %}
-                        <option value="{{ value }}" {% if room_type == value %}selected{% endif %}>{{ display }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                
-                <div class="section-title">Cost Saving Options</div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>Deductible</label>
-                        <select name="deductible">
-                            {% for value, display in deductible_options %}
-                            <option value="{{ value }}" {% if deductible == value %}selected{% endif %}>{{ display }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Co-pay</label>
-                        <select name="copay">
-                            {% for value, display in copay_options %}
-                            <option value="{{ value }}" {% if copay == value %}selected{% endif %}>{{ display }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div class="form-group">
-                        <label>No Claim Bonus (NCB)</label>
-                        <select name="ncb">
-                            {% for value, display in ncb_options %}
-                            <option value="{{ value }}" {% if ncb == value %}selected{% endif %}>{{ display }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Add-on Riders</label>
-                        <select name="riders">
-                            {% for value, display in rider_options %}
-                            <option value="{{ value }}" {% if riders == value %}selected{% endif %}>{{ display }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="section-title">Medical Report (Optional)</div>
-                
-                <div class="form-group">
-                    <label class="file-upload">
-                        <input type="file" name="medical_report" accept=".pdf" onchange="updateFileName(this)" />
-                        <span class="file-upload-label" id="file-label">📄 Upload Medical Report (PDF)</span>
-                    </label>
-                    <div class="file-name" id="file-name"></div>
-                    <small style="color: #666;">Upload for disease-based premium calculation</small>
-                </div>
-                
-                <button type="submit" class="btn">Calculate Premium</button>
-            </form>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <div class="logo-icon">M</div>
+            <div class="logo-text">MediSecure AI</div>
         </div>
         
-        <div>
+        <ul class="menu-list">
+            <li class="menu-item active" onclick="switchTab('calculator', this)">
+                <span class="menu-icon">📊</span>
+                <span>Calculator</span>
+            </li>
+            <li class="menu-item" onclick="switchTab('health', this)">
+                <span class="menu-icon">❤️</span>
+                <span>Health Analysis</span>
+            </li>
+            <li class="menu-item" onclick="switchTab('simulator', this)">
+                <span class="menu-icon">🎮</span>
+                <span>Habit Rewards</span>
+            </li>
+            <li class="menu-item" onclick="switchTab('matchmaker', this)">
+                <span class="menu-icon">🤝</span>
+                <span>Policy Matcher</span>
+            </li>
+            <li class="menu-item" onclick="switchTab('chatbot', this)">
+                <span class="menu-icon">💬</span>
+                <span>AI Assistant</span>
+            </li>
+            <li class="menu-item" onclick="switchTab('admin', this)">
+                <span class="menu-icon">⚙️</span>
+                <span>Settings</span>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <button class="theme-toggle-btn" onclick="toggleTheme()">
+                <span class="theme-icon">☀️</span>
+                <span>Light Theme</span>
+            </button>
+            <div class="sidebar-profile">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-info">
+                    <h4>Student Profile</h4>
+                    <p>Mini Project v2.0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN PANEL -->
+    <div class="main-content">
+        <div class="header-panel">
+            <div class="header-title">
+                <h1 id="tab-heading">Dashboard Calculator</h1>
+                <p id="tab-subheading">Enter user health details to calculate the premium</p>
+            </div>
+            
+            <div class="header-meta">
+                {% if results %}
+                <div class="meta-badge success">
+                    <span>✨ Premium Calculated: ₹{{ "{:,}".format(results|int) }}</span>
+                </div>
+                {% else %}
+                <div class="meta-badge">
+                    <span>⏳ Awaiting inputs</span>
+                </div>
+                {% endif %}
+                <div class="meta-badge">
+                    <span>🏢 Companies: 10</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 1: CALCULATOR & RESULTS -->
+        <div class="tab-panel active" id="panel-calculator">
+            <div class="dashboard-grid">
+                
+                <!-- INPUT CARD -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">📝</span>
+                            <span>Enter Personal Metrics</span>
+                        </div>
+                    </div>
+                    
+                    <form action="{{ url_for('predict_datapoint')}}" method="post" enctype="multipart/form-data">
+                        
+                        <div class="grid-inputs-2">
+                            <div class="form-group">
+                                <label>Age (years)</label>
+                                <input type="number" name="age" id="age-input" min="18" max="75" value="{{ age if age else 30 }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select name="sex" required>
+                                    <option value="male" {% if sex == 'male' %}selected{% endif %}>Male</option>
+                                    <option value="female" {% if sex == 'female' %}selected{% endif %}>Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-inputs-2">
+                            <div class="form-group">
+                                <label>BMI</label>
+                                <input type="number" name="bmi" id="bmi-input" min="10" max="60" step="0.1" value="{{ bmi if bmi else 25 }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Dependents</label>
+                                <input type="number" name="children" value="{{ children if children else 0 }}" min="0" max="10" required />
+                            </div>
+                        </div>
+
+                        <div class="grid-inputs-2">
+                            <div class="form-group">
+                                <label>Smoker</label>
+                                <select name="smoker" required>
+                                    <option value="no" {% if smoker == 'no' %}selected{% endif %}>No</option>
+                                    <option value="yes" {% if smoker == 'yes' %}selected{% endif %}>Yes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <select name="state" required>
+                                    {% for s in states %}
+                                    <option value="{{ s }}" {% if state == s %}selected{% endif %}>{{ s|title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="margin: 10px 0 20px 0; height: 1px; background-color: var(--border-color);"></div>
+
+                        <div class="grid-inputs-2">
+                            <div class="form-group">
+                                <label>Sum Insured</label>
+                                <select name="sum_insured" required>
+                                    {% for value, display in sum_insured_options %}
+                                    <option value="{{ value }}" {% if sum_insured == value %}selected{% endif %}>{{ display }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Policy Term</label>
+                                <select name="policy_term" required>
+                                    {% for value, display in policy_term_options %}
+                                    <option value="{{ value }}" {% if policy_term == value %}selected{% endif %}>{{ display }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-inputs-2">
+                            <div class="form-group">
+                                <label>Room Type</label>
+                                <select name="room_type" required>
+                                    {% for value, display in room_type_options %}
+                                    <option value="{{ value }}" {% if room_type == value %}selected{% endif %}>{{ display }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Add-on Riders</label>
+                                <select name="riders">
+                                    {% for value, display in rider_options %}
+                                    <option value="{{ value }}" {% if riders == value %}selected{% endif %}>{{ display }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-inputs-2">
+                            <div class="form-group">
+                                <label>Deductible</label>
+                                <select name="deductible">
+                                    {% for value, display in deductible_options %}
+                                    <option value="{{ value }}" {% if deductible == value %}selected{% endif %}>{{ display }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Co-pay</label>
+                                <select name="copay">
+                                    {% for value, display in copay_options %}
+                                    <option value="{{ value }}" {% if copay == value %}selected{% endif %}>{{ display }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>No Claim Bonus (NCB)</label>
+                            <select name="ncb">
+                                {% for value, display in ncb_options %}
+                                <option value="{{ value }}" {% if ncb == value %}selected{% endif %}>{{ display }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Medical Report (PDF - Optional)</label>
+                            <div class="upload-zone">
+                                <input type="file" name="medical_report" accept=".pdf" onchange="updateUploadLabel(this)" />
+                                <span class="upload-icon">📄</span>
+                                <span class="upload-text" id="upload-zone-text">Drag & Drop PDF or Click to browse</span>
+                                <span class="upload-sub">Provides medical condition premium adjustments</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>⚡</span>
+                            <span>Calculate Premium</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- RESULTS CARD (ONLY DISPLAY ONCE CALCULATED) -->
+                <div>
+                    {% if results %}
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        
+                        <div class="results-gradient-card">
+                            <h3 style="font-size: 14px; font-weight: 500; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Annual Quote</h3>
+                            <div class="result-val">₹{{ "{:,}".format(results|int) }}</div>
+                            <p style="font-size: 12px; opacity: 0.9;">
+                                {{ sum_insured|replace('_', ' ')|title }} Coverage | {{ policy_term|replace('_', ' ')|title }} Term
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span class="card-title-icon">📊</span>
+                                    <span>Premium Breakdown</span>
+                                </div>
+                            </div>
+                            <div style="max-height: 220px; display: flex; justify-content: center; margin-bottom: 20px;">
+                                <canvas id="breakdownChart" width="200" height="200"></canvas>
+                            </div>
+                            
+                            <div class="breakdown-list">
+                                <div class="breakdown-row">
+                                    <span class="row-label">Base Predict Model Cost</span>
+                                    <span class="row-val">₹{{ "{:,}".format(base_cost|int) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">Zone Adjustments (Zone {{ zone }})</span>
+                                    <span class="row-val">×{{ "%.2f"|format(modifiers.zone_factor) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">Age Surcharges</span>
+                                    <span class="badge {% if modifiers.age_loading > 1 %}badge-danger{% else %}badge-success{% endif %}">×{{ "%.2f"|format(modifiers.age_loading) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">BMI Surcharges</span>
+                                    <span class="badge {% if modifiers.bmi_loading > 1 %}badge-danger{% else %}badge-success{% endif %}">×{{ "%.2f"|format(modifiers.bmi_loading) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">Tobacco Surcharges</span>
+                                    <span class="badge {% if modifiers.smoker_loading > 1 %}badge-danger{% else %}badge-success{% endif %}">×{{ "%.2f"|format(modifiers.smoker_loading) }}</span>
+                                </div>
+                                {% if disease_cost|float > 0 %}
+                                <div class="breakdown-row" style="color: var(--danger-color); font-weight: 600;">
+                                    <span class="row-label" style="color: var(--danger-color);">Medical Conditions Loading (Total)</span>
+                                    <span class="row-val">+₹{{ "{:,}".format(disease_cost|int) }}</span>
+                                </div>
+                                    {% for detail in disease_details %}
+                                    <div class="breakdown-row" style="padding-left: 20px; font-size: 12px; border-bottom: 1px dashed var(--border-color); opacity: 0.85;">
+                                        <span class="row-label" style="text-transform: capitalize;">↳ {{ detail.disease }} ({{ detail.severity }})</span>
+                                        <span class="row-val">+₹{{ "{:,}".format(detail.additional_cost|int) }}</span>
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <div class="breakdown-row">
+                                    <span class="row-label">Rider Premium Cost</span>
+                                    <span class="row-val">+₹{{ "{:,}".format(modifiers.rider_cost|int) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">Deductibles Factor</span>
+                                    <span class="badge badge-success">×{{ "%.2f"|format(modifiers.deductible_factor) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">Co-pay Adjustments</span>
+                                    <span class="badge badge-success">×{{ "%.2f"|format(modifiers.copay_factor) }}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="row-label">No Claim Bonus (NCB) Discount</span>
+                                    <span class="badge badge-success">×{{ "%.2f"|format(modifiers.ncb_factor) }}</span>
+                                </div>
+                            </div>
+
+                            <button class="print-btn" onclick="window.print()">
+                                <span>🖨️</span>
+                                <span>Download Quote Receipt</span>
+                            </button>
+                        </div>
+                    </div>
+                    {% else %}
+                    <!-- GETTING STARTED PLACEHOLDER -->
+                    <div class="card" style="text-align: center; padding: 60px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                        <div style="font-size: 60px; margin-bottom: 24px; animation: bounce 2s infinite;">📈</div>
+                        <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--text-primary); font-weight: 700;">Predictive Insurance Calculator</h3>
+                        <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px; max-width: 320px; line-height: 1.6;">
+                            Our machine learning model accurately estimates health insurance premium parameters based on demographics, geography, and pre-existing medical files.
+                        </p>
+                        <div style="margin-top: 30px; display: flex; gap: 10px;">
+                            <div class="badge" style="background-color: var(--accent-soft); color: var(--accent-color);">Real-Time ML</div>
+                            <div class="badge" style="background-color: var(--success-soft); color: var(--success-color);">Medical Scan</div>
+                            <div class="badge" style="background-color: var(--warning-soft); color: var(--warning-color);">10 Insurers</div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- TAB 2: HEALTH ANALYSIS -->
+        <div class="tab-panel" id="panel-health">
             {% if results %}
-            <div class="card">
-                <h3 style="text-align: center; color: #1e3c72;">Annual Premium</h3>
-                <div class="premium-amount">₹{{ "{:,}".format(results|int) }}</div>
-                <div style="text-align: center; font-size: 14px; opacity: 0.9;">
-                    {{ sum_insured|replace('_', ' ')|title }} Coverage | {{ policy_term|replace('_', ' ')|title }} Term
-                </div>
+            <div class="dashboard-grid">
                 
-                {% if modifiers %}
-                <div class="breakdown">
-                    <div class="breakdown-item">
-                        <span>Zone ({{ zone }})</span>
-                        <span>×{{ "%.2f"|format(modifiers.zone_factor) }}</span>
+                <!-- DIAL CARD & RADAR CHART -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">🩺</span>
+                            <span>Your Health Risk Profile</span>
+                        </div>
                     </div>
-                    <div class="breakdown-item">
-                        <span>Age Loading</span>
-                        <span class="modifier-badge {% if modifiers.age_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.age_loading) }}</span>
+                    
+                    <div class="health-score-container">
+                        <div class="health-score-ring" id="health-ring">
+                            <div class="health-score-content">
+                                <div class="health-score-num">{{ health_score }}</div>
+                                <div class="health-score-label">Health Score</div>
+                            </div>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary);">Overall Risk: {{ health_risks.overall_risk_level }}</h3>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 5px; text-align: center; padding: 0 20px;">
+                            Health score calculated from age loading, tobacco status, BMI, and medical documentation.
+                        </p>
                     </div>
-                    <div class="breakdown-item">
-                        <span>BMI Loading</span>
-                        <span class="modifier-badge {% if modifiers.bmi_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.bmi_loading) }}</span>
+
+                    <div style="margin: 20px 0; height: 1px; background-color: var(--border-color);"></div>
+
+                    <div style="max-height: 300px; display: flex; justify-content: center;">
+                        <canvas id="healthRadarChart" width="300" height="300"></canvas>
                     </div>
-                    <div class="breakdown-item">
-                        <span>Smoker Loading</span>
-                        <span class="modifier-badge {% if modifiers.smoker_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.smoker_loading) }}</span>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Disease Loading</span>
-                        <span class="modifier-badge {% if modifiers.disease_loading > 1 %}high{% else %}low{% endif %}">×{{ "%.2f"|format(modifiers.disease_loading) }}</span>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Deductible Savings</span>
-                        <span class="modifier-badge low">×{{ "%.2f"|format(modifiers.deductible_factor) }}</span>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Co-pay Discount</span>
-                        <span class="modifier-badge low">×{{ "%.2f"|format(modifiers.copay_factor) }}</span>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>NCB Discount</span>
-                        <span class="modifier-badge low">×{{ "%.2f"|format(modifiers.ncb_factor) }}</span>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Rider Cost</span>
-                        <span>+₹{{ modifiers.rider_cost|int }}</span>
-                    </div>
-                    {% if disease_cost|float > 0 %}
-                    <div class="breakdown-item" style="color: #ff6b6b;">
-                        <span>Medical Condition Cost</span>
-                        <span>+₹{{ disease_cost|int }}</span>
+                </div>
+
+                <!-- CLINICAL STATS & TASKS -->
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    
+                    <!-- LAB REPORT FINDINGS -->
+                    {% if lab_findings %}
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="card-title-icon">🧪</span>
+                                <span>Extracted Laboratory Findings</span>
+                            </div>
+                        </div>
+                        <div class="breakdown-list">
+                            {% for lab, val in lab_findings.items() %}
+                            <div class="breakdown-row">
+                                <span class="row-label" style="text-transform: capitalize;">{{ lab|replace('_', ' ') }}</span>
+                                <span class="row-val" style="font-family: monospace; font-size: 14px;">{{ val }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <p style="font-size: 11px; color: var(--text-secondary); margin-top: 15px;">
+                            *Processed directly from the uploaded medical PDF. Surcharges are calculated based on deviations from clinical standards.
+                        </p>
                     </div>
                     {% endif %}
-                </div>
-                {% endif %}
-                
-                {% if diseases_found %}
-                <div class="disease-info">
-                    <h4>Medical Report Analysis</h4>
-                    <p><strong>Detected:</strong> {{ diseases_found|join(', ')|title }}</p>
-                    <p><strong>Severity:</strong> {{ severity|title }}</p>
-                    {% for detail in disease_details %}
-                    <div class="disease-item">
-                        <strong>{{ detail.disease|title }}</strong> - {{ detail.severity|title }}
-                        <div style="font-size: 12px; color: #e65100;">+₹{{ detail.additional_cost|int }}</div>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                
-                {% if coverage %}
-                <div class="coverage-box">
-                    <div class="coverage-title">Coverage Included:</div>
-                    {% for item in coverage.base %}
-                    <div class="coverage-item">{{ item }}</div>
-                    {% endfor %}
-                    {% if coverage.riders %}
-                    <div style="margin-top: 10px; font-weight: 600; color: #1e3c72;">Add-ons:</div>
-                    {% for item in coverage.riders %}
-                    <div class="coverage-item">{{ item }}</div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-                {% endif %}
-                
-                {% if health_score %}
-                <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); border-radius: 10px; padding: 20px; margin-top: 15px; color: white;">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h4 style="margin: 0; font-size: 14px;">AI Health Score</h4>
-                            <div style="font-size: 36px; font-weight: 700;">{{ health_score }}/100</div>
+
+                    <!-- PREVENTION PROGRAM -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="card-title-icon">🛡️</span>
+                                <span>Personalized Prevention Guide</span>
+                            </div>
                         </div>
-                        <div style="text-align: right; font-size: 12px;">
-                            <div>Risk Level: <strong>{{ health_risks.overall_risk_level }}</strong></div>
-                            <div style="margin-top: 5px;">{{ premium_savings.total_annual_savings }}/year savings possible</div>
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            {% for tip in premium_savings.tips %}
+                            <div style="background-color: var(--bg-secondary); border-left: 4px solid var(--success-color); padding: 14px 18px; border-radius: 8px; font-size: 12px; color: var(--text-primary); line-height: 1.5;">
+                                {{ tip }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- SAVINGS PROJECTIONS -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="card-title-icon">💸</span>
+                                <span>Financial Impact of Prevention</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
+                            Projected cumulative savings on health insurance premiums if wellness metrics (BMI, tobacco habits) are optimized.
+                        </p>
+                        <div style="max-height: 200px; display: flex; justify-content: center; margin-bottom: 10px;">
+                            <canvas id="savingsChart" width="300" height="180"></canvas>
                         </div>
                     </div>
                 </div>
-                {% endif %}
-                
-                {% if health_risks.risks %}
-                <div style="background: #fff5f5; border-radius: 10px; padding: 15px; margin-top: 15px; border-left: 4px solid #ff6b6b;">
-                    <h4 style="color: #c0392b; margin: 0 0 10px 0; font-size: 14px;">Predictive Health Risks</h4>
-                    {% for risk in health_risks.risks[:3] %}
-                    <div style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <strong style="color: #333;">{{ risk.disease }}</strong>
-                            <span style="background: {% if risk.severity == 'High' %}#ff6b6b{% elif risk.severity == 'Medium' %}#f39c12{% else %}#27ae60{% endif %}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">{{ risk.severity }} ({{ risk.risk_percentage }}%)</span>
-                        </div>
-                        <div style="font-size: 11px; color: #666; margin-top: 5px;">Prevention: {{ risk.prevention[0] }}</div>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                
-                {% if premium_savings.tips %}
-                <div style="background: #e8f5e9; border-radius: 10px; padding: 15px; margin-top: 15px; border-left: 4px solid #27ae60;">
-                    <h4 style="color: #27ae60; margin: 0 0 10px 0; font-size: 14px;">Your Prevention Plan</h4>
-                    {% for tip in premium_savings.tips %}
-                    <div style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; font-size: 12px; color: #333;">
-                        {{ tip }}
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                
-                {% if premium_savings.savings_projection %}
-                <div style="background: #e3f2fd; border-radius: 10px; padding: 15px; margin-top: 15px;">
-                    <h4 style="color: #1565c0; margin: 0 0 10px 0; font-size: 14px;">Potential Savings with Prevention</h4>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
-                        <div style="background: white; border-radius: 8px; padding: 10px;">
-                            <div style="font-size: 20px; font-weight: 700; color: #27ae60;">Rs. {{ "{:,}".format(premium_savings.savings_projection['1_year']) }}</div>
-                            <div style="font-size: 11px; color: #666;">1 Year</div>
-                        </div>
-                        <div style="background: white; border-radius: 8px; padding: 10px;">
-                            <div style="font-size: 20px; font-weight: 700; color: #27ae60;">Rs. {{ "{:,}".format(premium_savings.savings_projection['3_years']) }}</div>
-                            <div style="font-size: 11px; color: #666;">3 Years</div>
-                        </div>
-                        <div style="background: white; border-radius: 8px; padding: 10px;">
-                            <div style="font-size: 20px; font-weight: 700; color: #27ae60;">Rs. {{ "{:,}".format(premium_savings.savings_projection['5_years']) }}</div>
-                            <div style="font-size: 11px; color: #666;">5 Years</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 11px; color: #666; margin: 10px 0 0 0; text-align: center;">Save this much by adopting healthy habits!</p>
-                </div>
-                {% endif %}
+
             </div>
             {% else %}
-            <div class="card" style="text-align: center; padding: 60px 20px;">
-                <div style="font-size: 60px; margin-bottom: 20px;">📊</div>
-                <h3 style="color: #1e3c72;">Premium Calculator</h3>
-                <p style="color: #666; margin-top: 10px;">Fill the form and click "Calculate Premium"</p>
+            <!-- HEALTH AWAITING CALCULATION -->
+            <div class="card" style="text-align: center; padding: 100px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="font-size: 60px; margin-bottom: 24px;">🔒</div>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--text-primary); font-weight: 700;">Health Profiler Locked</h3>
+                <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px; max-width: 380px; line-height: 1.6;">
+                    Please run a premium calculation on the first tab. Once completed, a complete health risk profile, lab analysis, and prevention dashboard will unlock automatically.
+                </p>
             </div>
             {% endif %}
         </div>
-    </div>
 
-    <button class="chatbot-btn" onclick="toggleChat()">💬</button>
+        <!-- TAB 3: GAMIFIED HABIT REWARDS -->
+        <div class="tab-panel" id="panel-simulator">
+            <div class="dashboard-grid">
+                
+                <!-- HABIT LIST -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="card-title-icon">🏆</span>
+                            <span>Gamified Habit Tracker</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
+                        Ticking these healthy daily targets simulates wellness points and calculates potential premium discount rates (gamified model simulated discount limit: 30%).
+                    </p>
+                    
+                    <div class="gamified-card">
+                        <div class="habit-item">
+                            <div class="habit-info">
+                                <div class="habit-icon">🚶</div>
+                                <div class="habit-text">
+                                    <h4>Walk 10,000 Steps Daily</h4>
+                                    <p>Saves 10% on your premium loading</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="habit-steps" onchange="recalculateSimulatedSavings()">
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
 
-    <div class="chat-modal" id="chatModal">
-        <div class="chat-header">
-            <h3>MediBot Assistant</h3>
-            <button class="chat-close" onclick="toggleChat()">×</button>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div class="quick-actions">
-                <button class="quick-btn" onclick="sendQuickMessage('Which plan is best for me?')">Best Plan?</button>
-                <button class="quick-btn" onclick="sendQuickMessage('What is deductible?')">Deductible?</button>
-                <button class="quick-btn" onclick="sendQuickMessage('Explain NCB')">NCB?</button>
+                        <div class="habit-item">
+                            <div class="habit-info">
+                                <div class="habit-icon">😴</div>
+                                <div class="habit-text">
+                                    <h4>Sleep 7-8 Hours Nightly</h4>
+                                    <p>Saves 5% on your premium loading</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="habit-sleep" onchange="recalculateSimulatedSavings()">
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+
+                        <div class="habit-item">
+                            <div class="habit-info">
+                                <div class="habit-icon">💧</div>
+                                <div class="habit-text">
+                                    <h4>Drink 3 Liters Water</h4>
+                                    <p>Saves 3% on premium loading</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="habit-water" onchange="recalculateSimulatedSavings()">
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+
+                        <div class="habit-item">
+                            <div class="habit-info">
+                                <div class="habit-icon">🏋️</div>
+                                <div class="habit-text">
+                                    <h4>Workout 3x Weekly</h4>
+                                    <p>Saves 7% on premium loading</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="habit-workout" onchange="recalculateSimulatedSavings()">
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+
+                        <div class="habit-item">
+                            <div class="habit-info">
+                                <div class="habit-icon">🥦</div>
+                                <div class="habit-text">
+                                    <h4>Balanced Home Cooked Meals</h4>
+                                    <p>Saves 5% on premium loading</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="habit-food" onchange="recalculateSimulatedSavings()">
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIVE IMPACT CARD -->
+                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="card-title-icon">⚡</span>
+                                <span>Real-Time Reward Status</span>
+                            </div>
+                        </div>
+                        
+                        <div class="results-gradient-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);">
+                            <h3 style="font-size: 14px; font-weight: 500; opacity: 0.8; text-transform: uppercase;">Simulated Premium</h3>
+                            <div class="result-val" id="sim-premium-val">₹30,000</div>
+                            <p style="font-size: 12px; opacity: 0.9;" id="sim-savings-text">Select habits to trigger discounts</p>
+                        </div>
+                    </div>
+
+                    <div class="rewards-stats-grid">
+                        <div class="rewards-stat-card">
+                            <div class="rewards-stat-num" id="sim-score">80</div>
+                            <div class="rewards-stat-label">Proj Health Score</div>
+                        </div>
+                        <div class="rewards-stat-card">
+                            <div class="rewards-stat-num" id="sim-discount">0%</div>
+                            <div class="rewards-stat-label">Total Discount</div>
+                        </div>
+                        <div class="rewards-stat-card">
+                            <div class="rewards-stat-num" id="sim-savings">₹0</div>
+                            <div class="rewards-stat-label">Annual Savings</div>
+                        </div>
+                    </div>
+
+                    <div style="background-color: var(--accent-soft); border: 1px solid var(--border-color); padding: 20px; border-radius: 16px; margin-top: 25px;">
+                        <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Why gamify health insurance?</h4>
+                        <p style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">
+                            In modern health fintech, insurers utilize IoT wearables and check-in algorithms to verify physical metrics. Customers with high activity scores receive direct premium discounts during renewal cycles.
+                        </p>
+                    </div>
+                </div>
+
             </div>
-            <div id="chatMessages"></div>
         </div>
-        <div class="chat-footer">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Ask about insurance..." onkeypress="handleKeyPress(event)" />
-            <button class="chat-send" onclick="sendMessage()">Send</button>
+
+        <!-- TAB 4: POLICY MATCHMAKER -->
+        <div class="tab-panel" id="panel-matchmaker">
+            <!-- CRITERIA SEARCH BAR -->
+            <div class="comparison-search">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Coverage Need</label>
+                    <select id="match-type">
+                        <option value="individual">Individual</option>
+                        <option value="family">Family Floater</option>
+                        <option value="critical">Critical Illness</option>
+                        <option value="senior">Senior Citizen</option>
+                        <option value="top_up">Top-Up Plan</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Budget</label>
+                    <select id="match-budget">
+                        <option value="low">Low Cost (&lt; ₹6,000)</option>
+                        <option value="medium" selected>Medium (₹6,000 - ₹12,000)</option>
+                        <option value="high">Premium (&gt; ₹12,000)</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>State Health</label>
+                    <select id="match-disease">
+                        <option value="none">No major conditions</option>
+                        <option value="diabetes">Diabetes Pre-existing</option>
+                        <option value="heart_disease">Heart Disease Pre-existing</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Special Benefits</label>
+                    <select id="match-benefit">
+                        <option value="none">No special requirements</option>
+                        <option value="maternity">Requires Maternity</option>
+                        <option value="international">Requires International Cover</option>
+                    </select>
+                </div>
+                <button class="submit-btn" style="padding: 10px 24px; font-size: 13px; height: 43px; box-shadow: none;" onclick="runPlanMatcher()">Search Plans</button>
+            </div>
+
+            <!-- SEARCH RESULTS -->
+            <div class="comparison-results-grid" id="matcher-results">
+                <!-- Javascript will render results here -->
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
+                    Click "Search Plans" to fetch suited policies from 10 Indian insurance companies.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: AI CHATBOT -->
+        <div class="tab-panel" id="panel-chatbot">
+            <div class="chat-container">
+                <!-- MESSAGES AREA -->
+                <div class="chat-box">
+                    <div class="chat-messages-scroll" id="chat-scroller">
+                        <!-- Loaded messages go here -->
+                    </div>
+                    <div class="chat-footer">
+                        <input type="text" class="chat-text-input" id="chat-message-input" placeholder="Ask about premiums, policy riders, claim ratios, deductibles..." onkeypress="handleChatKeyPress(event)">
+                        <button class="chat-send-btn" onclick="sendChatMessage()">Send</button>
+                    </div>
+                </div>
+                
+                <!-- SIDE PANEL QUICK PROMPTS -->
+                <div class="chat-sidebar">
+                    <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Insurance Quick Ask</h4>
+                    <p style="font-size: 11px; color: var(--text-secondary);">Select a topic to query the AI consultative agent instantly:</p>
+                    
+                    <button class="chat-suggestion" onclick="triggerQuickChat('Compare HDFC ERGO and ICICI Lombard')">Compare HDFC ERGO & ICICI</button>
+                    <button class="chat-suggestion" onclick="triggerQuickChat('How does age affect my premium calculation?')">How does age affect premium?</button>
+                    <button class="chat-suggestion" onclick="triggerQuickChat('What is NCB and how can I claim it?')">Explain No Claim Bonus (NCB)</button>
+                    <button class="chat-suggestion" onclick="triggerQuickChat('What is the difference between deductible and copay?')">Deductible vs Co-pay</button>
+                    <button class="chat-suggestion" onclick="triggerQuickChat('Suggest a plan for a diabetic individual')">Plans for Diabetes</button>
+                    
+                    <div style="margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 15px; text-align: center;">
+                        <button class="policy-btn" style="width: 100%;" onclick="clearChatMessages()">Clear History</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 6: ADMIN SETTINGS -->
+        <div class="tab-panel" id="panel-admin">
+            <div class="card" style="max-width: 600px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">⚙️</span>
+                        <span>LLM Configuration Panel</span>
+                    </div>
+                </div>
+                
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6;">
+                    MediSecure incorporates Gemini models for medical analysis and conversational advice. Update the API key below to configure the conversational agent.
+                </p>
+                
+                <div class="form-group">
+                    <label>Gemini API Key</label>
+                    <input type="password" id="gemini-key-input" placeholder="AIzaSy..." style="font-family: monospace;">
+                </div>
+                
+                <button class="submit-btn" style="width: auto; padding: 12px 24px; font-size: 13px; box-shadow: none;" onclick="saveGeminiKey()">Update API Key</button>
+                
+                <div id="admin-status-message" style="margin-top: 15px; font-size: 12px; font-weight: 600;"></div>
+            </div>
         </div>
     </div>
-    
+
+    <!-- PRINTABLE QUOTE RECEIPT -->
+    <div id="printable-quote">
+        <h2>MediSecure Health Insurance Quote</h2>
+        <p><strong>Generated Date:</strong> <span id="print-date"></span></p>
+        <p><strong>Session ID:</strong> <span id="print-session"></span></p>
+        
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value / Choice</th>
+                    <th>Surcharges / Discount Factor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Age</td>
+                    <td><span id="print-age">30</span></td>
+                    <td><span id="print-age-loading">×1.0</span></td>
+                </tr>
+                <tr>
+                    <td>BMI</td>
+                    <td><span id="print-bmi">25</span></td>
+                    <td><span id="print-bmi-loading">×1.0</span></td>
+                </tr>
+                <tr>
+                    <td>Tobacco Habits</td>
+                    <td><span id="print-smoker">No</span></td>
+                    <td><span id="print-smoker-loading">×1.0</span></td>
+                </tr>
+                <tr>
+                    <td>State Residence</td>
+                    <td><span id="print-state">Maharashtra</span></td>
+                    <td><span id="print-zone">Zone B (×1.0)</span></td>
+                </tr>
+                <tr>
+                    <td>Sum Insured</td>
+                    <td><span id="print-coverage">10 Lakhs</span></td>
+                    <td>Included in base calculation</td>
+                </tr>
+                <tr>
+                    <td>Policy Term</td>
+                    <td><span id="print-term">1 Year</span></td>
+                    <td>Included in base calculation</td>
+                </tr>
+                <tr>
+                    <td>Riders Add-on</td>
+                    <td><span id="print-riders">None</span></td>
+                    <td><span id="print-rider-cost">+₹0</span></td>
+                </tr>
+                <tr>
+                    <td>Deductible chosen</td>
+                    <td><span id="print-deductible">No Deductible</span></td>
+                    <td><span id="print-deductible-loading">×1.0</span></td>
+                </tr>
+                <tr>
+                    <td>Co-pay limit</td>
+                    <td><span id="print-copay">No Co-pay</span></td>
+                    <td><span id="print-copay-loading">×1.0</span></td>
+                </tr>
+                <tr>
+                    <td>No Claim Bonus (NCB)</td>
+                    <td><span id="print-ncb">No NCB</span></td>
+                    <td><span id="print-ncb-loading">×1.0</span></td>
+                </tr>
+                <tr id="print-disease-row">
+                    <td>Medical Conditions Surcharge</td>
+                    <td><span id="print-disease">None</span></td>
+                    <td><span id="print-disease-cost">+₹0</span></td>
+                </tr>
+                <tr style="font-weight: bold; font-size: 16px; border-top: 2px solid #333;">
+                    <td>TOTAL CALCULATED ANNUAL PREMIUM</td>
+                    <td></td>
+                    <td>₹<span id="print-total">0.00</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 40px; font-size: 11px; color: #666; text-align: center; border-top: 1px solid #ddd; padding-top: 20px;">
+            This is a computer-generated quote based on machine learning calculations and modifiers. This proposal is for academic demonstration purposes only.
+        </div>
+    </div>
+
+    <!-- DATA INJECTION & SCRIPTS -->
     <script>
-        function toggleChat() {
-            const modal = document.getElementById('chatModal');
-            modal.classList.toggle('active');
-            if (modal.classList.contains('active')) {
-                document.getElementById('chatInput').focus();
-                loadChatHistory();
+        // Inject variables from Flask context
+        const hasResults = {% if results %}true{% else %}false{% endif %};
+        const baseCost = {% if base_cost %}{{ base_cost }}{% else %}0{% endif %};
+        const results = {% if results %}{{ results }}{% else %}0{% endif %};
+        
+        const modifiers = {
+            zone_factor: {% if modifiers %}{{ modifiers.zone_factor }}{% else %}1.0{% endif %},
+            age_loading: {% if modifiers %}{{ modifiers.age_loading }}{% else %}1.0{% endif %},
+            bmi_loading: {% if modifiers %}{{ modifiers.bmi_loading }}{% else %}1.0{% endif %},
+            smoker_loading: {% if modifiers %}{{ modifiers.smoker_loading }}{% else %}1.0{% endif %},
+            disease_loading: {% if modifiers %}{{ modifiers.disease_loading }}{% else %}1.0{% endif %},
+            deductible_factor: {% if modifiers %}{{ modifiers.deductible_factor }}{% else %}1.0{% endif %},
+            copay_factor: {% if modifiers %}{{ modifiers.copay_factor }}{% else %}1.0{% endif %},
+            ncb_factor: {% if modifiers %}{{ modifiers.ncb_factor }}{% else %}1.0{% endif %},
+            rider_cost: {% if modifiers %}{{ modifiers.rider_cost }}{% else %}0{% endif %}
+        };
+        
+        const diseaseCost = {% if disease_cost %}{{ disease_cost }}{% else %}0{% endif %};
+        const session_id = "{{ session_id }}";
+        const healthScore = {% if health_score %}{{ health_score }}{% else %}80{% endif %};
+        const healthRisksData = {% if health_risks %}{{ health_risks.risks|tojson }}{% else %}[]{% endif %};
+        const diseaseDetailsData = {% if disease_details %}{{ disease_details|tojson }}{% else %}[]{% endif %};
+        
+        const currentAge = {{ age if age else 30 }};
+        const currentBmi = {{ bmi if bmi else 25 }};
+
+        // Theme management
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const btn = document.querySelector('.theme-toggle-btn');
+            if (newTheme === 'light') {
+                btn.innerHTML = `<span class="theme-icon">🌙</span><span>Dark Theme</span>`;
+            } else {
+                btn.innerHTML = `<span class="theme-icon">☀️</span><span>Light Theme</span>`;
             }
         }
 
-        function loadChatHistory() {
-            fetch('/chat/history')
-                .then(res => res.json())
-                .then(data => {
-                    const messagesDiv = document.getElementById('chatMessages');
-                    messagesDiv.innerHTML = '';
-                    data.history.forEach(msg => {
-                        if (msg.role === 'user' || msg.role === 'assistant') {
-                            addMessage(msg.message, msg.role === 'user' ? 'user' : 'bot');
-                        }
-                    });
-                    if (data.history.length === 0) {
-                        addMessage("Hello! I'm MediBot. Ask me about insurance plans, deductibles, NCB, riders, or any health insurance questions!", 'bot');
-                    }
-                    scrollToBottom();
+        // Tab routing
+        function switchTab(tabId, el) {
+            // Remove active classes
+            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            
+            // Add active class
+            el.classList.add('active');
+            document.getElementById('panel-' + tabId).classList.add('active');
+            
+            // Update headings
+            const heading = document.getElementById('tab-heading');
+            const sub = document.getElementById('tab-subheading');
+            
+            if (tabId === 'calculator') {
+                heading.innerText = 'Dashboard Calculator';
+                sub.innerText = 'Enter user health details to calculate the premium';
+            } else if (tabId === 'health') {
+                heading.innerText = 'AI Health Assessment';
+                sub.innerText = 'Detailed predictive metrics and prevention logs';
+                renderCharts(); // Render radar and savings chart when tab is visible
+            } else if (tabId === 'simulator') {
+                heading.innerText = 'Habit Discount Simulator';
+                sub.innerText = 'Simulate wellness point bonuses and premium reductions';
+                recalculateSimulatedSavings();
+            } else if (tabId === 'matchmaker') {
+                heading.innerText = 'Policy Matchmaker';
+                sub.innerText = 'Matches suiting policies from 10 Indian insurance companies';
+                runPlanMatcher();
+            } else if (tabId === 'chatbot') {
+                heading.innerText = 'AI Insurance Advisor';
+                sub.innerText = 'Ask questions about coverage terms and premium calculations';
+                loadChatHistory();
+            } else if (tabId === 'admin') {
+                heading.innerText = 'System Configuration';
+                sub.innerText = 'Configure generative settings and database operations';
+            }
+        }
+
+        // Helper label updates
+        function updateRangeLabel(type, val) {
+            const el = document.getElementById(type + '-val');
+            if (el) el.innerText = val;
+        }
+
+        function updateUploadLabel(input) {
+            const file = input.files[0];
+            if (file) {
+                document.getElementById('upload-zone-text').innerText = '✓ ' + file.name;
+            }
+        }
+
+        // Initial setup on load
+        window.addEventListener('DOMContentLoaded', () => {
+            
+            // Prepare print page values
+            if (hasResults) {
+                document.getElementById('print-date').innerText = new Date().toLocaleDateString();
+                document.getElementById('print-session').innerText = session_id;
+                document.getElementById('print-age').innerText = currentAge;
+                document.getElementById('print-age-loading').innerText = '×' + modifiers.age_loading.toFixed(2);
+                document.getElementById('print-bmi').innerText = currentBmi;
+                document.getElementById('print-bmi-loading').innerText = '×' + modifiers.bmi_loading.toFixed(2);
+                document.getElementById('print-smoker').innerText = "{{ smoker|title }}";
+                document.getElementById('print-smoker-loading').innerText = '×' + modifiers.smoker_loading.toFixed(2);
+                document.getElementById('print-state').innerText = "{{ state|title }}";
+                document.getElementById('print-zone').innerText = 'Zone {{ zone }} (×' + modifiers.zone_factor.toFixed(2) + ')';
+                document.getElementById('print-coverage').innerText = "{{ sum_insured }}".replace('_', ' ').toUpperCase();
+                document.getElementById('print-term').innerText = "{{ policy_term }}".replace('_', ' ').toUpperCase();
+                document.getElementById('print-riders').innerText = "{{ riders }}".replace('_', ' ').toUpperCase();
+                document.getElementById('print-rider-cost').innerText = '+₹' + modifiers.rider_cost;
+                document.getElementById('print-deductible').innerText = "{{ deductible }}".replace('_', ' ').toUpperCase();
+                document.getElementById('print-deductible-loading').innerText = '×' + modifiers.deductible_factor.toFixed(2);
+                document.getElementById('print-copay').innerText = "{{ copay }}".replace('_', ' ').toUpperCase();
+                document.getElementById('print-copay-loading').innerText = '×' + modifiers.copay_factor.toFixed(2);
+                document.getElementById('print-ncb').innerText = "{{ ncb }}".replace('_', ' ').toUpperCase();
+                document.getElementById('print-ncb-loading').innerText = '×' + modifiers.ncb_factor.toFixed(2);
+                
+                const dList = {% if diseases_found %} {{ diseases_found|tojson }} {% else %} [] {% endif %};
+                if (dList.length > 0) {
+                    document.getElementById('print-disease').innerText = dList.join(', ').toUpperCase() + ' ({{ severity }} severity)';
+                    document.getElementById('print-disease-cost').innerText = '+₹' + diseaseCost;
+                } else {
+                    document.getElementById('print-disease-row').style.display = 'none';
+                }
+                
+                document.getElementById('print-total').innerText = results;
+                
+                // Draw breakdown doughnut chart
+                drawBreakdownChart();
+            }
+        });
+
+        // DRAW BREAKDOWN DOUGHNUT
+        let breakdownChartInstance = null;
+        function drawBreakdownChart() {
+            const ctx = document.getElementById('breakdownChart').getContext('2d');
+            if (breakdownChartInstance) breakdownChartInstance.destroy();
+            
+            const labels = ['Base Cost', 'Age Loading Surcharge', 'BMI Surcharge', 'Smoker Surcharge', 'Riders Surcharge'];
+            const dataValues = [
+                baseCost,
+                baseCost * (modifiers.age_loading - 1),
+                baseCost * (modifiers.bmi_loading - 1),
+                baseCost * (modifiers.smoker_loading - 1),
+                modifiers.rider_cost
+            ];
+            
+            if (diseaseCost > 0 && diseaseDetailsData.length > 0) {
+                diseaseDetailsData.forEach(item => {
+                    labels.push(item.disease.charAt(0).toUpperCase() + item.disease.slice(1) + ' Surcharge');
+                    dataValues.push(item.additional_cost);
                 });
-        }
-
-        function addMessage(text, type) {
-            const messagesDiv = document.getElementById('chatMessages');
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'chat-message ' + type;
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.className = 'chat-bubble';
-            bubbleDiv.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            msgDiv.appendChild(bubbleDiv);
-            messagesDiv.appendChild(msgDiv);
-        }
-
-        function scrollToBottom() {
-            document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (!message) return;
-            addMessage(message, 'user');
-            input.value = '';
-            fetch('/chat', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({message: message})
-            })
-            .then(res => res.json())
-            .then(data => {
-                addMessage(data.response, 'bot');
-                scrollToBottom();
+            } else if (diseaseCost > 0) {
+                labels.push('Medical Conditions Surcharge');
+                dataValues.push(diseaseCost);
+            }
+            
+            breakdownChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: dataValues,
+                        backgroundColor: ['#6366f1', '#f59e0b', '#ec4899', '#ef4444', '#10b981', '#8b5cf6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    cutout: '75%'
+                }
             });
         }
 
-        function sendQuickMessage(message) {
-            document.getElementById('chatInput').value = message;
-            sendMessage();
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                sendMessage();
+        // RENDER CHARTS FOR HEALTH & SAVINGS
+        let healthChartInstance = null;
+        let savingsChartInstance = null;
+        
+        function renderCharts() {
+            if (!hasResults) return;
+            
+            // 1. Radar Chart for Health Risks
+            if (healthRisksData.length > 0) {
+                const ctxRadar = document.getElementById('healthRadarChart').getContext('2d');
+                if (healthChartInstance) healthChartInstance.destroy();
+                
+                // Get top 6 risks for display clarity
+                const risks = healthRisksData.slice(0, 6);
+                const labels = risks.map(r => r.disease);
+                const scores = risks.map(r => r.risk_percentage);
+                
+                healthChartInstance = new Chart(ctxRadar, {
+                    type: 'radar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Risk Percentage (%)',
+                            data: scores,
+                            backgroundColor: 'rgba(129, 140, 248, 0.2)',
+                            borderColor: '#818cf8',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#6366f1'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                                pointLabels: { color: 'var(--text-secondary)', font: { size: 10 } },
+                                ticks: { display: false },
+                                min: 0,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // 2. Projections Area Chart
+            const ctxSavings = document.getElementById('savingsChart').getContext('2d');
+            if (savingsChartInstance) savingsChartInstance.destroy();
+            
+            const savingsProj = {% if premium_savings and premium_savings.savings_projection %} {{ premium_savings.savings_projection|tojson }} {% else %} {"1_year": 0, "3_years": 0, "5_years": 0} {% endif %};
+            
+            savingsChartInstance = new Chart(ctxSavings, {
+                type: 'line',
+                data: {
+                    labels: ['Year 1', 'Year 3', 'Year 5'],
+                    datasets: [{
+                        label: 'Cumulative Savings (₹)',
+                        data: [savingsProj['1_year'], savingsProj['3_years'], savingsProj['5_years']],
+                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                        borderColor: '#10b981',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: 'var(--text-secondary)' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: 'var(--text-secondary)' }
+                        }
+                    }
+                }
+            });
+            
+            // Adjust circular ring progress
+            const ring = document.getElementById('health-ring');
+            if (ring) {
+                ring.style.background = `conic-gradient(var(--accent-color) ${healthScore}%, var(--border-color) ${healthScore}%)`;
             }
         }
 
-        function updateFileName(input) {
-            const fileName = input.files[0]?.name;
-            document.getElementById('file-label').textContent = fileName ? '✓ ' + fileName : '📄 Upload Medical Report (PDF)';
-            document.getElementById('file-name').textContent = fileName ? 'Selected: ' + fileName : '';
+        // GAMIFIED REWARDS SIMULATOR CALCULATOR
+        function recalculateSimulatedSavings() {
+            // Determine active premium to apply discounts to
+            const activePremium = hasResults ? results : 25000;
+            const baseScoreValue = hasResults ? healthScore : 70;
+            
+            let totalDiscountPct = 0;
+            if (document.getElementById('habit-steps').checked) totalDiscountPct += 10;
+            if (document.getElementById('habit-sleep').checked) totalDiscountPct += 5;
+            if (document.getElementById('habit-water').checked) totalDiscountPct += 3;
+            if (document.getElementById('habit-workout').checked) totalDiscountPct += 7;
+            if (document.getElementById('habit-food').checked) totalDiscountPct += 5;
+            
+            // Cap at 30%
+            totalDiscountPct = Math.min(totalDiscountPct, 30);
+            
+            const savedAmount = Math.round(activePremium * (totalDiscountPct / 100));
+            const finalPremium = activePremium - savedAmount;
+            const finalScore = Math.min(baseScoreValue + Math.round(totalDiscountPct * 0.8), 100);
+            
+            document.getElementById('sim-premium-val').innerText = '₹' + finalPremium.toLocaleString();
+            document.getElementById('sim-score').innerText = finalScore;
+            document.getElementById('sim-discount').innerText = totalDiscountPct + '%';
+            document.getElementById('sim-savings').innerText = '₹' + savedAmount.toLocaleString();
+            
+            const textEl = document.getElementById('sim-savings-text');
+            if (totalDiscountPct > 0) {
+                textEl.innerText = `You save ₹${savedAmount.toLocaleString()} annually!`;
+            } else {
+                textEl.innerText = 'Select habits to trigger discounts';
+            }
+        }
+
+        // POLICY MATCHMAKER SEARCH FUNCTION
+        function runPlanMatcher() {
+            const criteria = {
+                budget: document.getElementById('match-budget').value,
+                coverage_type: document.getElementById('match-type').value,
+                needs_maternity: document.getElementById('match-benefit').value === 'maternity',
+                needs_international: document.getElementById('match-benefit').value === 'international',
+                needs_senior: document.getElementById('match-type').value === 'senior',
+                needs_critical_illness: document.getElementById('match-type').value === 'critical',
+                needs_topup: document.getElementById('match-type').value === 'top_up',
+                has_diabetes: document.getElementById('match-disease').value === 'diabetes',
+                has_heart_disease: document.getElementById('match-disease').value === 'heart_disease'
+            };
+            
+            const resultsGrid = document.getElementById('matcher-results');
+            resultsGrid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 40px;"><div style="font-size: 24px; animation: spin 1s infinite linear;">⚙️</div><div style="margin-top: 10px; color: var(--text-secondary);">Searching databases...</div></div>`;
+            
+            fetch('/api/compare-plans', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(criteria)
+            })
+            .then(res => res.json())
+            .then(data => {
+                resultsGrid.innerHTML = '';
+                if (!data.plans || data.plans.length === 0) {
+                    resultsGrid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">No policies matched these search filters. Try loosening criteria.</div>`;
+                    return;
+                }
+                
+                data.plans.forEach(plan => {
+                    const card = document.createElement('div');
+                    card.className = 'policy-card';
+                    
+                    const matchedScore = plan.score * 10; // Convert to percentage representation
+                    const matchPercent = Math.min(100, Math.max(50, matchedScore + 60)); // Suitability calculation
+                    
+                    card.innerHTML = `
+                        <div class="policy-card-header">
+                            <div>
+                                <div class="company-tag">${plan.company_name.replace(' General Insurance', '').replace(' Health Insurance', '')}</div>
+                                <h4 class="plan-title">${plan.plan_name}</h4>
+                            </div>
+                            <div class="policy-rating">${matchPercent}% Match</div>
+                        </div>
+                        <div class="policy-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Claim Ratio</div>
+                                <div class="stat-val">${plan.waiting_period_ped} wait</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Limit</div>
+                                <div class="stat-val">${plan.coverage_range}</div>
+                            </div>
+                        </div>
+                        <ul class="policy-features">
+                            ${plan.features.slice(0, 3).map(f => `<li class="feature-item">${f}</li>`).join('')}
+                        </ul>
+                        <div class="policy-action-row">
+                            <div class="policy-price">₹${plan.starting_premium.toLocaleString()}<span style="font-size: 10px; font-weight: 500; color: var(--text-secondary);">/yr</span></div>
+                            <button class="policy-btn" onclick="applyForPlan('${plan.company_name}', '${plan.plan_name}')">Apply</button>
+                        </div>
+                    `;
+                    resultsGrid.appendChild(card);
+                });
+            })
+            .catch(err => {
+                console.error(err);
+                resultsGrid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--danger-color);">Error loading matching plans.</div>`;
+            });
+        }
+
+        function applyForPlan(company, plan) {
+            alert(`Quote requested successfully for ${plan} with ${company}! An insurance agent will contact you shortly.`);
+        }
+
+        // CHATBOT CONTROLLERS
+        function loadChatHistory() {
+            const chatMessages = document.getElementById('chat-scroller');
+            chatMessages.innerHTML = `<div style="text-align: center; padding: 20px; color: var(--text-secondary);">Loading chat logs...</div>`;
+            
+            fetch('/chat/history')
+                .then(res => res.json())
+                .then(data => {
+                    chatMessages.innerHTML = '';
+                    data.history.forEach(msg => {
+                        if (msg.role === 'user' || msg.role === 'assistant') {
+                            addChatBubble(msg.message, msg.role === 'user' ? 'user' : 'bot');
+                        }
+                    });
+                    if (data.history.length === 0) {
+                        addChatBubble("Hello! I'm your **MediSecure AI Insurance Advisor**. I can assist you with comparing insurance companies, understanding deductibles, co-pays, riders, claim settlement ratios, tax benefits under Section 80D, or explaining how your health score affects premiums. What would you like to discuss?", 'bot');
+                    }
+                    scrollChatToBottom();
+                });
+        }
+
+        function addChatBubble(text, type) {
+            const chatMessages = document.getElementById('chat-scroller');
+            const row = document.createElement('div');
+            row.className = 'chat-row ' + type;
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble';
+            bubble.innerHTML = formatMarkdownChat(text);
+            
+            row.appendChild(bubble);
+            chatMessages.appendChild(row);
+        }
+
+        function formatMarkdownChat(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>')
+                .replace(/•/g, '&bull;')
+                .replace(/\|(.*?)\|/g, (match, p1) => `<strong>${p1}</strong>`); // raw tables highlight
+        }
+
+        function scrollChatToBottom() {
+            const scroller = document.getElementById('chat-scroller');
+            scroller.scrollTop = scroller.scrollHeight;
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-message-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+            
+            addChatBubble(msg, 'user');
+            input.value = '';
+            scrollChatToBottom();
+            
+            // Add thinking bubble
+            const chatMessages = document.getElementById('chat-scroller');
+            const thinkRow = document.createElement('div');
+            thinkRow.className = 'chat-row bot';
+            thinkRow.id = 'think-row-indicator';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble';
+            bubble.innerHTML = '<em>Consulting system models...</em>';
+            thinkRow.appendChild(bubble);
+            chatMessages.appendChild(thinkRow);
+            scrollChatToBottom();
+            
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const indicator = document.getElementById('think-row-indicator');
+                if (indicator) indicator.remove();
+                
+                if (data.response) {
+                    addChatBubble(data.response, 'bot');
+                } else if (data.error) {
+                    addChatBubble('Error: ' + data.error, 'bot');
+                }
+                scrollChatToBottom();
+            })
+            .catch(err => {
+                const indicator = document.getElementById('think-row-indicator');
+                if (indicator) indicator.remove();
+                addChatBubble('Connection to model endpoints failed.', 'bot');
+                console.error(err);
+            });
+        }
+
+        function triggerQuickChat(msg) {
+            document.getElementById('chat-message-input').value = msg;
+            sendChatMessage();
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                sendChatMessage();
+            }
+        }
+
+        function clearChatMessages() {
+            if (confirm("Clear all AI chat conversations?")) {
+                fetch('/chat/clear', { method: 'POST' })
+                    .then(() => {
+                        loadChatHistory();
+                    });
+            }
+        }
+
+        // ADMIN API KEYS
+        function saveGeminiKey() {
+            const key = document.getElementById('gemini-key-input').value.trim();
+            const statusEl = document.getElementById('admin-status-message');
+            
+            if (!key) {
+                statusEl.style.color = 'var(--danger-color)';
+                statusEl.innerText = 'Key cannot be blank.';
+                return;
+            }
+            
+            statusEl.style.color = 'var(--text-secondary)';
+            statusEl.innerText = 'Validating and loading key...';
+            
+            fetch('/admin/gemini-key', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ gemini_key: key })
+            })
+            .then(res => {
+                if (res.ok) {
+                    statusEl.style.color = 'var(--success-color)';
+                    statusEl.innerText = 'Gemini API Key successfully verified and loaded! System reloaded.';
+                    document.getElementById('gemini-key-input').value = '';
+                } else {
+                    statusEl.style.color = 'var(--danger-color)';
+                    statusEl.innerText = 'Verification failed. Please review key formatting.';
+                }
+            })
+            .catch(err => {
+                statusEl.style.color = 'var(--danger-color)';
+                statusEl.innerText = 'Server error during reload.';
+                console.error(err);
+            });
         }
     </script>
+</body>
+</html>
+ Key</a>
+    </div>
 </body>
 </html>

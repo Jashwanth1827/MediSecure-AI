@@ -1,3 +1,17 @@
+# =====================================================================
+# ARCHITECTURE ROLE: DYNAMIC HEALTH DIAGNOSTICS & RISK FORECASTING
+# =====================================================================
+# This module implements the preventive health analytic rules of MediSecure.
+# It computes a personalized Health Score, projects prospective medical risk 
+# distributions, estimates potential premium savings from health improvements,
+# and generates structured action plans.
+#
+# Modularity benefits:
+# 1. Separates clinical/preventative diagnostics from underwriting logic.
+# 2. Allows upgrading the diagnostic and planning algorithms without touching
+#    the model scoring routines or route endpoints.
+# =====================================================================
+
 from datetime import datetime
 from typing import Dict, List, Optional
 

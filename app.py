@@ -20,15 +20,26 @@ from src.mlproject.gemini_chatbot import (
     get_chat_history, 
     generate_session_id, 
     GEMINI_CONFIGURED,
+    update_gemini_key,
     get_user_profile
 )
 from src.mlproject.health_risk_predictor import (
-    predict_health_risks,
     calculate_premium_savings,
     generate_prevention_plan,
     calculate_health_score,
-    get_ai_insights
+    get_ai_insights,
+    predict_health_risks
 )
+
+# =====================================================================
+# ARCHITECTURE ROLE: CONTROLLER & ORCHESTRATOR (MVC - Controller)
+# =====================================================================
+# This file is the entry point of the Flask application. It defines
+# all API and web routes, manages sessions, parses requests, and delegates 
+# the heavy lifting (ML predictions, PDF parsing, diagnostic analysis, and 
+# chatbot execution) to dedicated modules under `src/mlproject/`.
+# It keeps the web routing logic clean and decoupled from business rules.
+# =====================================================================
 
 application = Flask(__name__)
 app = application
@@ -202,11 +213,11 @@ def predict_datapoint():
             'state': state
         }
         
-        health_risks = predict_health_risks(health_profile, diseases_found, severity)
         premium_savings = calculate_premium_savings(health_profile, diseases_found, severity)
         prevention_plan = generate_prevention_plan(health_profile, diseases_found, severity)
         health_score = calculate_health_score(health_profile, diseases_found, severity)
         ai_insights = get_ai_insights(health_profile, diseases_found, severity)
+        health_risks = predict_health_risks(health_profile, diseases_found, severity)
         
         profile = {
             'age': age,
@@ -263,11 +274,11 @@ def predict_datapoint():
                              copay_options=COPAY_OPTIONS,
                              ncb_options=NCB_OPTIONS,
                              rider_options=RIDER_OPTIONS,
-                             health_risks=health_risks,
-                             premium_savings=premium_savings,
-                             prevention_plan=prevention_plan,
-                             health_score=health_score,
-                             ai_insights=ai_insights)
+                              premium_savings=premium_savings,
+                              prevention_plan=prevention_plan,
+                              health_score=health_score,
+                              ai_insights=ai_insights,
+                              health_risks=health_risks)
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -321,6 +332,50 @@ def premium_calculator():
         'sum_insured_display': get_sum_insured_display(sum_insured),
         'term_display': get_term_display(policy_term)
     })
+
+@app.route('/api/compare-plans', methods=['POST'])
+def api_compare_plans():
+    data = request.get_json(silent=True) or {}
+    criteria = {
+        'budget': data.get('budget', 'medium'),
+        'coverage_type': data.get('coverage_type', 'individual'),
+        'needs_maternity': data.get('needs_maternity', False),
+        'needs_critical_illness': data.get('needs_critical_illness', False),
+        'needs_senior': data.get('needs_senior', False),
+        'needs_international': data.get('needs_international', False),
+        'needs_topup': data.get('needs_topup', False),
+        'has_diabetes': data.get('has_diabetes', False),
+        'has_heart_disease': data.get('has_heart_disease', False)
+    }
+    from src.mlproject.insurance_company_data import filter_plans
+    matched = filter_plans(criteria)
+    return jsonify({'plans': matched})
+
+@app.route('/admin/gemini-key', methods=['GET', 'POST'])
+def admin_gemini_key():
+    if request.method == 'POST':
+        # Accept key from form data or JSON
+        key = None
+        if request.form and 'gemini_key' in request.form:
+            key = request.form.get('gemini_key')
+        elif request.is_json:
+            data = request.get_json(silent=True) or {}
+            key = data.get('gemini_key')
+        if not key:
+            return render_template('gemini_key.html', message='Gemini key is required', success=False)
+        ok = update_gemini_key(key)
+        msg = 'Gemini key updated. Configuration ' + ('succeeded' if ok else 'failed') + '.'
+        return render_template('gemini_key.html', message=msg, success=ok)
+    # GET request renders a small testing form
+    return render_template('gemini_key.html', message=None, success=None)
+
+@app.route('/admin/refresh', methods=['POST'])
+def admin_refresh():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        return jsonify({'error': 'Not running with the Werkzeug server'}), 500
+    func()
+    return jsonify({'status': 'Server is restarting...'}), 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
