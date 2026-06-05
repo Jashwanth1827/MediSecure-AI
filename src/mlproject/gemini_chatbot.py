@@ -22,6 +22,8 @@ from typing import List, Dict, Optional
 
 from dotenv import load_dotenv
 
+DB_PATH = os.environ.get('CHATBOT_DB_PATH', 'chat_history.db')
+
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv(os.path.join(project_root, '.env'))
 
@@ -158,7 +160,7 @@ def update_gemini_key(new_key: str) -> bool:
     return configure_gemini()
 
 def init_db():
-    conn = sqlite3.connect('chat_history.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS chat_messages
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -181,7 +183,7 @@ def init_db():
     conn.close()
 
 def save_message(session_id: str, role: str, message: str):
-    conn = sqlite3.connect('chat_history.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute("INSERT INTO chat_messages (session_id, role, message) VALUES (?, ?, ?)",
               (session_id, role, message))
@@ -189,7 +191,7 @@ def save_message(session_id: str, role: str, message: str):
     conn.close()
 
 def get_chat_history(session_id: str, limit: int = 20) -> List[Dict]:
-    conn = sqlite3.connect('chat_history.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute("""SELECT role, message, timestamp FROM chat_messages 
                  WHERE session_id = ? ORDER BY timestamp DESC LIMIT ?""",
@@ -199,7 +201,7 @@ def get_chat_history(session_id: str, limit: int = 20) -> List[Dict]:
     return [{'role': r[0], 'message': r[1], 'timestamp': r[2]} for r in reversed(rows)]
 
 def save_user_profile(session_id: str, profile: Dict):
-    conn = sqlite3.connect('chat_history.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute("""INSERT OR REPLACE INTO user_profiles 
                  (session_id, age, sex, bmi, children, smoker, state, diseases, predicted_cost)
@@ -211,7 +213,7 @@ def save_user_profile(session_id: str, profile: Dict):
     conn.close()
 
 def get_user_profile(session_id: str) -> Optional[Dict]:
-    conn = sqlite3.connect('chat_history.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute("SELECT * FROM user_profiles WHERE session_id = ?", (session_id,))
     row = c.fetchone()
@@ -332,7 +334,7 @@ def chat_with_gemini(message: str, session_id: str) -> str:
         profile = get_user_profile(session_id)
         system_prompt = get_system_prompt(profile)
         
-        conn = sqlite3.connect('chat_history.db')
+        conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
         c.execute("""SELECT role, message FROM chat_messages 
                      WHERE session_id = ? AND role IN ('user', 'assistant')
