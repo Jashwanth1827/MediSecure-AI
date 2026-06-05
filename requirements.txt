@@ -1,4 +1,4 @@
-pandas 
+pandas
 numpy
 matplotlib
 scikit-learn
@@ -6,4 +6,6 @@ flask
 PyPDF2
 Werkzeug
 requests
-google-generativeai
+google-genai
+python-dotenv
+gunicorn
