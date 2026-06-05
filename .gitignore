@@ -121,6 +121,9 @@ celerybeat.pid
 
 # Environments
 .env
+
+# Windows / generated artifacts
+nul
 .venv
 env/
 venv/
