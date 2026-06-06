@@ -1075,8 +1075,68 @@
             opacity: 0.9;
         }
 
+        /* Mobile-only header elements hidden by default */
+        .mobile-header {
+            display: none;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-chat-suggestions {
+            display: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-chat-suggestions::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for clean UI */
+        }
+
+        .chat-suggestion-pill {
+            background-color: var(--accent-soft);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .chat-suggestion-pill:hover {
+            border-color: var(--accent-color);
+            background-color: var(--accent-gradient);
+            color: white;
+        }
+
         /* Responsive adjustments */
-        @media (max-width: 850px) {
+        @media (max-width: 850px) and (min-width: 769px) {
             .sidebar {
                 width: 70px;
                 padding: 30px 10px;
@@ -1101,6 +1161,200 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 70px;
+                background-color: var(--bg-secondary);
+                border-bottom: 1px solid var(--border-color);
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 20px;
+                z-index: 999;
+                backdrop-filter: blur(var(--glass-blur));
+                box-shadow: var(--shadow);
+            }
+
+            .menu-toggle-btn {
+                background: transparent;
+                border: none;
+                color: var(--text-primary);
+                font-size: 24px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                transition: var(--transition);
+            }
+
+            .menu-toggle-btn:hover {
+                background-color: var(--accent-soft);
+            }
+
+            .mobile-logo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .mobile-logo .logo-icon {
+                width: 32px;
+                height: 32px;
+                background: var(--accent-gradient);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 800;
+                font-size: 16px;
+                box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+            }
+
+            .mobile-logo .logo-text {
+                font-family: 'Outfit', sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                background: var(--accent-gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .theme-toggle-btn-mobile {
+                background: transparent;
+                border: none;
+                color: var(--text-primary);
+                font-size: 20px;
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+
+            .theme-toggle-btn-mobile:hover {
+                background-color: var(--accent-soft);
+            }
+
+            .sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                width: 280px;
+                height: 100vh;
+                z-index: 1000;
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .sidebar.active-drawer {
+                transform: translateX(280px);
+            }
+
+            /* Make sidebar display full content inside drawer */
+            .sidebar .logo-text, .sidebar .profile-info, .sidebar .theme-toggle-btn span, .sidebar .menu-item span {
+                display: block !important;
+            }
+
+            .sidebar .logo-container {
+                justify-content: flex-start !important;
+                padding-left: 10px !important;
+            }
+
+            .sidebar .menu-item {
+                justify-content: flex-start !important;
+                padding: 14px 18px !important;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                padding: 20px 15px;
+                padding-top: 90px; /* Offset for mobile header */
+            }
+
+            /* Layout grids responsiveness */
+            .dashboard-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .header-panel {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+
+            .header-meta {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .meta-badge {
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+
+            /* Chatbot suggestions on mobile */
+            .chat-container {
+                grid-template-columns: 1fr !important;
+                height: 500px;
+            }
+
+            .chat-sidebar {
+                display: none !important;
+            }
+
+            .mobile-chat-suggestions {
+                display: flex;
+            }
+            
+            /* Comparison search on mobile */
+            .comparison-search {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .comparison-search button {
+                width: 100%;
+                height: 48px;
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .grid-inputs-2 {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+            }
+            .card {
+                padding: 20px 15px;
+            }
+            .results-gradient-card {
+                padding: 20px;
+            }
+            .result-val {
+                font-size: 36px;
+            }
+            .rewards-stats-grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px;
+            }
+        }
+
+
         @media print {
             body * {
                 visibility: hidden;
@@ -1119,6 +1373,23 @@
     </style>
 </head>
 <body>
+
+    <!-- MOBILE HEADER -->
+    <div class="mobile-header">
+        <button class="menu-toggle-btn" id="sidebar-toggle" onclick="toggleSidebarDrawer()" aria-label="Toggle navigation drawer">
+            <span class="menu-toggle-icon">☰</span>
+        </button>
+        <div class="mobile-logo">
+            <div class="logo-icon">M</div>
+            <div class="logo-text">MediSecure AI</div>
+        </div>
+        <button class="theme-toggle-btn-mobile" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="theme-icon">☀️</span>
+        </button>
+    </div>
+
+    <!-- SIDEBAR DRAWER OVERLAY -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebarDrawer()"></div>
 
     <!-- SIDEBAR NAVIGATION -->
     <div class="sidebar">
@@ -1734,6 +2005,14 @@
                     <div class="chat-messages-scroll" id="chat-scroller">
                         <!-- Loaded messages go here -->
                     </div>
+                    <!-- MOBILE-ONLY SUGGESTIONS -->
+                    <div class="mobile-chat-suggestions">
+                        <button class="chat-suggestion-pill" onclick="triggerQuickChat('Compare HDFC ERGO and ICICI Lombard')">Compare HDFC & ICICI</button>
+                        <button class="chat-suggestion-pill" onclick="triggerQuickChat('How does age affect my premium calculation?')">Age vs Premium</button>
+                        <button class="chat-suggestion-pill" onclick="triggerQuickChat('What is NCB and how can I claim it?')">Explain NCB</button>
+                        <button class="chat-suggestion-pill" onclick="triggerQuickChat('What is the difference between deductible and copay?')">Deductible vs Co-pay</button>
+                        <button class="chat-suggestion-pill" onclick="triggerQuickChat('Suggest a plan for a diabetic individual')">Plans for Diabetes</button>
+                    </div>
                     <div class="chat-footer">
                         <input type="text" class="chat-text-input" id="chat-message-input" placeholder="Ask about premiums, policy riders, claim ratios, deductibles..." onkeypress="handleChatKeyPress(event)">
                         <button class="chat-send-btn" onclick="sendChatMessage()">Send</button>
@@ -1907,10 +2186,31 @@
             } else {
                 btn.innerHTML = `<span class="theme-icon">☀️</span><span>Light Theme</span>`;
             }
+
+            const mobileBtnIcon = document.querySelector('.theme-toggle-btn-mobile span');
+            if (mobileBtnIcon) {
+                mobileBtnIcon.innerText = newTheme === 'light' ? '🌙' : '☀️';
+            }
+        }
+
+        // Mobile sidebar toggle drawer
+        function toggleSidebarDrawer() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active-drawer');
+            overlay.classList.toggle('active');
         }
 
         // Tab routing
         function switchTab(tabId, el) {
+            // Close drawer if open on mobile
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar.classList.contains('active-drawer')) {
+                sidebar.classList.remove('active-drawer');
+                overlay.classList.remove('active');
+            }
+
             // Remove active classes
             document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
@@ -2405,9 +2705,5 @@
             });
         }
     </script>
-</body>
-</html>
- Key</a>
-    </div>
 </body>
 </html>
