@@ -1,7 +1,8 @@
-from flask import Flask, request, render_template, jsonify, session
+from flask import Flask, request, render_template, jsonify, session, redirect
 from werkzeug.utils import secure_filename
 import os
 import tempfile
+import time
 
 from src.mlproject.pipelines.prediction_pipeline import (
     CustomData, PredictPipeline, calculate_final_premium, 
@@ -29,6 +30,9 @@ from src.mlproject.health_risk_predictor import (
     calculate_health_score,
     get_ai_insights,
     predict_health_risks
+)
+from src.mlproject.google_fit import (
+    get_fit_auth_url, exchange_fit_code, refresh_fit_token, fetch_fit_metrics, get_user_email
 )
 
 # =====================================================================
@@ -368,6 +372,153 @@ def admin_gemini_key():
         return render_template('gemini_key.html', message=msg, success=ok)
     # GET request renders a small testing form
     return render_template('gemini_key.html', message=None, success=None)
+
+def get_google_fit_credentials():
+    client_id = os.environ.get('GOOGLE_FIT_CLIENT_ID', '')
+    client_secret = os.environ.get('GOOGLE_FIT_CLIENT_SECRET', '')
+    return client_id.strip(), client_secret.strip()
+
+@app.route('/google-fit/status')
+def google_fit_status():
+    client_id, client_secret = get_google_fit_credentials()
+    connected = bool(session.get('fit_access_token'))
+    email = session.get('fit_email', '')
+    return jsonify({
+        'configured': bool(client_id and client_secret),
+        'client_id': client_id,
+        'connected': connected,
+        'email': email
+    })
+
+@app.route('/google-fit/connect')
+def google_fit_connect():
+    client_id, _ = get_google_fit_credentials()
+    if not client_id:
+        return "Google Fit Client ID is not configured. Please go to Admin Settings and add it.", 400
+    
+    host_url = request.host_url.rstrip('/')
+    if not ('localhost' in host_url or '127.0.0.1' in host_url):
+        if host_url.startswith('http://'):
+            host_url = 'https://' + host_url[7:]
+            
+    redirect_uri = host_url + '/google-fit/callback'
+    auth_url = get_fit_auth_url(client_id, redirect_uri)
+    return redirect(auth_url)
+
+@app.route('/google-fit/callback')
+def google_fit_callback():
+    code = request.args.get('code')
+    if not code:
+        return redirect('/?fit_error=missing_code#panel-simulator')
+    
+    client_id, client_secret = get_google_fit_credentials()
+    
+    host_url = request.host_url.rstrip('/')
+    if not ('localhost' in host_url or '127.0.0.1' in host_url):
+        if host_url.startswith('http://'):
+            host_url = 'https://' + host_url[7:]
+            
+    redirect_uri = host_url + '/google-fit/callback'
+    
+    token_data, err = exchange_fit_code(code, client_id, client_secret, redirect_uri)
+    if err:
+        return f"OAuth Error: {err}", 400
+        
+    session['fit_access_token'] = token_data.get('access_token')
+    session['fit_refresh_token'] = token_data.get('refresh_token')
+    session['fit_expires_at'] = token_data.get('expires_at')
+    
+    email = get_user_email(token_data.get('access_token'))
+    if email:
+        session['fit_email'] = email
+    else:
+        session['fit_email'] = "user@gmail.com"
+        
+    return redirect('/?fit_connected=true#panel-simulator')
+
+@app.route('/google-fit/sync')
+def google_fit_sync():
+    client_id, client_secret = get_google_fit_credentials()
+    
+    if not client_id or not client_secret:
+        return jsonify({'error': 'Google Fit API is not configured in Admin Settings'}), 400
+        
+    access_token = session.get('fit_access_token')
+    refresh_token = session.get('fit_refresh_token')
+    expires_at = session.get('fit_expires_at', 0)
+    
+    if not access_token:
+        return jsonify({'error': 'Google Fit is not connected'}), 401
+        
+    if not expires_at or expires_at < (time.time() + 60):
+        if refresh_token:
+            token_data, err = refresh_fit_token(refresh_token, client_id, client_secret)
+            if err:
+                return jsonify({'error': f'Failed to refresh token: {err}'}), 401
+            access_token = token_data.get('access_token')
+            session['fit_access_token'] = access_token
+            session['fit_expires_at'] = token_data.get('expires_at')
+            if 'refresh_token' in token_data:
+                session['fit_refresh_token'] = token_data.get('refresh_token')
+        else:
+            return jsonify({'error': 'Access token expired and no refresh token available'}), 401
+            
+    metrics = fetch_fit_metrics(access_token)
+    return jsonify({
+        'email': session.get('fit_email', 'User'),
+        'metrics': metrics
+    })
+
+@app.route('/google-fit/disconnect', methods=['POST'])
+def google_fit_disconnect():
+    session.pop('fit_access_token', None)
+    session.pop('fit_refresh_token', None)
+    session.pop('fit_expires_at', None)
+    session.pop('fit_email', None)
+    return jsonify({'success': True})
+
+@app.route('/admin/google-fit-config', methods=['POST'])
+def admin_google_fit_config():
+    client_id = None
+    client_secret = None
+    if request.is_json:
+        data = request.get_json(silent=True) or {}
+        client_id = data.get('client_id')
+        client_secret = data.get('client_secret')
+    else:
+        client_id = request.form.get('client_id')
+        client_secret = request.form.get('client_secret')
+        
+    if not client_id or not client_secret:
+        return jsonify({'error': 'Both Client ID and Client Secret are required'}), 400
+        
+    os.environ['GOOGLE_FIT_CLIENT_ID'] = client_id.strip()
+    os.environ['GOOGLE_FIT_CLIENT_SECRET'] = client_secret.strip()
+    
+    saved_to_file = False
+    try:
+        import pathlib
+        project_root = pathlib.Path(__file__).resolve().parent
+        env_path = project_root / '.env'
+        lines = []
+        if env_path.exists():
+            text = env_path.read_text()
+            lines = text.splitlines()
+            
+        lines = [l for l in lines if not l.startswith('GOOGLE_FIT_CLIENT_ID=') and not l.startswith('GOOGLE_FIT_CLIENT_SECRET=')]
+        lines.append(f"GOOGLE_FIT_CLIENT_ID={client_id.strip()}")
+        lines.append(f"GOOGLE_FIT_CLIENT_SECRET={client_secret.strip()}")
+        env_path.write_text('\n'.join(lines) + '\n')
+        saved_to_file = True
+    except Exception as e:
+        print(f"Warning: Could not write credentials to .env file (expected on read-only serverless environments like Vercel): {e}")
+        
+    if saved_to_file:
+        msg = 'Google Fit credentials saved. Server reloaded.'
+    else:
+        msg = 'Google Fit credentials loaded in memory. For permanent storage, configure GOOGLE_FIT_CLIENT_ID and GOOGLE_FIT_CLIENT_SECRET in your cloud provider environment variables.'
+        
+    return jsonify({'success': True, 'message': msg})
 
 @app.route('/admin/refresh', methods=['POST'])
 def admin_refresh():

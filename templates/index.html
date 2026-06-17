@@ -1785,6 +1785,46 @@
                         </div>
                     </div>
 
+                    <!-- PRESCRIPTIVE WORKOUTS & EXERCISES -->
+                    {% if premium_savings and premium_savings.workout_recommendations %}
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="card-title-icon">🏋️‍♂️</span>
+                                <span>Prescriptive Workout & Exercise Plan</span>
+                            </div>
+                        </div>
+                        <div style="background-color: var(--accent-soft); border-left: 4px solid var(--accent-color); padding: 14px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span>Regimen: {{ premium_savings.workout_recommendations.suitability }}</span>
+                            <span style="font-size: 11px; opacity: 0.85;">Target: {{ premium_savings.workout_recommendations.weekly_target }}</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div>
+                                <h4 style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Recommended Exercises:</h4>
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    {% for exercise in premium_savings.workout_recommendations.recommended_exercises %}
+                                    <div style="background-color: var(--bg-secondary); padding: 10px 14px; border-radius: 8px; font-size: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 14px;">💪</span>
+                                        <span>{{ exercise }}</span>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <div style="border-top: 1px dashed var(--border-color); padding-top: 14px;">
+                                <h4 style="font-size: 12px; font-weight: 700; color: var(--danger-color); margin-bottom: 8px;">Safety Precautions & Guidelines:</h4>
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    {% for precaution in premium_savings.workout_recommendations.precautions %}
+                                    <div style="background-color: var(--danger-soft); border-left: 4px solid var(--danger-color); padding: 10px 14px; border-radius: 8px; font-size: 11px; color: var(--danger-color); font-weight: 500; line-height: 1.4;">
+                                        {{ precaution }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
                     <!-- SAVINGS PROJECTIONS -->
                     <div class="card">
                         <div class="card-header">
@@ -1830,6 +1870,24 @@
                     <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
                         Ticking these healthy daily targets simulates wellness points and calculates potential premium discount rates (gamified model simulated discount limit: 30%).
                     </p>
+                    
+                    <!-- Google Fit Connect Bar -->
+                    <div id="google-fit-sync-bar" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 28px; filter: drop-shadow(0 2px 4px rgba(234, 67, 53, 0.25));" id="fit-sync-icon">🧡</div>
+                            <div>
+                                <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary);" id="fit-sync-title">Google Fit Integration</h4>
+                                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;" id="fit-sync-status">Checking API config status...</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px;" id="fit-sync-actions">
+                            <button class="submit-btn" id="btn-fit-connect" style="width: auto; padding: 8px 16px; font-size: 12px; background: #ea4335; border-color: #ea4335; box-shadow: none;" onclick="connectGoogleFit()">Connect Fit</button>
+                        </div>
+                    </div>
+                    
+                    <div id="fit-sync-details" style="display: none; background: var(--bg-secondary); border: 1px dashed var(--border-color); border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-family: monospace; font-size: 11px; color: var(--text-secondary);">
+                        <!-- Synced values populated here -->
+                    </div>
                     
                     <div class="gamified-card">
                         <div class="habit-item">
@@ -2059,6 +2117,42 @@
                 <button class="submit-btn" style="width: auto; padding: 12px 24px; font-size: 13px; box-shadow: none;" onclick="saveGeminiKey()">Update API Key</button>
                 
                 <div id="admin-status-message" style="margin-top: 15px; font-size: 12px; font-weight: 600;"></div>
+            </div>
+
+            <!-- GOOGLE FIT CONFIGURATION CARD -->
+            <div class="card" style="max-width: 600px; margin-top: 30px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-title-icon">🧡</span>
+                        <span>Google Fit API Configuration</span>
+                    </div>
+                </div>
+                
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6;">
+                    Enable real-time synchronization of physical metrics from user Google Fit accounts. Get a Client ID and Client Secret from the Google Cloud Console.
+                </p>
+                <div style="background-color: var(--accent-soft); border-left: 4px solid var(--accent-color); padding: 12px; border-radius: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;">
+                    <strong>Google Cloud Console Setup:</strong><br/>
+                    1. Enable the <strong>Fitness API</strong> in your project.<br/>
+                    2. Configure the OAuth Consent Screen and add scopes for physical activity, sleep, and body/weight.<br/>
+                    3. Create OAuth 2.0 Client credentials (Web application).<br/>
+                    4. Set the Authorized Redirect URI to:<br/>
+                    <code style="background: rgba(0,0,0,0.15); padding: 2px 5px; border-radius: 4px;" id="redirect-uri-display">http://localhost:8080/google-fit/callback</code>
+                </div>
+                
+                <div class="form-group">
+                    <label>OAuth Client ID</label>
+                    <input type="text" id="fit-client-id-input" placeholder="xxxxx-xxxxxx.apps.googleusercontent.com" style="font-family: monospace;">
+                </div>
+                
+                <div class="form-group">
+                    <label>OAuth Client Secret</label>
+                    <input type="password" id="fit-client-secret-input" placeholder="GOCSPX-xxxxxxxxxxxxxxxxxxxx" style="font-family: monospace;">
+                </div>
+                
+                <button class="submit-btn" style="width: auto; padding: 12px 24px; font-size: 13px; box-shadow: none;" onclick="saveGoogleFitConfig()">Save Credentials</button>
+                
+                <div id="fit-config-status-message" style="margin-top: 15px; font-size: 12px; font-weight: 600;"></div>
             </div>
         </div>
     </div>
@@ -2704,6 +2798,186 @@
                 console.error(err);
             });
         }
+
+        // GOOGLE FIT SYNC INTEGRATION
+        function saveGoogleFitConfig() {
+            const client_id = document.getElementById('fit-client-id-input').value.trim();
+            const client_secret = document.getElementById('fit-client-secret-input').value.trim();
+            const statusEl = document.getElementById('fit-config-status-message');
+            
+            if (!client_id || !client_secret) {
+                statusEl.style.color = 'var(--danger-color)';
+                statusEl.innerText = 'Both Client ID and Client Secret are required.';
+                return;
+            }
+            
+            statusEl.style.color = 'var(--text-secondary)';
+            statusEl.innerText = 'Saving credentials and reloading...';
+            
+            fetch('/admin/google-fit-config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ client_id, client_secret })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    statusEl.style.color = 'var(--success-color)';
+                    statusEl.innerText = 'Google Fit Credentials successfully saved! Server reloaded.';
+                    setTimeout(checkGoogleFitStatus, 2000);
+                } else {
+                    statusEl.style.color = 'var(--danger-color)';
+                    statusEl.innerText = 'Failed to save: ' + data.error;
+                }
+            })
+            .catch(err => {
+                statusEl.style.color = 'var(--danger-color)';
+                statusEl.innerText = 'Error saving credentials.';
+                console.error(err);
+            });
+        }
+
+        function connectGoogleFit() {
+            window.location.href = '/google-fit/connect';
+        }
+
+        function disconnectGoogleFit() {
+            if (confirm("Disconnect your Google Fit account?")) {
+                fetch('/google-fit/disconnect', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        checkGoogleFitStatus();
+                    }
+                });
+            }
+        }
+
+        function syncGoogleFit(btn) {
+            const originalText = btn.innerText;
+            btn.innerText = 'Syncing...';
+            btn.disabled = true;
+            
+            const detailsEl = document.getElementById('fit-sync-details');
+            detailsEl.style.display = 'block';
+            detailsEl.innerText = 'Requesting real-time parameters from Google Fit API...';
+            
+            fetch('/google-fit/sync')
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(err => { throw new Error(err.error || 'Sync failed') });
+                }
+                return res.json();
+            })
+            .then(data => {
+                btn.innerText = 'Synced';
+                btn.style.background = 'var(--success-color)';
+                btn.style.borderColor = 'var(--success-color)';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                    btn.style.borderColor = '';
+                }, 2000);
+                
+                const metrics = data.metrics;
+                
+                // Render details
+                detailsEl.innerHTML = `
+                    <strong>Synced metrics (today):</strong><br/>
+                    • Steps: ${metrics.steps.toLocaleString()} / 10,000<br/>
+                    • Sleep: ${metrics.sleep_hours} hrs / 7.0 hrs<br/>
+                    • Hydration: ${metrics.water_liters} L / 3.0 L<br/>
+                    • Active Time: ${metrics.active_minutes} mins / 30 mins
+                `;
+                
+                // Toggle checkboxes based on real-time metrics
+                document.getElementById('habit-steps').checked = metrics.steps >= 10000;
+                document.getElementById('habit-sleep').checked = metrics.sleep_hours >= 7.0;
+                document.getElementById('habit-water').checked = metrics.water_liters >= 3.0;
+                document.getElementById('habit-workout').checked = metrics.active_minutes >= 30;
+                
+                // Auto check healthy eating if other activities are mostly checked
+                let checkedCount = (metrics.steps >= 10000 ? 1 : 0) + (metrics.sleep_hours >= 7.0 ? 1 : 0) + (metrics.active_minutes >= 30 ? 1 : 0);
+                document.getElementById('habit-food').checked = checkedCount >= 2;
+                
+                recalculateSimulatedSavings();
+                
+                document.getElementById('fit-sync-status').innerText = `Synced successfully! Last update: ${new Date().toLocaleTimeString()}`;
+            })
+            .catch(err => {
+                btn.innerText = 'Failed';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }, 2000);
+                detailsEl.innerHTML = `<span style="color: var(--danger-color)">Error: ${err.message}. Make sure your tokens are valid.</span>`;
+            });
+        }
+
+        function checkGoogleFitStatus() {
+            const redirectUriDisplay = document.getElementById('redirect-uri-display');
+            if (redirectUriDisplay) {
+                redirectUriDisplay.innerText = window.location.origin + '/google-fit/callback';
+            }
+
+            fetch('/google-fit/status')
+            .then(res => res.json())
+            .then(data => {
+                const titleEl = document.getElementById('fit-sync-title');
+                const statusEl = document.getElementById('fit-sync-status');
+                const actionsEl = document.getElementById('fit-sync-actions');
+                const iconEl = document.getElementById('fit-sync-icon');
+                const barEl = document.getElementById('google-fit-sync-bar');
+                
+                if (data.client_id) {
+                    document.getElementById('fit-client-id-input').value = data.client_id;
+                }
+                
+                if (!data.configured) {
+                    titleEl.innerText = "Google Fit (Unconfigured)";
+                    statusEl.innerText = "Please go to the Admin Settings tab to input your Client ID and Client Secret.";
+                    actionsEl.innerHTML = `<button class="submit-btn" style="width: auto; padding: 8px 16px; font-size: 12px; background: var(--text-secondary); border-color: var(--text-secondary); box-shadow: none;" onclick="switchTab('admin', document.querySelector('li[onclick*=\\'admin\\']'))">Configure Now</button>`;
+                    iconEl.innerText = "⚠️";
+                    barEl.style.borderColor = "var(--border-color)";
+                } else if (!data.connected) {
+                    titleEl.innerText = "Google Fit Configured";
+                    statusEl.innerText = "API configured. Click to authorize and connect your Google Fit account.";
+                    actionsEl.innerHTML = `<button class="submit-btn" style="width: auto; padding: 8px 16px; font-size: 12px; background: #ea4335; border-color: #ea4335; box-shadow: none;" onclick="connectGoogleFit()">Connect Account</button>`;
+                    iconEl.innerText = "🧡";
+                    barEl.style.borderColor = "rgba(234, 67, 53, 0.3)";
+                } else {
+                    titleEl.innerText = "Google Fit Connected";
+                    statusEl.innerText = `Connected as ${data.email || 'user@gmail.com'}. Real-time health metrics available.`;
+                    actionsEl.innerHTML = `
+                        <button class="submit-btn" style="width: auto; padding: 8px 16px; font-size: 12px; background: var(--accent-color); border-color: var(--accent-color); box-shadow: none; margin-right: 5px;" onclick="syncGoogleFit(this)">Sync Now</button>
+                        <button class="submit-btn" style="width: auto; padding: 8px 16px; font-size: 12px; background: var(--danger-color); border-color: var(--danger-color); box-shadow: none;" onclick="disconnectGoogleFit()">Disconnect</button>
+                    `;
+                    iconEl.innerText = "🟢";
+                    barEl.style.borderColor = "var(--success-color)";
+                }
+            })
+            .catch(err => console.error("Error loading Fit status", err));
+        }
+
+        // On Page Load hook
+        window.addEventListener('DOMContentLoaded', () => {
+            checkGoogleFitStatus();
+            
+            // Check redirect parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('fit_connected')) {
+                // Route to simulator tab
+                const menuEl = document.querySelector('li[onclick*="simulator"]');
+                if (menuEl) {
+                    switchTab('simulator', menuEl);
+                }
+                setTimeout(() => {
+                    const syncBtn = document.querySelector('button[onclick*="syncGoogleFit"]');
+                    if (syncBtn) syncGoogleFit(syncBtn);
+                }, 500);
+            }
+        });
     </script>
 </body>
 </html>

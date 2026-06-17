@@ -298,6 +298,181 @@ def generate_action_items(risks: List, detected_diseases: List, severity: str) -
     
     return actions[:6]
 
+def get_workout_recommendations(profile: Dict, detected_diseases: List[str] = None, severity: str = 'none') -> Dict:
+    detected_diseases = detected_diseases or []
+    age = profile.get('age', 30)
+    bmi = profile.get('bmi', 25)
+    smoker = profile.get('smoker', 'no').lower() == 'yes'
+    gender = profile.get('sex', 'male').lower()
+    
+    # Path A: Medical report is uploaded with conditions
+    if len(detected_diseases) > 0:
+        detected_lower = [d.lower() for d in detected_diseases]
+        
+        # If severe, or has critical conditions (heart disease, stroke, cancer) with moderate/severe intensity
+        if severity == 'severe' or any(c in d for d in detected_lower for c in ['heart', 'stroke', 'cancer', 'kidney']):
+            return {
+                'suitability': 'Gentle & Restorative (Low Intensity)',
+                'weekly_target': '75 - 120 minutes per week (broken into 10-15 minute daily sessions)',
+                'recommended_exercises': [
+                    'Short, slow-paced walking on flat surfaces',
+                    'Gentle joint rotations and passive stretching',
+                    'Seated chair yoga (supported postures only)',
+                    'Deep, controlled diaphragmatic breathing exercises (Pranayama)'
+                ],
+                'precautions': [
+                    'CRITICAL: Stop immediately if you experience chest pain, dizziness, or shortness of breath.',
+                    'Strictly avoid high-intensity workouts, heavy lifting, or activities that cause rapid heart rate elevation.',
+                    'Keep hydration levels stable; do not exercise in extreme heat or cold.',
+                    'Consult your primary cardiologist or specialist before starting any new daily routine.'
+                ]
+            }
+        
+        # Moderate severity conditions / Standard chronic conditions
+        else:
+            exercises = []
+            precautions = [
+                'Warm up for at least 10 minutes before workouts, and cool down for 5-10 minutes.',
+                'Stay hydrated: drink 250ml water every 20 minutes of moderate activity.',
+                'Monitor heart rate; keep intensity in the low-to-moderate zone (below 60-70% of max heart rate).'
+            ]
+            
+            has_arthritis = any('arthritis' in d for d in detected_lower)
+            has_diabetes = any('diabetes' in d for d in detected_lower)
+            has_hypertension = any('hypertension' in d or 'bp' in d for d in detected_lower)
+            has_asthma_copd = any('asthma' in d or 'copd' in d for d in detected_lower)
+            has_mental = any(any(m in d for m in ['mental', 'depression', 'anxiety']) for d in detected_lower)
+            
+            if has_arthritis:
+                exercises.extend([
+                    'Swimming or water aerobics (minimizes joint weight-bearing load)',
+                    'Low-resistance stationary cycling (maintains knee/hip joint range of motion)',
+                    'Gentle hamstring and quad stretches to support knee joints'
+                ])
+                precautions.append('Avoid high-impact jumping, running, or heavy weighted leg extensions that stress joint cartilage.')
+            
+            if has_diabetes:
+                exercises.extend([
+                    'Brisk walking or light jogging (30 mins daily helps improve insulin sensitivity)',
+                    'Light resistance band exercises (promotes glucose uptake in skeletal muscles)',
+                    'Yoga (helps manage cortisol levels and metabolic stress)'
+                ])
+                precautions.append('Check blood sugar before exercising; keep fast-acting carbohydrates (glucose tablets/juice) nearby.')
+                
+            if has_hypertension:
+                exercises.extend([
+                    'Steady-state walking, light cycling, or elliptical training',
+                    'Low-weight, high-repetition circuit training (avoid straining)',
+                    'Mindful stretching and deep breathing to aid autonomic relaxation'
+                ])
+                precautions.append('Avoid heavy lifting, isometric holds (like planks), and holding your breath (Valsalva maneuver) which spike BP.')
+                
+            if has_asthma_copd:
+                exercises.extend([
+                    'Indoor walking or light stationary cycling (minimizes pollen/cold exposure)',
+                    'Pursed-lip breathing exercises and intercostal muscle stretches',
+                    'Interval training (short walking bursts followed by adequate recovery)'
+                ])
+                precautions.append('Always carry your rescue inhaler on your person; avoid working out in cold, dry air or high-pollen days.')
+                
+            if has_mental:
+                exercises.extend([
+                    'Outdoor walking/jogging in nature (proven to reduce stress and anxiety)',
+                    'Group fitness classes or recreational sports (boosts social connectivity and mood)',
+                    'Vinyasa yoga or tai chi (improves body-mind coherence and reduces cortisol)'
+                ])
+                
+            # Default fallback if none of the above specific cases matched but there are other diseases
+            if not exercises:
+                exercises.extend([
+                    'Brisk walking on a flat surface or treadmill',
+                    'Basic bodyweight movements (seated sit-to-stands, wall pushups)',
+                    'Stretching routine for major muscle groups (legs, back, shoulders)'
+                ])
+                
+            return {
+                'suitability': 'Moderate & Controlled Aerobic (Low-to-Medium Intensity)',
+                'weekly_target': '120 - 150 minutes per week (e.g., 30 mins, 4-5 days a week)',
+                'recommended_exercises': list(dict.fromkeys(exercises))[:4], # limit to 4 unique items
+                'precautions': list(dict.fromkeys(precautions))[:4]
+            }
+
+    # Path B: No medical report (Demographic metric-based plan)
+    else:
+        # Age-based and BMI-based categorization
+        if age > 55:
+            return {
+                'suitability': 'Active Longevity & Joint Mobility (Low Intensity)',
+                'weekly_target': '150 minutes per week of low-impact physical activity',
+                'recommended_exercises': [
+                    'Brisk walking or slow trail walks',
+                    'Low-impact swimming or water walking (protects older joints)',
+                    'Tai Chi or balance training (essential for fall prevention)',
+                    'Gentle flexibility stretching for spine, hips, and shoulders'
+                ],
+                'precautions': [
+                    'Focus on balance and joint stability to prevent falls.',
+                    'Keep exercises low-impact; avoid heavy pounding on knees and lower back.',
+                    'Ensure proper hydration and warm up thoroughly before movement.',
+                    'If joint pain arises, rest and modify exercises to avoid aggravating inflammation.'
+                ]
+            }
+        
+        elif bmi > 28:
+            return {
+                'suitability': 'Low-Impact Cardio & Core Stability (Moderate Intensity)',
+                'weekly_target': '150 - 200 minutes per week of calorie-burning activity',
+                'recommended_exercises': [
+                    'Stationary cycling or elliptical training (low joint impact)',
+                    'Water swimming or pool walking (reduces weight-bearing stress by up to 90%)',
+                    'Core stability training (planks, bird-dogs) to support lower back',
+                    'Light resistance training using machine-supported weights'
+                ],
+                'precautions': [
+                    'Avoid high-impact jumping, hard running, or deep knee bends to protect joints.',
+                    'Wear well-cushioned, supportive athletic footwear.',
+                    'Focus on consistency and gradual progression rather than intense bursts.',
+                    'Monitor knee alignment: ensure knees do not cave inward during squats.'
+                ]
+            }
+            
+        elif smoker:
+            return {
+                'suitability': 'Cardiorespiratory Stamina & Lung Restoration (Moderate Intensity)',
+                'weekly_target': '150 minutes per week of aerobic and breathing exercises',
+                'recommended_exercises': [
+                    'Progressive cardio intervals (alternating 3 mins walk with 1 min light jog)',
+                    'Indoor rowing or swimming (utilizes full body, improving oxygen delivery)',
+                    'Incentive spirometry or pursed-lip deep breathing techniques',
+                    'Moderate bodyweight strength circuits (improves peripheral oxygen usage)'
+                ],
+                'precautions': [
+                    'Expect quicker onset of shortness of breath; take regular breaks as needed.',
+                    'Always warm up the respiratory tract: start with 5-10 mins of very light movement.',
+                    'Avoid training in environments with high dust, smoke, or cold dry drafts.',
+                    'Stay hydrated to help thin mucus and ease airway passage during workouts.'
+                ]
+            }
+            
+        else:
+            # Default healthy general profile
+            return {
+                'suitability': 'Active Fitness & Strength Training (Medium-to-High Intensity)',
+                'weekly_target': '150 - 300 minutes per week of mixed aerobic and strength work',
+                'recommended_exercises': [
+                    'Cardiovascular exercises (jogging, cycling, rowing, or swimming)',
+                    'Strength training (barbells, dumbbells, or bodyweight pullups/pushups)',
+                    'High-Intensity Interval Training (HIIT) once or twice weekly',
+                    'Dynamic flexibility and core strengthening routines'
+                ],
+                'precautions': [
+                    'Maintain proper form and posture, especially during heavy lifts.',
+                    'Allow 48 hours of recovery between intense training of the same muscle groups.',
+                    'Warm up for 5-10 minutes; never skip the post-workout static stretch.',
+                    'Stay hydrated and consume balanced meals to fuel muscle recovery.'
+                ]
+            }
+
 def calculate_premium_savings(profile: Dict, detected_diseases: List[str] = None, severity: str = 'none') -> Dict:
     detected_diseases = detected_diseases or []
     health_score = calculate_health_score(profile, detected_diseases, severity)
@@ -329,6 +504,7 @@ def calculate_premium_savings(profile: Dict, detected_diseases: List[str] = None
     }
     
     total_savings = sum(potential_savings.values())
+    workout_rec = get_workout_recommendations(profile, detected_diseases, severity)
     
     return {
         'current_annual': int(base_premium),
@@ -342,7 +518,8 @@ def calculate_premium_savings(profile: Dict, detected_diseases: List[str] = None
         'health_score': health_score,
         'detected_diseases': detected_diseases,
         'severity': severity,
-        'tips': get_personalized_tips(profile, detected_diseases, severity)
+        'tips': get_personalized_tips(profile, detected_diseases, severity),
+        'workout_recommendations': workout_rec
     }
 
 def get_personalized_tips(profile: Dict, detected_diseases: List[str], severity: str) -> List[str]:
