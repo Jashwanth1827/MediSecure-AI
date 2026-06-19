@@ -1408,8 +1408,8 @@
                 <span>Health Analysis</span>
             </li>
             <li class="menu-item" onclick="switchTab('simulator', this)">
-                <span class="menu-icon">🎮</span>
-                <span>Habit Rewards</span>
+                <span class="menu-icon">🧡</span>
+                <span>Google Fit</span>
             </li>
             <li class="menu-item" onclick="switchTab('matchmaker', this)">
                 <span class="menu-icon">🤝</span>
@@ -1855,29 +1855,28 @@
             {% endif %}
         </div>
 
-        <!-- TAB 3: GAMIFIED HABIT REWARDS -->
+        <!-- TAB 3: GOOGLE FIT INTEGRATION -->
         <div class="tab-panel" id="panel-simulator">
-            <div class="dashboard-grid">
-                
-                <!-- HABIT LIST -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <span class="card-title-icon">🏆</span>
-                            <span>Gamified Habit Tracker</span>
-                        </div>
+            <div class="card" style="max-width: 600px; margin: 30px auto; box-shadow: var(--card-shadow); border-radius: 16px;">
+                <div class="card-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 15px;">
+                    <div class="card-title" style="font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        <span class="card-title-icon" style="font-size: 20px;">🧡</span>
+                        <span>Google Fit Account Connection</span>
                     </div>
-                    <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
-                        Connect your Google Fit account to dynamically synchronize your real-time physical metrics. Your premium discount is calculated automatically based on your actual daily achievements (discount limit: 30%).
+                </div>
+                
+                <div style="padding: 20px 0;">
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 25px;">
+                        Synchronize your wearable activity tracking data to monitor your daily physical activity. Connecting your account retrieves your steps, sleep hours, water intake, and active minutes directly from the Google Fitness REST API endpoints.
                     </p>
                     
                     <!-- Google Fit Connect Bar -->
-                    <div id="google-fit-sync-bar" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                            <div style="font-size: 28px; filter: drop-shadow(0 2px 4px rgba(234, 67, 53, 0.25));" id="fit-sync-icon">🧡</div>
+                    <div id="google-fit-sync-bar" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; transition: all 0.3s ease;">
+                        <div style="display: flex; align-items: center; gap: 14px;">
+                            <div style="font-size: 32px; filter: drop-shadow(0 2px 6px rgba(234, 67, 53, 0.25)); transition: transform 0.3s ease;" id="fit-sync-icon">🧡</div>
                             <div>
-                                <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary);" id="fit-sync-title">Google Fit Integration</h4>
-                                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 2px; line-height: 1.4;" id="fit-sync-status">Checking API config status...</p>
+                                <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary);" id="fit-sync-title">Google Fit Connection</h4>
+                                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 4px; line-height: 1.4;" id="fit-sync-status">Checking API config status...</p>
                             </div>
                         </div>
                         <div style="display: flex; gap: 10px;" id="fit-sync-actions">
@@ -1885,142 +1884,10 @@
                         </div>
                     </div>
                     
-                    <div id="fit-sync-details" style="display: none; background: var(--bg-secondary); border: 1px dashed var(--border-color); border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-family: monospace; font-size: 11px; color: var(--text-secondary);">
+                    <div id="fit-sync-details" style="display: none; background: var(--bg-secondary); border: 1px dashed var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 20px; font-family: monospace; font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
                         <!-- Synced values populated here -->
                     </div>
-                    
-                    <div class="gamified-card" id="habits-list-container">
-                        {% if premium_savings and premium_savings.habits %}
-                            {% for habit in premium_savings.habits %}
-                            <div class="habit-item">
-                                <div class="habit-info">
-                                    <div class="habit-icon">{{ habit.icon }}</div>
-                                    <div class="habit-text">
-                                        <h4>{{ habit.title }}</h4>
-                                        <p>{{ habit.desc }} (Saves {{ habit.saving_pct }}%)</p>
-                                    </div>
-                                </div>
-                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
-                                    <input type="checkbox" id="{{ habit.id }}" data-saving="{{ habit.saving_pct }}" data-target="{{ habit.target }}" data-metric="{{ habit.metric }}" disabled>
-                                    <span class="slider-switch"></span>
-                                </label>
-                            </div>
-                            {% endfor %}
-                        {% else %}
-                            <!-- Default Fallback Habits before calculation -->
-                            <div class="habit-item">
-                                <div class="habit-info">
-                                    <div class="habit-icon">🚶</div>
-                                    <div class="habit-text">
-                                        <h4>Walk 10,000 Steps Daily</h4>
-                                        <p>Maintain cardiorespiratory fitness (Saves 10%)</p>
-                                    </div>
-                                </div>
-                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
-                                    <input type="checkbox" id="habit-steps" data-saving="10" data-target="10000" data-metric="steps" disabled>
-                                    <span class="slider-switch"></span>
-                                </label>
-                            </div>
-
-                            <div class="habit-item">
-                                <div class="habit-info">
-                                    <div class="habit-icon">😴</div>
-                                    <div class="habit-text">
-                                        <h4>Sleep 7-8 Hours Nightly</h4>
-                                        <p>Restorative sleep cycles (Saves 5%)</p>
-                                    </div>
-                                </div>
-                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
-                                    <input type="checkbox" id="habit-sleep" data-saving="5" data-target="7.0" data-metric="sleep_hours" disabled>
-                                    <span class="slider-switch"></span>
-                                </label>
-                            </div>
-
-                            <div class="habit-item">
-                                <div class="habit-info">
-                                    <div class="habit-icon">💧</div>
-                                    <div class="habit-text">
-                                        <h4>Drink 3 Liters Water</h4>
-                                        <p>Stay hydrated (Saves 3%)</p>
-                                    </div>
-                                </div>
-                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
-                                    <input type="checkbox" id="habit-water" data-saving="3" data-target="3.0" data-metric="water_liters" disabled>
-                                    <span class="slider-switch"></span>
-                                </label>
-                            </div>
-
-                            <div class="habit-item">
-                                <div class="habit-info">
-                                    <div class="habit-icon">🏋️</div>
-                                    <div class="habit-text">
-                                        <h4>Workout 3x Weekly</h4>
-                                        <p>Strength and cardio training (Saves 7%)</p>
-                                    </div>
-                                </div>
-                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
-                                    <input type="checkbox" id="habit-workout" data-saving="7" data-target="30" data-metric="active_minutes" disabled>
-                                    <span class="slider-switch"></span>
-                                </label>
-                            </div>
-
-                            <div class="habit-item">
-                                <div class="habit-info">
-                                    <div class="habit-icon">🥦</div>
-                                    <div class="habit-text">
-                                        <h4>Balanced Home Cooked Meals</h4>
-                                        <p>Better gut health and energy (Saves 5%)</p>
-                                    </div>
-                                </div>
-                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
-                                    <input type="checkbox" id="habit-food" data-saving="5" data-target="1.0" data-metric="manual" disabled>
-                                    <span class="slider-switch"></span>
-                                </label>
-                            </div>
-                        {% endif %}
-                    </div>
                 </div>
-
-                <!-- LIVE IMPACT CARD -->
-                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div class="card-header">
-                            <div class="card-title">
-                                <span class="card-title-icon">⚡</span>
-                                <span>Real-Time Reward Status</span>
-                            </div>
-                        </div>
-                        
-                        <div class="results-gradient-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);">
-                            <h3 style="font-size: 14px; font-weight: 500; opacity: 0.8; text-transform: uppercase;">Simulated Premium</h3>
-                            <div class="result-val" id="sim-premium-val">₹30,000</div>
-                            <p style="font-size: 12px; opacity: 0.9;" id="sim-savings-text">Sync Google Fit metrics to trigger discounts</p>
-                        </div>
-                    </div>
-
-                    <div class="rewards-stats-grid">
-                        <div class="rewards-stat-card">
-                            <div class="rewards-stat-num" id="sim-score">80</div>
-                            <div class="rewards-stat-label">Proj Health Score</div>
-                        </div>
-                        <div class="rewards-stat-card">
-                            <div class="rewards-stat-num" id="sim-discount">0%</div>
-                            <div class="rewards-stat-label">Total Discount</div>
-                        </div>
-                        <div class="rewards-stat-card">
-                            <div class="rewards-stat-num" id="sim-savings">₹0</div>
-                            <div class="rewards-stat-label">Annual Savings</div>
-                        </div>
-                    </div>
-
-                    <div style="background-color: var(--accent-soft); border: 1px solid var(--border-color); padding: 20px; border-radius: 16px; margin-top: 25px;">
-                        <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Why gamify health insurance?</h4>
-                        <p style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;">
-                            In modern health fintech, insurers utilize IoT wearables and check-in algorithms to verify physical metrics. Customers with high activity scores receive direct premium discounts during renewal cycles.
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -2344,8 +2211,8 @@
                 sub.innerText = 'Detailed predictive metrics and prevention logs';
                 renderCharts(); // Render radar and savings chart when tab is visible
             } else if (tabId === 'simulator') {
-                heading.innerText = 'Habit Discount Simulator';
-                sub.innerText = 'Simulate wellness point bonuses and premium reductions';
+                heading.innerText = 'Google Fit Integration';
+                sub.innerText = 'Synchronize wearable activity tracking data to monitor physical metrics';
                 recalculateSimulatedSavings();
             } else if (tabId === 'matchmaker') {
                 heading.innerText = 'Policy Matchmaker';
@@ -2560,40 +2427,7 @@
 
         // GAMIFIED REWARDS SIMULATOR CALCULATOR
         function recalculateSimulatedSavings() {
-            // Determine active premium to apply discounts to
-            const activePremium = hasResults ? results : 25000;
-            const baseScoreValue = hasResults ? healthScore : 70;
-            
-            let totalDiscountPct = 0;
-            const container = document.getElementById('habits-list-container');
-            if (container) {
-                const checkboxes = container.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(cb => {
-                    if (cb.checked) {
-                        const saving = parseInt(cb.getAttribute('data-saving')) || 0;
-                        totalDiscountPct += saving;
-                    }
-                });
-            }
-            
-            // Cap at 30%
-            totalDiscountPct = Math.min(totalDiscountPct, 30);
-            
-            const savedAmount = Math.round(activePremium * (totalDiscountPct / 100));
-            const finalPremium = activePremium - savedAmount;
-            const finalScore = Math.min(baseScoreValue + Math.round(totalDiscountPct * 0.8), 100);
-            
-            document.getElementById('sim-premium-val').innerText = '₹' + finalPremium.toLocaleString();
-            document.getElementById('sim-score').innerText = finalScore;
-            document.getElementById('sim-discount').innerText = totalDiscountPct + '%';
-            document.getElementById('sim-savings').innerText = '₹' + savedAmount.toLocaleString();
-            
-            const textEl = document.getElementById('sim-savings-text');
-            if (totalDiscountPct > 0) {
-                textEl.innerText = `You save ₹${savedAmount.toLocaleString()} annually!`;
-            } else {
-                textEl.innerText = 'Sync Google Fit metrics to trigger discounts';
-            }
+            // No-op: Habit rewards and simulated savings have been removed.
         }
 
         // POLICY MATCHMAKER SEARCH FUNCTION
@@ -2906,81 +2740,14 @@
                 
                 const metrics = data.metrics;
                 
-                // Build dynamic details HTML
-                let detailsHtml = `<strong>Synced metrics (today):</strong><br/>`;
-                
-                const container = document.getElementById('habits-list-container');
-                let automatedCheckedCount = 0;
-                
-                if (container) {
-                    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
-                    
-                    checkboxes.forEach(cb => {
-                        const metricName = cb.getAttribute('data-metric');
-                        const targetVal = parseFloat(cb.getAttribute('data-target')) || 0;
-                        const habitTitle = cb.closest('.habit-item').querySelector('.habit-text h4').innerText;
-                        
-                        if (metricName && metricName !== 'manual' && metrics.hasOwnProperty(metricName)) {
-                            const actualVal = parseFloat(metrics[metricName]) || 0;
-                            const isMet = actualVal >= targetVal;
-                            cb.checked = isMet;
-                            
-                            // Format value for display
-                            let actualStr = actualVal;
-                            let targetStr = targetVal;
-                            if (metricName === 'steps') {
-                                actualStr = Math.round(actualVal).toLocaleString();
-                                targetStr = Math.round(targetVal).toLocaleString();
-                            } else if (metricName === 'sleep_hours' || metricName === 'water_liters' || metricName === 'active_minutes') {
-                                actualStr = actualVal.toFixed(1);
-                                targetStr = targetVal.toFixed(1);
-                            }
-                            
-                            // Add unit description
-                            let unit = '';
-                            if (metricName === 'steps') unit = ' steps';
-                            else if (metricName === 'sleep_hours') unit = ' hrs';
-                            else if (metricName === 'water_liters') unit = ' L';
-                            else if (metricName === 'active_minutes') unit = ' mins';
-                            
-                            detailsHtml += `• ${habitTitle}: ${actualStr}${unit} / ${targetStr}${unit} (${isMet ? '✅ Met' : '❌ Incomplete'})<br/>`;
-                            
-                            if (isMet) {
-                                automatedCheckedCount++;
-                            }
-                        }
-                    });
-                    
-                    // Auto-check manual habits (like diet/food or smoker habits if they're there)
-                    checkboxes.forEach(cb => {
-                        const metricName = cb.getAttribute('data-metric');
-                        if (metricName === 'manual') {
-                            const id = cb.getAttribute('id') || '';
-                            // Auto check healthy eating if at least 2 automated tasks are met
-                            if (id === 'habit-food' || id === 'habit-diet') {
-                                cb.checked = (automatedCheckedCount >= 2);
-                            }
-                        }
-                    });
-                } else {
-                    // Fallback static detail formatting just in case container is missing
-                    detailsHtml += `
-                        • Steps: ${metrics.steps.toLocaleString()} / 10,000<br/>
-                        • Sleep: ${metrics.sleep_hours} hrs / 7.0 hrs<br/>
-                        • Hydration: ${metrics.water_liters} L / 3.0 L<br/>
-                        • Active Time: ${metrics.active_minutes} mins / 30 mins
-                    `;
-                    if (document.getElementById('habit-steps')) document.getElementById('habit-steps').checked = metrics.steps >= 10000;
-                    if (document.getElementById('habit-sleep')) document.getElementById('habit-sleep').checked = metrics.sleep_hours >= 7.0;
-                    if (document.getElementById('habit-water')) document.getElementById('habit-water').checked = metrics.water_liters >= 3.0;
-                    if (document.getElementById('habit-workout')) document.getElementById('habit-workout').checked = metrics.active_minutes >= 30;
-                    
-                    let checkedCount = (metrics.steps >= 10000 ? 1 : 0) + (metrics.sleep_hours >= 7.0 ? 1 : 0) + (metrics.active_minutes >= 30 ? 1 : 0);
-                    if (document.getElementById('habit-food')) document.getElementById('habit-food').checked = checkedCount >= 2;
-                }
-                
-                detailsEl.innerHTML = detailsHtml;
-                recalculateSimulatedSavings();
+                // Render synced metrics directly
+                detailsEl.innerHTML = `
+                    <strong>Synced metrics (today):</strong><br/>
+                    • Steps Count: ${Math.round(metrics.steps).toLocaleString()} steps<br/>
+                    • Sleep Duration: ${metrics.sleep_hours.toFixed(1)} hrs<br/>
+                    • Hydration Volume: ${metrics.water_liters.toFixed(1)} L<br/>
+                    • Active Physical Time: ${metrics.active_minutes.toFixed(1)} mins
+                `;
                 
                 document.getElementById('fit-sync-status').innerText = `Synced successfully! Last update: ${new Date().toLocaleTimeString()}`;
             })
