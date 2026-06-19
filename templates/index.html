@@ -1889,76 +1889,95 @@
                         <!-- Synced values populated here -->
                     </div>
                     
-                    <div class="gamified-card">
-                        <div class="habit-item">
-                            <div class="habit-info">
-                                <div class="habit-icon">🚶</div>
-                                <div class="habit-text">
-                                    <h4>Walk 10,000 Steps Daily</h4>
-                                    <p>Saves 10% on your premium loading</p>
+                    <div class="gamified-card" id="habits-list-container">
+                        {% if premium_savings and premium_savings.habits %}
+                            {% for habit in premium_savings.habits %}
+                            <div class="habit-item">
+                                <div class="habit-info">
+                                    <div class="habit-icon">{{ habit.icon }}</div>
+                                    <div class="habit-text">
+                                        <h4>{{ habit.title }}</h4>
+                                        <p>{{ habit.desc }} (Saves {{ habit.saving_pct }}%)</p>
+                                    </div>
                                 </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="{{ habit.id }}" data-saving="{{ habit.saving_pct }}" data-target="{{ habit.target }}" data-metric="{{ habit.metric }}" onchange="recalculateSimulatedSavings()">
+                                    <span class="slider-switch"></span>
+                                </label>
                             </div>
-                            <label class="switch">
-                                <input type="checkbox" id="habit-steps" onchange="recalculateSimulatedSavings()">
-                                <span class="slider-switch"></span>
-                            </label>
-                        </div>
+                            {% endfor %}
+                        {% else %}
+                            <!-- Default Fallback Habits before calculation -->
+                            <div class="habit-item">
+                                <div class="habit-info">
+                                    <div class="habit-icon">🚶</div>
+                                    <div class="habit-text">
+                                        <h4>Walk 10,000 Steps Daily</h4>
+                                        <p>Maintain cardiorespiratory fitness (Saves 10%)</p>
+                                    </div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="habit-steps" data-saving="10" data-target="10000" data-metric="steps" onchange="recalculateSimulatedSavings()">
+                                    <span class="slider-switch"></span>
+                                </label>
+                            </div>
 
-                        <div class="habit-item">
-                            <div class="habit-info">
-                                <div class="habit-icon">😴</div>
-                                <div class="habit-text">
-                                    <h4>Sleep 7-8 Hours Nightly</h4>
-                                    <p>Saves 5% on your premium loading</p>
+                            <div class="habit-item">
+                                <div class="habit-info">
+                                    <div class="habit-icon">😴</div>
+                                    <div class="habit-text">
+                                        <h4>Sleep 7-8 Hours Nightly</h4>
+                                        <p>Restorative sleep cycles (Saves 5%)</p>
+                                    </div>
                                 </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="habit-sleep" data-saving="5" data-target="7.0" data-metric="sleep_hours" onchange="recalculateSimulatedSavings()">
+                                    <span class="slider-switch"></span>
+                                </label>
                             </div>
-                            <label class="switch">
-                                <input type="checkbox" id="habit-sleep" onchange="recalculateSimulatedSavings()">
-                                <span class="slider-switch"></span>
-                            </label>
-                        </div>
 
-                        <div class="habit-item">
-                            <div class="habit-info">
-                                <div class="habit-icon">💧</div>
-                                <div class="habit-text">
-                                    <h4>Drink 3 Liters Water</h4>
-                                    <p>Saves 3% on premium loading</p>
+                            <div class="habit-item">
+                                <div class="habit-info">
+                                    <div class="habit-icon">💧</div>
+                                    <div class="habit-text">
+                                        <h4>Drink 3 Liters Water</h4>
+                                        <p>Stay hydrated (Saves 3%)</p>
+                                    </div>
                                 </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="habit-water" data-saving="3" data-target="3.0" data-metric="water_liters" onchange="recalculateSimulatedSavings()">
+                                    <span class="slider-switch"></span>
+                                </label>
                             </div>
-                            <label class="switch">
-                                <input type="checkbox" id="habit-water" onchange="recalculateSimulatedSavings()">
-                                <span class="slider-switch"></span>
-                            </label>
-                        </div>
 
-                        <div class="habit-item">
-                            <div class="habit-info">
-                                <div class="habit-icon">🏋️</div>
-                                <div class="habit-text">
-                                    <h4>Workout 3x Weekly</h4>
-                                    <p>Saves 7% on premium loading</p>
+                            <div class="habit-item">
+                                <div class="habit-info">
+                                    <div class="habit-icon">🏋️</div>
+                                    <div class="habit-text">
+                                        <h4>Workout 3x Weekly</h4>
+                                        <p>Strength and cardio training (Saves 7%)</p>
+                                    </div>
                                 </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="habit-workout" data-saving="7" data-target="30" data-metric="active_minutes" onchange="recalculateSimulatedSavings()">
+                                    <span class="slider-switch"></span>
+                                </label>
                             </div>
-                            <label class="switch">
-                                <input type="checkbox" id="habit-workout" onchange="recalculateSimulatedSavings()">
-                                <span class="slider-switch"></span>
-                            </label>
-                        </div>
 
-                        <div class="habit-item">
-                            <div class="habit-info">
-                                <div class="habit-icon">🥦</div>
-                                <div class="habit-text">
-                                    <h4>Balanced Home Cooked Meals</h4>
-                                    <p>Saves 5% on premium loading</p>
+                            <div class="habit-item">
+                                <div class="habit-info">
+                                    <div class="habit-icon">🥦</div>
+                                    <div class="habit-text">
+                                        <h4>Balanced Home Cooked Meals</h4>
+                                        <p>Better gut health and energy (Saves 5%)</p>
+                                    </div>
                                 </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="habit-food" data-saving="5" data-target="1.0" data-metric="manual" onchange="recalculateSimulatedSavings()">
+                                    <span class="slider-switch"></span>
+                                </label>
                             </div>
-                            <label class="switch">
-                                <input type="checkbox" id="habit-food" onchange="recalculateSimulatedSavings()">
-                                <span class="slider-switch"></span>
-                            </label>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -2546,11 +2565,16 @@
             const baseScoreValue = hasResults ? healthScore : 70;
             
             let totalDiscountPct = 0;
-            if (document.getElementById('habit-steps').checked) totalDiscountPct += 10;
-            if (document.getElementById('habit-sleep').checked) totalDiscountPct += 5;
-            if (document.getElementById('habit-water').checked) totalDiscountPct += 3;
-            if (document.getElementById('habit-workout').checked) totalDiscountPct += 7;
-            if (document.getElementById('habit-food').checked) totalDiscountPct += 5;
+            const container = document.getElementById('habits-list-container');
+            if (container) {
+                const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        const saving = parseInt(cb.getAttribute('data-saving')) || 0;
+                        totalDiscountPct += saving;
+                    }
+                });
+            }
             
             // Cap at 30%
             totalDiscountPct = Math.min(totalDiscountPct, 30);
@@ -2882,25 +2906,80 @@
                 
                 const metrics = data.metrics;
                 
-                // Render details
-                detailsEl.innerHTML = `
-                    <strong>Synced metrics (today):</strong><br/>
-                    • Steps: ${metrics.steps.toLocaleString()} / 10,000<br/>
-                    • Sleep: ${metrics.sleep_hours} hrs / 7.0 hrs<br/>
-                    • Hydration: ${metrics.water_liters} L / 3.0 L<br/>
-                    • Active Time: ${metrics.active_minutes} mins / 30 mins
-                `;
+                // Build dynamic details HTML
+                let detailsHtml = `<strong>Synced metrics (today):</strong><br/>`;
                 
-                // Toggle checkboxes based on real-time metrics
-                document.getElementById('habit-steps').checked = metrics.steps >= 10000;
-                document.getElementById('habit-sleep').checked = metrics.sleep_hours >= 7.0;
-                document.getElementById('habit-water').checked = metrics.water_liters >= 3.0;
-                document.getElementById('habit-workout').checked = metrics.active_minutes >= 30;
+                const container = document.getElementById('habits-list-container');
+                let automatedCheckedCount = 0;
                 
-                // Auto check healthy eating if other activities are mostly checked
-                let checkedCount = (metrics.steps >= 10000 ? 1 : 0) + (metrics.sleep_hours >= 7.0 ? 1 : 0) + (metrics.active_minutes >= 30 ? 1 : 0);
-                document.getElementById('habit-food').checked = checkedCount >= 2;
+                if (container) {
+                    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+                    
+                    checkboxes.forEach(cb => {
+                        const metricName = cb.getAttribute('data-metric');
+                        const targetVal = parseFloat(cb.getAttribute('data-target')) || 0;
+                        const habitTitle = cb.closest('.habit-item').querySelector('.habit-text h4').innerText;
+                        
+                        if (metricName && metricName !== 'manual' && metrics.hasOwnProperty(metricName)) {
+                            const actualVal = parseFloat(metrics[metricName]) || 0;
+                            const isMet = actualVal >= targetVal;
+                            cb.checked = isMet;
+                            
+                            // Format value for display
+                            let actualStr = actualVal;
+                            let targetStr = targetVal;
+                            if (metricName === 'steps') {
+                                actualStr = Math.round(actualVal).toLocaleString();
+                                targetStr = Math.round(targetVal).toLocaleString();
+                            } else if (metricName === 'sleep_hours' || metricName === 'water_liters' || metricName === 'active_minutes') {
+                                actualStr = actualVal.toFixed(1);
+                                targetStr = targetVal.toFixed(1);
+                            }
+                            
+                            // Add unit description
+                            let unit = '';
+                            if (metricName === 'steps') unit = ' steps';
+                            else if (metricName === 'sleep_hours') unit = ' hrs';
+                            else if (metricName === 'water_liters') unit = ' L';
+                            else if (metricName === 'active_minutes') unit = ' mins';
+                            
+                            detailsHtml += `• ${habitTitle}: ${actualStr}${unit} / ${targetStr}${unit} (${isMet ? '✅ Met' : '❌ Incomplete'})<br/>`;
+                            
+                            if (isMet) {
+                                automatedCheckedCount++;
+                            }
+                        }
+                    });
+                    
+                    // Auto-check manual habits (like diet/food or smoker habits if they're there)
+                    checkboxes.forEach(cb => {
+                        const metricName = cb.getAttribute('data-metric');
+                        if (metricName === 'manual') {
+                            const id = cb.getAttribute('id') || '';
+                            // Auto check healthy eating if at least 2 automated tasks are met
+                            if (id === 'habit-food' || id === 'habit-diet') {
+                                cb.checked = (automatedCheckedCount >= 2);
+                            }
+                        }
+                    });
+                } else {
+                    // Fallback static detail formatting just in case container is missing
+                    detailsHtml += `
+                        • Steps: ${metrics.steps.toLocaleString()} / 10,000<br/>
+                        • Sleep: ${metrics.sleep_hours} hrs / 7.0 hrs<br/>
+                        • Hydration: ${metrics.water_liters} L / 3.0 L<br/>
+                        • Active Time: ${metrics.active_minutes} mins / 30 mins
+                    `;
+                    if (document.getElementById('habit-steps')) document.getElementById('habit-steps').checked = metrics.steps >= 10000;
+                    if (document.getElementById('habit-sleep')) document.getElementById('habit-sleep').checked = metrics.sleep_hours >= 7.0;
+                    if (document.getElementById('habit-water')) document.getElementById('habit-water').checked = metrics.water_liters >= 3.0;
+                    if (document.getElementById('habit-workout')) document.getElementById('habit-workout').checked = metrics.active_minutes >= 30;
+                    
+                    let checkedCount = (metrics.steps >= 10000 ? 1 : 0) + (metrics.sleep_hours >= 7.0 ? 1 : 0) + (metrics.active_minutes >= 30 ? 1 : 0);
+                    if (document.getElementById('habit-food')) document.getElementById('habit-food').checked = checkedCount >= 2;
+                }
                 
+                detailsEl.innerHTML = detailsHtml;
                 recalculateSimulatedSavings();
                 
                 document.getElementById('fit-sync-status').innerText = `Synced successfully! Last update: ${new Date().toLocaleTimeString()}`;

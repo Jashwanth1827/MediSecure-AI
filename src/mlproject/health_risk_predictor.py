@@ -14,6 +14,8 @@
 
 from datetime import datetime
 from typing import Dict, List, Optional
+import json
+from src.mlproject.gemini_chatbot import GEMINI_CLIENT, GEMINI_MODEL, GEMINI_CONFIGURED
 
 DISEASE_IMPACT = {
     'diabetes': {
@@ -473,6 +475,237 @@ def get_workout_recommendations(profile: Dict, detected_diseases: List[str] = No
                 ]
             }
 
+def get_rule_based_habits(profile: Dict, detected_diseases: List[str] = None, severity: str = 'none') -> List[Dict]:
+    detected_diseases = detected_diseases or []
+    age = profile.get('age', 30)
+    bmi = profile.get('bmi', 25)
+    smoker = profile.get('smoker', 'no').lower() == 'yes'
+    
+    habits = []
+    
+    # 1. Smoker habits
+    if smoker:
+        habits.append({
+            'id': 'habit-smoker',
+            'icon': '🚭',
+            'title': 'Zero Tobacco Consumption',
+            'saving_pct': 10,
+            'desc': 'Avoid smoking/nicotine today. Restores lung lining and cardiovascular function.',
+            'metric': 'manual',
+            'target': 1.0
+        })
+        habits.append({
+            'id': 'habit-breathing',
+            'icon': '🧘',
+            'title': 'Lung Capacity Exercises',
+            'saving_pct': 5,
+            'desc': 'Do 15 minutes of deep breathing or diaphragmatic exercises.',
+            'metric': 'active_minutes',
+            'target': 15.0
+        })
+    else:
+        if bmi > 27:
+            habits.append({
+                'id': 'habit-steps',
+                'icon': '🚶',
+                'title': 'Active Weight Loss Steps',
+                'saving_pct': 10,
+                'desc': 'Walk 8,000 steps daily to promote fat metabolism and protect joints.',
+                'metric': 'steps',
+                'target': 8000.0
+            })
+        else:
+            habits.append({
+                'id': 'habit-steps',
+                'icon': '🚶',
+                'title': 'Daily Walking Target',
+                'saving_pct': 10,
+                'desc': 'Walk 10,000 steps to maintain optimum cardiorespiratory fitness.',
+                'metric': 'steps',
+                'target': 10000.0
+            })
+            
+    # 2. Disease-based habits
+    has_cardio = any(c in d.lower() for d in detected_diseases for c in ['heart', 'stroke', 'hypertension', 'bp'])
+    has_diabetes = any('diabetes' in d.lower() for d in detected_diseases)
+    has_arthritis = any('arthritis' in d.lower() for d in detected_diseases)
+    
+    if has_cardio:
+        habits.append({
+            'id': 'habit-workout',
+            'icon': '❤️',
+            'title': 'Cardiac-Safe Activity',
+            'saving_pct': 8,
+            'desc': 'Complete 30 minutes of low-intensity walking or light cycling.',
+            'metric': 'active_minutes',
+            'target': 30.0
+        })
+        habits.append({
+            'id': 'habit-diet',
+            'icon': '🥗',
+            'title': 'Strict Low-Sodium Diet',
+            'saving_pct': 5,
+            'desc': 'Consume fresh home-cooked meals with restricted salt (< 2g sodium).',
+            'metric': 'manual',
+            'target': 1.0
+        })
+    elif has_diabetes:
+        habits.append({
+            'id': 'habit-workout',
+            'icon': '🩸',
+            'title': 'Glucose Regulation Exercise',
+            'saving_pct': 8,
+            'desc': '30 minutes of brisk walking or resistance bands after meals.',
+            'metric': 'active_minutes',
+            'target': 30.0
+        })
+        habits.append({
+            'id': 'habit-diet',
+            'icon': '🥦',
+            'title': 'Sugar-Controlled Nutrition',
+            'saving_pct': 5,
+            'desc': 'Low glycemic index meals with zero refined sugar.',
+            'metric': 'manual',
+            'target': 1.0
+        })
+    elif has_arthritis:
+        habits.append({
+            'id': 'habit-workout',
+            'icon': '🏊',
+            'title': 'Joint-Friendly Movement',
+            'saving_pct': 8,
+            'desc': '30 minutes of swimming, water walking, or stationary cycling.',
+            'metric': 'active_minutes',
+            'target': 30.0
+        })
+        habits.append({
+            'id': 'habit-stretching',
+            'icon': '🤸',
+            'title': 'Flexibility & Stretching',
+            'saving_pct': 4,
+            'desc': 'Perform 15 minutes of dynamic range-of-motion stretching.',
+            'metric': 'active_minutes',
+            'target': 15.0
+        })
+    else:
+        habits.append({
+            'id': 'habit-workout',
+            'icon': '🏋️',
+            'title': 'Active Exercise Routine',
+            'saving_pct': 7,
+            'desc': 'Complete 30 minutes of active cardio or resistance strength training.',
+            'metric': 'active_minutes',
+            'target': 30.0
+        })
+
+    # 3. Sleep habits
+    if age > 55:
+        habits.append({
+            'id': 'habit-sleep',
+            'icon': '😴',
+            'title': 'Restorative Age Sleep',
+            'saving_pct': 5,
+            'desc': 'Target 7-8 hours of sleep to support neurological recovery and cellular repair.',
+            'metric': 'sleep_hours',
+            'target': 7.0
+        })
+    else:
+        habits.append({
+            'id': 'habit-sleep',
+            'icon': '😴',
+            'title': 'Healthy Sleep Cycles',
+            'saving_pct': 5,
+            'desc': 'Aim for 7-8 hours of continuous, high-quality nightly rest.',
+            'metric': 'sleep_hours',
+            'target': 7.0
+        })
+        
+    # 4. General wellness habit
+    if bmi > 27:
+        habits.append({
+            'id': 'habit-water',
+            'icon': '💧',
+            'title': 'Optimal Hydration',
+            'saving_pct': 3,
+            'desc': 'Drink 3+ Liters of water daily to boost metabolism and cellular transport.',
+            'metric': 'water_liters',
+            'target': 3.0
+        })
+    else:
+        habits.append({
+            'id': 'habit-water',
+            'icon': '💧',
+            'title': 'General Hydration',
+            'saving_pct': 3,
+            'desc': 'Drink 2.5 - 3 Liters of water to stay fully hydrated.',
+            'metric': 'water_liters',
+            'target': 2.5
+        })
+        
+    return habits
+
+def get_ai_profile_habits(profile: Dict, detected_diseases: List[str] = None, severity: str = 'none') -> List[Dict]:
+    detected_diseases = detected_diseases or []
+    
+    if GEMINI_CONFIGURED and GEMINI_CLIENT is not None:
+        try:
+            prompt = f"""
+            Given the following health profile:
+            - Age: {profile.get('age', 30)}
+            - BMI: {profile.get('bmi', 25)}
+            - Smoker: {profile.get('smoker', 'no')}
+            - Gender: {profile.get('sex', 'male')}
+            - Pre-existing Conditions: {', '.join(detected_diseases) if detected_diseases else 'None'}
+            - Severity of Conditions: {severity}
+            
+            Generate 4 highly specific daily habit suggestions to reduce health risks and lower insurance premium.
+            Return a raw JSON list of objects (no markdown, no ```json formatting, just plain text JSON).
+            Each object in the list MUST strictly follow this schema:
+            {{
+                "id": "String (must be one of: 'habit-steps', 'habit-sleep', 'habit-water', 'habit-workout', 'habit-diet', 'habit-breathing', 'habit-stretching')",
+                "icon": "String (single emoji representing the habit)",
+                "title": "String (short habit name, e.g. 'Calorie-Burning Walks')",
+                "saving_pct": "Integer (percentage from 3 to 10 based on importance/impact)",
+                "desc": "String (detailed advice explaining the habit and how it specifically helps their profile)",
+                "metric": "String (must be one of: 'steps', 'sleep_hours', 'water_liters', 'active_minutes', 'manual')",
+                "target": "Float or Integer (threshold target value, e.g. 10000 steps, 7.5 hours, 3.0 liters, 30 active minutes, or 1 for manual)"
+            }}
+            
+            Strictly match the "id", "metric", and "target" parameters so they map to Google Fit tracking metrics.
+            """
+            
+            response = GEMINI_CLIENT.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=prompt,
+            )
+            
+            if response.text:
+                raw_text = response.text.strip()
+                if raw_text.startswith("```"):
+                    raw_text = raw_text.split("```")[1]
+                    if raw_text.startswith("json"):
+                        raw_text = raw_text[4:]
+                raw_text = raw_text.strip()
+                
+                habits = json.loads(raw_text)
+                if isinstance(habits, list) and len(habits) > 0:
+                    cleaned_habits = []
+                    for h in habits[:4]:
+                        cleaned_habits.append({
+                            'id': str(h.get('id', 'habit-steps')),
+                            'icon': str(h.get('icon', '🚶')),
+                            'title': str(h.get('title', 'Daily target')),
+                            'saving_pct': int(h.get('saving_pct', 5)),
+                            'desc': str(h.get('desc', 'Stay active.')),
+                            'metric': str(h.get('metric', 'steps')),
+                            'target': float(h.get('target', 10000.0))
+                        })
+                    return cleaned_habits
+        except Exception as e:
+            print(f"Gemini error generating habits: {e}. Falling back to rule-based habits.")
+            
+    return get_rule_based_habits(profile, detected_diseases, severity)
+
 def calculate_premium_savings(profile: Dict, detected_diseases: List[str] = None, severity: str = 'none') -> Dict:
     detected_diseases = detected_diseases or []
     health_score = calculate_health_score(profile, detected_diseases, severity)
@@ -505,6 +738,7 @@ def calculate_premium_savings(profile: Dict, detected_diseases: List[str] = None
     
     total_savings = sum(potential_savings.values())
     workout_rec = get_workout_recommendations(profile, detected_diseases, severity)
+    habits = get_ai_profile_habits(profile, detected_diseases, severity)
     
     return {
         'current_annual': int(base_premium),
@@ -519,7 +753,8 @@ def calculate_premium_savings(profile: Dict, detected_diseases: List[str] = None
         'detected_diseases': detected_diseases,
         'severity': severity,
         'tips': get_personalized_tips(profile, detected_diseases, severity),
-        'workout_recommendations': workout_rec
+        'workout_recommendations': workout_rec,
+        'habits': habits
     }
 
 def get_personalized_tips(profile: Dict, detected_diseases: List[str], severity: str) -> List[str]:
