@@ -1868,7 +1868,7 @@
                         </div>
                     </div>
                     <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
-                        Ticking these healthy daily targets simulates wellness points and calculates potential premium discount rates (gamified model simulated discount limit: 30%).
+                        Connect your Google Fit account to dynamically synchronize your real-time physical metrics. Your premium discount is calculated automatically based on your actual daily achievements (discount limit: 30%).
                     </p>
                     
                     <!-- Google Fit Connect Bar -->
@@ -1900,8 +1900,8 @@
                                         <p>{{ habit.desc }} (Saves {{ habit.saving_pct }}%)</p>
                                     </div>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="{{ habit.id }}" data-saving="{{ habit.saving_pct }}" data-target="{{ habit.target }}" data-metric="{{ habit.metric }}" onchange="recalculateSimulatedSavings()">
+                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
+                                    <input type="checkbox" id="{{ habit.id }}" data-saving="{{ habit.saving_pct }}" data-target="{{ habit.target }}" data-metric="{{ habit.metric }}" disabled>
                                     <span class="slider-switch"></span>
                                 </label>
                             </div>
@@ -1916,8 +1916,8 @@
                                         <p>Maintain cardiorespiratory fitness (Saves 10%)</p>
                                     </div>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="habit-steps" data-saving="10" data-target="10000" data-metric="steps" onchange="recalculateSimulatedSavings()">
+                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
+                                    <input type="checkbox" id="habit-steps" data-saving="10" data-target="10000" data-metric="steps" disabled>
                                     <span class="slider-switch"></span>
                                 </label>
                             </div>
@@ -1930,8 +1930,8 @@
                                         <p>Restorative sleep cycles (Saves 5%)</p>
                                     </div>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="habit-sleep" data-saving="5" data-target="7.0" data-metric="sleep_hours" onchange="recalculateSimulatedSavings()">
+                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
+                                    <input type="checkbox" id="habit-sleep" data-saving="5" data-target="7.0" data-metric="sleep_hours" disabled>
                                     <span class="slider-switch"></span>
                                 </label>
                             </div>
@@ -1944,8 +1944,8 @@
                                         <p>Stay hydrated (Saves 3%)</p>
                                     </div>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="habit-water" data-saving="3" data-target="3.0" data-metric="water_liters" onchange="recalculateSimulatedSavings()">
+                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
+                                    <input type="checkbox" id="habit-water" data-saving="3" data-target="3.0" data-metric="water_liters" disabled>
                                     <span class="slider-switch"></span>
                                 </label>
                             </div>
@@ -1958,8 +1958,8 @@
                                         <p>Strength and cardio training (Saves 7%)</p>
                                     </div>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="habit-workout" data-saving="7" data-target="30" data-metric="active_minutes" onchange="recalculateSimulatedSavings()">
+                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
+                                    <input type="checkbox" id="habit-workout" data-saving="7" data-target="30" data-metric="active_minutes" disabled>
                                     <span class="slider-switch"></span>
                                 </label>
                             </div>
@@ -1972,8 +1972,8 @@
                                         <p>Better gut health and energy (Saves 5%)</p>
                                     </div>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="habit-food" data-saving="5" data-target="1.0" data-metric="manual" onchange="recalculateSimulatedSavings()">
+                                <label class="switch" style="pointer-events: none; opacity: 0.85;">
+                                    <input type="checkbox" id="habit-food" data-saving="5" data-target="1.0" data-metric="manual" disabled>
                                     <span class="slider-switch"></span>
                                 </label>
                             </div>
@@ -1994,7 +1994,7 @@
                         <div class="results-gradient-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);">
                             <h3 style="font-size: 14px; font-weight: 500; opacity: 0.8; text-transform: uppercase;">Simulated Premium</h3>
                             <div class="result-val" id="sim-premium-val">₹30,000</div>
-                            <p style="font-size: 12px; opacity: 0.9;" id="sim-savings-text">Select habits to trigger discounts</p>
+                            <p style="font-size: 12px; opacity: 0.9;" id="sim-savings-text">Sync Google Fit metrics to trigger discounts</p>
                         </div>
                     </div>
 
@@ -2592,7 +2592,7 @@
             if (totalDiscountPct > 0) {
                 textEl.innerText = `You save ₹${savedAmount.toLocaleString()} annually!`;
             } else {
-                textEl.innerText = 'Select habits to trigger discounts';
+                textEl.innerText = 'Sync Google Fit metrics to trigger discounts';
             }
         }
 
