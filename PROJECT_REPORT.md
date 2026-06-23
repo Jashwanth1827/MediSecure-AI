@@ -1,4 +1,4 @@
-# MediSecure - Health Insurance Premium Calculator
+# MediSecure-AI - Health Insurance Premium Calculator
 
 ## Project Report
 
@@ -6,12 +6,12 @@
 
 ## 1. Project Overview
 
-**Project Name:** MediSecure  
-**Project Type:** Machine Learning Web Application  
-**Domain:** Real-Time Health Insurance Premium Calculation
+**Project Name:** MediSecure-AI  
+**Project Type:** Machine Learning & Wearable Integration Web Application  
+**Domain:** Real-Time Health Insurance Premium Prediction & Telematics Underwriting
 
 ### Objective
-To develop an intelligent health insurance premium calculator that mirrors real insurance company practices, including medical report analysis, disease detection, and personalized premium calculations based on industry-standard factors.
+To develop an intelligent health insurance premium calculator that mirrors modern insurance practices, combining machine learning prediction, PDF medical report parsing, and real-time wearable telemetry (Google Fit) to implement dynamic, behavior-driven premium discounts, early-warning alerts, and adaptive fitness planners.
 
 ---
 
@@ -19,7 +19,7 @@ To develop an intelligent health insurance premium calculator that mirrors real 
 
 ### 2.1 Premium Calculation Components
 
-Our system now calculates premiums using **real insurance industry factors**:
+Our system calculates premiums using industry-standard base parameters:
 
 | Factor | Options | Impact |
 |--------|---------|--------|
@@ -31,7 +31,7 @@ Our system now calculates premiums using **real insurance industry factors**:
 | **NCB (No Claim Bonus)** | 0%, 20%, 25%, 33%, 45%, 50% | Claim-free years = Discount |
 | **Add-on Riders** | None, Basic, Comprehensive, Premium | More riders = Higher premium |
 
-### 2.2 Risk Loadings (Real Insurance Practice)
+### 2.2 Risk Loadings (Standard Insurance Practice)
 
 | Risk Factor | Condition | Loading |
 |-------------|-----------|---------|
@@ -46,204 +46,86 @@ Our system now calculates premiums using **real insurance industry factors**:
 | **Disease (Moderate)** | Multiple | +35% |
 | **Disease (Severe)** | Critical | +80% |
 
-### 2.3 Zone Classification (Real Indian Insurance)
+### 2.3 Behavior-Driven Wearable Discounts (Telematics Underwriting)
+Following the latest IRDAI guidelines in India allowing "Pay-As-You-Live" models, we implement a real-time **Actuarial Adjuster** reducing the base premium by up to **15%** for achieving daily health goals:
 
-Insurance companies classify cities into zones for pricing:
-
-| Zone | Cities | Factor |
-|------|--------|--------|
-| **A (Metro)** | Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata | 1.15x |
-| **B (Tier 1)** | Pune, Ahmedabad, Surat, Chandigarh, Lucknow | 1.00x |
-| **C (Tier 2/3)** | Other cities, Rural areas | 0.88x |
-
-### 2.4 Deductible & Co-pay Savings
-
-**Deductible** (Amount you pay before insurance kicks in):
-- No Deductible: 1.00x
-- Rs. 25,000: 0.85x (15% savings)
-- Rs. 50,000: 0.75x (25% savings)
-- Rs. 1,00,000: 0.65x (35% savings)
-- Rs. 2,00,000: 0.55x (45% savings)
-
-**Co-pay** (Percentage you pay on claim):
-- 0%: 1.00x
-- 10%: 0.92x
-- 15%: 0.88x
-- 20%: 0.85x
-- 25%: 0.82x
-
-### 2.5 No Claim Bonus (NCB)
-
-Claim-free years earn discounts:
-- 0 years: 1.00x (base)
-- 1 year: 0.95x (5% discount)
-- 2 years: 0.93x (7% discount)
-- 3 years: 0.90x (10% discount)
-- 4 years: 0.85x (15% discount)
-- 5+ years: 0.80x (20% discount)
+- **Steps (5% max):** Up to 5% discount for completing 10,000 steps.
+- **Sleep (3% max):** Up to 3% discount for completing 8 hours of sleep.
+- **Hydration (2% max):** Up to 2% discount for completing 3 liters of water.
+- **Active Time (5% max):** Up to 5% discount for completing 30 minutes of physical activity.
 
 ---
 
-## 3. Medical Report Analysis
+## 3. Wearable Integration & Dynamic Modules
 
-### 3.1 PDF Upload & Text Extraction
-- Upload medical reports in PDF format
-- Extract text using PyPDF2
-- Analyze for disease indicators
+### 3.1 Google Fitness REST API Integration
+- **Authorization Flow:** OAuth 2.0 Authorization Code Flow.
+- **Endpoints Used:**
+  - `https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate` (steps, hydration, active minutes)
+  - `https://www.googleapis.com/fitness/v1/users/me/sessions` (sleep duration sessions)
 
-### 3.2 Disease Detection
-Detects 16+ conditions:
-- Diabetes, Hypertension, Heart Disease, Cancer
-- Kidney Disease, Liver Disease, Asthma, COPD
-- Arthritis, Thyroid, Anemia, Pneumonia
-- Tuberculosis, Mental Health, Depression, Anxiety
+### 3.2 Dynamic Actuarial Premium Adjuster
+- Instantly reduces the user's base calculated premium.
+- Displays Base Premium, Synced Discount %, Adjusted Annual Premium, and an active **Health Score Boost** (up to +10 points) on the frontend.
 
-### 3.3 Severity Assessment
-| Severity | Loading | Description |
-|----------|---------|-------------|
-| **Mild** | +15% | Early stage, controlled |
-| **Moderate** | +35% | Requires monitoring |
-| **Severe** | +80% | Critical, needs treatment |
+### 3.3 AI Clinical Early Warnings
+Generates clinical alerts with blinking warning indicators when fitness targets are missed, cross-referencing chronic illnesses:
+- **Cardiovascular Strain Alert:** Sleep < 6.0 hrs for users with Hypertension or Heart Disease.
+- **Insulin Sensitivity Warning:** Active Time < 15 mins for users with Diabetes or Obesity.
+- **Bronchial Spasm Strain Alert:** Active Time > 45 mins for users with Asthma or COPD.
+- **Dehydration Warning:** Daily water intake < 1.2 Liters.
+
+### 3.4 Adaptive AI Workout Planner
+Drafts daily workouts dynamically:
+- **Sleep Debt:** Prescribes adrenal-sparing stretching core recovery exercises.
+- **Step Deficit:** Structures low-impact walking and shadow-boxing booster exercises.
+- **Goals Achieved:** Prescribes recovery and progressive muscle relaxation stretches.
 
 ---
 
 ## 4. Technology Stack
 
-### Backend
-- Python 3.10, Flask, Scikit-learn
-- Pandas, NumPy, PyPDF2
-- SQLite (chat history)
-
-### Frontend  
-- HTML5, CSS3, JavaScript
-- Responsive design
-
-### AI/ML
-- Google Gemini AI (chatbot)
-- Random Forest Regressor
+- **Backend:** Python 3.10, Flask
+- **ML Engine:** Scikit-learn (Random Forest Regressor)
+- **API Orchestrator:** Google Fitness REST API (OAuth 2.0)
+- **Database:** SQLite (persistent chat logs and user profiles)
+- **GenAI:** Google Gemini API (`google-genai` SDK) + Local Fallback
+- **Frontend:** HTML5, CSS3, JavaScript (Glassmorphism theme, dynamic SVG rings, pulse animation keyframes)
 
 ---
 
 ## 5. ML Model Performance
 
-| Metric | Value |
-|--------|-------|
-| **Algorithm** | Random Forest |
-| **Training R2** | 0.9460 |
-| **Test R2** | 0.8632 |
-| **Training MAE** | Rs. 1,524 |
-| **Test MAE** | Rs. 2,616 |
-
-### Feature Importances
-1. Smoker: 63.5%
-2. BMI: 17.4%
-3. Age: 12.1%
-4. Children: 1.0%
-5. NCB: 0.5%
+- **Algorithm:** Random Forest Regressor
+- **Training R2:** 0.9460
+- **Test R2:** 0.8632
+- **Training MAE:** Rs. 1,524
+- **Test MAE:** Rs. 2,616
+- **Feature Importance:** Smoker (63.5%), BMI (17.4%), Age (12.1%), Dependents (1.0%), NCB (0.5%).
 
 ---
 
 ## 6. Premium Calculation Formula
 
 ```
-Annual Premium = 
-    Base Premium
-    x Sum Insured Factor
-    x Zone Factor
-    x Age Loading
-    x BMI Loading  
-    x Smoker Loading
-    x Disease Loading
-    x Deductible Factor
-    x Co-pay Factor
-    x NCB Factor
-    + Rider Cost
-    + Disease Cost
+Adjusted Annual Premium = 
+    [ Base Predicted Premium 
+      x Sum Insured Factor
+      x Zone Factor
+      x Age Loading
+      x BMI Loading  
+      x Smoker Loading
+      x Disease Loading
+      x Deductible Factor
+      x Co-pay Factor
+      x NCB Factor
+      + Rider Cost
+      + Disease Cost ] 
+    x (1 - Wearable Discount %)
 ```
 
 ---
 
-## 7. Project Structure
+## 7. Conclusion
 
-```
-Health-Insurance-Prediction/
-├── app.py                          # Flask application
-├── requirements.txt                # Dependencies
-├── .env                           # API keys
-├── artifacts/
-│   ├── model.pkl                  # Trained RF model
-│   └── preprocessor.pkl           # Data transformer
-├── notebook/data/
-│   └── Health_insurance.csv       # Enhanced dataset
-├── src/mlproject/
-│   ├── medical_report_processor.py # PDF & disease analysis
-│   ├── gemini_chatbot.py          # AI chatbot
-│   └── pipelines/
-│       └── prediction_pipeline.py  # Premium calculator
-└── templates/
-    └── index.html                # UI
-```
-
----
-
-## 8. How It Mirrors Real Insurance
-
-| Aspect | Real Insurance | Our System |
-|--------|---------------|------------|
-| Age Loading | Yes | Yes |
-| BMI Loading | Yes | Yes |
-| Smoker Loading | Yes | Yes |
-| Zone Classification | Yes | Yes |
-| Sum Insured Tiers | Yes | Yes |
-| Policy Term Discount | Yes | Yes |
-| Deductible Savings | Yes | Yes |
-| Co-pay Discount | Yes | Yes |
-| NCB Discount | Yes | Yes |
-| Rider Costs | Yes | Yes |
-| Disease Loading | Yes | Yes |
-| Medical Underwriting | Full | PDF-based |
-
----
-
-## 9. Installation & Setup
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Set API key (optional)
-# Add to .env: GEMINI_API_KEY=your_key
-
-# Run application
-python app.py
-```
-
-Open: http://localhost:8080
-
----
-
-## 10. Future Enhancements
-
-1. **Image-based Medical Analysis** (X-rays, MRIs)
-2. **Real-time Insurance API Integration**
-3. **Multi-language Support**
-4. **User Authentication**
-5. **Policy Comparison Engine**
-
----
-
-## 11. Conclusion
-
-MediSecure now calculates insurance premiums using **real industry practices**:
-- All major premium factors
-- Zone-based pricing
-- Risk loadings
-- Cost-saving options
-- Medical report analysis
-- AI chatbot assistance
-
-The system provides **accurate, personalized premium estimates** that closely mirror real insurance company calculations.
-
----
-
-**Last Updated:** March 2026
+MediSecure-AI calculations mirror modern **"telematics-driven"** insurance practices. It replaces static calculators with a dynamic ecosystem where users can lower their annual premium in real time by connecting wearable devices and maintaining healthy physical activity, sleep, and hydration parameters.
