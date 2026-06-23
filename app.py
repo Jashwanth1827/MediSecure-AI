@@ -479,9 +479,157 @@ def google_fit_sync():
             return jsonify({'error': 'Access token expired and no refresh token available'}), 401
             
     metrics = fetch_fit_metrics(access_token)
+    
+    # Dynamic Actuarial Premium Adjuster, AI Clinical Alerts, and Adaptive AI Workout Routine
+    session_id = get_session_id()
+    user_profile = get_user_profile(session_id)
+    
+    adjuster_data = {'has_profile': False}
+    alerts = []
+    adaptive_workout = None
+    
+    if user_profile:
+        adjuster_data['has_profile'] = True
+        base_premium = float(user_profile.get('predicted_cost', 25000))
+        adjuster_data['base_premium'] = base_premium
+        
+        steps_val = float(metrics.get('steps', 0))
+        sleep_val = float(metrics.get('sleep_hours', 0))
+        water_val = float(metrics.get('water_liters', 0))
+        active_val = float(metrics.get('active_minutes', 0))
+        
+        steps_pct = min(steps_val / 10000.0, 1.0)
+        sleep_pct = min(sleep_val / 8.0, 1.0)
+        water_pct = min(water_val / 3.0, 1.0)
+        active_pct = min(active_val / 30.0, 1.0)
+        
+        # Max discounts: Steps 5%, Sleep 3%, Water 2%, Active Time 5% -> Max 15%
+        discount_pct = (steps_pct * 5.0) + (sleep_pct * 3.0) + (water_pct * 2.0) + (active_pct * 5.0)
+        discount_pct = min(discount_pct, 15.0)
+        
+        savings_amount = base_premium * (discount_pct / 100.0)
+        adjusted_premium = base_premium - savings_amount
+        health_score_boost = int((steps_pct * 4) + (sleep_pct * 3) + (water_pct * 1) + (active_pct * 2))
+        
+        adjuster_data['discount_percent'] = round(discount_pct, 1)
+        adjuster_data['savings_amount'] = round(savings_amount, 2)
+        adjuster_data['adjusted_premium'] = round(adjusted_premium, 2)
+        adjuster_data['health_score_boost'] = health_score_boost
+        
+        # AI Early Warning Clinical Alerts
+        diseases = user_profile.get('diseases', [])
+        diseases_lower = [d.lower() for d in diseases]
+        
+        if 'hypertension' in diseases_lower or 'heart disease' in diseases_lower:
+            if sleep_val < 6.0:
+                alerts.append({
+                    'type': 'danger',
+                    'title': 'Cardiovascular Stress Alert',
+                    'message': f"Synced sleep is low ({sleep_val:.1f} hrs). Combined with your cardiovascular history, this increases autonomic stress. Prioritize at least 7.5+ hours of sleep tonight."
+                })
+        if 'diabetes' in diseases_lower or 'obesity' in diseases_lower:
+            if active_val < 15.0:
+                alerts.append({
+                    'type': 'warning',
+                    'title': 'Insulin Sensitivity Warning',
+                    'message': f"Active time today is only {active_val:.0f} mins. A 15-minute post-meal walk is clinically proven to improve insulin response and regulate glucose spikes."
+                })
+        if 'asthma' in diseases_lower or 'copd' in diseases_lower:
+            if active_val > 45.0:
+                alerts.append({
+                    'type': 'warning',
+                    'title': 'Bronchial Spasm Strain Alert',
+                    'message': f"High physical active time ({active_val:.0f} mins) detected. Ensure proper bronchodilator accessibility and monitor respiratory rates under dry air conditions."
+                })
+        
+        if water_val < 1.2:
+            alerts.append({
+                'type': 'danger',
+                'title': 'Dehydration Risk Warning',
+                'message': f"Hydration level is critical ({water_val:.1f} L / 3.0 L). Dehydration impairs blood flow and kidney filtration. Drink 500ml of water immediately."
+            })
+            
+        if steps_val < 2500 and active_val < 5:
+            alerts.append({
+                'type': 'info',
+                'title': 'Sedentary Musculoskeletal Alert',
+                'message': "Prolonged inactivity detected. Stand up and complete a 2-minute dynamic stretching sequence to relieve spinal compression."
+            })
+            
+        # Adaptive Workout Routine Planner
+        missing = []
+        if steps_val < 10000: missing.append("steps")
+        if sleep_val < 8: missing.append("sleep")
+        if water_val < 3: missing.append("water")
+        if active_val < 30: missing.append("active time")
+        
+        if not missing:
+            adaptive_workout = {
+                'title': 'Recovery & Regeneration Sequence',
+                'difficulty': 'Very Light',
+                'duration': '10 mins',
+                'actions': [
+                    'Perform 5 minutes of deep diaphragmatic breathing.',
+                    'Execute a 5-minute progressive muscle relaxation sequence (PMR).',
+                    'Hydrate and rest to allow physiological adaptation.'
+                ],
+                'rationale': "All daily activity parameters satisfied! Focus on recovery and cellular repair."
+            }
+        elif 'sleep' in missing and sleep_val < 5.5:
+            adaptive_workout = {
+                'title': 'Adrenal Sparing Core & Stretch',
+                'difficulty': 'Light',
+                'duration': '15 mins',
+                'actions': [
+                    'Perform 5 minutes of CAT-COW and child pose stretches.',
+                    'Hold gentle bird-dog static holds (30 seconds per side).',
+                    'Complete a 5-minute passive hamstring stretch using a strap.'
+                ],
+                'rationale': "Sleep debt detected. High-intensity training would increase cortisol and slow metabolism. Focus on restorative mobility."
+            }
+        elif 'steps' in missing and steps_val < 5000:
+            adaptive_workout = {
+                'title': 'Low-Impact Step Accumulator',
+                'difficulty': 'Moderate',
+                'duration': '20 mins',
+                'actions': [
+                    '10 minutes of moderate indoor walking (or pacing during phone calls).',
+                    '5 minutes of active high-knees and shadow-boxing stepping.',
+                    '5 minutes of gentle calf and quad release stretches.'
+                ],
+                'rationale': "Step count is below safety thresholds. Accumulate steps at low impact to stimulate cardiovascular circulation."
+            }
+        elif 'water' in missing and water_val < 1.5:
+            adaptive_workout = {
+                'title': 'Pre-Hydrated Mobility & Flexibility',
+                'difficulty': 'Light',
+                'duration': '12 mins',
+                'actions': [
+                    'Drink 250ml water immediately.',
+                    'Perform 5 minutes of arm swings, torso twists, and ankle circles.',
+                    'Execute 5 minutes of static floor stretches (cobra, seated fold).'
+                ],
+                'rationale': "System dehydration detected. Heavy exertion risks cramping and heat exhaustion. Rehydrate and stretch."
+            }
+        else:
+            adaptive_workout = {
+                'title': 'Daily Activity Booster Routine',
+                'difficulty': 'Moderate',
+                'duration': '15 mins',
+                'actions': [
+                    'Perform 5 minutes of bodyweight squats and lunges.',
+                    '5 minutes of brisk marching in place with high arm pumps.',
+                    '5 minutes of static cool-down stretches.'
+                ],
+                'rationale': "Boost metabolic rate and cardiovascular capacity to complete remaining daily fitness baselines."
+            }
+            
     return jsonify({
         'email': session.get('fit_email', 'User'),
-        'metrics': metrics
+        'metrics': metrics,
+        'adjuster': adjuster_data,
+        'alerts': alerts,
+        'adaptive_workout': adaptive_workout
     })
 
 @app.route('/google-fit/disconnect', methods=['POST'])

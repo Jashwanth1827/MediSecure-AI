@@ -1459,6 +1459,12 @@
             stroke: rgba(0, 0, 0, 0.04);
         }
 
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.6; }
+        }
+
         @media print {
             body * {
                 visibility: hidden;
@@ -2084,6 +2090,68 @@
                                     </svg>
                                     <span style="position: absolute; font-size: 20px;">⚡</span>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Actuarial Adjuster Card (Hidden initially, shown dynamically if profile exists) -->
+                        <div id="fit-adjuster-card" style="display: none; margin-top: 25px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(52, 211, 153, 0.05) 100%); border: 1px solid var(--border-color); border-radius: 24px; padding: 22px; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: var(--transition);">
+                            <div style="position: absolute; top: -50px; right: -50px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, transparent 70%); filter: blur(20px); pointer-events: none;"></div>
+                            
+                            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.8px; display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+                                <span>⚡</span> Actuarial Premium Adjuster
+                            </h4>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px;">
+                                <div>
+                                    <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Base Premium</span>
+                                    <div style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 5px;" id="fit-adjuster-base">₹0</div>
+                                </div>
+                                <div>
+                                    <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Wearable Discount</span>
+                                    <div style="font-size: 18px; font-weight: 700; color: var(--success-color); margin-top: 5px;" id="fit-adjuster-discount">0%</div>
+                                </div>
+                                <div>
+                                    <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Adjusted Premium</span>
+                                    <div style="font-size: 20px; font-weight: 800; color: var(--text-primary); margin-top: 3px;" id="fit-adjuster-final">₹0</div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 12px;">
+                                <span style="color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                                    <span style="display: inline-block; width: 6px; height: 6px; background-color: var(--success-color); border-radius: 50%; animation: pulse 1.5s infinite;"></span>
+                                    Dynamic underwriting active
+                                </span>
+                                <span style="color: var(--success-color); font-weight: 700; background: var(--success-soft); padding: 3px 8px; border-radius: 8px;" id="fit-adjuster-boost">+0 Health Score Boost</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Early Warnings Container -->
+                        <div id="fit-alerts-container" style="display: none; margin-top: 25px;">
+                            <h4 style="font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.8px;">AI Clinical Strain Warnings</h4>
+                            <div id="fit-alerts-list" style="display: flex; flex-direction: column; gap: 12px;">
+                                <!-- Dynamically added alerts -->
+                            </div>
+                        </div>
+
+                        <!-- Adaptive Workout Planner Card -->
+                        <div id="fit-workout-card" style="display: none; margin-top: 25px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 24px; padding: 22px; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: var(--transition);">
+                            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.8px; display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                <span>🏃</span> Adaptive AI Workout Planner
+                            </h4>
+                            <p style="font-size: 11px; color: var(--text-secondary); margin-bottom: 15px;" id="fit-workout-rationale">Analyzing your synced activity deficits...</p>
+                            
+                            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 16px; padding: 15px; margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--text-primary);" id="fit-workout-title">Cardio Accumulator</span>
+                                    <span style="font-size: 11px; color: var(--accent-color); font-weight: 600; background: var(--accent-soft); padding: 2px 8px; border-radius: 8px;" id="fit-workout-meta">Moderate • 15 mins</span>
+                                </div>
+                                <ul id="fit-workout-actions" style="font-size: 12px; color: var(--text-secondary); padding-left: 18px; line-height: 1.7; display: flex; flex-direction: column; gap: 6px;">
+                                    <!-- Dynamic items -->
+                                </ul>
+                            </div>
+                            
+                            <div style="font-size: 10px; color: var(--text-secondary); text-align: center; font-style: italic;">
+                                Workout plan adapted to your profile and today's synced activity.
                             </div>
                         </div>
                     </div>
@@ -2920,6 +2988,67 @@
                     document.getElementById('fit-metric-ring-water').style.strokeDashoffset = circumference - (circumference * (waterPct / 100));
                     document.getElementById('fit-metric-ring-active').style.strokeDashoffset = circumference - (circumference * (activePct / 100));
                 }, 100);
+                
+                // 1. Actuarial Adjuster Rendering
+                const adjCard = document.getElementById('fit-adjuster-card');
+                if (data.adjuster && data.adjuster.has_profile) {
+                    adjCard.style.display = 'block';
+                    document.getElementById('fit-adjuster-base').innerText = '₹' + Math.round(data.adjuster.base_premium).toLocaleString();
+                    document.getElementById('fit-adjuster-discount').innerText = data.adjuster.discount_percent + '%';
+                    document.getElementById('fit-adjuster-final').innerText = '₹' + Math.round(data.adjuster.adjusted_premium).toLocaleString();
+                    document.getElementById('fit-adjuster-boost').innerText = `+${data.adjuster.health_score_boost} Health Score Boost ✨`;
+                } else {
+                    adjCard.style.display = 'none';
+                }
+                
+                // 3. AI Alerts Rendering
+                const alertsContainer = document.getElementById('fit-alerts-container');
+                const alertsList = document.getElementById('fit-alerts-list');
+                alertsList.innerHTML = '';
+                if (data.alerts && data.alerts.length > 0) {
+                    alertsContainer.style.display = 'block';
+                    data.alerts.forEach(alert => {
+                        const typeColor = alert.type === 'danger' ? 'var(--danger-color)' : (alert.type === 'warning' ? 'var(--warning-color)' : 'var(--accent-color)');
+                        const typeBg = alert.type === 'danger' ? 'rgba(239, 68, 68, 0.08)' : (alert.type === 'warning' ? 'rgba(245, 158, 11, 0.08)' : 'var(--accent-soft)');
+                        const borderSide = `4px solid ${typeColor}`;
+                        
+                        const alertEl = document.createElement('div');
+                        alertEl.style.background = typeBg;
+                        alertEl.style.borderLeft = borderSide;
+                        alertEl.style.borderRadius = '12px';
+                        alertEl.style.padding = '14px';
+                        
+                        alertEl.innerHTML = `
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                <span style="display: inline-block; width: 6px; height: 6px; background-color: ${typeColor}; border-radius: 50%; animation: pulse 1.5s infinite;"></span>
+                                <strong style="font-size: 12px; color: var(--text-primary); font-family: 'Outfit', sans-serif;">${alert.title}</strong>
+                            </div>
+                            <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.5; margin: 0;">${alert.message}</p>
+                        `;
+                        alertsList.appendChild(alertEl);
+                    });
+                } else {
+                    alertsContainer.style.display = 'none';
+                }
+                
+                // 5. Adaptive AI Workout Planner Rendering
+                const workoutCard = document.getElementById('fit-workout-card');
+                if (data.adaptive_workout) {
+                    workoutCard.style.display = 'block';
+                    document.getElementById('fit-workout-rationale').innerText = data.adaptive_workout.rationale;
+                    document.getElementById('fit-workout-title').innerText = data.adaptive_workout.title;
+                    document.getElementById('fit-workout-meta').innerText = `${data.adaptive_workout.difficulty} • ${data.adaptive_workout.duration}`;
+                    
+                    const actionsList = document.getElementById('fit-workout-actions');
+                    actionsList.innerHTML = '';
+                    data.adaptive_workout.actions.forEach(action => {
+                        const li = document.createElement('li');
+                        li.innerText = action;
+                        actionsList.appendChild(li);
+                    });
+                } else {
+                    workoutCard.style.display = 'none';
+                }
                 
                 document.getElementById('fit-sync-status').innerText = `Synced successfully! Last update: ${new Date().toLocaleTimeString()}`;
             })
