@@ -1355,6 +1355,110 @@
         }
 
 
+        /* Synced Fit Metric Cards & Circular Progress Indicators */
+        .fit-metrics-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            .fit-metrics-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .fit-metric-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .fit-metric-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 28px rgba(99, 102, 241, 0.12);
+        }
+        .fit-metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 100% 0%, var(--accent-soft) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .fit-metric-card:hover::before {
+            opacity: 1;
+        }
+        .fit-metric-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 2;
+        }
+        .fit-metric-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .fit-metric-value {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            margin: 2px 0;
+        }
+        .fit-metric-target {
+            font-size: 11px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .fit-metric-badge {
+            background-color: var(--accent-soft);
+            color: var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .fit-metric-ring-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .fit-progress-ring {
+            transform: rotate(-90deg);
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+            transition: filter 0.3s ease;
+        }
+        .fit-metric-card:hover .fit-progress-ring {
+            filter: drop-shadow(0 0 8px var(--glow-color, rgba(99, 102, 241, 0.4)));
+        }
+        .fit-progress-ring-bg {
+            stroke: rgba(255, 255, 255, 0.04);
+        }
+        [data-theme="light"] .fit-progress-ring-bg {
+            stroke: rgba(0, 0, 0, 0.04);
+        }
+
         @media print {
             body * {
                 visibility: hidden;
@@ -1882,57 +1986,103 @@
                     
                     <!-- Synced Metrics Display Grid -->
                     <div id="fit-sync-details" style="display: none; margin-bottom: 25px;">
-                        <h4 style="font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.8px;">Today's Synced Health Activity</h4>
-                        <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <!-- SVG Gradients Definition -->
+                        <svg style="width:0; height:0; position:absolute;" aria-hidden="true" focusable="false">
+                            <defs>
+                                <linearGradient id="steps-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#34d399" />
+                                    <stop offset="100%" stop-color="#059669" />
+                                </linearGradient>
+                                <linearGradient id="sleep-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#a78bfa" />
+                                    <stop offset="100%" stop-color="#6366f1" />
+                                </linearGradient>
+                                <linearGradient id="water-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#38bdf8" />
+                                    <stop offset="100%" stop-color="#0284c7" />
+                                </linearGradient>
+                                <linearGradient id="active-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fbbf24" />
+                                    <stop offset="100%" stop-color="#d97706" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <h4 style="font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px;">Today's Synced Health Activity</h4>
+                        <div class="fit-metrics-container">
                             <!-- Steps Card -->
-                            <div class="metric-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s ease;">
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
-                                    <span style="font-size: 22px;">🚶</span>
-                                    <span style="font-size: 11px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Steps</span>
+                            <div class="fit-metric-card" style="--glow-color: rgba(52, 211, 153, 0.4);">
+                                <div class="fit-metric-info">
+                                    <span class="fit-metric-label">Daily Steps</span>
+                                    <div class="fit-metric-value" id="fit-metric-val-steps">0</div>
+                                    <div class="fit-metric-target">
+                                        <span>Goal: 10,000</span>
+                                        <span class="fit-metric-badge" id="fit-metric-pct-steps" style="background-color: var(--success-soft); color: var(--success-color);">0%</span>
+                                    </div>
                                 </div>
-                                <div style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-top: 5px;" id="fit-metric-val-steps">0</div>
-                                <div style="font-size: 10px; color: var(--text-secondary);" id="fit-metric-target-steps">Target: 10,000 steps</div>
-                                <div style="background: rgba(0,0,0,0.15); height: 6px; border-radius: 10px; overflow: hidden; margin-top: 8px;">
-                                    <div id="fit-metric-bar-steps" style="height: 100%; background: linear-gradient(90deg, #10b981, #059669); width: 0%; border-radius: 10px; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                                <div class="fit-metric-ring-container">
+                                    <svg class="fit-progress-ring" width="70" height="70" viewBox="0 0 70 70">
+                                        <circle class="fit-progress-ring-bg" cx="35" cy="35" r="28" stroke-width="4.5" fill="none" />
+                                        <circle id="fit-metric-ring-steps" cx="35" cy="35" r="28" stroke="url(#steps-gradient)" stroke-dasharray="175.9" stroke-dashoffset="175.9" stroke-width="4.5" stroke-linecap="round" fill="none" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);" />
+                                    </svg>
+                                    <span style="position: absolute; font-size: 20px;">🚶</span>
                                 </div>
                             </div>
 
                             <!-- Sleep Card -->
-                            <div class="metric-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s ease;">
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
-                                    <span style="font-size: 22px;">😴</span>
-                                    <span style="font-size: 11px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Sleep</span>
+                            <div class="fit-metric-card" style="--glow-color: rgba(99, 102, 241, 0.4);">
+                                <div class="fit-metric-info">
+                                    <span class="fit-metric-label">Sleep Hours</span>
+                                    <div class="fit-metric-value" id="fit-metric-val-sleep">0.0 hrs</div>
+                                    <div class="fit-metric-target">
+                                        <span>Goal: 8.0 hrs</span>
+                                        <span class="fit-metric-badge" id="fit-metric-pct-sleep" style="background-color: var(--accent-soft); color: var(--accent-color);">0%</span>
+                                    </div>
                                 </div>
-                                <div style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-top: 5px;" id="fit-metric-val-sleep">0.0 hrs</div>
-                                <div style="font-size: 10px; color: var(--text-secondary);" id="fit-metric-target-sleep">Target: 8.0 hrs</div>
-                                <div style="background: rgba(0,0,0,0.15); height: 6px; border-radius: 10px; overflow: hidden; margin-top: 8px;">
-                                    <div id="fit-metric-bar-sleep" style="height: 100%; background: linear-gradient(90deg, #6366f1, #4f46e5); width: 0%; border-radius: 10px; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                                <div class="fit-metric-ring-container">
+                                    <svg class="fit-progress-ring" width="70" height="70" viewBox="0 0 70 70">
+                                        <circle class="fit-progress-ring-bg" cx="35" cy="35" r="28" stroke-width="4.5" fill="none" />
+                                        <circle id="fit-metric-ring-sleep" cx="35" cy="35" r="28" stroke="url(#sleep-gradient)" stroke-dasharray="175.9" stroke-dashoffset="175.9" stroke-width="4.5" stroke-linecap="round" fill="none" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);" />
+                                    </svg>
+                                    <span style="position: absolute; font-size: 20px;">😴</span>
                                 </div>
                             </div>
 
                             <!-- Hydration Card -->
-                            <div class="metric-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s ease;">
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
-                                    <span style="font-size: 22px;">💧</span>
-                                    <span style="font-size: 11px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Hydration</span>
+                            <div class="fit-metric-card" style="--glow-color: rgba(14, 165, 233, 0.4);">
+                                <div class="fit-metric-info">
+                                    <span class="fit-metric-label">Hydration</span>
+                                    <div class="fit-metric-value" id="fit-metric-val-water">0.0 L</div>
+                                    <div class="fit-metric-target">
+                                        <span>Goal: 3.0 L</span>
+                                        <span class="fit-metric-badge" id="fit-metric-pct-water" style="background-color: rgba(14, 165, 233, 0.15); color: #0ea5e9;">0%</span>
+                                    </div>
                                 </div>
-                                <div style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-top: 5px;" id="fit-metric-val-water">0.0 L</div>
-                                <div style="font-size: 10px; color: var(--text-secondary);" id="fit-metric-target-water">Target: 3.0 L</div>
-                                <div style="background: rgba(0,0,0,0.15); height: 6px; border-radius: 10px; overflow: hidden; margin-top: 8px;">
-                                    <div id="fit-metric-bar-water" style="height: 100%; background: linear-gradient(90deg, #0ea5e9, #0284c7); width: 0%; border-radius: 10px; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                                <div class="fit-metric-ring-container">
+                                    <svg class="fit-progress-ring" width="70" height="70" viewBox="0 0 70 70">
+                                        <circle class="fit-progress-ring-bg" cx="35" cy="35" r="28" stroke-width="4.5" fill="none" />
+                                        <circle id="fit-metric-ring-water" cx="35" cy="35" r="28" stroke="url(#water-gradient)" stroke-dasharray="175.9" stroke-dashoffset="175.9" stroke-width="4.5" stroke-linecap="round" fill="none" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);" />
+                                    </svg>
+                                    <span style="position: absolute; font-size: 20px;">💧</span>
                                 </div>
                             </div>
 
                             <!-- Active Time Card -->
-                            <div class="metric-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s ease;">
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
-                                    <span style="font-size: 22px;">⚡</span>
-                                    <span style="font-size: 11px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Active Time</span>
+                            <div class="fit-metric-card" style="--glow-color: rgba(245, 158, 11, 0.4);">
+                                <div class="fit-metric-info">
+                                    <span class="fit-metric-label">Active Time</span>
+                                    <div class="fit-metric-value" id="fit-metric-val-active">0 mins</div>
+                                    <div class="fit-metric-target">
+                                        <span>Goal: 30 mins</span>
+                                        <span class="fit-metric-badge" id="fit-metric-pct-active" style="background-color: var(--warning-soft); color: var(--warning-color);">0%</span>
+                                    </div>
                                 </div>
-                                <div style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-top: 5px;" id="fit-metric-val-active">0 mins</div>
-                                <div style="font-size: 10px; color: var(--text-secondary);" id="fit-metric-target-active">Target: 30 mins</div>
-                                <div style="background: rgba(0,0,0,0.15); height: 6px; border-radius: 10px; overflow: hidden; margin-top: 8px;">
-                                    <div id="fit-metric-bar-active" style="height: 100%; background: linear-gradient(90deg, #f59e0b, #d97706); width: 0%; border-radius: 10px; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                                <div class="fit-metric-ring-container">
+                                    <svg class="fit-progress-ring" width="70" height="70" viewBox="0 0 70 70">
+                                        <circle class="fit-progress-ring-bg" cx="35" cy="35" r="28" stroke-width="4.5" fill="none" />
+                                        <circle id="fit-metric-ring-active" cx="35" cy="35" r="28" stroke="url(#active-gradient)" stroke-dasharray="175.9" stroke-dashoffset="175.9" stroke-width="4.5" stroke-linecap="round" fill="none" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);" />
+                                    </svg>
+                                    <span style="position: absolute; font-size: 20px;">⚡</span>
                                 </div>
                             </div>
                         </div>
@@ -2231,7 +2381,7 @@
                 renderCharts(); // Render radar and savings chart when tab is visible
             } else if (tabId === 'simulator') {
                 heading.innerText = 'Google Fit Integration';
-                sub.innerText = 'Synchronize wearable activity tracking data to monitor physical metrics';
+                sub.innerText = '';
                 recalculateSimulatedSavings();
             } else if (tabId === 'matchmaker') {
                 heading.innerText = 'Policy Matchmaker';
@@ -2740,23 +2890,35 @@
                 const waterVal = metrics.water_liters || 0;
                 const activeVal = metrics.active_minutes || 0;
                 
-                document.getElementById('fit-metric-val-steps').innerText = stepsVal.toLocaleString() + ' steps';
+                document.getElementById('fit-metric-val-steps').innerText = stepsVal.toLocaleString();
                 document.getElementById('fit-metric-val-sleep').innerText = sleepVal.toFixed(1) + ' hrs';
                 document.getElementById('fit-metric-val-water').innerText = waterVal.toFixed(1) + ' L';
                 document.getElementById('fit-metric-val-active').innerText = activeVal.toFixed(0) + ' mins';
                 
-                // Calculate percentages capped at 100%
-                const stepsPct = Math.min((stepsVal / 10000) * 100, 100);
-                const sleepPct = Math.min((sleepVal / 8) * 100, 100);
-                const waterPct = Math.min((waterVal / 3) * 100, 100);
-                const activePct = Math.min((activeVal / 30) * 100, 100);
+                // Calculate percentages (for text, uncapped; for rings, capped at 100%)
+                const stepsPctReal = Math.round((stepsVal / 10000) * 100);
+                const sleepPctReal = Math.round((sleepVal / 8) * 100);
+                const waterPctReal = Math.round((waterVal / 3) * 100);
+                const activePctReal = Math.round((activeVal / 30) * 100);
                 
-                // Animate bars in next animation frame
+                const stepsPct = Math.min(stepsPctReal, 100);
+                const sleepPct = Math.min(sleepPctReal, 100);
+                const waterPct = Math.min(waterPctReal, 100);
+                const activePct = Math.min(activePctReal, 100);
+                
+                // Update badge texts
+                document.getElementById('fit-metric-pct-steps').innerText = stepsPctReal + '%';
+                document.getElementById('fit-metric-pct-sleep').innerText = sleepPctReal + '%';
+                document.getElementById('fit-metric-pct-water').innerText = waterPctReal + '%';
+                document.getElementById('fit-metric-pct-active').innerText = activePctReal + '%';
+                
+                // Animate SVG circular progress rings (Circumference = 175.9)
                 setTimeout(() => {
-                    document.getElementById('fit-metric-bar-steps').style.width = stepsPct + '%';
-                    document.getElementById('fit-metric-bar-sleep').style.width = sleepPct + '%';
-                    document.getElementById('fit-metric-bar-water').style.width = waterPct + '%';
-                    document.getElementById('fit-metric-bar-active').style.width = activePct + '%';
+                    const circumference = 175.9;
+                    document.getElementById('fit-metric-ring-steps').style.strokeDashoffset = circumference - (circumference * (stepsPct / 100));
+                    document.getElementById('fit-metric-ring-sleep').style.strokeDashoffset = circumference - (circumference * (sleepPct / 100));
+                    document.getElementById('fit-metric-ring-water').style.strokeDashoffset = circumference - (circumference * (waterPct / 100));
+                    document.getElementById('fit-metric-ring-active').style.strokeDashoffset = circumference - (circumference * (activePct / 100));
                 }, 100);
                 
                 document.getElementById('fit-sync-status').innerText = `Synced successfully! Last update: ${new Date().toLocaleTimeString()}`;
